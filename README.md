@@ -5,24 +5,28 @@
     <p align="center">Semaphore documentation website.</p>
 </p>
 
-<p align="center">
-    <a href="https://prettier.io/" target="_blank">
-        <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
-    </a>
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/akinovak/semaphore-spec?style=flat-square">
-</p>
+<div align="center">
+    <h4>
+        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CONTRIBUTING.md">
+            👥 Contributing
+        </a>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CODE_OF_CONDUCT.md">
+            🤝 Code of conduct
+        </a>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="https://github.com/semaphore-protocol/docs/issues/new/choose">
+            🔎 Issues
+        </a>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="https://t.me/joinchat/B-PQx1U3GtAh--Z4Fwo56A">
+            🗣️ Chat &amp; Support
+        </a>
+    </h4>
+</div>
 
----
-
-This directory contains the Semaphore documentation published at [semaphore.appliedzkp.org/docs](https://semaphore.appliedzkp.org/docs).
-
-## Build and run Semaphore docs
-
-Semaphore documentation uses Markdown syntax.
-[semaphore.appliedzkp.org/docs](https://semaphore.appliedzkp.org/docs) uses the [Docusaurus](https://docusaurus.io/) site generator and JavaScript tooling to build and deploy styles, scripts, and HTML.
-
--   [Install and run for development](#install-and-run-for-development)
--   [Use deployment commands](#use-deployment-commands)
+| This repository contains the Semaphore documentation published at [semaphore.appliedzkp.org](https://semaphore.appliedzkp.org). Semaphore documentation uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## Install and run for development
 
