@@ -160,7 +160,7 @@ of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accou
 
 Hardhat lets you write [tasks](https://hardhat.org/guides/create-task.html#creating-a-task)
 that automate building and deploying smart contracts and dApps.
-To create a task that deploys the `Greeters` contract, do the following.
+To create a task that deploys the `Greeters` contract, do the following:
 
 1. Use `yarn` to install `@zk-kit/incremental-merkle-tree` and `circomlibjs@0.0.8`:
 
