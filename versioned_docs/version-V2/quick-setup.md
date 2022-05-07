@@ -9,7 +9,7 @@ Learn how to create and test an Ethereum smart contract that uses zero-knowledge
 proofs to verify membership.
 
 To check out the code used in this guide, visit the
-[semaphore-quick-setup](https://github.com/cedoor/semaphore-quick-setup) repository.
+[semaphore-quick-setup](https://github.com/semaphore-protocol/quick-setup) repository.
 
 1. [Create a Node.js project](#create-a-nodejs-project)
 2. [Install Hardhat](#install-hardhat)
@@ -321,4 +321,4 @@ yarn hardhat deploy --network localhost # In another tab.
 ```
 
 For a more complete demo that provides a starting point for your dApp,
-see [semaphore-boilerplate](https://github.com/cedoor/semaphore-boilerplate/).
+see [semaphore-boilerplate](https://github.com/semaphore-protocol/boilerplate/).
