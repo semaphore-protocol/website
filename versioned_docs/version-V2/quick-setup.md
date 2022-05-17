@@ -58,29 +58,29 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
 
 ## Install Semaphore contracts and ZK-kit
 
-`@appliedzkp/semaphore-contracts` provides a _base contract_ that verifies
+`@semaphore-protocol/contracts` provides a _base contract_ that verifies
 Semaphore proofs.
 `@appliedzkp/@zk-kit` provides JavaScript libraries that help developers
 build zero-knowledge applications.
 
 To install these dependencies for your project, do the following:
 
-1. Use `yarn` to install `@appliedzkp/semaphore-contracts`:
+1. Use `yarn` to install `@semaphore-protocol/contracts`:
 
    ```sh
-   yarn add @appliedzkp/semaphore-contracts
+   yarn add @semaphore-protocol/contracts
    ```
 
    For more detail about _Semaphore base contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
-   To view the source, see [Contracts in the Semaphore repository](https://github.com/appliedzkp/semaphore/tree/main/contracts).
+   To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/contracts).
 
-2. Use `yarn` to install `@appliedzkp/@zk-kit`:
+2. Use `yarn` to install the `@zk-kit` packages:
 
    ```sh
    yarn add @zk-kit/identity @zk-kit/protocols --dev
    ```
 
-   For more information about `@appliedzkp/@zk-kit`, see the [ZK-kit repository](https://github.com/appliedzkp/zk-kit).
+   For more information about `@zk-kit`, see the [ZK-kit repository](https://github.com/appliedzkp/zk-kit).
 
 ## Create the Semaphore contract
 
@@ -93,8 +93,8 @@ Create a `Greeters` contract that imports and extends the Semaphore base contrac
     //SPDX-License-Identifier: MIT
     pragma solidity ^0.8.0;
 
-    import "@appliedzkp/semaphore-contracts/interfaces/IVerifier.sol";
-    import "@appliedzkp/semaphore-contracts/base/SemaphoreCore.sol";
+    import "@semaphore-protocol/contracts/interfaces/IVerifier.sol";
+    import "@semaphore-protocol/contracts/base/SemaphoreCore.sol";
 
     /// @title Greeters contract.
     /// @dev The following code is just a example to show how Semaphore con be used.
@@ -228,7 +228,7 @@ To create a task that deploys the `Greeters` contract, do the following:
       solidity: "0.8.4",
       dependencyCompiler: {
         // It allows Hardhat to compile the external Verifier.sol contract.
-        paths: ["@appliedzkp/semaphore-contracts/base/Verifier.sol"]
+        paths: ["@semaphore-protocol/contracts/base/Verifier.sol"]
       }
     }
     ```
@@ -247,7 +247,7 @@ and [Chai assertions](https://www.chaijs.com/).
       @nomiclabs/hardhat-ethers 'ethers@^5.0.0' chai
    ```
 
-2. Download the Semaphore [snark build files](https://github.com/appliedzkp/semaphore/tree/main/build/snark)
+2. Download the Semaphore [snark build files](https://github.com/semaphore-protocol/semaphore/tree/main/build/snark)
    and copy them to the `./static` folder. Your application and tests must pass these
    static files to Semaphore to create zero-knowledge proofs.
 

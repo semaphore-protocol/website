@@ -10,7 +10,7 @@ Semaphore's V2 documentation is under development.
 
 ## Overview
 
-[Semaphore](https://github.com/appliedzkp/semaphore) is a zero-knowledge gadget
+[Semaphore](https://github.com/semaphore-protocol/semaphore) is a zero-knowledge gadget
 which allows Ethereum users to prove their membership of a set which they had
 previously joined without revealing their original identity. At the same time,
 it allows users to signal their endorsement of an arbitrary string. It is
@@ -39,8 +39,8 @@ In sum, Semaphore provides the ability to:
 
 ## About the code
 
-The core of the protocol is in the [circuit logic](https://github.com/appliedzkp/semaphore/tree/main/circuits/scheme.png). However
-Semaphore also provides [Solidity contracts](https://github.com/appliedzkp/semaphore/tree/main/contracts)
+The core of the protocol is in the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png). However
+Semaphore also provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/contracts)
 and [JavaScript libraries](https://github.com/appliedzkp/zk-kit) (i.e. `@zk-kit/identity` and `@zk-kit/protocols`) to make
 the steps for offchain proof creation and onchain verification simpler.
 

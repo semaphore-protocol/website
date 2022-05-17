@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # Circuits
 
-[Semaphore circuits](https://github.com/appliedzkp/semaphore/tree/main/circuits) are the heart of the protocol and essentially allow you to prove:
+[Semaphore circuits](https://github.com/semaphore-protocol/semaphore/tree/main/circuits) are the heart of the protocol and essentially allow you to prove:
 
 1. **Merkle tree**: that the identity commitment exists in the Merkle tree,
 2. **Nullifiers**: that the signal was only broadcasted once,
 3. **Signal**: that the signal was truly broadcasted by the user who generated the proof.
 
-![Semaphore circuit](https://github.com/appliedzkp/semaphore/raw/main/circuits/scheme.png)
+![Semaphore circuit](https://github.com/semaphore-protocol/semaphore/raw/main/circuits/scheme.png)
 
 ## 1. Merkle tree
 
