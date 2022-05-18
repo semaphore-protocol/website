@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # ZK-kit libraries
@@ -16,7 +16,7 @@ If you need to see the interface of these libraries go to http://zkkit.appliedzk
 
 The Semaphore identity consists primarily of two values: `trapdoor` and `nullifier`. The Poseidon hash of these two values is the `secret`, whose hash in turn is the `identity commitment`, which is used as leaf of the Merkle tree later.
 
-This library therefore contains a `ZKIdentity` class that can generate these values with 3 different [strategies](http://zkkit.appliedzkp.org/identity/enums/Strategy.html):
+This library therefore contains a `ZKIdentity` class that can generate these values with 3 different strategies:
 
 - `Strategy.RANDOM`: this is the default option and it generates the values randomly,
 - `Strategy.MESSAGE`: it allows values to be generated deterministically from a message using SHA-256,

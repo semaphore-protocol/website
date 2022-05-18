@@ -1,15 +1,15 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Contracts
 
-When using Semaphore contracts keep in mind that there are two types of contracts:
+Semaphore includes two types of contracts:
 
 - [**Base contracts**](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base): they allow you to use the main protocol features (i.e. verify a proof or manage Merkle trees/groups).
 - [**Extension contracts**](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/extensions): they contain application logic and could be used for specific use-cases (e.g. anonymous voting).
 
-Our current available extension contracts can be a good example of how base contracts can be used.
+Contracts can be used with the `@semaphore-protocol/contracts` NPM package. Semaphore also provides a pre-deployed contract that extends the base contracts and can be used with the appropriate interface. Their addresses can be found in the [README](https://github.com/semaphore-protocol/semaphore#deployed-contracts) file.
 
 ## Base contracts
 
