@@ -10,24 +10,23 @@ Semaphore's V2 documentation is under development.
 
 ## Overview
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore) is a zero-knowledge gadget
-which allows Ethereum users to prove their membership of a set which they had
+[Semaphore](https://github.com/semaphore-protocol/semaphore) is a zero-knowledge **protocol**
+which allows users to prove their membership of a group which they had
 previously joined without revealing their original identity. At the same time,
 it allows users to signal their endorsement of an arbitrary string. It is
-designed to be a simple and generic privacy layer for Ethereum DApps. Use cases
-include private voting, whistleblowing, mixers, and anonymous authentication.
+designed to be a simple and generic **privacy layer** for Ethereum dApps. Use cases
+include private voting, whistleblowing, anonymous DAOs and mixers.
 Finally, it provides a simple built-in mechanism to prevent double-signalling
 or double-spending.
 
-This gadget comprises of smart contracts and
+Semaphore comprises of smart contracts and
 [zero-knowledge](https://z.cash/technology/zksnarks/) components which work in
-tandem. The Semaphore smart contract handles state, permissions, and proof
+tandem. The Semaphore smart contracts handles identity groups and proof
 verification onchain. The zero-knowledge components work offchain to allow
-users to generate proofs, which allow the smart contract to update its state
+users to generate identities and proofs, which allow the smart contract to update its state
 if these proofs are valid.
 
-Semaphore is designed for DApp developers (not for end-users) and it allows them to abstract their
-features in order to provide user-friendly privacy.
+Semaphore is designed to allow building dApps in a **modular** fashion. Developers can decide what to use and which parts to customize according to their needs.
 
 ## Basic features
 
@@ -39,10 +38,9 @@ In sum, Semaphore provides the ability to:
 
 ## About the code
 
-The core of the protocol is in the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png). However
+The core of the protocol is in the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png). In addition to circuits,
 Semaphore also provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/contracts)
-and [JavaScript libraries](https://github.com/appliedzkp/zk-kit) (i.e. `@zk-kit/identity` and `@zk-kit/protocols`) to make
-the steps for offchain proof creation and onchain verification simpler.
+and [JavaScript libraries](https://github.com/appliedzkp/zk-kit) (i.e. `@zk-kit/identity` and `@zk-kit/protocols`) to allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
 A code audit and a multi-party computation to produce the zk-SNARK proving and verification keys
 for Semaphore will begin in the near future.
