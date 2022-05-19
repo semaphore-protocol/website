@@ -4,16 +4,10 @@ sidebar_position: 6
 
 # Credits
 
-- Barry WhiteHat
-- Chih Cheng Liang
-- Kobi Gurkan
-- Koh Wei Jie
-- Harry Roberts
+Semaphore V2 is the work of several people, for a complete list of contributors you can visit our [Github pages](https://github.com/semaphore-protocol/semaphore/graphs/contributors).
 
-Many thanks to:
-
-- ABDK Consulting
-- Jordi Baylina / iden3
-- POA Network
-- PepperSec
-- Ethereum Foundation
+- [Barry WhiteHat](https://github.com/barryWhiteHat)
+- [Kobi Gurkan](https://github.com/kobigurk)
+- [Koh Wei Jie](https://github.com/weijiekoh)
+- [Cedoor](https://github.com/cedoor)
+- [Andrija Novakovic](https://github.com/akinovak)
