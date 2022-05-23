@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # ZK-kit libraries
 
-When using Semaphore each user will need to create their own identity, which will then be added to a group. [`@zk-kit/identity`](https://github.com/appliedzkp/zk-kit/tree/main/packages/identity) allows users to create and manage their identities, while [`@zk-kit/protocols`](https://github.com/appliedzkp/zk-kit/tree/main/packages/protocols) allows users to create Semaphore proofs to prove their group membership and signal their endorsement of an arbitrary string anonymously.
+When using Semaphore each user will need to create their own identity to be able to join a group. [`@zk-kit/identity`](https://github.com/appliedzkp/zk-kit/tree/main/packages/identity) allows users to create and manage their identities, while [`@zk-kit/protocols`](https://github.com/appliedzkp/zk-kit/tree/main/packages/protocols) allows users to create Semaphore proofs to prove their group membership and signal their endorsement of an arbitrary string anonymously.
 
 If you need to see the interface of these libraries go to http://zkkit.appliedzkp.org.
 
@@ -24,8 +24,8 @@ This library therefore contains a `ZKIdentity` class that can generate these val
 
 ## @zk-kit/protocols
 
-The Semaphore proof contains public and private parameters. This library contains some utility functions to simplify the generation of these parameters. It allows, in particular, to generate a Merkle proof, the nullifier hash, the witness and a Solidity-compatible zero-knowledge proof.
+The Semaphore proof contains public and private parameters. This library contains some utility functions to simplify the generation of these parameters.
 
 Semaphore protocol functions are located in the `Semaphore` class as static methods.
 
-If you need to use a library to manage offchain Merkle trees you can also use [`@zk-kit/incremental-merkle-tree`](https://github.com/appliedzkp/zk-kit/tree/main/packages/incremental-merkle-tree).
+If you need to use a library to manage off-chain Merkle trees you can also use [`@zk-kit/incremental-merkle-tree`](https://github.com/appliedzkp/zk-kit/tree/main/packages/incremental-merkle-tree).

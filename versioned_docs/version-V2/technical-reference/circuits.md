@@ -12,6 +12,8 @@ sidebar_position: 2
 
 ![Semaphore circuit](https://github.com/semaphore-protocol/semaphore/raw/main/circuits/scheme.png)
 
+The diagram above shows how the input signals are used in the Semaphore circuit and how the outputs are calculated.
+
 ## 1. Merkle tree
 
 Users registering to the system possess an identity they must keep secret. A commitment to this structure is known to the public.
@@ -30,7 +32,7 @@ Users registering to the system possess an identity they must keep secret. A com
 **Procedure:**
 
 The circuit hashes the hash of the identity nullifier and the identity trapdoor to
-generate an identity commitment. It then verifies the Merkle proof against
+generate an identity commitment. Then, it verifies the Merkle proof against
 the Merkle root and the identity commitment.
 
 ## 2. Nullifiers
@@ -49,7 +51,7 @@ the Merkle root and the identity commitment.
 
 **Procedure:**
 
-The circuit hashes the identity nullifier and the external nullifier. Then it checks that it matches the given nullifiers hash. Additionally,
+The circuit hashes the identity nullifier and the external nullifier. Then, it checks that it matches the given nullifiers hash. Additionally,
 the smart contract ensures that it has not previously seen this nullifiers hash. This way, double-signalling is impossible.
 
 ## 3. Signal

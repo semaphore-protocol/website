@@ -7,7 +7,7 @@ sidebar_position: 3
 Semaphore includes two types of contracts:
 
 - [**Base contracts**](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base): they allow you to use the main protocol features (i.e. verify a proof or manage Merkle trees/groups).
-- [**Extension contracts**](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/extensions): they contain application logic and could be used for specific use-cases (e.g. anonymous voting).
+- [**Extension contracts**](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/extensions): they contain application logic for specific use-cases (e.g. anonymous voting).
 
 Contracts can be used with the `@semaphore-protocol/contracts` NPM package. Semaphore also provides a pre-deployed contract that extends the base contracts and can be used with the appropriate interface. Their addresses can be found in the [README](https://github.com/semaphore-protocol/semaphore#deployed-contracts) file.
 
@@ -18,7 +18,7 @@ There are currently two base contracts:
 - [**SemaphoreCore.sol**](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol): it contains the functions to verify Semaphore proofs and to save the nullifier hash in order to avoid double signaling;
 - [**SemaphoreGroups.sol**](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol): it contains the functions to create groups, add or remove members.
 
-These contracts are closely related to the protocol. They are abstract contracts and every function can be overridden, all expect the core ones. The SemaphoreCore contract is always required and devs should always import it, in order to verify their proofs with Semaphore. Some DApps could use the onchain groups, but maybe others can prefer to use their own trees (e.g. offchain trees).
+These contracts are closely related to the protocol. `SemaphoreGroups` is an abstract contract and its functions can be overridden, whereas `SemaphoreCore` must always be imported in order to verify proofs. While some dApps may use on-chain groups, others may prefer to use off-chain groups, saving only their tree roots in the contract.
 
 ## Extension contracts
 

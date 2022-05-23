@@ -22,7 +22,7 @@ or double-spending.
 Semaphore comprises of smart contracts and
 [zero-knowledge](https://z.cash/technology/zksnarks/) components which work in
 tandem. The Semaphore smart contracts handles identity groups and proof
-verification onchain. The zero-knowledge components work offchain to allow
+verification on-chain. The zero-knowledge components work off-chain to allow
 users to generate identities and proofs, which allow the smart contract to update its state
 if these proofs are valid.
 
@@ -30,10 +30,10 @@ Semaphore is designed to allow building dApps in a **modular** fashion. Develope
 
 ## Basic features
 
-In sum, Semaphore provides the ability to:
+Semaphore provides the ability to:
 
-1. generate offchain identities and add them to a Merkle tree (offchain or onchain);
-2. anonymously broadcast a signal onchain, if and only if the identity of the owner belongs to a
+1. generate off-chain identities and add them to a Merkle tree (off-chain or on-chain);
+2. anonymously broadcast a signal on-chain, if and only if the identity of the owner belongs to a
    valid Merkle tree and if the nullifier has not already been used.
 
 ## About the code
