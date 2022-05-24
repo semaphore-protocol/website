@@ -18,9 +18,9 @@ The Semaphore identity consists primarily of two values: `trapdoor` and `nullifi
 
 This library therefore contains a `ZKIdentity` class that can generate these values with 3 different strategies:
 
-- `Strategy.RANDOM`: this is the default option and it generates the values randomly,
-- `Strategy.MESSAGE`: it allows values to be generated deterministically from a message using SHA-256,
-- `Strategy.SERIALIZE`: it allows you to retrieve values from a previously serialized identity.
+-   `Strategy.RANDOM`: this is the default option and it generates the values randomly,
+-   `Strategy.MESSAGE`: it allows values to be generated deterministically from a message using SHA-256,
+-   `Strategy.SERIALIZE`: it allows you to retrieve values from a previously serialized identity.
 
 ## @zk-kit/protocols
 

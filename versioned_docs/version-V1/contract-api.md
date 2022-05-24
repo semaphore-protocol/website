@@ -10,8 +10,8 @@ sidebar_position: 5
 
 `constructor(uint8 _treeLevels, uint232 _firstExternalNullifier)`
 
-- `_treeLevels`: The depth of the identity tree.
-- `_firstExternalNullifier`: The first identity nullifier to add.
+-   `_treeLevels`: The depth of the identity tree.
+-   `_firstExternalNullifier`: The first identity nullifier to add.
 
 The depth of the identity tree determines how many identity commitments may be
 added to this contract: `2 ^ _treeLevels`. Once the tree is full, further
@@ -30,11 +30,11 @@ completes.
 Adds an external nullifier to the contract. Only the owner can do this.
 This external nullifier is active once it is added.
 
-- `_externalNullifier`: The new external nullifier to set.
+-   `_externalNullifier`: The new external nullifier to set.
 
 `deactivateExternalNullifier(uint232 _externalNullifier)`
 
-- `_externalNullifier`: The existing external nullifier to deactivate.
+-   `_externalNullifier`: The existing external nullifier to deactivate.
 
 Deactivate an external nullifier. The external nullifier must already be active
 for this function to work. Only the owner can do this.
@@ -44,7 +44,7 @@ for this function to work. Only the owner can do this.
 Reactivate an external nullifier. The external nullifier must already be
 inactive for this function to work. Only the owner can do this.
 
-- `_externalNullifier`: The deactivated external nullifier to reactivate.
+-   `_externalNullifier`: The deactivated external nullifier to reactivate.
 
 ## Insert identities
 
@@ -52,10 +52,10 @@ inactive for this function to work. Only the owner can do this.
 
 `function insertIdentity(uint256 _identityCommitment)`
 
-- `_identity_commitment`: The user's identity commitment, which is the hash of
-  their public key and their identity nullifier (a random 31-byte value). It
-  should be the output of a Pedersen hash. It is the responsibility of the
-  caller to verify this.
+-   `_identity_commitment`: The user's identity commitment, which is the hash of
+    their public key and their identity nullifier (a random 31-byte value). It
+    should be the output of a Pedersen hash. It is the responsibility of the
+    caller to verify this.
 
 **Off-chain `libsemaphore` helper functions**:
 
@@ -84,16 +84,16 @@ broadcastSignal(
 )
 ```
 
-- `_signal`: the signal to broadcast.
-- `_proof`: a zk-SNARK proof (see below).
-- `_root`: The root of the identity tree, where the user's identity commitment
-  is the last-inserted leaf.
-- `_nullifiersHash`: A uniquely derived hash of the external nullifier, user's
-  identity nullifier, and the Merkle path index to their identity commitment.
-  It ensures that a user cannot broadcast a signal with the same external
-  nullifier more than once.
-- `_externalNullifier`: The external nullifier at which the signal is
-  broadcast.
+-   `_signal`: the signal to broadcast.
+-   `_proof`: a zk-SNARK proof (see below).
+-   `_root`: The root of the identity tree, where the user's identity commitment
+    is the last-inserted leaf.
+-   `_nullifiersHash`: A uniquely derived hash of the external nullifier, user's
+    identity nullifier, and the Merkle path index to their identity commitment.
+    It ensures that a user cannot broadcast a signal with the same external
+    nullifier more than once.
+-   `_externalNullifier`: The external nullifier at which the signal is
+    broadcast.
 
 **Off-chain `libsemaphore` helper functions**:
 

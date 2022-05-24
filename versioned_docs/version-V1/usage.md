@@ -103,12 +103,12 @@ const result = await genWitness(
 )
 ```
 
-- `signal`: a string which is the signal to broadcast.
-- `circuit`: the output of `genCircuit()` (see above).
-- `identity`: the user's identity as an `Identity` object.
-- `leaves` the list of leaves in the tree (see above).
-- `num_levels`: the depth of the Merkle tree.
-- `external_nullifier`: the external nullifier at which to broadcast.
+-   `signal`: a string which is the signal to broadcast.
+-   `circuit`: the output of `genCircuit()` (see above).
+-   `identity`: the user's identity as an `Identity` object.
+-   `leaves` the list of leaves in the tree (see above).
+-   `num_levels`: the depth of the Merkle tree.
+-   `external_nullifier`: the external nullifier at which to broadcast.
 
 Load the proving key from disk (or from a remote source):
 
@@ -134,11 +134,11 @@ Finally, invoke `broadcastSignal()` with the parameters:
 
 ```ts
 const tx = await semaphoreClientContract.broadcastSignal(
-  ethers.utils.toUtf8Bytes(signal),
-  params.proof,
-  params.root,
-  params.nullifiersHash,
-  external_nullifier,
-  { gasLimit: 500000 }
+    ethers.utils.toUtf8Bytes(signal),
+    params.proof,
+    params.root,
+    params.nullifiersHash,
+    external_nullifier,
+    { gasLimit: 500000 }
 )
 ```

@@ -1,25 +1,25 @@
 name: deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  publish_docs:
-    runs-on: ubuntu-latest
+    publish_docs:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+        steps:
+            - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 16.x
 
-      - run: yarn --frozen-lockfile && yarn build
+            - run: yarn --frozen-lockfile && yarn build
 
-      - uses: crazy-max/ghaction-github-pages@v2.5.0
-        with:
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: crazy-max/ghaction-github-pages@v2.5.0
+              with:
+                  build_dir: build
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

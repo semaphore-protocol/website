@@ -57,8 +57,8 @@ Encapsulates an `EddsaPublicKey` and an `EddsaPrivateKey`.
 
 ```ts
 interface EddsaKeyPair {
-  pubKey: EddsaPublicKey
-  privKey: EddsaPrivateKey
+    pubKey: EddsaPublicKey
+    privKey: EddsaPrivateKey
 }
 ```
 
@@ -69,9 +69,9 @@ is crucial to creating `SnarkProof`s to broadcast signals.
 
 ```ts
 interface Identity {
-  keypair: EddsaKeyPair
-  identityNullifier: SnarkBigInt
-  identityTrapdoor: SnarkBigInt
+    keypair: EddsaKeyPair
+    identityNullifier: SnarkBigInt
+    identityTrapdoor: SnarkBigInt
 }
 ```
 
@@ -82,9 +82,9 @@ parameter. See `genBroadcastSignalParams()`.
 
 ```ts
 interface SnarkProof {
-  pi_a: SnarkBigInt[]
-  pi_b: SnarkBigInt[][]
-  pi_c: SnarkBigInt[]
+    pi_a: SnarkBigInt[]
+    pi_b: SnarkBigInt[][]
+    pi_c: SnarkBigInt[]
 }
 ```
 
@@ -186,27 +186,27 @@ const genWitness = async (
 )
 ```
 
-- `signal` is the string you wish to broadcast.
-- `circuit` is the output of `genCircuit()`.
-- `identity` is the `Identity` whose identity commitment you want to prove is
-  in the set of registered identities.
-- `idCommitments` is an array of registered identity commmitments; i.e. the
-  leaves of the tree.
-- `treeDepth` is the number of levels which the Merkle tree used has
-- `externalNullifier` is the current external nullifier
+-   `signal` is the string you wish to broadcast.
+-   `circuit` is the output of `genCircuit()`.
+-   `identity` is the `Identity` whose identity commitment you want to prove is
+    in the set of registered identities.
+-   `idCommitments` is an array of registered identity commmitments; i.e. the
+    leaves of the tree.
+-   `treeDepth` is the number of levels which the Merkle tree used has
+-   `externalNullifier` is the current external nullifier
 
 It returns an object as such:
 
-- `witness`: The witness to pass to `genProof()`.
-- `signal`: The computed signal for Semaphore. This is the hash of the
-  recipient's address, relayer's address, and fee.
-- `signalHash`: The hash of the computed signal.
-- `msg`: The hash of the external nullifier and the signal hash
-- `signature`: The signature on the above msg.
-- `tree`: The Merkle tree object after it has been updated with the identity commitment
-- `identityPath`: The Merkle path to the identity commmitment
-- `identityPathIndex`: The leaf index of the identity commitment
-- `identityPathElements`: The elements along the above Merkle path
+-   `witness`: The witness to pass to `genProof()`.
+-   `signal`: The computed signal for Semaphore. This is the hash of the
+    recipient's address, relayer's address, and fee.
+-   `signalHash`: The hash of the computed signal.
+-   `msg`: The hash of the external nullifier and the signal hash
+-   `signature`: The signature on the above msg.
+-   `tree`: The Merkle tree object after it has been updated with the identity commitment
+-   `identityPath`: The Merkle path to the identity commmitment
+-   `identityPathIndex`: The leaf index of the identity commitment
+-   `identityPathElements`: The elements along the above Merkle path
 
 Only `witness` is essential to generate the proof; the other data is only
 useful for debugging and additional off-chain checks, such as verifying the

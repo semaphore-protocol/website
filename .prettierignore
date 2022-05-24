@@ -10,6 +10,10 @@ yarn.lock
 dist
 build
 
+# config files
+.prettierignore
+.editorconfig
+
 # misc
 .DS_Store
 *.pem
