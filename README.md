@@ -5,6 +5,19 @@
     </h1>
 </p>
 
+<p align="center">
+    <a href="https://github.com/semaphore-protocol" target="_blank">
+        <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
+    </a>
+    <a href="https://github.com/semaphore-protocol/website/blob/main/LICENSE">
+        <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/website.svg?style=flat-square">
+    </a>
+    <a href="https://github.com/semaphore-protocol/website/actions?query=workflow%3deploy">
+        <img alt="GitHub Workflow test" src="https://img.shields.io/github/workflow/status/semaphore-protocol/website/deploy?label=deploy&style=flat-square&logo=github">
+    </a>
+    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/semaphore-protocol/website?style=flat-square">
+</p>
+
 <div align="center">
     <h4>
         <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CONTRIBUTING.md">
