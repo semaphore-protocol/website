@@ -1,8 +1,8 @@
 <p align="center">
     <h1 align="center">
-        Semaphore docs
+      <img width="40" src="https://github.com/semaphore-protocol/website/blob/main/static/img/semaphore-icon.svg">  
+      Semaphore website
     </h1>
-    <p align="center">Semaphore documentation website.</p>
 </p>
 
 <div align="center">
@@ -15,7 +15,7 @@
             🤝 Code of conduct
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://github.com/semaphore-protocol/docs/issues/new/choose">
+        <a href="https://github.com/semaphore-protocol/website/issues/new/choose">
             🔎 Issues
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -25,8 +25,8 @@
     </h4>
 </div>
 
-| This repository contains the Semaphore documentation published at [semaphore.appliedzkp.org](https://semaphore.appliedzkp.org). Semaphore documentation uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| This repository contains the code for the Semaphore website published at [semaphore.appliedzkp.org](https://semaphore.appliedzkp.org). It uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## Install and run for development
 
@@ -45,10 +45,10 @@ $ npm i --global yarn
 
 ### 🛠 Get the code
 
-Clone the Semaphore repository and then change to the `docs` directory:
+Clone the Semaphore repository and then change to the `website` directory:
 
 ```sh
-$ git clone https://github.com/appliedzkp/semaphore.git && cd semaphore/docs
+$ git clone https://github.com/semaphore-protocol/website.git && cd website
 ```
 
 ### Install dependencies

@@ -1,7 +1,6 @@
 {
-    "name": "@semaphore/docs",
+    "name": "@semaphore-protocol/website",
     "description": "Semaphore documentation website.",
-    "version": "0.0.0",
     "private": true,
     "scripts": {
         "start": "docusaurus start",
