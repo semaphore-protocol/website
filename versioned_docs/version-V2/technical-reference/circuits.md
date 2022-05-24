@@ -20,14 +20,14 @@ Users registering to the system possess an identity they must keep secret. A com
 
 **Private inputs:**
 
--   `treeSiblings[nLevels]`: the values along the Merkle path to the user's identity commitment,
--   `treePathIndices[nLevels]`: the direction (0/1) per tree level corresponding to the Merkle path to the user's identity commitment,
--   `identityNullifier`: the 32-byte identity secret used as nullifier,
--   `identityTrapdoor`: the 32-byte identity secret used as commitment trapdoor.
+- `treeSiblings[nLevels]`: the values along the Merkle path to the user's identity commitment,
+- `treePathIndices[nLevels]`: the direction (0/1) per tree level corresponding to the Merkle path to the user's identity commitment,
+- `identityNullifier`: the 32-byte identity secret used as nullifier,
+- `identityTrapdoor`: the 32-byte identity secret used as commitment trapdoor.
 
 **Public outputs:**
 
--   `root`: The Merkle root of the tree.
+- `root`: The Merkle root of the tree.
 
 **Procedure:**
 
@@ -39,15 +39,15 @@ the Merkle root and the identity commitment.
 
 **Private inputs:**
 
--   `identityNullifier`: the 32-byte identity secret used as nullifier.
+- `identityNullifier`: the 32-byte identity secret used as nullifier.
 
 **Public inputs:**
 
--   `externalNullifier`: the 32-byte external nullifier.
+- `externalNullifier`: the 32-byte external nullifier.
 
 **Public outputs:**
 
--   `nullifierHash`: the hash of the identity nullifier and the external nullifier used to prevent double-signaling.
+- `nullifierHash`: the hash of the identity nullifier and the external nullifier used to prevent double-signaling.
 
 **Procedure:**
 
@@ -58,7 +58,7 @@ the smart contract ensures that it has not previously seen this nullifiers hash.
 
 **Public inputs:**
 
--   `signalHash`: the hash of the user's signal.
+- `signalHash`: the hash of the user's signal.
 
 **Procedure:**
 

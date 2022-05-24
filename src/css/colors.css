@@ -83,7 +83,8 @@
   --ifm-font-color-base-inverse: var(--ifm-color-content-inverse);
   --ifm-font-color-secondary: var(--ifm-color-content-secondary);
   --ifm-font-family-base: "Inter", sans-serif;
-  --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   --ifm-font-size-base: 100%;
   --ifm-font-weight-light: 300;
   --ifm-font-weight-normal: 400;
@@ -99,7 +100,8 @@
   --ifm-transition-timing-default: cubic-bezier(0.08, 0.52, 0.52, 1);
   --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   --ifm-global-shadow-md: 0 5px 40px rgba(0, 0, 0, 0.2);
-  --ifm-global-shadow-tl: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --ifm-global-shadow-tl: 0 12px 28px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px 0 rgba(0, 0, 0, 0.1);
   --ifm-z-index-dropdown: 100;
   --ifm-z-index-fixed: 200;
   --ifm-z-index-overlay: 400;
@@ -199,7 +201,9 @@
   --ifm-button-padding-vertical: 0.375rem;
   --ifm-button-size-multiplier: 1;
   --ifm-button-transition-duration: var(--ifm-transition-fast);
-  --ifm-button-border-radius: calc(var(--ifm-global-radius) * var(--ifm-button-size-multiplier));
+  --ifm-button-border-radius: calc(
+    var(--ifm-global-radius) * var(--ifm-button-size-multiplier)
+  );
   --ifm-button-group-margin: 2px;
   --ifm-card-background-color: var(--ifm-background-surface-color);
   --ifm-card-border-radius: calc(var(--ifm-global-radius) * 2);
@@ -252,7 +256,9 @@
     <svgfill="currentColor"xmlns="http://www.w3.org/2000/svg"viewBox="0 0 16 16"height="16px"width="16px"><pathd="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z"/></svg>
   );
   --ifm-navbar-sidebar-width: 80vw;
-  --ifm-pagination-border-radius: calc(var(--ifm-global-radius) * var(--ifm-pagination-size-multiplier));
+  --ifm-pagination-border-radius: calc(
+    var(--ifm-global-radius) * var(--ifm-pagination-size-multiplier)
+  );
   --ifm-pagination-color-active: var(--ifm-color-primary);
   --ifm-pagination-font-size: 1rem;
   --ifm-pagination-item-active-background: var(--ifm-hover-overlay);

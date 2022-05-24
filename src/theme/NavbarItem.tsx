@@ -9,7 +9,10 @@ export default function NavbarItem(props) {
 
   return (
     <>
-      <OriginalNavBarItem {...props} className={props.className + " " + version} />
+      <OriginalNavBarItem
+        {...props}
+        className={props.className + " " + version}
+      />
     </>
   )
 }
