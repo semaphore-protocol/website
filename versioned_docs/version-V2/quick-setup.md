@@ -60,7 +60,7 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
 
 `@semaphore-protocol/contracts` provides a _base contract_ that verifies
 Semaphore proofs.
-`@appliedzkp/@zk-kit` provides JavaScript libraries that help developers
+`@zk-kit` provides JavaScript libraries that help developers
 build zero-knowledge applications.
 
 To install these dependencies for your project, do the following:
@@ -80,7 +80,7 @@ To install these dependencies for your project, do the following:
     yarn add @zk-kit/identity @zk-kit/protocols --dev
     ```
 
-    For more information about `@zk-kit`, see the [ZK-kit repository](https://github.com/appliedzkp/zk-kit).
+    For more information about `@zk-kit`, see the [ZK-kit repository](https://github.com/privacy-scaling-explorations/zk-kit).
 
 ## Create the Semaphore contract
 
@@ -151,7 +151,7 @@ contains the following array of IDs:
 
 :::info
 To generate the IDs for this example, we used `@zk-kit/identity`
-(with a [message strategy](https://github.com/appliedzkp/zk-kit/tree/main/packages/identity#creating-an-identity-with-a-message-strategy)) to create messages.
+(with a [message strategy](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/identity#creating-an-identity-with-a-message-strategy)) to create messages.
 Then, in Metamask, we signed the messages with the first 3 Ethereum accounts
 of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts).
 :::
@@ -170,7 +170,7 @@ To create a task that deploys the `Greeters` contract, do the following:
 
     `@zk-kit/incremental-merkle-tree` and `circomlibjs@0.0.8` let you create
     off-chain Merkle trees. For more information, see the
-    [ZK-kit repository](https://github.com/appliedzkp/zk-kit/tree/main/packages/incremental-merkle-tree)
+    [ZK-kit repository](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/incremental-merkle-tree)
 
 2. Use `yarn` to install `hardhat-dependency-compiler`:
 
@@ -192,7 +192,7 @@ To create a task that deploys the `Greeters` contract, do the following:
     task("deploy", "Deploy a Greeters contract")
         .addOptionalParam("logs", "Print the logs", true, types.boolean)
         .setAction(async ({ logs }, { ethers }) => {
-            const VerifierContract = await ethers.getContractFactory("Verifier")
+            const VerifierContract = await ethers.getContractFactory("Verifier20")
             const verifier = await VerifierContract.deploy()
 
             await verifier.deployed()
@@ -228,7 +228,7 @@ To create a task that deploys the `Greeters` contract, do the following:
         solidity: "0.8.4",
         dependencyCompiler: {
             // It allows Hardhat to compile the external Verifier.sol contract.
-            paths: ["@semaphore-protocol/contracts/base/Verifier.sol"]
+            paths: ["@semaphore-protocol/contracts/verifiers/Verifier20.sol"]
         }
     }
     ```
@@ -247,11 +247,17 @@ and [Chai assertions](https://www.chaijs.com/).
        @nomiclabs/hardhat-ethers 'ethers@^5.0.0' chai
     ```
 
-2. Download the Semaphore [snark build files](https://github.com/semaphore-protocol/semaphore/tree/main/build/snark)
+1. Download the Semaphore [zk files](http://www.trusted-setup-pse.org/)
    and copy them to the `./static` folder. Your application and tests must pass these
    static files to Semaphore to create zero-knowledge proofs.
 
-3. Replace the contents of `./test/sample-test.js` with the following test:
+    ```bash
+    cd static
+    wget http://www.trusted-setup-pse.org/semaphore/20/semaphore.zkey
+    wget http://www.trusted-setup-pse.org/semaphore/20/semaphore.wasm
+    ```
+
+1. Replace the contents of `./test/sample-test.js` with the following test:
 
     ```javascript title="./test/sample-test.js"
     const { Strategy, ZkIdentity } = require("@zk-kit/identity")
@@ -272,7 +278,7 @@ and [Chai assertions](https://www.chaijs.com/).
 
         describe("# greet", () => {
             const wasmFilePath = "./static/semaphore.wasm"
-            const finalZkeyPath = "./static/semaphore_final.zkey"
+            const zkeyFilePath = "./static/semaphore.zkey"
 
             it("Should greet", async () => {
                 const message = await signers[0].signMessage("Sign this message to create your identity!")
@@ -291,7 +297,7 @@ and [Chai assertions](https://www.chaijs.com/).
                     greeting
                 )
 
-                const fullProof = await Semaphore.genProof(witness, wasmFilePath, finalZkeyPath)
+                const fullProof = await Semaphore.genProof(witness, wasmFilePath, zkeyFilePath)
                 const solidityProof = Semaphore.packToSolidityProof(fullProof.proof)
 
                 const nullifierHash = Semaphore.genNullifierHash(merkleProof.root, identity.getNullifier())
@@ -304,7 +310,7 @@ and [Chai assertions](https://www.chaijs.com/).
     })
     ```
 
-4. Run the following `yarn` commands to compile and test your contract:
+1. Run the following `yarn` commands to compile and test your contract:
 
     ```bash
     yarn hardhat compile
