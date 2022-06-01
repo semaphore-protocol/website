@@ -30,6 +30,13 @@ module.exports = {
     ],
 
     themeConfig: {
+        announcementBar: {
+            id: "trusted-setup",
+            content:
+                '<b>The Semaphore V2 <a target="_blank" rel="noopener noreferrer" href="https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html">trusted-setup ceremony</a> ended successfully with more than 300 contributors! 🎉</b>',
+            backgroundColor: "#eef9fd",
+            textColor: "#061830"
+        },
         prism: {
             additionalLanguages: ["solidity"]
         },
