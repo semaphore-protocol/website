@@ -42,4 +42,4 @@ The core of the protocol is in the [circuit logic](https://github.com/semaphore-
 Semaphore also provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/contracts)
 and [JavaScript libraries](https://github.com/appliedzkp/zk-kit) (i.e. `@zk-kit/identity` and `@zk-kit/protocols`) to allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
-A code audit for Semaphore V2 will begin in the near future.
+The Semaphore V2 code base was audited with a focus on the smart contracts and the Circom circuits. The summary of the audit results can be found [here](https://semaphore.appliedzkp.org/audit-v2.pdf).
