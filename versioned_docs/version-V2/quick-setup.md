@@ -13,7 +13,7 @@ To check out the code used in this guide, visit the
 
 1. [Create a Node.js project](#create-a-nodejs-project)
 2. [Install Hardhat](#install-hardhat)
-3. [Install Semaphore contracts and ZK-kit](#install-semaphore-contracts-and-zk-kit)
+3. [Install Semaphore contracts and JS libraries](#install-semaphore-contracts-and-js-libraries)
 4. [Create the Semaphore contract](#create-the-semaphore-contract)
 5. [Create Semaphore IDs](#create-semaphore-ids)
 6. [Create a Hardhat task that deploys your contract](#create-a-hardhat-task-that-deploys-your-contract)
@@ -56,11 +56,11 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
     # and then enter through the prompts.
     ```
 
-## Install Semaphore contracts and ZK-kit
+## Install Semaphore contracts and JS libraries
 
 `@semaphore-protocol/contracts` provides a _base contract_ that verifies
 Semaphore proofs.
-`@zk-kit` provides JavaScript libraries that help developers
+Semaphore also provides JavaScript libraries that help developers
 build zero-knowledge applications.
 
 To install these dependencies for your project, do the following:
@@ -74,13 +74,13 @@ To install these dependencies for your project, do the following:
     For more detail about _Semaphore base contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
     To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/contracts).
 
-2. Use `yarn` to install the `@zk-kit` packages:
+2. Use `yarn` to install the JS libraries:
 
     ```sh
-    yarn add @zk-kit/identity @zk-kit/protocols --dev
+    yarn add @semaphore-protocol/identity @semaphore-protocol/proof --dev
     ```
 
-    For more information about `@zk-kit`, see the [ZK-kit repository](https://github.com/privacy-scaling-explorations/zk-kit).
+    For more information about the JS libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
 
 ## Create the Semaphore contract
 
@@ -150,10 +150,9 @@ contains the following array of IDs:
 ```
 
 :::info
-To generate the IDs for this example, we used `@zk-kit/identity`
-(with a [message strategy](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/identity#creating-an-identity-with-a-message-strategy)) to create messages.
-Then, in Metamask, we signed the messages with the first 3 Ethereum accounts
-of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts).
+To generate the IDs for this example, we used `@semaphore-protocol/identity`.
+We used Metamask to sign messages with the first 3 Ethereum accounts
+of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts), and then we used those messages to generate Semaphore [deterministic identities](/docs/guides/identities#generating-deterministic-identities).
 :::
 
 ## Create a Hardhat task that deploys your contract
@@ -260,8 +259,13 @@ and [Chai assertions](https://www.chaijs.com/).
 1. Replace the contents of `./test/sample-test.js` with the following test:
 
     ```javascript title="./test/sample-test.js"
-    const { Strategy, ZkIdentity } = require("@zk-kit/identity")
-    const { generateMerkleProof, Semaphore } = require("@zk-kit/protocols")
+    const { Identity } = require("@semaphore-protocol/identity")
+    const {
+        createMerkleProof,
+        generateProof,
+        packToSolidityProof,
+        generateNullifierHash
+    } = require("@semaphore-protocol/proof")
     const identityCommitments = require("../static/identityCommitments.json")
     const { expect } = require("chai")
     const { run, ethers } = require("hardhat")
@@ -283,24 +287,20 @@ and [Chai assertions](https://www.chaijs.com/).
             it("Should greet", async () => {
                 const message = await signers[0].signMessage("Sign this message to create your identity!")
 
-                const identity = new ZkIdentity(Strategy.MESSAGE, message)
-                const identityCommitment = identity.genIdentityCommitment()
+                const identity = new Identity(message)
+                const identityCommitment = identity.generateCommitment()
                 const greeting = "Hello world"
                 const bytes32Greeting = ethers.utils.formatBytes32String(greeting)
 
-                const merkleProof = generateMerkleProof(20, BigInt(0), identityCommitments, identityCommitment)
-                const witness = Semaphore.genWitness(
-                    identity.getTrapdoor(),
-                    identity.getNullifier(),
-                    merkleProof,
-                    merkleProof.root,
-                    greeting
-                )
+                const merkleProof = createMerkleProof(20, BigInt(0), identityCommitments, identityCommitment)
 
-                const fullProof = await Semaphore.genProof(witness, wasmFilePath, zkeyFilePath)
-                const solidityProof = Semaphore.packToSolidityProof(fullProof.proof)
+                const fullProof = await generateProof(identity, merkleProof, merkleProof.root, greeting, {
+                    wasmFilePath,
+                    zkeyFilePath
+                })
+                const solidityProof = packToSolidityProof(fullProof.proof)
 
-                const nullifierHash = Semaphore.genNullifierHash(merkleProof.root, identity.getNullifier())
+                const nullifierHash = generateNullifierHash(merkleProof.root, identity.getNullifier())
 
                 const transaction = contract.greet(bytes32Greeting, nullifierHash, solidityProof)
 
