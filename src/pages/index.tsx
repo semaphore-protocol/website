@@ -13,25 +13,21 @@ export const semaphoreComponents = [
         href: "https://github.com/semaphore-protocol/semaphore/tree/main/contracts"
     },
     {
-        title: "@zk-kit/identity",
-        href: "https://github.com/appliedzkp/zk-kit/tree/main/packages/identity"
-    },
-    {
-        title: "@zk-kit/protocols",
-        href: "https://github.com/appliedzkp/zk-kit/tree/main/packages/protocols"
+        title: "semaphore.js",
+        href: "https://github.com/semaphore-protocol/semaphore.js"
     }
 ]
 
 export const pseProjects = [
     {
-        title: "ZK-kit",
-        text: "A monorepo of reusable JS libraries for zero-knowledge technologies.",
-        to: "https://github.com/appliedzkp/zk-kit"
+        title: "Unirep Social",
+        text: "Private and decentralized social media based on a private and non-repudiable reputation system.",
+        to: "https://github.com/Unirep/Unirep-Social"
     },
     {
         title: "Interep",
         text: "A system that allows DApps or services to verify users' reputation without exposing their identities.",
-        to: "https://github.com/interep-project"
+        to: "https://interep.link"
     }
 ]
 

@@ -92,7 +92,7 @@ module.exports = {
                     items: [
                         {
                             label: "Github",
-                            href: "https://github.com/semaphore-protocol/semaphore"
+                            href: "https://github.com/semaphore-protocol"
                         },
                         {
                             label: "Telegram",
@@ -104,12 +104,16 @@ module.exports = {
                     title: "More",
                     items: [
                         {
-                            label: "ZK-kit",
-                            href: "https://github.com/appliedzkp/zk-kit"
+                            label: "Unirep",
+                            href: "https://github.com/Unirep"
                         },
                         {
                             label: "Interep",
                             href: "https://github.com/interep-project"
+                        },
+                        {
+                            label: "ZK-kit",
+                            href: "https://github.com/privacy-scaling-explorations/zk-kit"
                         }
                     ]
                 }
