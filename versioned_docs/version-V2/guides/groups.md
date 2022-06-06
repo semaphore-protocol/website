@@ -4,6 +4,7 @@ sidebar_position: 1
 
 # Groups
 
+<!--Working outline
 - What is a group
 - What do groups contain
   - Identities
@@ -14,36 +15,70 @@ sidebar_position: 1
 - Use a group
 - Add identities
 - Remove identities
+-->
 
+Semaphore [groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
+A group may represent a poll, ballot question, or organizations 
 
-Semaphore **groups** contain [identity commitments]() of group members.
-Groups are [Merkle trees]() and identity commitments are tree leaves.
+Groups may be on-chain or off-chain.
 
-Groups can be on-chain or off-chain.
-
-- Create an on-chain group
-- Create an off-chain group
+- [Create an on-chain group](#create-an-on-chain-group)
 
 ## Create an on-chain group
 
-To create an on-chain group, use the SemaphoreGroups contract.
-
-## Create an off-chain group
-
-## Private voting example
-
-Consider a decentralized application (DApp) where community members rate an event they attend.
-- Organizers create events (groups).
-- Attendees join events and then provide an anonymous rating (signal).
-
-The organizer has deployed a smart contract for the event to Ethereum.
-An organizer then passes an event ID to a contract function to create the group.
-The contract and its Ethereum address act as _group admin_. <!-- Need explanation -->
-
-To join the group and rate the event anonymously, an attendee uses the DApp to create a secret identity and then add the identity commitment to the group.
+The `SemaphoreGroups` contract provides the following `_createGroup` function:
 
 ```ts
-/** Example contract **/
+    /// @dev Creates a new group by initializing the associated tree.
+    /// @param groupId: Id of the group.
+    /// @param depth: Depth of the tree.
+    /// @param zeroValue: Zero value of the tree.
+    function _createGroup(
+        uint256 groupId,
+        uint8 depth,
+        uint256 zeroValue
+    ) internal virtual {
+        require(groupId < SNARK_SCALAR_FIELD, "SemaphoreGroups: group id must be < SNARK_SCALAR_FIELD");
+        require(getDepth(groupId) == 0, "SemaphoreGroups: group already exists");
+
+        groups[groupId].init(depth, zeroValue);
+
+        emit GroupCreated(groupId, depth, zeroValue);
+    }
 ```
 
-## Private whistleblowing example
+To create an on-chain group, in your contract, import `SemaphoreGroups` and call `_createGroup`.
+The following code sample shows how the `Semaphore.sol` contract uses `_createGroup`:
+
+```ts
+pragma solidity ^0.8.4;
+
+import "./interfaces/ISemaphore.sol";
+import "./base/SemaphoreCore.sol";
+import "./base/SemaphoreGroups.sol";
+
+...
+
+/// @title Semaphore
+contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
+    function createGroup(
+        uint256 groupId,
+        uint8 depth,
+        uint256 zeroValue,
+        address admin
+    ) external override onlySupportedDepth(depth) {
+        _createGroup(groupId, depth, zeroValue);
+
+        groupAdmins[groupId] = admin;
+
+        emit GroupAdminUpdated(groupId, address(0), admin);
+    }
+}
+
+...
+
+```
+
+## Related resources
+
+To learn more about groups, see the [`SemaphoreGroups` contract](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol).
