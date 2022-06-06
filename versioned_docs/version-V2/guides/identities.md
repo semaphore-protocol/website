@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Semaphore identities
 
-In order for users to join [Semaphore groups](/docs/glossary/semaphore-group), they must first generate their [Semaphore identity](/docs/glossary/semaphore-identity). When a new identity is generated, two values are created: the identity trapdoor and the identity nullifier. These values, which only the user must know and should be kept secret, can be generated in two ways: randomly or deterministically (from the hash of a message).
+In order for users to join [Semaphore groups](/docs/glossary#semaphore-group), they must first generate their [Semaphore identity](/docs/glossary#semaphore-identity). When a new identity is generated, two values are created: the identity trapdoor and the identity nullifier. These values, which only the user must know and should be kept secret, can be generated in two ways: randomly or deterministically (from the hash of a message).
 
 ## Generating random identities
 
