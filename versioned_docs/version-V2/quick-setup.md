@@ -29,7 +29,7 @@ To check out the code used in this guide, visit the
 
 3. Create a directory for the project and change to the new directory.
 
-    ```sh
+    ```bash
     mkdir semaphore-example
     cd semaphore-example
     ```
@@ -44,13 +44,13 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
 
 1. Use `yarn` to install [Hardhat](https://hardhat.org/getting-started/):
 
-    ```sh
+    ```bash
     yarn add hardhat --dev
     ```
 
 2. Use `yarn` to run `hardhat` and create a _basic sample project_:
 
-    ```sh
+    ```bash
     yarn hardhat
     # At the prompt, select "Create a basic sample project"
     # and then enter through the prompts.
@@ -67,7 +67,7 @@ To install these dependencies for your project, do the following:
 
 1. Use `yarn` to install `@semaphore-protocol/contracts`:
 
-    ```sh
+    ```bash
     yarn add @semaphore-protocol/contracts
     ```
 
@@ -76,7 +76,7 @@ To install these dependencies for your project, do the following:
 
 2. Use `yarn` to install the JS libraries:
 
-    ```sh
+    ```bash
     yarn add @semaphore-protocol/identity @semaphore-protocol/proof --dev
     ```
 
