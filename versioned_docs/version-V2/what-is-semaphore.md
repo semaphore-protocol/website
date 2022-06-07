@@ -17,9 +17,8 @@ Use cases include private voting, whistleblowing, anonymous DAOs, and mixers.
 
 Semaphore provides the ability to:
 
-1. Generate private off-chain identities and add an anonymous public identity to a group (_Merkle tree_).
-2. Anonymously broadcast a signal on-chain if the identity of the owner belongs to a
-   valid Merkle tree and if the nullifier has not already been used.
+1. Generate private [off-chain identities](docs/guides/identities/) and add an anonymous public identity to a group (_Merkle tree_).
+2. Anonymously broadcast a signal on-chain if the identity of the owner belongs to a valid Merkle tree and if the nullifier has not already been used.
 
 Semaphore uses smart contracts and
 [zero-knowledge](https://z.cash/technology/zksnarks/) components that work in
