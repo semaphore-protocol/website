@@ -24,8 +24,8 @@ Semaphore uses smart contracts and
 [zero-knowledge](https://z.cash/technology/zksnarks/) components that work in
 tandem.
 
-- Off-chain, zero-knowledge components allow users to generate identities and proofs.
-- On-chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
+-   Off-chain, zero-knowledge components allow users to generate identities and proofs.
+-   On-chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
 
 ## Developer benefits
 
