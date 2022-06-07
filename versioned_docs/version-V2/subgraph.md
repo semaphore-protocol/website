@@ -4,10 +4,12 @@ sidebar_position: 6
 
 # Subgraph
 
-The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Our subgraph allow you to get data from the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) smart contract.
+The Graph is an indexing protocol for querying networks like Ethereum and IPFS.
+Semaphore's subgraph allows you to retrieve data from the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) smart contract.
 
 :::tip
-If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/semaphore-protocol/kovan?selected=playground) (Kovan). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
+If you don't know GraphQL, you can query Semaphore with the [Graph Explorer Playground](https://thegraph.com/hosted-service/subgraph/semaphore-protocol/kovan?selected=playground).
+For examples, see the [GraphQL API documentation](https://thegraph.com/docs/developer/graphql-api).
 :::
 
 ## Endpoints
