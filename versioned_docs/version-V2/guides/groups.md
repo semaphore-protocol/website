@@ -18,9 +18,13 @@ sidebar_position: 1
 -->
 
 Semaphore [groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
-A group may represent a poll, ballot question, or organizations 
+Example uses of groups include the following:
 
-Groups may be on-chain or off-chain.
+- Poll question that attendees join to rate an event.
+- Ballot that members join to vote on a proposal.
+- Whistleblowers who are verified employees of an organization.
+
+A group can be on-chain or off-chain.
 
 - [Create an on-chain group](#create-an-on-chain-group)
 
@@ -79,6 +83,6 @@ contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
 
 ```
 
-## Related resources
+## Related
 
 To learn more about groups, see the [`SemaphoreGroups` contract](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol).
