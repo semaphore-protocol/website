@@ -32,7 +32,7 @@ Semaphore is designed to allow building dApps in a **modular** fashion. Develope
 
 Semaphore provides the ability to:
 
-1. generate off-chain identities and add them to a Merkle tree (off-chain or on-chain);
+1. [generate off-chain identities](/docs/guides/identities/) and add them to a Merkle tree (off-chain or on-chain);
 2. anonymously broadcast a signal on-chain, if and only if the identity of the owner belongs to a
    valid Merkle tree and if the nullifier has not already been used.
 

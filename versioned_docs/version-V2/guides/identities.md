@@ -4,16 +4,36 @@ sidebar_position: 1
 
 # Semaphore identities
 
-In order for users to join [Semaphore groups](/docs/glossary#semaphore-group), they must first generate their [Semaphore identity](/docs/glossary#semaphore-identity). When a new identity is generated, two values are created: the identity trapdoor and the identity nullifier. These values, which only the user must know and should be kept secret, can be generated in two ways: randomly or deterministically (from the hash of a message).
+In order to join a [Semaphore group](/docs/glossary#semaphore-group), a user must first generate a [Semaphore identity](/docs/glossary#semaphore-identity).
+A Semaphore identity contains two values generated with the identity:
 
-## Generating random identities
+- Identity trapdoor
+- identity nullifier
 
-If you don't pass any parameters, an identity with random secret values will be created.
+To use and verify the identity, the identity owner (user) must know the trapdoor and nullifier values.
+To prevent fraud, the owner should keep both values secret.
+
+## Generate an identity
+
+Use the `"@semaphore-protocol/identity` library to generate a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
+
+- [Generate a random identity](#generate-a-random-identity)
+- [Generate a deterministic identity](#generate-a-deterministic-identity)
+
+## Generate a random identity
+
+To generate a random identity, instantiate `Identity` without any parameters--for example:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
 
 const identity = new Identity()
+```
+
+ The new identity contains random `trapdoor` and `nullifier` secret values.
+ The following example shows how to use the `.getTrapdoor` and `.getNullifier` accessor methods to retrieve the values:
+
+```ts
 // Random secret values.
 const trapdoor = identity.getTrapdoor()
 const nullifier = identity.getNullifier()
