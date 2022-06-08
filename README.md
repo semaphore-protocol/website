@@ -23,11 +23,11 @@
 
 <div align="center">
     <h4>
-        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CONTRIBUTING.md">
+        <a href="./CONTRIBUTING.md">
             👥 Contributing
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CODE_OF_CONDUCT.md">
+        <a href="./CODE_OF_CONDUCT.md">
             🤝 Code of conduct
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
