@@ -7,8 +7,7 @@ assignees: ''
 
 ---
 
-<!-- Put your term name here: -->
-### Term
+<!-- Put your term in the issue title above -->
 
 **Why do you think it is important?**
 
