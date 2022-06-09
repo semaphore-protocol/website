@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Groups
@@ -20,13 +20,13 @@ sidebar_position: 1
 Semaphore [groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
 Example uses of groups include the following:
 
-- Poll question that attendees join to rate an event.
-- Ballot that members join to vote on a proposal.
-- Whistleblowers who are verified employees of an organization.
+-   Poll question that attendees join to rate an event.
+-   Ballot that members join to vote on a proposal.
+-   Whistleblowers who are verified employees of an organization.
 
 A group can be on-chain or off-chain.
 
-- [Create an on-chain group](#create-an-on-chain-group)
+-   [Create an on-chain group](#create-an-on-chain-group)
 
 ## Create an on-chain group
 

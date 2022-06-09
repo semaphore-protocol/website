@@ -15,12 +15,12 @@ For more information, see the [Poseidon web site](https://www.poseidon-hash.info
 
 The identity of a user in the Semaphore protocol.
 An identity contains the following three values:
-- [Identity commitment](#identity-commitment): the public value.
-- Identity trapdoor and identity nullifier: secret values known only by the user.
+
+-   [Identity commitment](#identity-commitment): the public value.
+-   Identity trapdoor and identity nullifier: secret values known only by the user.
 
 ## Semaphore group
 
-A set of [Semaphore identities](#semaphore-identity).
 A group is a binary incremental [Merkle tree](#merkle-tree) in which each leaf contains an [identity commitment](#identity-commitment) for a user.
 The identity commitment proves that the user is a group member without revealing the Semaphore identity of the user.
 
