@@ -12,6 +12,9 @@ build
 
 static
 
+# github
+.github/ISSUE_TEMPLATE
+
 # config files
 .prettierignore
 .editorconfig
