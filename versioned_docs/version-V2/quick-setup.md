@@ -77,7 +77,7 @@ To install these dependencies for your project, do the following:
 2. Use `yarn` to install the JS libraries:
 
     ```bash
-    yarn add @semaphore-protocol/identity @semaphore-protocol/proof --dev
+    yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof --dev
     ```
 
     For more information about the JS libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
@@ -161,17 +161,7 @@ Hardhat lets you write [tasks](https://hardhat.org/guides/create-task.html#creat
 that automate building and deploying smart contracts and dApps.
 To create a task that deploys the `Greeters` contract, do the following:
 
-1. Use `yarn` to install `@zk-kit/incremental-merkle-tree` and `circomlibjs@0.0.8`:
-
-    ```bash
-    yarn add @zk-kit/incremental-merkle-tree circomlibjs@0.0.8 --dev
-    ```
-
-    `@zk-kit/incremental-merkle-tree` and `circomlibjs@0.0.8` let you create
-    off-chain Merkle trees. For more information, see the
-    [ZK-kit repository](https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/incremental-merkle-tree)
-
-2. Use `yarn` to install `hardhat-dependency-compiler`:
+1. Use `yarn` to install `hardhat-dependency-compiler`:
 
     ```bash
     yarn add hardhat-dependency-compiler --dev
@@ -180,11 +170,10 @@ To create a task that deploys the `Greeters` contract, do the following:
     [`hardhat-dependency-compiler`](https://github.com/ItsNickBarry/hardhat-dependency-compiler)
     compiles Solidity contracts and dependencies.
 
-3. Create a `tasks` folder and add a `./tasks/deploy.js` file that contains the following:
+2. Create a `tasks` folder and add a `./tasks/deploy.js` file that contains the following:
 
     ```javascript title="./tasks/deploy.js"
-    const { IncrementalMerkleTree } = require("@zk-kit/incremental-merkle-tree")
-    const { poseidon } = require("circomlibjs")
+    const { Group } = require("@semaphore-protocol/group")
     const identityCommitments = require("../static/identityCommitments.json")
     const { task, types } = require("hardhat/config")
 
@@ -200,13 +189,11 @@ To create a task that deploys the `Greeters` contract, do the following:
 
             const GreetersContract = await ethers.getContractFactory("Greeters")
 
-            const tree = new IncrementalMerkleTree(poseidon, 20, BigInt(0), 2)
+            const group = new Group()
 
-            for (const identityCommitment of identityCommitments) {
-                tree.insert(identityCommitment)
-            }
+            group.addMembers(identityCommitments)
 
-            const greeters = await GreetersContract.deploy(tree.root, verifier.address)
+            const greeters = await GreetersContract.deploy(group.root, verifier.address)
 
             await greeters.deployed()
 
@@ -216,7 +203,7 @@ To create a task that deploys the `Greeters` contract, do the following:
         })
     ```
 
-4. In your `hardhat.config.js` file, add the following:
+3. In your `hardhat.config.js` file, add the following:
 
     ```javascript title="./hardhat.config.js"
     require("@nomiclabs/hardhat-waffle")
@@ -260,12 +247,8 @@ and [Chai assertions](https://www.chaijs.com/).
 
     ```javascript title="./test/sample-test.js"
     const { Identity } = require("@semaphore-protocol/identity")
-    const {
-        createMerkleProof,
-        generateProof,
-        packToSolidityProof,
-        generateNullifierHash
-    } = require("@semaphore-protocol/proof")
+    const { Group } = require("@semaphore-protocol/group")
+    const { generateProof, packToSolidityProof } = require("@semaphore-protocol/proof")
     const identityCommitments = require("../static/identityCommitments.json")
     const { expect } = require("chai")
     const { run, ethers } = require("hardhat")
@@ -285,24 +268,27 @@ and [Chai assertions](https://www.chaijs.com/).
             const zkeyFilePath = "./static/semaphore.zkey"
 
             it("Should greet", async () => {
-                const message = await signers[0].signMessage("Sign this message to create your identity!")
-
-                const identity = new Identity(message)
-                const identityCommitment = identity.generateCommitment()
                 const greeting = "Hello world"
                 const bytes32Greeting = ethers.utils.formatBytes32String(greeting)
 
-                const merkleProof = createMerkleProof(20, BigInt(0), identityCommitments, identityCommitment)
+                const message = await signers[0].signMessage("Sign this message to create your identity!")
+                const identity = new Identity(message)
 
-                const fullProof = await generateProof(identity, merkleProof, merkleProof.root, greeting, {
+                const group = new Group()
+
+                group.addMembers(identityCommitments)
+
+                const fullProof = await generateProof(identity, group, group.root, greeting, {
                     wasmFilePath,
                     zkeyFilePath
                 })
                 const solidityProof = packToSolidityProof(fullProof.proof)
 
-                const nullifierHash = generateNullifierHash(merkleProof.root, identity.getNullifier())
-
-                const transaction = contract.greet(bytes32Greeting, nullifierHash, solidityProof)
+                const transaction = contract.greet(
+                    bytes32Greeting,
+                    fullProof.publicSignals.nullifierHash,
+                    solidityProof
+                )
 
                 await expect(transaction).to.emit(contract, "NewGreeting").withArgs(bytes32Greeting)
             })
