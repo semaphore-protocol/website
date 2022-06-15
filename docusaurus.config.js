@@ -7,7 +7,7 @@ module.exports = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     organizationName: "semaphore-protocol",
-    projectName: "semaphore",
+    projectName: "website",
     trailingSlash: false,
 
     presets: [
