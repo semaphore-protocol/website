@@ -1,10 +1,11 @@
 ---
 sidebar_position: 1
+title: Identities
 ---
 
 # Semaphore identities
 
-In order to join a [Semaphore group](/docs/glossary#semaphore-group), a user must first generate a [Semaphore identity](/docs/glossary#semaphore-identity).
+In order to join a [Semaphore group](/docs/glossary#semaphore-group), a user must first create a [Semaphore identity](/docs/glossary#semaphore-identity).
 A Semaphore identity contains two values generated with the identity:
 
 -   Identity trapdoor
@@ -13,16 +14,16 @@ A Semaphore identity contains two values generated with the identity:
 To use and verify the identity, the identity owner (user) must know the trapdoor and nullifier values.
 To prevent fraud, the owner should keep both values secret.
 
-## Generate an identity
+## Create an identity
 
-Use the `"@semaphore-protocol/identity` library to generate a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
+Use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
 
--   [Generate a random identity](#generate-a-random-identity)
--   [Generate a deterministic identity](#generate-a-deterministic-identity)
+-   [**Create random identities**](#create-random-identities)
+-   [**Create deterministic identities**](#create-deterministic-identities)
 
-## Generate a random identity
+### Create random identities
 
-To generate a random identity, instantiate `Identity` without any parameters. For example:
+To create a random identity, instantiate `Identity` without any parameters. For example:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
@@ -39,16 +40,16 @@ const trapdoor = identity.getTrapdoor()
 const nullifier = identity.getNullifier()
 ```
 
-## Generating deterministic identities
+### Create deterministic identities
 
-If you pass a message as a parameter, trapdoor and nullifier will be generated from the SHA256 hash of the message. The message must clearly be kept secret in turn, since anyone who owns the message can regenerate the same identity. The massage can be a password or a message signed with a private key.
+If you pass a message as a parameter, trapdoor and nullifier will be generated from the SHA256 hash of the message. The message must clearly be kept secret in turn, since anyone who owns the message can recreate the same identity. The massage can be a password or a message signed with a private key.
 
 ```ts
 const identity = new Identity("secret-message")
 ```
 
 :::tip
-Since building a system to save or recover the secret values of Semaphore identities is nontrivial, a message signed with the private key of the users' Ethereum account allows these functionalities to be delegated to an existing wallet (e.g., Metamask). Users can regenerate their Semaphore identity whenever they want using their Ethereum account by signing the same message.
+Since building a system to save or recover the secret values of Semaphore identities is nontrivial, a message signed with the private key of the users' Ethereum account allows these functionalities to be delegated to an existing wallet (e.g., Metamask). Users can recreate their Semaphore identity whenever they want using their Ethereum account by signing the same message.
 :::
 
 ## Saving your identities

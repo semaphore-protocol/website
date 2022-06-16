@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
+title: Groups
 ---
 
-# Groups
+# Semaphore groups
 
 <!--Working outline
 - What is a group
@@ -17,7 +18,7 @@ sidebar_position: 2
 - Remove identities
 -->
 
-Semaphore [groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
+[Semaphore groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
 Example uses of groups include the following:
 
 -   Poll question that attendees join to rate an event.
@@ -26,9 +27,9 @@ Example uses of groups include the following:
 
 A group can be on-chain or off-chain.
 
--   [Create an on-chain group](#create-an-on-chain-group)
+-   [**Create on-chain groups**](#create-on-chain-groups)
 
-## Create an on-chain group
+## Create on-chain groups
 
 The `SemaphoreGroups` contract provides the following `_createGroup` function:
 

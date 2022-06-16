@@ -9,15 +9,15 @@ Learn how to create and test an Ethereum smart contract that uses zero-knowledge
 proofs to verify membership.
 
 To check out the code used in this guide, visit the
-[semaphore-quick-setup](https://github.com/semaphore-protocol/quick-setup) repository.
+[quick-setup](https://github.com/semaphore-protocol/quick-setup) repository.
 
-1. [Create a Node.js project](#create-a-nodejs-project)
-2. [Install Hardhat](#install-hardhat)
-3. [Install Semaphore contracts and JS libraries](#install-semaphore-contracts-and-js-libraries)
-4. [Create the Semaphore contract](#create-the-semaphore-contract)
-5. [Create Semaphore IDs](#create-semaphore-ids)
-6. [Create a Hardhat task that deploys your contract](#create-a-hardhat-task-that-deploys-your-contract)
-7. [Deploy your contract to a local network](#deploy-your-contract-to-a-local-network)
+1. [**Create a Node.js project**](#create-a-nodejs-project)
+2. [**Install Hardhat**](#install-hardhat)
+3. [**Install Semaphore contracts and JS libraries**](#install-semaphore-contracts-and-js-libraries)
+4. [**Create the Semaphore contract**](#create-the-semaphore-contract)
+5. [**Create Semaphore IDs**](#create-semaphore-ids)
+6. [**Create a Hardhat task that deploys your contract**](#create-a-hardhat-task-that-deploys-your-contract)
+7. [**Deploy your contract to a local network**](#deploy-your-contract-to-a-local-network)
 
 ## Create a Node.js project
 
@@ -135,7 +135,7 @@ Create a `Greeters` contract that imports and extends the Semaphore base contrac
 
 ## Create Semaphore IDs
 
-Semaphore _identity commitments_ (Semaphore IDs) represent user identities and
+Semaphore IDs (i.e. _identity commitments_) represent user identities and
 are the leaves of the Merkle trees in the protocol.
 
 Create a `./static` folder and add a `./static/identityCommitments.json` file that

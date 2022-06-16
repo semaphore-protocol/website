@@ -9,7 +9,7 @@ sidebar_position: 7
 The public [Semaphore identity](#semaphore-identity) value used in [Semaphore groups](#semaphore-group).
 
 Semaphore uses the **Poseidon** hash function to create the identity commitment from the Semaphore identity secret values.
-For more information, see the [Poseidon web site](https://www.poseidon-hash.info/).
+For more information, see the [Poseidon website](https://www.poseidon-hash.info/).
 
 ## Semaphore identity
 
@@ -25,7 +25,7 @@ A group is a binary incremental [Merkle tree](#merkle-tree) in which each leaf c
 The identity commitment proves that the user is a group member without revealing the Semaphore identity of the user.
 
 Semaphore uses the **Poseidon** hash function to create Merkle trees.
-For more information, see the [Poseidon web site](https://www.poseidon-hash.info/).
+For more information, see the [Poseidon website](https://www.poseidon-hash.info/).
 
 ## Merkle tree
 
