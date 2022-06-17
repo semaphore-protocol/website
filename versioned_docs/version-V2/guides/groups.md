@@ -25,47 +25,66 @@ Example uses of groups include the following:
 -   Ballot that members join to vote on a proposal.
 -   Whistleblowers who are verified employees of an organization.
 
-A group can be on-chain or off-chain.
+Semaphore groups are actually incremental Merkle trees, and the group members (i.e. identity commitments) are tree leaves. Semaphore implementations of groups thus also need two parameters:
 
+-   **Tree depth**: determines the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+-   **Zero value**: is used to calculate the zeroes nodes of the incremental Merkle tree.
+
+## Create groups
+
+Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore.js/blob/main/packages/group) library to create off-chain groups, or the [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) contract to create on-chain groups.
+
+-   [**Create off-chain groups**](#create-off-chain-groups)
 -   [**Create on-chain groups**](#create-on-chain-groups)
 
-## Create on-chain groups
+### Create off-chain groups
 
-The `SemaphoreGroups` contract provides the following `_createGroup` function:
+You can create an instance of the `Group` class without passing any parameters, or you can specify the `treeDepth` and `zeroValue` values.
 
 ```ts
-    /// @dev Creates a new group by initializing the associated tree.
-    /// @param groupId: Id of the group.
-    /// @param depth: Depth of the tree.
-    /// @param zeroValue: Zero value of the tree.
-    function _createGroup(
-        uint256 groupId,
-        uint8 depth,
-        uint256 zeroValue
-    ) internal virtual {
-        require(groupId < SNARK_SCALAR_FIELD, "SemaphoreGroups: group id must be < SNARK_SCALAR_FIELD");
-        require(getDepth(groupId) == 0, "SemaphoreGroups: group already exists");
+import { Group } from "@semaphore-protocol/group"
 
-        groups[groupId].init(depth, zeroValue);
-
-        emit GroupCreated(groupId, depth, zeroValue);
-    }
+// Default parameters: treeDepth = 20, zeroValue = BigInt(0).
+const group = new Group()
 ```
 
-To create an on-chain group, in your contract, import `SemaphoreGroups` and call `_createGroup`.
-The following code sample shows how the `Semaphore.sol` contract uses `_createGroup`:
+Members can be added one at a time or in batches.
 
 ```ts
+group.addMember(identityCommitment)
+// or
+group.addMembers(identityCommitments)
+```
+
+Members can also be removed from a group. Simply pass the member index:
+
+```ts
+group.removeMember(0)
+```
+
+:::caution
+When a member is removed actually its value is updated to be equal to `zeroValue`. The length of the `group.members` array will then be the same.
+:::
+
+### Create on-chain groups
+
+The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreGroups.sol) contract uses a the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create groups and add/remove members.
+
+To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) and call its internal methods. The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
+
+```sol
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "./interfaces/ISemaphore.sol";
 import "./base/SemaphoreCore.sol";
 import "./base/SemaphoreGroups.sol";
 
-...
-
 /// @title Semaphore
 contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
+
+    ...
+
     function createGroup(
         uint256 groupId,
         uint8 depth,
@@ -78,12 +97,20 @@ contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
 
         emit GroupAdminUpdated(groupId, address(0), admin);
     }
+
+    function addMember(uint256 groupId, uint256 identityCommitment) external override onlyGroupAdmin(groupId) {
+        _addMember(groupId, identityCommitment);
+    }
+
+    function removeMember(
+        uint256 groupId,
+        uint256 identityCommitment,
+        uint256[] calldata proofSiblings,
+        uint8[] calldata proofPathIndices
+    ) external override onlyGroupAdmin(groupId) {
+        _removeMember(groupId, identityCommitment, proofSiblings, proofPathIndices);
+    }
+
+    ...
 }
-
-...
-
 ```
-
-## Related
-
-To learn more about groups, see the [`SemaphoreGroups` contract](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol).

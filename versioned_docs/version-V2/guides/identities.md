@@ -14,7 +14,7 @@ A Semaphore identity contains two values generated with the identity:
 To use and verify the identity, the identity owner (user) must know the trapdoor and nullifier values.
 To prevent fraud, the owner should keep both values secret.
 
-## Create an identity
+## Create identities
 
 Use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
 

@@ -58,42 +58,43 @@ await verifyProof(verificationKey, fullProof) // true or false.
 
 The [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract uses a previously deployed verifier and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
 
+To verify Semaphore proofs in your contract, import [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) and call its internal methods. The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreCore`:
+
 ```sol
-//SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
 
-import "@semaphore-protocol/contracts/interfaces/IVerifier.sol";
-import "@semaphore-protocol/contracts/base/SemaphoreCore.sol";
+import "./interfaces/ISemaphore.sol";
+import "./base/SemaphoreCore.sol";
+import "./base/SemaphoreGroups.sol";
 
-/// @title Private voting.
-contract Ballot is SemaphoreCore {
-    event Vote(bytes32 proposal);
+/// @title Semaphore
+contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
 
-    // Semaphore verifier that must be previously deployed.
-    IVerifier public verifier;
-    // It can be the Merkle tree root of the group used for this ballot.
-    uint256 public ballotId;
-    // List of ballot proposals.
-    bytes32[] public proposals;
+    ...
 
-    constructor(address _verifier, uint256 _ballotId, bytes32[] memory _proposals) {
-        verifier = IVerifier(_verifier);
-        ballotId = _ballotId;
-        proposals = _proposals;
+    function verifyProof(
+        uint256 groupId,
+        bytes32 signal,
+        uint256 nullifierHash,
+        uint256 externalNullifier,
+        uint256[8] calldata proof
+    ) external override {
+        uint256 root = getRoot(groupId);
+        uint8 depth = getDepth(groupId);
+
+        require(depth != 0, "Semaphore: group does not exist");
+
+        IVerifier verifier = verifiers[depth];
+
+        _verifyProof(signal, root, nullifierHash, externalNullifier, proof, verifier);
+
+        _saveNullifierHash(nullifierHash);
+
+        emit ProofVerified(groupId, signal);
     }
 
-    function vote(
-        bytes32 _proposal,
-        uint256 _nullifierHash,
-        uint256[8] calldata _proof
-    ) external {
-        _verifyProof(_proposal, ballotId, _nullifierHash, ballotId, _proof, verifier);
-
-        // Prevent double-voting.
-        _saveNullifierHash(_nullifierHash);
-
-        emit Vote(_proposal);
-    }
+    ...
 }
 ```
 
