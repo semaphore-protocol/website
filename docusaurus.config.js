@@ -7,7 +7,7 @@ module.exports = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     organizationName: "semaphore-protocol",
-    projectName: "website",
+    projectName: "semaphore",
     trailingSlash: false,
 
     presets: [
@@ -18,7 +18,7 @@ module.exports = {
                     path: "docs",
                     routeBasePath: "docs/",
                     sidebarPath: require.resolve("./sidebars.js"),
-                    editUrl: "https://github.com/semaphore-protocol/semaphore/edit/main/",
+                    editUrl: "https://github.com/semaphore-protocol/website/edit/main/",
                     includeCurrentVersion: false
                 },
                 theme: {
