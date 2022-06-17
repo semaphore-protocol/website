@@ -4,10 +4,6 @@ title: What Is Semaphore?
 sidebar_position: 1
 ---
 
-:::caution
-Semaphore's V2 documentation is under development.
-:::
-
 ## Overview
 
 [Semaphore](https://github.com/semaphore-protocol/semaphore) is a [zero-knowledge](https://z.cash/technology/zksnarks) protocol that allows users to prove their membership in a group and send signals such as votes or endorsements without revealing their identity. Additionally, it provides a simple mechanism to prevent double-signaling. Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
