@@ -12,8 +12,8 @@ sidebar_position: 1
 
 Semaphore provides the ability to:
 
-1. Create private [identities](docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
-2. Anonymously broadcast a signal if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
+1. Create private [identities](/docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
+2. [Anonymously broadcast a signal](/docs/guides/proofs/) if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
