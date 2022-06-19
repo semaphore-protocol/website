@@ -16,14 +16,14 @@ Once a user joins their [Semaphore identity](/docs/glossary#semaphore-identity) 
 
 Developers can use Semaphore for the following:
 
-- [Generate a proof off-chain](#generate-a-proof)
-- [Verify a proof off-chain](#verify-a-proof-off-chain)
-- [Verify a proof on-chain](#verify-a-proof-on-chain)
+-   [**Generate a proof off-chain**](#generate-a-proof-off-chain)
+-   [**Verify a proof off-chain**](#verify-a-proof-off-chain)
+-   [**Verify a proof on-chain**](#verify-a-proof-on-chain)
 
 :::info
 To generate or verify valid zero-knowledge proofs, your application must include Semaphore _trusted-setup_ files.
-For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org/>.
-To learn more, see the [trusted-setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html). 
+For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org>.
+To learn more, see the [trusted-setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
 :::
 
 ## Generate a proof off-chain
@@ -39,7 +39,7 @@ To generate a proof, pass the following properties to the `generateProof` functi
 
 In the voting system use case, once all the voters have joined their [identities](/docs/guides/identities#create-an-identity) to the ballot [group](/docs/guides/groups),
 a voter can generate a proof to vote for a proposal.
-In the call to `generateProof`, the voting system passes the unique ballot ID (the [Merkle tree](/docs/glossary/#merkle-tree/) root of the group) as the 
+In the call to `generateProof`, the voting system passes the unique ballot ID (the [Merkle tree](/docs/glossary/#merkle-tree/) root of the group) as the
 `externalNullifier` to prevent the voter signaling more than once for the ballot.
 The following example shows how to use `generateProof` to generate the voting proof:
 
@@ -57,8 +57,6 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 
 ## Verify a proof off-chain
 
-Contracts can be imported from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
-
 Verifying a proof off-chain requires only the Semaphore proof and the verification key:
 
 ```ts
@@ -69,11 +67,13 @@ const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
 await verifyProof(verificationKey, fullProof) // true or false.
 ```
 
-### Verify a proof on-chain
+## Verify a proof on-chain
 
 The [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract uses a previously deployed verifier and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
 
 To verify Semaphore proofs in your contract, import [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) and call its internal methods. The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreCore`:
+
+Contracts can be imported from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
 
 ```sol
 // SPDX-License-Identifier: MIT
