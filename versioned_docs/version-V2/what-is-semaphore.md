@@ -4,10 +4,6 @@ title: What Is Semaphore?
 sidebar_position: 1
 ---
 
-:::caution
-Semaphore's V2 documentation is under development.
-:::
-
 ## Overview
 
 [Semaphore](https://github.com/semaphore-protocol/semaphore) is a [zero-knowledge](https://z.cash/technology/zksnarks) protocol that allows users to prove their membership in a group and send signals such as votes or endorsements without revealing their identity. Additionally, it provides a simple mechanism to prevent double-signaling. Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
@@ -16,13 +12,13 @@ Semaphore's V2 documentation is under development.
 
 Semaphore provides the ability to:
 
-1. Create private [identities](docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
-2. Anonymously broadcast a signal if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
+1. Create private [identities](/docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
+2. [Anonymously broadcast a signal](/docs/guides/proofs/) if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
 
-Semaphore uses smart contracts and zero-knowledge components that work in tandem.
+Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
--   Off-chain, zero-knowledge components allow users to generate identities and proofs.
--   On-chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
+- Off chain, zero-knowledge components allow users to generate identities and proofs.
+- On chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
 
 ## Developer benefits
 

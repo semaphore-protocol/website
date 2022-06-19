@@ -5,34 +5,49 @@ title: Proofs
 
 # Semaphore proofs
 
-Once a [Semaphore group](/docs/glossary#semaphore-group) was created and users have joined with their [Semaphore identities](/docs/glossary#semaphore-identity), each of them can signal anonymously by generating a zero-knowledge proof to prove that:
+Learn how to use Semaphore to generate and verify zero-knowledge proofs.
 
--   they are part of that group,
--   the signal was created by the user who generated the proof.
+## Broadcast anonymous signals
 
-The [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/proof) library can be used to generate and verify proofs off-chain. The [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract can instead be used to verify proofs on-chain. Contracts can be imported from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
+Once a user joins their [Semaphore identity](/docs/glossary#semaphore-identity) to a [Semaphore group](/docs/glossary#semaphore-group), the user can signal anonymously with a zero-knowledge proof that proves the following:
+
+-   The user is a member of the group.
+-   The same user created the signal and the proof.
+
+Developers can use Semaphore for the following:
+
+- [Generate a proof off-chain](#generate-a-proof)
+- [Verify a proof off-chain](#verify-a-proof-off-chain)
+- [Verify a proof on-chain](#verify-a-proof-on-chain)
 
 :::info
-Generating or verifying valid zero-knowledge proofs requires files that can only be obtained in an attested [trusted-setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html). For a complete list of ready-to-use files visit [trusted-setup-pse.org](http://www.trusted-setup-pse.org/).
+To generate or verify valid zero-knowledge proofs, your application must include Semaphore _trusted-setup_ files.
+For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org/>.
+To learn more, see the [trusted-setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html). 
 :::
 
-## Generate a proof
+## Generate a proof off-chain
 
-Generating a valid Semaphore proof requires 5 properties:
+Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/proof) library to generate an off-chain proof.
+To generate a proof, pass the following properties to the `generateProof` function:
 
--   `identity`: the Semaphore identity of the user who wants to generate the proof,
--   `group`: the group to which the user belongs,
--   `externalNullifier`: the value to be used to avoid double-signaling,
--   `signal`: the signal the user wants to send anonymously,
--   `snarkArtifacts`: the `zkey` and `wasm` files.
+-   `identity`: The Semaphore identity of the user broadcasting the signal and generating the proof.
+-   `group`: The group to which the user belongs.
+-   `externalNullifier`: The value that prevents double-signaling.
+-   `signal`: The signal the user wants to send anonymously.
+-   `snarkArtifacts`: The `zkey` and `wasm` trusted-setup files.
 
-In the case of a voting system, once the voters' [identities](/docs/guides/identities#create-an-identity) and the ballot-related [group](/docs/guides/groups) have been created, and once the group contains all the users enabled to vote, the voter can vote by choosing one proposal and using a unique ballot id (e.g. the Merkle tree root of the group), so that only one vote per ballot can be cast.
+In the voting system use case, once all the voters have joined their [identities](/docs/guides/identities#create-an-identity) to the ballot [group](/docs/guides/groups),
+a voter can generate a proof to vote for a proposal.
+In the call to `generateProof`, the voting system passes the unique ballot ID (the [Merkle tree](/docs/glossary/#merkle-tree/) root of the group) as the 
+`externalNullifier` to prevent the voter signaling more than once for the ballot.
+The following example shows how to use `generateProof` to generate the voting proof:
 
 ```ts
 import { generateProof } from "@semaphore-protocol/proof"
 
 const externalNullifier = group.root
-const signal = "proposal"
+const signal = "proposal_1"
 
 const fullProof = await generateProof(identity, group, externalNullifier, signal, {
     zkeyFilePath: "./semaphore.zkey",
@@ -40,9 +55,9 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 })
 ```
 
-## Verify a proof
+## Verify a proof off-chain
 
-### Off-chain verification
+Contracts can be imported from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
 
 Verifying a proof off-chain requires only the Semaphore proof and the verification key:
 
@@ -54,7 +69,7 @@ const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
 await verifyProof(verificationKey, fullProof) // true or false.
 ```
 
-### On-chain verification
+### Verify a proof on-chain
 
 The [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract uses a previously deployed verifier and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
 
