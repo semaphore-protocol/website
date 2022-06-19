@@ -41,10 +41,9 @@ module.exports = {
             additionalLanguages: ["solidity"]
         },
         navbar: {
-            title: "Semaphore",
             logo: {
-                alt: "Semaphore Icon",
-                src: "img/semaphore-icon.svg"
+                alt: "Semaphore Logo",
+                src: "img/semaphore-logo.svg"
             },
             items: [
                 {
@@ -52,7 +51,7 @@ module.exports = {
                     position: "left",
                     dropdownActiveClassDisabled: true,
                     docsPluginId: "default",
-                    className: "persistent"
+                    className: "docs_active"
                 },
                 {
                     label: "Whitepaper",
@@ -61,8 +60,14 @@ module.exports = {
                     className: "V1_active"
                 },
                 {
+                    label: "Documentation",
+                    href: "/docs/introduction",
+                    position: "right",
+                    className: "persistent"
+                },
+                {
                     label: "GitHub",
-                    href: "https://github.com/semaphore-protocol/semaphore",
+                    href: "https://github.com/semaphore-protocol",
                     position: "right",
                     className: "persistent"
                 }

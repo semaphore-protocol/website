@@ -112,6 +112,7 @@ h4 {
 }
 
 .navbar {
+    height: 90px;
     align-items: center;
 }
 
@@ -160,8 +161,7 @@ html[data-theme="light"] .navbar {
 }
 
 .navbar__logo {
-    height: 20px;
-    width: 20px;
+    height: 25px;
 }
 
 .menu__link {
@@ -324,11 +324,20 @@ html[data-theme="dark"] .DocSearch-Hit a {
     display: none;
 }
 
+.navbar__link {
+    display: none;
+}
+
 .navbar__item.dropdown {
     display: inline-block;
 }
 
-.navbar__item.persistent {
+.navbar__item.persistent,
+.navbar__link.persistent {
+    display: inline-block;
+}
+
+.navbar__link.docs_active.docs {
     display: inline-block;
 }
 

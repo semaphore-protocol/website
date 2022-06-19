@@ -4,21 +4,6 @@ import styled from "@emotion/styled"
 import Layout from "@theme/Layout"
 import React from "react"
 
-export const semaphoreComponents = [
-    {
-        title: "semaphore-circuits",
-        href: "https://github.com/semaphore-protocol/semaphore/tree/main/circuits"
-    },
-    {
-        title: "semaphore-contracts",
-        href: "https://github.com/semaphore-protocol/semaphore/tree/main/contracts"
-    },
-    {
-        title: "semaphore.js",
-        href: "https://github.com/semaphore-protocol/semaphore.js"
-    }
-]
-
 const Container = styled.div`
     display: flex;
     flex-direction: column;
