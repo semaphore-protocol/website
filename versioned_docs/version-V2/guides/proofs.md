@@ -54,8 +54,8 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/proof) library to verify a Semaphore proof off-chain.
 To verify a proof, pass the following to the `verifyProof` function:
 
-- _`proof`_: the Semaphore proof.
-- _`verificationKey`_: the JavaScript object in the `semaphore.json` [trusted setup file](/docs/glossary/#trusted-setup-files).
+-   _`proof`_: the Semaphore proof.
+-   _`verificationKey`_: the JavaScript object in the `semaphore.json` [trusted setup file](/docs/glossary/#trusted-setup-files).
 
 The following code sample shows how to parse the verification key object from `semaphore.json`
 and verify the previously generated proof:
@@ -79,14 +79,14 @@ Use the [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tr
 You can import `SemaphoreCore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
 :::
 
-To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol), inherit the `SemaphoreCore` interface, and pass the following to the `SemaphoreCore verifyProof` internal method:
+To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) and pass the following to the `_verifyProof` internal method:
 
-- _`signal`_: The Semaphore signal to prove.
-- _`root`_: The root of the Merkle tree.
-- _`nullifierHash`_: a [nullifier hash](#retrieve-a-nullifier-hash).
-- _`externalNullifier`_: The external nullifier.
-- _`proof`_: A [_Solidity-compatible_ Semaphore proof](#generate-a-solidity-compatible-proof).
-- _`verifier`_: The verifier address.
+-   _`signal`_: The Semaphore signal to prove.
+-   _`root`_: The root of the Merkle tree.
+-   _`nullifierHash`_: a [nullifier hash](#retrieve-a-nullifier-hash).
+-   _`externalNullifier`_: The external nullifier.
+-   _`proof`_: A [_Solidity-compatible_ Semaphore proof](#generate-a-solidity-compatible-proof).
+-   _`verifier`_: The verifier address.
 
 The following code sample shows how the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreCore` to verify the proof:
 
