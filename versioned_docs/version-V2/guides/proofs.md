@@ -20,12 +20,6 @@ Developers can use Semaphore for the following:
 -   [**Verify a proof off-chain**](#verify-a-proof-off-chain)
 -   [**Verify a proof on-chain**](#verify-a-proof-on-chain)
 
-:::info
-To generate or verify valid zero-knowledge proofs, your application must include Semaphore _trusted-setup_ files.
-For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org>.
-To learn more, see the [trusted-setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
-:::
-
 ## Generate a proof off-chain
 
 Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/proof) library to generate an off-chain proof.
@@ -35,13 +29,13 @@ To generate a proof, pass the following properties to the `generateProof` functi
 -   `group`: The group to which the user belongs.
 -   `externalNullifier`: The value that prevents double-signaling.
 -   `signal`: The signal the user wants to send anonymously.
--   `snarkArtifacts`: The `zkey` and `wasm` trusted-setup files.
+-   `snarkArtifacts`: The `zkey` and `wasm` [trusted setup files](/docs/glossary/#trusted-setup-files).
 
 In the voting system use case, once all the voters have joined their [identities](/docs/guides/identities#create-an-identity) to the ballot [group](/docs/guides/groups),
 a voter can generate a proof to vote for a proposal.
 In the call to `generateProof`, the voting system passes the unique ballot ID (the [Merkle tree](/docs/glossary/#merkle-tree/) root of the group) as the
 `externalNullifier` to prevent the voter signaling more than once for the ballot.
-The following example shows how to use `generateProof` to generate the voting proof:
+The following code sample shows how to use `generateProof` to generate the voting proof:
 
 ```ts
 import { generateProof } from "@semaphore-protocol/proof"
@@ -57,7 +51,14 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 
 ## Verify a proof off-chain
 
-Verifying a proof off-chain requires only the Semaphore proof and the verification key:
+Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/proof) library to verify a Semaphore proof off-chain.
+To verify a proof, pass the following to the `verifyProof` function:
+
+- _`proof`_: the Semaphore proof.
+- _`verificationKey`_: the JavaScript object in the `semaphore.json` [trusted setup file](/docs/glossary/#trusted-setup-files).
+
+The following code sample shows how to parse the verification key object from `semaphore.json`
+and verify the previously generated proof:
 
 ```ts
 import { verifyProof } from "@semaphore-protocol/proof"
@@ -67,13 +68,27 @@ const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
 await verifyProof(verificationKey, fullProof) // true or false.
 ```
 
+`verifyProof` returns a Promise that resolves to `true` or `false`.
+
 ## Verify a proof on-chain
 
-The [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract uses a previously deployed verifier and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
+Use the [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) contract to verify proofs on-chain.
+[`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreCore.sol) uses a verifier deployed to Ethereum and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
 
-To verify Semaphore proofs in your contract, import [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) and call its internal methods. The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreCore`:
+:::info
+You can import `SemaphoreCore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
+:::
 
-Contracts can be imported from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM module.
+To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol), inherit the `SemaphoreCore` interface, and pass the following to the `SemaphoreCore verifyProof` internal method:
+
+- _`signal`_: The Semaphore signal to prove.
+- _`root`_: The root of the Merkle tree.
+- _`nullifierHash`_: a [nullifier hash](#retrieve-a-nullifier-hash).
+- _`externalNullifier`_: The external nullifier.
+- _`proof`_: A [_Solidity-compatible_ Semaphore proof](#generate-a-solidity-compatible-proof).
+- _`verifier`_: The verifier address.
+
+The following code sample shows how the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreCore` to verify the proof:
 
 ```sol
 // SPDX-License-Identifier: MIT
@@ -113,7 +128,9 @@ contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
 }
 ```
 
-To get a proof compatible with Solidity contracts you can use the `packToSolidityProof` utility function:
+### Generate a Solidity-compatible proof
+
+To transform a proof to be compatible with Solidity contracts, pass the proof to the `packToSolidityProof` utility function--for example:
 
 ```ts
 import { packToSolidityProof } from "@semaphore-protocol/proof"
@@ -121,7 +138,11 @@ import { packToSolidityProof } from "@semaphore-protocol/proof"
 const solidityProof = packToSolidityProof(fullProof.proof)
 ```
 
-The nullifier hash can be retrieved in the public signals of the Semaphore proof:
+Semaphore returns a new Solidity-compatible instance of the proof.
+
+### Retrieve a nullifier hash
+
+To get the Semaphore proof nullifier hash, access the proof's `publicSignals.nullifierHash` property--for example:
 
 ```ts
 const { nullifierHash } = fullProof.publicSignals
