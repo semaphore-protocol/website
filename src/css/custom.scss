@@ -17,6 +17,16 @@
     --ifm-color-primary-lighter: #5a91ea;
     --ifm-color-primary-lightest: #80aaef;
 
+    --custom-dark-4: #0c0c15;
+    --custom-dark-3: #131320;
+    --custom-dark-2: #1f2034;
+    --custom-dark-1: #3b3b48;
+    --custom-gray-1: #8f9097;
+    --custom-gray-0: #c4c6ca;
+    --custom-blue-2: #758bff;
+    --custom-blue-1: #dae0ff;
+    --custom-blue-0: #f8f9ff;
+
     --collapse-button-bg-color-dark: #2e333a;
 
     --ifm-code-font-size: 95%;
@@ -28,8 +38,6 @@
     --ifm-h5-font-size: 0.875rem;
     --ifm-h6-font-size: 0.85rem;
 
-    /* --ifm-table-border-color: var(--ifm-color-emphasis-100); */
-    /* --ifm-toc-border-color: none; */
     --ifm-toc-border-width: 1px;
 
     /* --ifm-menu-color: var(--ifm-color-emphasis-900); */
@@ -45,14 +53,18 @@
 }
 
 html[data-theme="dark"] {
-    --ifm-color-primary: white;
-    --ifm-color-primary-dark: #5a91ea;
-    --ifm-navbar-background-color: #191b1f;
+    --ifm-background-color: var(--custom-dark-3);
+    --ifm-color-primary: var(--custom-gray-1);
+    --ifm-navbar-background-color: var(--custom-dark-3);
     --ifm-global-shadow-md: 0 5px 4px rgba(255, 255, 255, 0.448);
+    --ifm-toc-border-color: var(--custom-dark-2);
 }
 
 html[data-theme="light"] {
-    --ifm-color-primary: black;
+    --ifm-background-color: var(--custom-blue-0);
+    --ifm-color-primary: var(--custom-dark-1);
+    --ifm-navbar-background-color: var(--custom-blue-0);
+    --ifm-toc-border-color: var(--custom-blue-1);
 }
 
 html {
@@ -67,7 +79,15 @@ html {
 }
 
 .markdown a {
-    color: #3578e5;
+    color: var(--custom-blue-2);
+}
+
+svg.custom-icon > path {
+    fill: var(--ifm-color-primary);
+}
+
+svg.custom-icon > circle {
+    stroke: var(--ifm-color-primary);
 }
 
 p {
@@ -93,15 +113,15 @@ h5 {
 h1 {
     font-size: 32px;
 }
+
 h2 {
     font-size: 24px;
 }
+
 h3 {
     font-size: 20px;
 }
-h4 {
-    font-size: 20px;
-}
+
 h4 {
     font-size: 16px;
 }
@@ -114,15 +134,14 @@ h4 {
 .navbar {
     height: 90px;
     align-items: center;
+    box-shadow: none;
 }
 
 html[data-theme="dark"] .navbar {
-    /* background-color: none; */
     border-bottom: var(--ifm-toc-border-color) 1px solid;
 }
 
 html[data-theme="light"] .navbar {
-    /* background-color: none; */
     border-bottom: var(--ifm-toc-border-color) 1px solid;
 }
 
@@ -186,9 +205,9 @@ html[data-theme="dark"] .navbar__logo {
 }
 
 .badge--secondary {
-    --ifm-badge-background-color: var(--ifm-color-emphasis-0);
+    --ifm-badge-background-color: var(--custom-blue-1);
     --ifm-badge-border-color: var(--ifm-badge-background-color);
-    color: var(--ifm-color-base);
+    color: var(--custom-dark-3);
 }
 
 html[data-theme="light"] .DocSearch {

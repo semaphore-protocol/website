@@ -10,6 +10,8 @@ module.exports = {
     projectName: "semaphore",
     trailingSlash: false,
 
+    plugins: ["docusaurus-plugin-sass"],
+
     presets: [
         [
             "@docusaurus/preset-classic",
@@ -22,8 +24,8 @@ module.exports = {
                     includeCurrentVersion: false
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
-                    customCss2: require.resolve("./src/css/colors.css")
+                    customCss: require.resolve("./src/css/custom.scss"),
+                    customCss2: require.resolve("./src/css/colors.scss")
                 }
             }
         ]
