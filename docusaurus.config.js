@@ -68,61 +68,10 @@ module.exports = {
                     className: "persistent"
                 },
                 {
-                    label: "GitHub",
+                    label: "Github",
                     href: "https://github.com/semaphore-protocol",
                     position: "right",
                     className: "persistent"
-                }
-            ]
-        },
-        footer: {
-            links: [
-                {
-                    title: "PSE Team",
-                    items: [
-                        {
-                            label: "Github",
-                            href: "https://github.com/appliedzkp"
-                        },
-                        {
-                            label: "Medium",
-                            href: "https://medium.com/privacy-scaling-explorations"
-                        },
-                        {
-                            label: "Twitter",
-                            href: "https://twitter.com/PrivacyScaling"
-                        }
-                    ]
-                },
-                {
-                    title: "Community",
-                    items: [
-                        {
-                            label: "Github",
-                            href: "https://github.com/semaphore-protocol"
-                        },
-                        {
-                            label: "Telegram",
-                            href: "https://t.me/joinchat/B-PQx1U3GtAh--Z4Fwo56A"
-                        }
-                    ]
-                },
-                {
-                    title: "More",
-                    items: [
-                        {
-                            label: "Unirep",
-                            href: "https://github.com/Unirep"
-                        },
-                        {
-                            label: "Interep",
-                            href: "https://github.com/interep-project"
-                        },
-                        {
-                            label: "ZK-kit",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit"
-                        }
-                    ]
                 }
             ]
         },

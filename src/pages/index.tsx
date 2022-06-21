@@ -17,7 +17,10 @@ import styles from "./styles.module.scss"
 
 export default function Home() {
     return (
-        <Layout title={`Semaphore Docs`} description="Technical Documentation For The Semaphore Protocol.">
+        <Layout
+            title={`Semaphore Protocol`}
+            description="A zero-knowledge protocol for anonymous signalling on Ethereum."
+        >
             <div className={styles.container}>
                 <div className={styles.jumbotron}>
                     <div>

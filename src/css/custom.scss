@@ -82,11 +82,12 @@ html {
     color: var(--custom-blue-2);
 }
 
-svg.custom-icon > path {
+svg.custom-icon path,
+svg.custom-icon react {
     fill: var(--ifm-color-primary);
 }
 
-svg.custom-icon > circle {
+svg.custom-icon circle {
     stroke: var(--ifm-color-primary);
 }
 
@@ -136,6 +137,12 @@ h4 {
     align-items: center;
     box-shadow: none;
     font-size: 18px;
+}
+
+@media (max-width: 996px) {
+    .footer {
+        --ifm-footer-padding-horizontal: 20px;
+    }
 }
 
 html[data-theme="dark"] {
@@ -419,9 +426,5 @@ html[data-theme="dark"] .DocSearch-Hit a {
 
     .navbar__item {
         display: none !important;
-    }
-
-    .footer {
-        display: none;
     }
 }
