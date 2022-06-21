@@ -216,8 +216,8 @@ await verifyProof(verificationKey, fullProof)`}
                             <IconCheck />
                             <h3>Verifiers</h3>
                             <p>
-                                Semaphore proofs can be verified with Semaphore contracts or off-chain with our
-                                JavaScript libraries.
+                                Semaphore proofs can be verified with Semaphore contracts on-chain or with our
+                                JavaScript libraries off-chain.
                             </p>
                         </div>
                     </div>
