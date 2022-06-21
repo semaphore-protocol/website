@@ -22,7 +22,7 @@
 .jumbotron {
     display: flex;
     justify-content: space-between;
-    margin: 100px 0;
+    margin: 80px 0;
 
     > div,
     > svg {
@@ -46,8 +46,25 @@
     }
 
     > svg {
-        min-width: 500px;
-        width: 500px;
+        max-width: 500px;
+        min-width: 400px;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        margin-top: 50px;
+        flex-direction: column;
+        align-items: center;
+
+        > div {
+            max-width: 700px;
+        }
+
+        > svg {
+            min-width: 300px;
+        }
     }
 }
 
@@ -81,20 +98,50 @@
     }
 }
 
+@media (max-width: 768px) {
+    .components {
+        margin-bottom: 40px;
+
+        > p {
+            margin-bottom: 20px;
+        }
+
+        > div {
+            flex-direction: column;
+            align-items: center;
+
+            > a {
+                width: 100%;
+                margin: 16px 0;
+            }
+        }
+    }
+}
+
 .section {
     display: flex;
     flex-direction: column;
-    margin: 100px 0;
+    margin: 100px 20px;
 
     > div:first-child {
         display: flex;
 
         > div {
-            flex: 1;
             margin: 0 20px;
+            flex: 1;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+                width: 100%;
+            }
         }
     }
-    > div:nth-child(2) {
+
+    > div:last-child {
         margin-top: 80px;
         display: flex;
         justify-content: space-between;
@@ -104,6 +151,14 @@
 
             > img {
                 margin-bottom: 10px;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
             }
         }
 
@@ -117,14 +172,46 @@
     }
 }
 
+@media (max-width: 1280px) {
+    .section {
+        > div:first-child {
+            flex-direction: column;
+
+            > div {
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        margin: 40px 20px;
+
+        > div:last-child {
+            margin-top: 20px;
+            flex-direction: column;
+
+            > div {
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
 .divider {
-    width: 100%;
     height: 3px;
     margin-top: 60px;
 }
 
+@media (max-width: 1280px) {
+    .divider {
+        margin: 0 20px;
+    }
+}
+
 html[data-theme="light"] .divider {
-    background-color: var(--custom-blue-1);
+    background-color: var(--custom-gray-0);
 }
 
 html[data-theme="dark"] .divider {

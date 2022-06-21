@@ -46,7 +46,7 @@ export default function Home() {
                     <p>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</p>
                     <div>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/contracts">
-                            Solidity smart contract
+                            Solidity contract
                         </OutlineLinkButton>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/circuits">
                             zkSNARK circuits
