@@ -10,6 +10,8 @@ module.exports = {
     projectName: "semaphore",
     trailingSlash: false,
 
+    plugins: ["docusaurus-plugin-sass"],
+
     presets: [
         [
             "@docusaurus/preset-classic",
@@ -22,8 +24,8 @@ module.exports = {
                     includeCurrentVersion: false
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
-                    customCss2: require.resolve("./src/css/colors.css")
+                    customCss: require.resolve("./src/css/custom.scss"),
+                    customCss2: require.resolve("./src/css/colors.scss")
                 }
             }
         ]
@@ -34,17 +36,16 @@ module.exports = {
             id: "trusted-setup",
             content:
                 '<b>The Semaphore V2 <a target="_blank" rel="noopener noreferrer" href="https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html">trusted-setup ceremony</a> ended successfully with more than 300 contributors! 🎉</b>',
-            backgroundColor: "#eef9fd",
-            textColor: "#061830"
+            backgroundColor: "#DAE0FF",
+            textColor: "#000000"
         },
         prism: {
             additionalLanguages: ["solidity"]
         },
         navbar: {
-            title: "Semaphore",
             logo: {
-                alt: "Semaphore Icon",
-                src: "img/semaphore-icon.svg"
+                alt: "Semaphore Logo",
+                src: "img/semaphore-logo.svg"
             },
             items: [
                 {
@@ -52,7 +53,7 @@ module.exports = {
                     position: "left",
                     dropdownActiveClassDisabled: true,
                     docsPluginId: "default",
-                    className: "persistent"
+                    className: "docs_active"
                 },
                 {
                     label: "Whitepaper",
@@ -61,61 +62,16 @@ module.exports = {
                     className: "V1_active"
                 },
                 {
-                    label: "GitHub",
-                    href: "https://github.com/semaphore-protocol/semaphore",
+                    label: "Documentation",
+                    href: "/docs/introduction",
                     position: "right",
                     className: "persistent"
-                }
-            ]
-        },
-        footer: {
-            links: [
-                {
-                    title: "PSE Team",
-                    items: [
-                        {
-                            label: "Github",
-                            href: "https://github.com/appliedzkp"
-                        },
-                        {
-                            label: "Medium",
-                            href: "https://medium.com/privacy-scaling-explorations"
-                        },
-                        {
-                            label: "Twitter",
-                            href: "https://twitter.com/PrivacyScaling"
-                        }
-                    ]
                 },
                 {
-                    title: "Community",
-                    items: [
-                        {
-                            label: "Github",
-                            href: "https://github.com/semaphore-protocol"
-                        },
-                        {
-                            label: "Telegram",
-                            href: "https://t.me/joinchat/B-PQx1U3GtAh--Z4Fwo56A"
-                        }
-                    ]
-                },
-                {
-                    title: "More",
-                    items: [
-                        {
-                            label: "Unirep",
-                            href: "https://github.com/Unirep"
-                        },
-                        {
-                            label: "Interep",
-                            href: "https://github.com/interep-project"
-                        },
-                        {
-                            label: "ZK-kit",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit"
-                        }
-                    ]
+                    label: "Github",
+                    href: "https://github.com/semaphore-protocol",
+                    position: "right",
+                    className: "persistent"
                 }
             ]
         },

@@ -1,239 +1,228 @@
-import Link from "@docusaurus/Link"
-import styled from "@emotion/styled"
+import CodeBlock from "@theme/CodeBlock"
 import Layout from "@theme/Layout"
 import React from "react"
-
-export const semaphoreComponents = [
-    {
-        title: "semaphore-circuits",
-        href: "https://github.com/semaphore-protocol/semaphore/tree/main/circuits"
-    },
-    {
-        title: "semaphore-contracts",
-        href: "https://github.com/semaphore-protocol/semaphore/tree/main/contracts"
-    },
-    {
-        title: "semaphore.js",
-        href: "https://github.com/semaphore-protocol/semaphore.js"
-    }
-]
-
-export const pseProjects = [
-    {
-        title: "Unirep Social",
-        text: "Private and decentralized social media based on a private and non-repudiable reputation system.",
-        to: "https://github.com/Unirep/Unirep-Social"
-    },
-    {
-        title: "Interep",
-        text: "A system that allows DApps or services to verify users' reputation without exposing their identities.",
-        to: "https://interep.link"
-    }
-]
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-bottom: 4rem;
-`
-
-const Row = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 16px;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 1rem 0;
-    max-width: 960px;
-
-    @media (max-width: 960px) {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-        max-width: 100%;
-        margin: 0 1rem;
-    }
-    @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-    }
-`
-
-const TwoRow = styled(Row)`
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 48px;
-
-    @media (max-width: 960px) {
-        grid-template-columns: 1fr;
-    }
-    @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-    }
-`
-
-const ButtonGroup = styled.div`
-    display: flex;
-`
-
-const Button = styled.div`
-    padding: 0.6rem 1rem;
-    margin: 0 0.3rem;
-    cursor: pointer;
-    border-radius: 10px;
-    border: 1px solid var(--ifm-color-emphasis-200);
-
-    &:hover {
-        border: 1px solid var(--ifm-color-emphasis-400);
-    }
-`
-
-const Card = styled.div`
-    display: flex;
-    max-height: 250px;
-    min-width: 350px;
-    padding: 1.1rem;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-bottom: 1px solid var(--ifm-color-emphasis-200);
-    /* flex: 1 1 0px; */
-
-    &:hover {
-        border-bottom: 1px solid var(--ifm-color-emphasis-400);
-    }
-
-    @media (max-width: 960px) {
-        width: 100%;
-    }
-`
-
-const LinkRow = styled.div`
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    a h3 {
-        color: black !important;
-    }
-`
-
-const DocsHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-`
-
-const StyledGithubIcon = styled.div`
-    svg {
-        fill: var(--ifm-font-color-base);
-    }
-`
+import IconAwards from "../components/icons/IconAwards"
+import IconCheck from "../components/icons/IconCheck"
+import IconConnections from "../components/icons/IconConnections"
+import IconEye from "../components/icons/IconEye"
+import IconEyeClose from "../components/icons/IconEyeClose"
+import IconFlag from "../components/icons/IconFlag"
+import IconGroup from "../components/icons/IconGroup"
+import IconProfile from "../components/icons/IconProfile"
+import IconUnion from "../components/icons/IconUnion"
+import IllustrationHero from "../components/IllustrationHero"
+import LinkButton from "../components/LinkButton"
+import OutlineLinkButton from "../components/OutlineLinkButton"
+import styles from "./styles.module.scss"
 
 export default function Home() {
     return (
-        <Layout title={`Semaphore Docs`} description="Technical Documentation For The Semaphore Protocol.">
-            <Container>
-                <DocsHeader>
-                    <div
-                        style={{
-                            padding: "4rem 0  ",
-                            textAlign: "center",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center"
-                        }}
-                    >
-                        <h1 style={{ margin: "20px", fontSize: "36px" }}> Semaphore</h1>
+        <Layout
+            title={`Semaphore Protocol`}
+            description="A zero-knowledge protocol for anonymous signalling on Ethereum."
+        >
+            <div className={styles.container}>
+                <div className={styles.jumbotron}>
+                    <div>
+                        <h1>Signal anonymously</h1>
 
-                        <p
-                            style={{
-                                maxWidth: "700px",
-                                fontSize: "20px"
-                            }}
-                        >
-                            A privacy gadget for creating anonymous proof of membership on Ethereum.
+                        <p>
+                            Using zero knowledge, Semaphore allows Ethereum users to prove their membership of a group
+                            and send signals such as votes or endorsements without revealing their original identity.
                         </p>
 
-                        <ButtonGroup>
-                            <Link style={{ textDecoration: "none" }} href="/docs/introduction">
-                                <Button>Introduction</Button>
-                            </Link>
-                            <Link style={{ textDecoration: "none" }} href="/docs/quick-setup">
-                                <Button>Quick setup</Button>
-                            </Link>
-                            <Link style={{ textDecoration: "none" }} href="/docs/credits">
-                                <Button>Credits</Button>
-                            </Link>
-                        </ButtonGroup>
-                    </div>
-                </DocsHeader>
-                <hr />
-                <TwoRow
-                    style={{
-                        gap: "56px",
-                        marginTop: "4rem"
-                    }}
-                >
-                    <div>
-                        <h2>Developer Links</h2>
-                        <p>Learn more about the code of the various Semaphore components.</p>
-                        {semaphoreComponents.map((action) => (
-                            <Link style={{ textDecoration: "none" }} href={action.href}>
-                                <Card key={action.title} style={{ marginBottom: "1rem" }}>
-                                    <LinkRow>
-                                        <StyledGithubIcon style={{ display: "flex", alignItems: "center" }}>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 120.78 117.79"
-                                                style={{ width: "24px" }}
-                                            >
-                                                <defs></defs>
-                                                <title>Github</title>
-                                                <g id="Layer_2" data-name="Layer 2">
-                                                    <g id="Layer_1-2" data-name="Layer 1">
-                                                        <path d="M60.39,0A60.39,60.39,0,0,0,41.3,117.69c3,.56,4.12-1.31,4.12-2.91,0-1.44-.05-6.19-.08-11.24C28.54,107.19,25,96.42,25,96.42c-2.75-7-6.71-8.84-6.71-8.84-5.48-3.75.41-3.67.41-3.67,6.07.43,9.26,6.22,9.26,6.22,5.39,9.23,14.13,6.57,17.57,5,.55-3.9,2.11-6.56,3.84-8.07C36,85.55,21.85,80.37,21.85,57.23A23.35,23.35,0,0,1,28.08,41c-.63-1.52-2.7-7.66.58-16,0,0,5.07-1.62,16.61,6.19a57.36,57.36,0,0,1,30.25,0C87,23.42,92.11,25,92.11,25c3.28,8.32,1.22,14.46.59,16a23.34,23.34,0,0,1,6.21,16.21c0,23.2-14.12,28.3-27.57,29.8,2.16,1.87,4.09,5.55,4.09,11.18,0,8.08-.06,14.59-.06,16.57,0,1.61,1.08,3.49,4.14,2.9A60.39,60.39,0,0,0,60.39,0Z" />
-                                                        <path d="M22.87,86.7c-.13.3-.6.39-1,.19s-.69-.61-.55-.91.61-.39,1-.19.69.61.54.91Z" />
-                                                        <path d="M25.32,89.43c-.29.27-.85.14-1.24-.28a.92.92,0,0,1-.17-1.25c.3-.27.84-.14,1.24.28s.47,1,.17,1.25Z" />
-                                                        <path d="M27.7,92.91c-.37.26-1,0-1.35-.52s-.37-1.18,0-1.44,1,0,1.35.51.37,1.19,0,1.45Z" />
-                                                        <path d="M31,96.27A1.13,1.13,0,0,1,29.41,96c-.53-.49-.68-1.18-.34-1.54s1-.27,1.56.23.68,1.18.33,1.54Z" />
-                                                        <path d="M35.46,98.22c-.15.47-.82.69-1.51.49s-1.13-.76-1-1.24.82-.7,1.51-.49,1.13.76,1,1.24Z" />
-                                                        <path d="M40.4,98.58c0,.5-.56.91-1.28.92s-1.3-.38-1.31-.88.56-.91,1.29-.92,1.3.39,1.3.88Z" />
-                                                        <path d="M45,97.8c.09.49-.41,1-1.12,1.12s-1.35-.17-1.44-.66.42-1,1.12-1.12,1.35.17,1.44.66Z" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                            <h3 style={{ marginBottom: "0rem", marginLeft: "16px" }}>{action.title}</h3>
-                                        </StyledGithubIcon>
-                                    </LinkRow>
-                                </Card>
-                            </Link>
-                        ))}
-                    </div>
-                    <div>
-                        <h2>Privacy and Scaling Explorations</h2>
-                        <p>Discover other interesting projects of our team.</p>
                         <div>
-                            {pseProjects.map((action) => (
-                                <Link style={{ textDecoration: "none" }} key={action.title} to={action.to}>
-                                    <Card key={action.title} style={{ marginBottom: "1rem" }}>
-                                        <LinkRow>
-                                            <div style={{ display: "flex", alignItems: "center" }}>
-                                                <h3 style={{ marginBottom: "0rem" }}>{action.title}</h3>
-                                            </div>
-                                        </LinkRow>
-                                        <p style={{ marginBottom: "0rem" }}>{action.text}</p>
-                                    </Card>
-                                </Link>
-                            ))}
+                            <LinkButton href="https://semaphore.appliedzkp.org/docs/quick-setup">
+                                Quick setup
+                            </LinkButton>
+
+                            <LinkButton href="https://github.com/semaphore-protocol/boilerplate">
+                                Boilerplate
+                            </LinkButton>
                         </div>
                     </div>
-                </TwoRow>
-            </Container>
+
+                    <IllustrationHero />
+                </div>
+
+                <div className={styles.components}>
+                    <p>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</p>
+                    <div>
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/contracts">
+                            Solidity contract
+                        </OutlineLinkButton>
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/circuits">
+                            zkSNARK circuits
+                        </OutlineLinkButton>
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore.js">
+                            JavaScript libraries
+                        </OutlineLinkButton>
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <div>
+                        <div>
+                            <h2>Semaphore identities</h2>
+
+                            <p>
+                                Given to all Semaphore group members, it is comprised of three parts: identity
+                                commitment, trapdoor, and nullifier.
+                            </p>
+
+                            <LinkButton href="/docs/guides/identities">Create Semaphore identities</LinkButton>
+                        </div>
+                        <div>
+                            <CodeBlock language="ts">
+                                {`import { Identity } from "@semaphore-protocol/identity"
+
+const identity = new Identity()
+
+const trapdoor = identity.getTrapdoor()
+const nullifier = identity.getNullifier()
+const commitment = identity.generateCommitment()`}
+                            </CodeBlock>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <IconEyeClose />
+                            <h3>Private values</h3>
+                            <p>
+                                Trapdoor and nullifier values are the private values of the Semaphore identity. To avoid
+                                fraud, the owner must keep both values secret.
+                            </p>
+                        </div>
+                        <div>
+                            <IconEye />
+                            <h3>Public values</h3>
+                            <p>
+                                Semaphore uses the Poseidon hash function to create the identity commitment from the
+                                identity private values. Identity commitments can be made public, similarly to Ethereum
+                                addresses.
+                            </p>
+                        </div>
+                        <div>
+                            <IconProfile />
+                            <h3>Generate identities</h3>
+                            <p>
+                                Semaphore identities can be generated deterministically or randomly. Deterministic
+                                identities can be generated from the hash of a secret message.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.divider} />
+
+                <div className={styles.section}>
+                    <div>
+                        <div>
+                            <h2>Semaphore groups</h2>
+
+                            <p>
+                                Semaphore groups are binary incremental Merkle trees that store the public identity
+                                commitment of each member.
+                            </p>
+
+                            <LinkButton href="/docs/guides/groups">Curate Semaphore groups</LinkButton>
+                        </div>
+                        <div>
+                            <CodeBlock language="ts">
+                                {`import { Group } from "@semaphore-protocol/group"
+
+const group = new Group()
+
+group.addMember(commitment)`}
+                            </CodeBlock>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <IconConnections />
+                            <h3>Merkle trees</h3>
+                            <p>
+                                Each leaf contains an identity commitment for a user. The identity commitment proves
+                                that the user is a group member without revealing the private identity of the user.
+                            </p>
+                        </div>
+                        <div>
+                            <IconGroup />
+                            <h3>Types of groups</h3>
+                            <p>
+                                Groups can be created and managed in a decentralized fashion with Semaphore contracts or
+                                off-chain with our JavaScript libraries.
+                            </p>
+                        </div>
+                        <div>
+                            <IconUnion />
+                            <h3>Group management</h3>
+                            <p>
+                                Users can join and leave groups by themselves, or an admin can add and remove them.
+                                Admins can be centralized authorities, Ethereum accounts, multi-sig wallets or smart
+                                contracts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.divider} />
+
+                <div className={styles.section}>
+                    <div>
+                        <div>
+                            <h2>Semaphore proofs</h2>
+
+                            <p>
+                                Semaphore group members can anonymously prove that they are part of a group and that
+                                they are generating their own proofs and signals.
+                            </p>
+
+                            <LinkButton href="/docs/guides/proofs">Generate Semaphore proofs</LinkButton>
+                        </div>
+                        <div>
+                            <CodeBlock language="ts">
+                                {`import { generateProof, verifyProof } from "@semaphore-protocol/proof"
+
+const externalNullifier = BigInt(1)
+const signal = "Hello world"
+
+const fullProof = await generateProof(identity, group, externalNullifier, signal, {
+    zkeyFilePath: "./semaphore.zkey",
+    wasmFilePath: "./semaphore.wasm"
+})
+
+const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
+
+await verifyProof(verificationKey, fullProof)`}
+                            </CodeBlock>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <IconAwards />
+                            <h3>Membership</h3>
+                            <p>Only users who are part of a group can generate a valid proof for that group.</p>
+                        </div>
+                        <div>
+                            <IconFlag />
+                            <h3>Signals</h3>
+                            <p>
+                                Group users can anonymously broadcast signals such as votes or endorsements without
+                                revealing their original identity.
+                            </p>
+                        </div>
+                        <div>
+                            <IconCheck />
+                            <h3>Verifiers</h3>
+                            <p>
+                                Semaphore proofs can be verified with Semaphore contracts on-chain or with our
+                                JavaScript libraries off-chain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Layout>
     )
 }

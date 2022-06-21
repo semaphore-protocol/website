@@ -1,0 +1,22 @@
+.linkButton {
+    display: flex;
+    color: var(--custom-blue-2);
+    font-weight: bold;
+
+    &:hover {
+        color: var(--custom-blue-2);
+        text-decoration: none;
+    }
+
+    svg > path {
+        fill: var(--custom-blue-2);
+    }
+}
+
+.buttonText {
+    padding-right: 10px;
+}
+
+.buttonIcon {
+    padding-top: 2px;
+}

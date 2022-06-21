@@ -1,0 +1,23 @@
+.outlineLinkButton {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--custom-blue-2);
+    border: 2px solid var(--custom-blue-2);
+    padding: 4px 12px;
+    border-radius: 4px;
+
+    &:hover {
+        color: var(--custom-blue-2);
+        text-decoration: none;
+    }
+
+    svg > path {
+        fill: var(--custom-blue-2);
+    }
+}
+
+.buttonIcon {
+    padding-right: 8px;
+}
