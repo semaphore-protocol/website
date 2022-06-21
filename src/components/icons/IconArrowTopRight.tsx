@@ -5,7 +5,7 @@ export type IconArrowTopRightProps = {
     height?: number
 }
 
-export default function IconArrowTopRight({ width = 15, height = 15 }: IconArrowTopRightProps): JSX.Element {
+export default function IconArrowTopRight({ width = 13, height = 13 }: IconArrowTopRightProps): JSX.Element {
     return (
         <svg
             className="custom-icon"
