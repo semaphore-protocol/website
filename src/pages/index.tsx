@@ -46,7 +46,7 @@ export default function Home() {
                 </div>
 
                 <div className={styles.components}>
-                    <p>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</p>
+                    <h3>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</h3>
                     <div>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/contracts">
                             Solidity contract

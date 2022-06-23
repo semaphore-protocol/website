@@ -1,15 +1,15 @@
 .linkButton {
     display: flex;
-    color: var(--custom-blue-2);
+    color: var(--custom-blue-3);
     font-weight: bold;
 
     &:hover {
-        color: var(--custom-blue-2);
+        color: var(--custom-blue-3);
         text-decoration: none;
     }
 
     svg > path {
-        fill: var(--custom-blue-2);
+        fill: var(--custom-blue-3);
     }
 }
 

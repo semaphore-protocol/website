@@ -6,7 +6,7 @@
     margin-bottom: 4rem;
 
     h1 {
-        font-size: 46px;
+        font-size: 56px;
     }
 
     h2 {
@@ -73,7 +73,7 @@
     flex-direction: column;
     margin: 50px 20px 80px 20px;
 
-    > p {
+    > h3 {
         text-align: center;
         font-weight: bold;
         margin-bottom: 60px;
@@ -210,10 +210,48 @@
     }
 }
 
-html[data-theme="light"] .divider {
-    background-color: var(--custom-gray-0);
+html[data-theme="light"] {
+    .container {
+        h1 {
+            color: var(--custom-dark-3);
+        }
+    }
+
+    .section > div:last-child {
+        svg path,
+        svg react {
+            fill: var(--custom-dark-2);
+        }
+
+        svg circle {
+            stroke: var(--custom-dark-2);
+        }
+    }
+
+    .divider {
+        background-color: var(--custom-gray-0);
+    }
 }
 
-html[data-theme="dark"] .divider {
-    background-color: var(--custom-dark-2);
+html[data-theme="dark"] {
+    .container {
+        h1 {
+            color: var(--custom-blue-0);
+        }
+    }
+
+    .section > div:last-child {
+        svg path,
+        svg react {
+            fill: var(--custom-gray-0);
+        }
+
+        svg circle {
+            stroke: var(--custom-gray-0);
+        }
+    }
+
+    .divider {
+        background-color: var(--custom-dark-2);
+    }
 }

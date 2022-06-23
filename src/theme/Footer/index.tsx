@@ -29,8 +29,8 @@ function Footer() {
                     </div>
                     <div>
                         <p>Projects using Semaphore</p>
-                        <Link href="https://github.com/Unirep/Unirep-Social" target="_blank">
-                            UniRep Social
+                        <Link href="https://github.com/Unirep" target="_blank">
+                            Unirep
                         </Link>
                         <Link href="https://interep.link/" target="_blank">
                             Interep

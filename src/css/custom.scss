@@ -23,6 +23,7 @@
     --custom-dark-1: #3b3b48;
     --custom-gray-1: #8f9097;
     --custom-gray-0: #c4c6ca;
+    --custom-blue-3: #5867bc;
     --custom-blue-2: #758bff;
     --custom-blue-1: #dae0ff;
     --custom-blue-0: #f8f9ff;
@@ -55,6 +56,7 @@
 html[data-theme="dark"] {
     --ifm-background-color: var(--custom-dark-3);
     --ifm-color-primary: var(--custom-gray-1);
+    --ifm-heading-color: var(--custom-gray-0);
     --ifm-navbar-background-color: var(--custom-dark-3);
     --ifm-global-shadow-md: 0 5px 4px rgba(255, 255, 255, 0.448);
     --ifm-toc-border-color: var(--custom-dark-2);
@@ -63,6 +65,7 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
     --ifm-background-color: var(--custom-blue-0);
     --ifm-color-primary: var(--custom-dark-1);
+    --ifm-heading-color: var(--custom-dark-2);
     --ifm-navbar-background-color: var(--custom-blue-0);
     --ifm-toc-border-color: var(--custom-blue-1);
 }
@@ -127,6 +130,10 @@ h4 {
     font-size: 16px;
 }
 
+.tocCollapsibleButton_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module {
+    padding-left: 0px !important;
+}
+
 .menu__link--sublist:after {
     background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
     /* color: var(  --ifm-color-primary); */
@@ -163,6 +170,10 @@ html[data-theme="light"] {
     .footer {
         background-color: var(--custom-blue-1);
     }
+}
+
+.navbar-sidebar__brand {
+    margin-bottom: 16px;
 }
 
 .container {
@@ -204,8 +215,9 @@ html[data-theme="light"] {
 }
 
 .menu__link {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
+    padding: 8px 16px;
 }
 
 html[data-theme="dark"] .navbar__logo {
