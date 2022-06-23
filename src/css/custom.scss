@@ -63,10 +63,10 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-    --ifm-background-color: var(--custom-blue-0);
+    --ifm-background-color: #fcfcfc;
     --ifm-color-primary: var(--custom-dark-1);
     --ifm-heading-color: var(--custom-dark-2);
-    --ifm-navbar-background-color: var(--custom-blue-0);
+    --ifm-navbar-background-color: #fcfcfc;
     --ifm-toc-border-color: var(--custom-blue-1);
 }
 

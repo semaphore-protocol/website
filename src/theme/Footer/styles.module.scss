@@ -1,8 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 1280px;
-    margin: 0 auto;
     font-size: 14px;
 
     a {
@@ -14,6 +12,7 @@
     h3 {
         font-weight: bold;
         font-size: 18px;
+        white-space: nowrap;
     }
 
     > div:first-child {
@@ -32,11 +31,12 @@
         > div:last-child {
             flex: 1;
             display: flex;
-            justify-content: space-between;
+            justify-content: right;
 
             > div {
                 display: flex;
                 flex-direction: column;
+                margin-left: 200px;
 
                 > a {
                     margin-bottom: 5px;
@@ -56,6 +56,18 @@
     }
 }
 
+@media (max-width: 1280px) {
+    .container {
+        > div:first-child {
+            > div:last-child {
+                > div {
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         > div:first-child {
@@ -71,6 +83,12 @@
             }
 
             > div:last-child {
+                justify-content: space-between;
+
+                > div {
+                    margin-left: 0;
+                }
+
                 > p {
                     font-size: 16px;
                     font-weight: bold;

@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 function Footer() {
     return (
         <footer className={clsx("footer")}>
-            <div className={styles.container}>
+            <div className={clsx("container container-fluid", styles.container)}>
                 <div>
                     <div>
                         <h3>About</h3>
