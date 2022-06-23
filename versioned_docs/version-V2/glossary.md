@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Glossary
 
-## Identity commitment
+## identity commitment
 
 The public [Semaphore identity](#semaphore-identity) value used in [Semaphore groups](#semaphore-group).
 
@@ -19,6 +19,10 @@ In zero-knowledge protocols, Merkle trees can be used to efficiently summarize a
 To validate that a tree contains a specific leaf, a verifier only needs a portion of the complete data structure.
 
 For more information, see [Merkle tree in Wikipedia](https://en.wikipedia.org/wiki/Merkle_tree).
+
+## nullifier
+
+A secret value that accompanies the signal in a Semaphore proof and, once used, prevents additional signals from the user.
 
 ## Semaphore group
 
