@@ -10,10 +10,11 @@ sidebar_position: 1
 
 ## Features
 
-Semaphore provides the ability to:
+With Semaphore, you can allow your users to do the following:
 
-1. [Create private identities](/docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
-2. [Anonymously broadcast a signal](/docs/guides/proofs/) if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
+1. [Create a private identity and get a provable anonymous public identity](/docs/guides/identities/).
+2. [Add an anonymous public identity to a group](/docs/guides/groups/) (i.e. _Merkle tree_).
+3. [Anonymously broadcast a signal](/docs/guides/proofs/) if the user joined the group and hasn't yet used the nullifer.
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
