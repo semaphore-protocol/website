@@ -11,29 +11,36 @@
         font-size: 16px;
     }
 
+    h3 {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
     > div:first-child {
         display: flex;
-        justify-content: space-between;
+        margin-bottom: 20px;
 
         > div:first-child {
-            max-width: 450px;
+            flex: 1;
+            margin-right: 20px;
 
             > p {
-                margin: 20px 0;
+                max-width: 400px;
             }
         }
 
         > div:last-child {
+            flex: 1;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
 
-            > p {
-                font-size: 16px;
-                font-weight: bold;
-            }
+            > div {
+                display: flex;
+                flex-direction: column;
 
-            > a {
-                margin: 5px 0;
+                > a {
+                    margin-bottom: 5px;
+                }
             }
         }
     }
@@ -41,10 +48,7 @@
     > div:last-child {
         display: flex;
         justify-content: space-between;
-
-        > div:last-child > a {
-            margin: 0 5px;
-        }
+        margin-top: 20px;
 
         > p {
             margin: 0;
@@ -58,18 +62,15 @@
             flex-direction: column;
 
             > div:first-child {
-                max-width: 100%;
                 margin-bottom: 30px;
 
                 > p {
                     margin: 20px 0;
+                    max-width: inherit;
                 }
             }
 
             > div:last-child {
-                display: flex;
-                flex-direction: column;
-
                 > p {
                     font-size: 16px;
                     font-weight: bold;
@@ -80,5 +81,27 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        > div:last-child {
+            > a {
+                display: none;
+            }
+        }
+    }
+}
+
+html[data-theme="light"] {
+    hr {
+        border-color: var(--custom-gray-1);
+    }
+}
+
+html[data-theme="dark"] {
+    hr {
+        border-color: var(--custom-dark-1);
     }
 }
