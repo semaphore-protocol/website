@@ -22,7 +22,9 @@ For more information, see [Merkle tree in Wikipedia](https://en.wikipedia.org/wi
 
 ## nullifier
 
-A secret value that accompanies the signal in a Semaphore proof and, once used, prevents additional signals from the user.
+A value used to prevent double entry or double signalling.
+
+See [Circuit nullifier hash](/docs/technical-reference/circuits/#nullifier-hash)
 
 ## Semaphore group
 

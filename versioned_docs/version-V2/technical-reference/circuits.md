@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Circuits
 
-The [Semaphore circuit](https://github.com/semaphore-protocol/semaphore/tree/main/circuits) is the heart of the protocol and can essentially be divided into three parts:
+The [Semaphore circuit](https://github.com/semaphore-protocol/semaphore/tree/main/circuits) is the heart of the protocol and consists of three parts:
 
 -   [**Proof of membership**](/docs/technical-reference/circuits#proof-of-membership)
 -   [**Nullifier hash**](/docs/technical-reference/circuits#nullifier-hash)
@@ -16,7 +16,7 @@ The diagram above shows how the input signals are used in the Semaphore circuit 
 
 ## Proof of membership
 
-The circuit hashes the hash of the identity nullifier and the identity trapdoor to generate an identity commitment. Then, it verifies the proof of membership against the Merkle root and the identity commitment.
+The circuit hashes the hash of the identity nullifier with the identity trapdoor to generate an identity commitment. Then, it verifies the proof of membership against the Merkle root and the identity commitment.
 
 **Private inputs:**
 
@@ -31,11 +31,12 @@ The circuit hashes the hash of the identity nullifier and the identity trapdoor 
 
 ## Nullifier hash
 
-The circuit hashes the identity nullifier and the external nullifier. Then, it checks that it matches the given nullifier hash. Nullifier hashes are saved in a Semaphore smart contract, so that the smart contract itself can reject a proof with an already used nullifier hash.
+The circuit hashes the identity nullifier with the external nullifier and then checks that the result matches the provided nullifier hash.
+Nullifier hashes saved in a Semaphore smart contract allow the contract to reject a proof that contains a used nullifier hash.
 
 **Private inputs:**
 
--   `identityNullifier`: the 32-byte identity secret used as nullifier.
+-   `identityNullifier`: the 32-byte identity secret used as a nullifier.
 
 **Public inputs:**
 
@@ -43,7 +44,7 @@ The circuit hashes the identity nullifier and the external nullifier. Then, it c
 
 **Public outputs:**
 
--   `nullifierHash`: the hash of the identity nullifier and the external nullifier used to prevent double-signaling.
+-   `nullifierHash`: the hash of the identity nullifier and the external nullifier; used to prevent double-signaling.
 
 **Procedure:**
 
