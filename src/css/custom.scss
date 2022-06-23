@@ -81,10 +81,6 @@ html {
     font-weight: 400;
 }
 
-.markdown a {
-    color: var(--custom-blue-2);
-}
-
 svg.custom-icon path,
 svg.custom-icon react {
     fill: var(--ifm-color-primary);
@@ -169,6 +165,10 @@ html[data-theme="dark"] {
     .footer {
         background-color: var(--custom-dark-4);
     }
+
+    .markdown a {
+        color: var(--custom-blue-2);
+    }
 }
 
 html[data-theme="light"] {
@@ -178,6 +178,10 @@ html[data-theme="light"] {
 
     .footer {
         background-color: var(--custom-blue-1);
+    }
+
+    .markdown a {
+        color: var(--custom-blue-3);
     }
 }
 

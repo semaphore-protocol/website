@@ -113,12 +113,24 @@
 }
 
 html[data-theme="light"] {
+    .container {
+        a {
+            color: var(--custom-blue-3);
+        }
+    }
+
     hr {
         border-color: var(--custom-gray-1);
     }
 }
 
 html[data-theme="dark"] {
+    .container {
+        a {
+            color: var(--custom-blue-2);
+        }
+    }
+
     hr {
         border-color: var(--custom-dark-1);
     }
