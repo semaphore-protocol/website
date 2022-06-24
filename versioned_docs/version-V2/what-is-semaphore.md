@@ -33,3 +33,7 @@ and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore.js) t
 
 The Semaphore V2 codebase was audited with a focus on the smart contracts and the Circom circuits.
 See the [audit summary](https://semaphore.appliedzkp.org/audit-v2.pdf).
+
+:::info
+If you are using the previous version of Semaphore, see the [Semaphore V1 documentation](/docs/v1/introduction) ([code](https://github.com/semaphore-protocol/semaphore/tree/version/1.0.0)).
+:::
