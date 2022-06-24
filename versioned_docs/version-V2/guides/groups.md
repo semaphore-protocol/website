@@ -17,29 +17,42 @@ title: Groups
 - Add identities
 - Remove identities
 -->
+Use Semaphore in your application or smart contract to create off-chain and on-chain groups.
 
-[Semaphore groups](/docs/glossary/#semaphore-group) contain [identity commitments](/docs/glossary/#identity-commitment) of group members.
+A [Semaphore group](/docs/glossary/#semaphore-group) contains [identity commitments](/docs/glossary/#identity-commitment) of group members.
 Example uses of groups include the following:
 
--   Poll question that attendees join to rate an event.
--   Ballot that members join to vote on a proposal.
--   Whistleblowers who are verified employees of an organization.
+- Poll question that attendees join to rate an event.
+- Ballot that members join to vote on a proposal.
+- Whistleblowers who are verified employees of an organization.
 
-Semaphore groups are actually incremental Merkle trees, and the group members (i.e. identity commitments) are tree leaves. Semaphore implementations of groups thus also need two parameters:
+A Semaphore group is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree), and group members (i.e., [identity commitments](/docs/glossary/#identity-commitments)) are tree leaves.
+Semaphore groups set the following tree parameters:
 
--   **Tree depth**: determines the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
--   **Zero value**: is used to calculate the zeroes nodes of the incremental Merkle tree.
+- **Tree depth**: the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+- **Zero value**: the value for a tree node that doesn't have a member assigned.
 
-## Create groups
+Learn how to work with groups.
 
-Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore.js/blob/main/packages/group) library to create off-chain groups, or the [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) contract to create on-chain groups.
+- [Off-chain groups](#off-chain-groups)
+- [On-chain groups](#on-chain-groups)
 
--   [**Create off-chain groups**](#create-off-chain-groups)
--   [**Create on-chain groups**](#create-on-chain-groups)
+## Off-chain groups
 
-### Create off-chain groups
+- [Create an off-chain group](#create-an-off-chain-group)
+- [Add members to an off-chain group](#add-members-to-an-off-chain-group)
+- [Remove members from an off-chain group](#remove-members-from-an-off-chain-group)
 
-You can create an instance of the `Group` class without passing any parameters, or you can specify the `treeDepth` and `zeroValue` values.
+### Create an off-chain group
+
+Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore.js/blob/main/packages/group) library `Group` class to create an off-chain group.
+
+#### Options
+
+- **Tree depth**: (_default `20`_) the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+- **Zero value**: (_default `BigInt(0)`_) the value for a tree node that doesn't have a member assigned.
+
+To create a group with default _`treeDepth`_ and _`zeroValue`_, call the `Group` constructor without parameters--for example:
 
 ```ts
 import { Group } from "@semaphore-protocol/group"
@@ -48,29 +61,55 @@ import { Group } from "@semaphore-protocol/group"
 const group = new Group()
 ```
 
-Members can be added one at a time or in batches.
+The following example code passes _`treeDepth`_ to create a group for thirty members:
+
+```ts
+import { Group } from "@semaphore-protocol/group"
+
+const group = new Group(30)
+```
+
+The following example code creates a group with a _`zeroValue`_ of `BigInt(1)`:
+
+```ts
+import { Group } from "@semaphore-protocol/group"
+
+const group = new Group(20, BigInt(1))
+```
+
+## Add members to an off-chain group
+
+Use the `Group addMember` function to add a member (identity commitment) to a group--for example:
 
 ```ts
 group.addMember(identityCommitment)
-// or
-group.addMembers(identityCommitments)
 ```
 
-Members can also be removed from a group. Simply pass the member index:
+To add a batch of members to a group, pass an array to the `Group addMembers` function--for example:
+
+```ts
+group.addMembers([identityCommitment1, identityCommitment2])
+```
+
+## Remove members from an off-chain group
+
+To remove members from a group, pass the member index to the `Group removeMember` function--for example:
 
 ```ts
 group.removeMember(0)
 ```
 
 :::caution
-When a member is removed actually its value is updated to be equal to `zeroValue`. The length of the `group.members` array will then be the same.
+Removing a member from a group sets the node value to `zeroValue`.
+Given that the node isn't removed, the length of the `group.members` array doesn't change.
 :::
 
-### Create on-chain groups
+### On-chain groups
 
 The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreGroups.sol) contract uses a the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create groups and add/remove members.
 
-To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) and call its internal methods. The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
+To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) and call its internal methods.
+The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
 
 ```sol
 // SPDX-License-Identifier: MIT
