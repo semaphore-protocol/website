@@ -42,7 +42,7 @@ const nullifier = identity.getNullifier()
 
 ### Create deterministic identities
 
-If you pass a message as a parameter, trapdoor and nullifier will be generated from the SHA256 hash of the message. The message must clearly be kept secret in turn, since anyone who owns the message can recreate the same identity. The massage can be a password or a message signed with a private key.
+If you pass a message as a parameter, trapdoor and nullifier will be generated from the SHA256 hash of the message. The message must clearly be kept secret in turn, since anyone who owns the message can recreate the same identity. The message can be a password or a message signed with a private key.
 
 ```ts
 const identity = new Identity("secret-message")
