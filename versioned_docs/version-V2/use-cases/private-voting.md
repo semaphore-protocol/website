@@ -4,6 +4,7 @@ sidebar_position: 2
 
 ## Private voting overview
 
+The private voting use case describes how Semaphore interacts with your users and Ethereum to allow users to cast private votes in your application.
 Learn how Semaphore enables applications to do the following:
 
 - Register members as voters.
