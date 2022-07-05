@@ -13,7 +13,7 @@ To check out the code used in this guide, visit the
 
 1. [**Create a Node.js project**](#create-a-nodejs-project)
 2. [**Install Hardhat**](#install-hardhat)
-3. [**Install Semaphore contracts and JS libraries**](#install-semaphore-contracts-and-js-libraries)
+3. [**Install Semaphore contracts and JavaScript libraries**](#install-semaphore-contracts-and-js-libraries)
 4. [**Create the Semaphore contract**](#create-the-semaphore-contract)
 5. [**Create Semaphore IDs**](#create-semaphore-ids)
 6. [**Create a Hardhat task that deploys your contract**](#create-a-hardhat-task-that-deploys-your-contract)
@@ -56,12 +56,12 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
     # and then enter through the prompts.
     ```
 
-## Install Semaphore contracts and JS libraries
+## Install Semaphore contracts and JavaScript libraries
 
-`@semaphore-protocol/contracts` provides a _base contract_ that verifies
-Semaphore proofs.
-Semaphore also provides JavaScript libraries that help developers
-build zero-knowledge applications.
+Semaphore provides contracts and JavaScript libraries for developers building zero-knowledge applications.
+
+- `@semaphore-protocol/contracts` provides a _base contract_ that verifies Semaphore proofs on-chain.
+- JavaScript libraries help developers build zero-knowledge applications.
 
 To install these dependencies for your project, do the following:
 
@@ -74,13 +74,13 @@ To install these dependencies for your project, do the following:
     For more detail about _Semaphore base contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
     To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/contracts).
 
-2. Use `yarn` to install the JS libraries:
+2. Use `yarn` to install the Semaphore JavaScript libraries:
 
     ```bash
     yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof --dev
     ```
 
-    For more information about the JS libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
+    For more information about the Semaphore JavaScript libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
 
 ## Create the Semaphore contract
 
@@ -135,8 +135,7 @@ Create a `Greeters` contract that imports and extends the Semaphore base contrac
 
 ## Create Semaphore IDs
 
-Semaphore IDs (i.e. _identity commitments_) represent user identities and
-are the leaves of the Merkle trees in the protocol.
+Semaphore IDs - also known as _identity commitments_ - represent user identities.
 
 Create a `./static` folder and add a `./static/identityCommitments.json` file that
 contains the following array of IDs:
@@ -150,9 +149,12 @@ contains the following array of IDs:
 ```
 
 :::info
-To generate the IDs for this example, we used `@semaphore-protocol/identity`.
-We used Metamask to sign messages with the first 3 Ethereum accounts
+To generate the Semaphore IDs for this example, we used `@semaphore-protocol/identity`.
+We used Metamask to sign messages with the first three Ethereum accounts
 of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts), and then we used those messages to generate Semaphore [deterministic identities](/docs/guides/identities#generating-deterministic-identities).
+
+In the Semaphore protocol, a [group](/docs/guides/groups/) is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree).
+Semaphore IDs are tree leaves.
 :::
 
 ## Create a Hardhat task that deploys your contract
@@ -177,6 +179,9 @@ To create a task that deploys the `Greeters` contract, do the following:
     const identityCommitments = require("../static/identityCommitments.json")
     const { task, types } = require("hardhat/config")
 
+   /**
+    *  The `task.setAction` function exposes the `ethers` Javascript library for interacting with Ethereum.
+    */
     task("deploy", "Deploy a Greeters contract")
         .addOptionalParam("logs", "Print the logs", true, types.boolean)
         .setAction(async ({ logs }, { ethers }) => {
@@ -208,12 +213,14 @@ To create a task that deploys the `Greeters` contract, do the following:
     ```javascript title="./hardhat.config.js"
     require("@nomiclabs/hardhat-waffle")
     require("hardhat-dependency-compiler")
-    require("./tasks/deploy") // Your deploy task.
+
+    /** Import your deploy task */
+    require("./tasks/deploy")
 
     module.exports = {
         solidity: "0.8.4",
         dependencyCompiler: {
-            // It allows Hardhat to compile the external Verifier.sol contract.
+            /** Allows Hardhat to compile the external Verifier.sol contract. */
             paths: ["@semaphore-protocol/contracts/verifiers/Verifier20.sol"]
         }
     }
@@ -233,15 +240,16 @@ and [Chai assertions](https://www.chaijs.com/).
        @nomiclabs/hardhat-ethers 'ethers@^5.0.0' chai
     ```
 
-1. Download the Semaphore [zk files](http://www.trusted-setup-pse.org/)
-   and copy them to the `./static` folder. Your application and tests must pass these
-   static files to Semaphore to create zero-knowledge proofs.
+1. Download the Semaphore [zk trusted setup files](http://www.trusted-setup-pse.org/)
+   and copy them to the `./static` folder.
 
     ```bash
     cd static
     wget http://www.trusted-setup-pse.org/semaphore/20/semaphore.zkey
     wget http://www.trusted-setup-pse.org/semaphore/20/semaphore.wasm
     ```
+
+   Learn more about [trusted setup files](/docs/glossary/#trusted-setup-files).
 
 1. Replace the contents of `./test/sample-test.js` with the following test:
 
@@ -251,6 +259,8 @@ and [Chai assertions](https://www.chaijs.com/).
     const { generateProof, packToSolidityProof } = require("@semaphore-protocol/proof")
     const identityCommitments = require("../static/identityCommitments.json")
     const { expect } = require("chai")
+
+    /* Import the Ethers.js JavaScript library for interacting with Ethereum. */
     const { run, ethers } = require("hardhat")
 
     describe("Greeters", function () {
@@ -260,10 +270,17 @@ and [Chai assertions](https://www.chaijs.com/).
         before(async () => {
             contract = await run("deploy", { logs: false })
 
+          /** 
+           * In Ethers.js, a Signer object represents an Ethereum Account
+           * that you can use to sign messages and transactions, and then send 
+           * signed transactions to the Ethereum Network to execute 
+           * state-changing operations.
+           */
             signers = await ethers.getSigners()
         })
 
         describe("# greet", () => {
+            /** Use the trusted setup files. **/
             const wasmFilePath = "./static/semaphore.wasm"
             const zkeyFilePath = "./static/semaphore.zkey"
 
@@ -271,6 +288,10 @@ and [Chai assertions](https://www.chaijs.com/).
                 const greeting = "Hello world"
                 const bytes32Greeting = ethers.utils.formatBytes32String(greeting)
 
+                /**
+                 * In Ethers.js, Signer.signMessage returns a Promise which resolves to the Raw Signature of a message.
+                 * The following code gets the first (Signer) account and assigns the signature Promise to the message variable.
+                 */
                 const message = await signers[0].signMessage("Sign this message to create your identity!")
                 const identity = new Identity(message)
 
