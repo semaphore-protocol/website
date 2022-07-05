@@ -13,7 +13,7 @@ To check out the code used in this guide, visit the
 
 1. [**Create a Node.js project**](#create-a-nodejs-project)
 2. [**Install Hardhat**](#install-hardhat)
-3. [**Install Semaphore contracts and JavaScript libraries**](#install-semaphore-contracts-and-js-libraries)
+3. [**Install Semaphore contracts and JavaScript libraries**](#install-semaphore-contracts-and-javascript-libraries)
 4. [**Create the Semaphore contract**](#create-the-semaphore-contract)
 5. [**Create Semaphore IDs**](#create-semaphore-ids)
 6. [**Create a Hardhat task that deploys your contract**](#create-a-hardhat-task-that-deploys-your-contract)
@@ -60,8 +60,8 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
 
 Semaphore provides contracts and JavaScript libraries for developers building zero-knowledge applications.
 
-- `@semaphore-protocol/contracts` provides a _base contract_ that verifies Semaphore proofs on-chain.
-- JavaScript libraries help developers build zero-knowledge applications.
+-   `@semaphore-protocol/contracts` provides a _base contract_ that verifies Semaphore proofs on-chain.
+-   JavaScript libraries help developers build zero-knowledge applications.
 
 To install these dependencies for your project, do the following:
 
@@ -179,9 +179,9 @@ To create a task that deploys the `Greeters` contract, do the following:
     const identityCommitments = require("../static/identityCommitments.json")
     const { task, types } = require("hardhat/config")
 
-   /**
-    *  The `task.setAction` function exposes the `ethers` Javascript library for interacting with Ethereum.
-    */
+    /**
+     *  The `task.setAction` function exposes the `ethers` Javascript library for interacting with Ethereum.
+     */
     task("deploy", "Deploy a Greeters contract")
         .addOptionalParam("logs", "Print the logs", true, types.boolean)
         .setAction(async ({ logs }, { ethers }) => {
@@ -249,7 +249,7 @@ and [Chai assertions](https://www.chaijs.com/).
     wget http://www.trusted-setup-pse.org/semaphore/20/semaphore.wasm
     ```
 
-   Learn more about [trusted setup files](/docs/glossary/#trusted-setup-files).
+    Learn more about [trusted setup files](/docs/glossary/#trusted-setup-files).
 
 1. Replace the contents of `./test/sample-test.js` with the following test:
 
@@ -270,12 +270,12 @@ and [Chai assertions](https://www.chaijs.com/).
         before(async () => {
             contract = await run("deploy", { logs: false })
 
-          /** 
-           * In Ethers.js, a Signer object represents an Ethereum Account
-           * that you can use to sign messages and transactions, and then send 
-           * signed transactions to the Ethereum Network to execute 
-           * state-changing operations.
-           */
+            /**
+             * In Ethers.js, a Signer object represents an Ethereum Account
+             * that you can use to sign messages and transactions, and then send
+             * signed transactions to the Ethereum Network to execute
+             * state-changing operations.
+             */
             signers = await ethers.getSigners()
         })
 
