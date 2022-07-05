@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-## Private voting overview
+# Private voting overview
 
 The private voting use case describes how Semaphore interacts with your users and Ethereum to allow users to cast private votes in your application.
 Learn how Semaphore enables applications to do the following:
@@ -13,61 +13,60 @@ Learn how Semaphore enables applications to do the following:
 - Record and prove votes.
 - Prevent double-voting.
 
-## Steps
+## Introduction
 
-Learn how your users and your application interact with Semaphore and Ethereum, in the following steps:
+Consider a scenario where your community issues a token that users can mint.
+The token might be a Proof of Attendance (POAP), NFT, or social token that your users can mint to receive membership and vote in your community.
 
-### Prerequisites
+## Roles
 
-For this use case, assume you have deployed the following:
+### Developer or community admin
 
-- **NFT**: Proof of Attendance (POAP), NFT, or social token that your users can mint or acquire to receive membership in your community.
-- **DApp**: Your decentralized application that provides a user-friendly interface to Ethereum and the Semaphore contract.
-- **Contract**: Smart contract based on Semaphore and deployed on Ethereum.
+As a developer or community admin, you deploy the following:
 
-### Introduction
+- **Smart contract on Ethereum**: implements the Semaphore **base contract** to post transactions and verify proofs on Ethereum.
+- **Poll**: Semaphore _group_ that members join to vote.
+- **Decentralized application (DApp)**: provides a user-friendly interface for members to vote on a proposal.
 
-Consider a scenario where your community issues an **NFT** that users can mint to join the community.
-Anyone who holds the NFT in an Ethereum wallet may vote on community proposals and surveys.
-The DApp must provide the following:
-- a [secret ballot](https://en.wikipedia.org/wiki/Secret_ballot)
-that preserves voter anonymity and privacy.
-- proof that only members cast votes.
-- a way to prevent double-voting.
+### Community member
+
+Community members connect their wallets to your DApp to do the following:
+
+1. Verify they own the NFT.
+2. Generate an anonymous ID.
+3. Cast a vote.
 
 :::info
 Learn how to use [Ethers.js]() to [check Ethereum wallets]().
 :::
 
-Your **DApp** provides the UI that manages the interactions between users, wallets, and voting polls.
+### Relay
+
+The DApp may use a third-party relay to call the **contract** function that casts the vote on Ethereum. To learn more, see [how relayers preserve anonymity]().
+
+## Steps for private voting
+
 The voting scenario has the following steps:
 
 1. [Create a poll](#create-a-poll): Coordinator creates a poll, or _group_, in which members can vote on a proposal.
-2. [Register topics](#register-topics): Member submits a proposal, or _topic_, to a poll.
-3. [Register voters](#register-voters): Members join the poll to vote.
-4. [Record votes](#record-votes): Once the poll opens, members may cast one vote, or _signal_, on the topic.
+2. [Register voters](#register-voters): Members join the poll to vote.
+3. [Record votes](#record-votes): Once the poll opens, members may cast one vote, or _signal_, on the topic.
 
 ### Create a poll
 
-In this scenario, a poll is an on-chain Semaphore **group** that stores the following:
-- A topic.
+A community coordinator or DApp administrator creates a poll that members can join and vote on.
+A poll is a Semaphore [group](/docs/guides/groups/) that stores the following:
+
+- A topic to vote on.
 - The public ID of the poll creator.
-- Semaphore IDs of members who joined the poll.
+- [Semaphore IDs](/docs/guides/identities/) of members who joined the poll.
 
-A community coordinator or DApp administrator creates polls and invites members to submit topics to polls.
-
-### Register topics
-
-Before a user can register a topic, your DApp needs to verify membership by checking the user's wallet for the NFT.
-To grant access to the wallet, the user clicks a `Connect wallet` button in the Dapp.
-Once verified, the member may add a topic to a poll.
-To add a topic, a member clicks a `Submit topic` button in the DApp that then calls a contract function--for example:
+To create an on-chain (Ethereum) poll, the administrator calls a function in the deployed smart contract--for example:
 
 ```ts
 SemaphoreVoting.createPoll
 ```
 
-The member enters a topic and signs the transaction to save the poll on Ethereum.
 Next, learn how to [register voters](#register-voters) for the poll.
 
 ### Register voters
