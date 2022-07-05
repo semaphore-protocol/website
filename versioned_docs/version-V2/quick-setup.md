@@ -149,8 +149,8 @@ contains the following array of IDs:
 ```
 
 :::info
-To generate the IDs for this example, we used `@semaphore-protocol/identity`.
-We used Metamask to sign messages with the first 3 Ethereum accounts
+To generate the Semaphore IDs for this example, we used `@semaphore-protocol/identity`.
+We used Metamask to sign messages with the first three Ethereum accounts
 of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts), and then we used those messages to generate Semaphore [deterministic identities](/docs/guides/identities#generating-deterministic-identities).
 
 In the Semaphore protocol, a [group](/docs/guides/groups/) is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree).
