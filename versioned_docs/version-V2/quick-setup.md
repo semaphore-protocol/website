@@ -13,7 +13,7 @@ To check out the code used in this guide, visit the
 
 1. [**Create a Node.js project**](#create-a-nodejs-project)
 2. [**Install Hardhat**](#install-hardhat)
-3. [**Install Semaphore contracts and JS libraries**](#install-semaphore-contracts-and-js-libraries)
+3. [**Install Semaphore contracts and JavaScript libraries**](#install-semaphore-contracts-and-js-libraries)
 4. [**Create the Semaphore contract**](#create-the-semaphore-contract)
 5. [**Create Semaphore IDs**](#create-semaphore-ids)
 6. [**Create a Hardhat task that deploys your contract**](#create-a-hardhat-task-that-deploys-your-contract)
@@ -56,7 +56,7 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
     # and then enter through the prompts.
     ```
 
-## Install Semaphore contracts and JS libraries
+## Install Semaphore contracts and JavaScript libraries
 
 Semaphore provides contracts and JavaScript libraries for developers building zero-knowledge applications.
 
@@ -80,7 +80,7 @@ To install these dependencies for your project, do the following:
     yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof --dev
     ```
 
-    For more information about the JS libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
+    For more information about the Semaphore JavaScript libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
 
 ## Create the Semaphore contract
 
@@ -260,7 +260,7 @@ and [Chai assertions](https://www.chaijs.com/).
     const identityCommitments = require("../static/identityCommitments.json")
     const { expect } = require("chai")
 
-    /* Import  the Ethers.js JavaScript library for interacting with Ethereum. */
+    /* Import the Ethers.js JavaScript library for interacting with Ethereum. */
     const { run, ethers } = require("hardhat")
 
     describe("Greeters", function () {
