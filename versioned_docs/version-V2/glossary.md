@@ -11,6 +11,11 @@ The public [Semaphore identity](#semaphore-identity) value used in [Semaphore gr
 Semaphore uses the **Poseidon** hash function to create the identity commitment from the Semaphore identity secret values.
 For more information, see the [Poseidon website](https://www.poseidon-hash.info/).
 
+## incremental Merkle tree
+
+A [Merkle tree](#merkle-tree) that can grow as nodes are added.
+When a node is added, the tree _root hash_ is recalculated and can be used as a compact representation of the whole tree.
+
 ## Merkle tree
 
 A tree in which every leaf (i.e., a node that doesn't have children) is labelled with the cryptographic hash of a data block,
