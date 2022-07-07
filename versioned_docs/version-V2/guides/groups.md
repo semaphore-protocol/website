@@ -17,31 +17,32 @@ title: Groups
 - Add identities
 - Remove identities
 -->
+
 Use Semaphore in your application or smart contract to create off-chain and on-chain groups.
 
 A [Semaphore group](/docs/glossary/#semaphore-group) contains [identity commitments](/docs/glossary/#identity-commitment) of group members.
 Example uses of groups include the following:
 
-- Poll question that attendees join to rate an event.
-- Ballot that members join to vote on a proposal.
-- Whistleblowers who are verified employees of an organization.
+-   Poll question that attendees join to rate an event.
+-   Ballot that members join to vote on a proposal.
+-   Whistleblowers who are verified employees of an organization.
 
 A Semaphore group is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree), and group members (i.e., [identity commitments](/docs/glossary/#identity-commitments)) are tree leaves.
 Semaphore groups set the following tree parameters:
 
-- **Tree depth**: the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
-- **Zero value**: the value for a tree node that doesn't have a member assigned.
+-   **Tree depth**: the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+-   **Zero value**: the value used to calculate the zero nodes of the incremental Merkle tree.
 
 Learn how to work with groups.
 
-- [Off-chain groups](#off-chain-groups)
-- [On-chain groups](#on-chain-groups)
+-   [Off-chain groups](#off-chain-groups)
+-   [On-chain groups](#on-chain-groups)
 
 ## Off-chain groups
 
-- [Create an off-chain group](#create-an-off-chain-group)
-- [Add members to an off-chain group](#add-members-to-an-off-chain-group)
-- [Remove members from an off-chain group](#remove-members-from-an-off-chain-group)
+-   [Create an off-chain group](#create-an-off-chain-group)
+-   [Add members to an off-chain group](#add-members-to-an-off-chain-group)
+-   [Remove members from an off-chain group](#remove-members-from-an-off-chain-group)
 
 ### Create an off-chain group
 
@@ -49,8 +50,8 @@ Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/sema
 
 #### Options
 
-- **Tree depth**: (_default `20`_) the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
-- **Zero value**: (_default `BigInt(0)`_) the value for a tree node that doesn't have a member assigned.
+-   **Tree depth**: (_default `20`_) the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+-   **Zero value**: (_default `BigInt(0)`_) the value for a tree node that doesn't have a member assigned.
 
 To create a group with default _`treeDepth`_ and _`zeroValue`_, call the `Group` constructor without parameters--for example:
 
@@ -61,7 +62,7 @@ import { Group } from "@semaphore-protocol/group"
 const group = new Group()
 ```
 
-The following example code passes _`treeDepth`_ to create a group for thirty members:
+The following example code passes _`treeDepth`_ to create a group for `2 ^ 30 = 1073741824` members:
 
 ```ts
 import { Group } from "@semaphore-protocol/group"
