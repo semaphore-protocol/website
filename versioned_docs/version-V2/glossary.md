@@ -25,21 +25,19 @@ To validate that a tree contains a specific leaf, a verifier only needs a portio
 
 For more information, see [Merkle tree in Wikipedia](https://en.wikipedia.org/wiki/Merkle_tree).
 
-<<<<<<< Updated upstream
 ## nullifier
 
 A value used to prevent double entry or double signalling.
 
 See [Circuit nullifier hash](/docs/technical-reference/circuits/#nullifier-hash)
-=======
+
 ## relay
 
-A third-party who receives a fee for including relayed transactions in the blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3). 
+A third-party who receives a fee for including relayed transactions in the blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3).
 To preserve the anonymity of the user broadcasting a signal with Semaphore, an application may use a relayer to post the signal transaction to Ethereum on behalf of the user.
 
 Applications may provide rewards for relayers and implement front-running prevention mechanisms, such as requiring the signals to include the relayer’s address, binding the
 signal to that specific address (https://semaphore.appliedzkp.org/whitepaper-v1.pdf, p.6).
->>>>>>> Stashed changes
 
 ## Semaphore group
 
