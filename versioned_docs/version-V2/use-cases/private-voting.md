@@ -42,7 +42,8 @@ Learn how to use [Ethers.js]() to [check Ethereum wallets]().
 
 ### Relay
 
-The DApp may use a third-party relay to call the **contract** function that casts the vote on Ethereum. To learn more, see [how relayers preserve anonymity]().
+To preserve anonymity and avoid disclosing the user's wallet address, the DApp may use a [relay](/docs/glossary/#relay) to broadcast the vote.
+The relay calls the **contract** function that then posts the vote transaction to Ethereum.
 
 ## Steps for private voting
 
