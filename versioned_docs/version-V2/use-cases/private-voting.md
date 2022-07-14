@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Private voting overview
+# Private voting use case
 
 The private voting use case describes how Semaphore interacts with your users and Ethereum to allow users to cast private votes in your application.
 Learn how Semaphore enables applications to do the following:
@@ -13,31 +13,31 @@ Learn how Semaphore enables applications to do the following:
 - Record and prove votes.
 - Prevent double-voting.
 
-## Introduction
-
-Consider a scenario where your community issues a token that users can mint.
-The token might be a Proof of Attendance (POAP), NFT, or social token that your users can mint to receive membership and vote in your community.
-
 ## Roles
+
+- **[Developer or community admin](#developer-or-community-admin)**
+- **[Community member (DApp user)](#community-member)**
+- **[Relay](#relay)**
 
 ### Developer or community admin
 
 As a developer or community admin, you deploy the following:
 
 - **Smart contract on Ethereum**: implements the Semaphore **base contract** to post transactions and verify proofs on Ethereum.
-- **Poll**: Semaphore _group_ that members join to vote.
-- **Decentralized application (DApp)**: provides a user-friendly interface for members to vote on a proposal.
+- **Poll**: Semaphore _group_ that members join to vote on proposals.
+- **Decentralized application (DApp)**: user-friendly interface for members to join a poll and vote on a proposal.
 
 ### Community member
 
-Community members connect their wallets to your DApp to do the following:
+Community members connect their wallets to your DApp.
+Your DApp provides a UI that provides the following user actions:
 
-1. Verify they own the NFT.
+1. Verify ownership of the community token.
 2. Generate an anonymous ID.
 3. Cast a vote.
 
 :::info
-Learn how to use [Ethers.js]() to [check Ethereum wallets]().
+Learn how to get started with Ethers.js and [connect to Ethereum wallets](https://docs.ethers.io/v5/getting-started).
 :::
 
 ### Relay
@@ -46,6 +46,9 @@ To preserve anonymity and avoid disclosing the member's wallet address, the DApp
 The relay calls the **contract** function that then posts the member's vote transaction to Ethereum.
 
 ## Private voting
+
+Consider a scenario where your community issues a token that users can mint.
+The token might be a Proof of Attendance (POAP), NFT, or social token that your users can mint to receive membership and vote in your community.
 
 The voting scenario has the following steps:
 
@@ -101,8 +104,8 @@ Before a user can register to vote, your DApp needs to verify membership by chec
 To grant access to the wallet, the user clicks a `Connect wallet` button in the DApp and allows the DApp to check for the NFT.
 Once a member is verified, the DApp provides the following member interactions:
 
-- [Generate a private identity](#generate-a-private-identity).
-- [Join a poll](#join-a-poll).
+1. [Generate a private identity](#generate-a-private-identity).
+2. [Join a poll](#join-a-poll).
 
 #### Generate a private identity
 
@@ -128,5 +131,5 @@ Once members have joined a poll, the coordinator starts the poll to allow voting
 When a member submits a vote in the UI--for example, selects a radio button--then the DApp does the following:
 
 1. Uses the `semaphore-protocol` library to verify that the voter registered a Semaphore ID to the poll.
-2. Uses the `semaphore-protocol` library to create a proof of the vote, the poll identifier, the Semaphore ID, and a nullifier that prevents double-voting. To learn more, see [how Semaphore and prevents double-voting]().
-3. Sends the vote proof to the relay.
+2. Uses the `semaphore-protocol` library to create a proof of the vote, the poll identifier, the Semaphore ID, and a [nullifier](/docs/glossary/#nullifier) that prevents double-voting.
+3. Sends the vote proof to the [relay](#relay).

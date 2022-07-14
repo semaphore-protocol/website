@@ -49,13 +49,6 @@ module.exports = {
             },
             items: [
                 {
-                    type: "docsVersionDropdown",
-                    position: "left",
-                    dropdownActiveClassDisabled: true,
-                    docsPluginId: "default",
-                    className: "docs_active"
-                },
-                {
                     label: "Whitepaper",
                     to: "https://semaphore.appliedzkp.org/whitepaper-v1.pdf",
                     position: "right",

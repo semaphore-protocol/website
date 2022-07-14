@@ -10,15 +10,16 @@ sidebar_position: 1
 
 ## Features
 
-Semaphore provides the ability to:
+With Semaphore, you can allow your users to do the following:
 
-1. [Create private identities](/docs/guides/identities/) and add an anonymous public identity to a [group](/docs/glossary#semaphore-group) (i.e. _Merkle tree_).
-2. [Anonymously broadcast a signal](/docs/guides/proofs/) if the identity of the owner belongs to a valid group and if the nullifier has not already been used.
+1. [Create a private identity and get a provable anonymous public identity](/docs/guides/identities/).
+2. [Add an anonymous public identity to a group](/docs/guides/groups/).
+3. [Anonymously broadcast a signal](/docs/guides/proofs/) if the user joined the group and hasn't yet used the nullifer.
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
 -   Off chain, zero-knowledge components allow users to generate identities and proofs.
--   On chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
+-   On chain, smart contracts manage groups (Merkle trees) and verify proofs that, if valid, allow the smart contract to update its state.
 
 ## Developer benefits
 
@@ -33,3 +34,7 @@ and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore.js) t
 
 The Semaphore V2 codebase was audited with a focus on the smart contracts and the Circom circuits.
 See the [audit summary](https://semaphore.appliedzkp.org/audit-v2.pdf).
+
+:::info
+If you are using the previous version of Semaphore, see the [Semaphore V1 documentation](/docs/V1/introduction) ([code](https://github.com/semaphore-protocol/semaphore/tree/version/1.0.0)).
+:::
