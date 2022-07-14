@@ -16,7 +16,7 @@ Learn how Semaphore enables applications to do the following:
 ## Roles
 
 - **[Developer or community admin](#developer-or-community-admin)**
-- **[Community member (DApp user)](#community-member)**
+- **[Community member (dApp user)](#community-member)**
 - **[Relay](#relay)**
 
 ### Developer or community admin
@@ -25,12 +25,12 @@ As a developer or community admin, you deploy the following:
 
 - **Smart contract on Ethereum**: implements the Semaphore **base contract** to post transactions and verify proofs on Ethereum.
 - **Poll**: Semaphore _group_ that members join to vote on proposals.
-- **Decentralized application (DApp)**: user-friendly interface for members to join a poll and vote on a proposal.
+- **Decentralized application (dApp)**: user-friendly interface for members to join a poll and vote on a proposal.
 
 ### Community member
 
-Community members connect their wallets to your DApp.
-Your DApp provides a UI that provides the following user actions:
+Community members connect their wallets to your dApp.
+Your dApp provides a UI that enables the following user interactions:
 
 1. Verify ownership of the community token.
 2. Generate an anonymous ID.
@@ -42,7 +42,7 @@ Learn how to get started with Ethers.js and [connect to Ethereum wallets](https:
 
 ### Relay
 
-To preserve anonymity and avoid disclosing the member's wallet address, the DApp may use a [relay](/docs/glossary/#relay) to broadcast the vote.
+To preserve anonymity and avoid disclosing the member's wallet address, the dApp may use a [relay](/docs/glossary/#relay) to broadcast the vote.
 The relay calls the **contract** function that then posts the member's vote transaction to Ethereum.
 
 ## Private voting
@@ -58,7 +58,7 @@ The voting scenario has the following steps:
 
 ### Create a poll
 
-A community coordinator or DApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll that members can join and vote on.
+A community coordinator ordApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll that members can join and vote on.
 
 In the following sample code, the voting contract declares a `createPoll` function that uses the Semaphore base `_createGroup` function:
 
@@ -100,35 +100,35 @@ Next, learn how to [register voters](#register-voters) for the poll.
 
 ### Register voters
 
-Before a user can register to vote, your DApp needs to verify membership by checking the user's wallet for the NFT.
-To grant access to the wallet, the user clicks a `Connect wallet` button in the DApp and allows the DApp to check for the NFT.
-Once a member is verified, the DApp provides the following member interactions:
+Before a user can register to vote, yourdApp needs to verify membership by checking the user's wallet for the NFT.
+To grant access to the wallet, the user clicks a `Connect wallet` button in thedApp and allows thedApp to check for the NFT.
+Once a member is verified, thedApp provides the following member interactions:
 
 1. [Generate a private identity](#generate-a-private-identity).
 2. [Join a poll](#join-a-poll).
 
 #### Generate a private identity
 
-To generate a private identity, the member completes a form in the DApp UI.
-With the form values and the `@zk-kit/identity` library, the DApp prompts the member to sign a wallet message and then generates the signed private identity.
-The private identity is known only to the member and can be used in future interactions with the DApp.
+To generate a private identity, the member completes a form in thedApp UI.
+With the form values and the `@zk-kit/identity` library, thedApp prompts the member to sign a wallet message and then generates the signed private identity.
+The private identity is known only to the member and can be used in future interactions with thedApp.
 
 Next, learn how members [join a poll](#join-a-poll). 
 
 #### Join a poll
 
-Once the member has a private identity for the DApp, the member may select a poll to vote in.
-When the member selects a poll, the DApp does the following:
+Once the member has a private identity for thedApp, the member may select a poll to vote in.
+When the member selects a poll, thedApp does the following:
 
 1. Uses the `zk-kit` library to generate an anonymous Semaphore ID, or _identity commitment_, from the private identity.
 2. Calls a contract function that adds the new Semaphore ID to the on-chain poll.
 
-With a member registered for a poll, learn how the DApp [records votes](#record-votes).
+With a member registered for a poll, learn how thedApp [records votes](#record-votes).
 
 ### Record votes
 
 Once members have joined a poll, the coordinator starts the poll to allow voting.
-When a member submits a vote in the UI--for example, selects a radio button--then the DApp does the following:
+When a member submits a vote in the UI--for example, selects a radio button--then thedApp does the following:
 
 1. Uses the `semaphore-protocol` library to verify that the voter registered a Semaphore ID to the poll.
 2. Uses the `semaphore-protocol` library to create a proof of the vote, the poll identifier, the Semaphore ID, and a [nullifier](/docs/glossary/#nullifier) that prevents double-voting.
