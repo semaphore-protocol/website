@@ -32,8 +32,8 @@ While some dApps may use on-chain groups, others may prefer to use off-chain gro
 
 ## Extension contracts
 
-- [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreVoting.sol): voting contract that contains the essential functions to create polls, add voters, and anonymously cast votes.
-- [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreWhistleblowing.sol): whistleblowing contract that contains the essential functions to create entities (for example: non-profit organizations), add whistleblowers, and anonymously publish leaks.
+-   [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreVoting.sol): voting contract that contains the essential functions to create polls, add voters, and anonymously cast votes.
+-   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreWhistleblowing.sol): whistleblowing contract that contains the essential functions to create entities (for example: non-profit organizations), add whistleblowers, and anonymously publish leaks.
 
 These contracts extend the protocol to provide application logic for specific use-cases.
 More extensions will be added in the future.
@@ -46,5 +46,5 @@ You can choose to manually deploy the [verifier](https://github.com/semaphore-pr
 Each verifier name indicates the tree depth that it can verify.
 For example, given a Semaphore proof generated with a tree depth `20`:
 
-- The `Verifier20.sol` contract can verify the proof.
-- The [group](/docs/guides/groups) used for the proof can have a maximum `2^20=1048576` members.
+-   The `Verifier20.sol` contract can verify the proof.
+-   The [group](/docs/guides/groups) used for the proof can have a maximum `2^20=1048576` members.
