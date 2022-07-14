@@ -24,7 +24,7 @@ Semaphore provides the following base contracts:
 
 These contracts are closely related to the protocol.
 You can inherit them in your contract or you can use [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol), which inherits them for you.
-See our [deployed contracts](/docs/deployed-contracts#semaphoresol) to find the addresses for your network.
+See our [deployed contracts](/docs/deployed-contracts#semaphore) to find the addresses for your network.
 
 :::info
 While some dApps may use on-chain groups, others may prefer to use off-chain groups, saving only their tree roots in the contract.
