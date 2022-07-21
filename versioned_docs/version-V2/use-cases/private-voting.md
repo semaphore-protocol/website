@@ -7,24 +7,24 @@ sidebar_position: 2
 The private voting use case describes how Semaphore interacts with your users and Ethereum to allow users to cast private votes in your application.
 Learn how Semaphore enables applications to do the following:
 
-- Register members as voters.
-- Allow members to vote anonymously.
-- Prove voter membership.
-- Record and prove votes.
-- Prevent double-voting.
+-   Register members as voters.
+-   Allow members to vote anonymously.
+-   Prove voter membership.
+-   Record and prove votes.
+-   Prevent double-voting.
 
 ## Roles
 
-- **[Developer or community admin](#developer-or-community-admin)**
-- **[Community member (dApp user)](#community-member)**
-- **[Relay](#relay)**
+-   **[Developer or community admin](#developer-or-community-admin)**
+-   **[Community member (dApp user)](#community-member)**
+-   **[Relay](#relay)**
 
 ### Developer or community admin
 
 As a developer or community admin, you deploy the following:
 
-- **Smart contract on Ethereum**: implements the Semaphore **base contract** to create a poll (Semaphore **group** that members join to vote), post transactions, and verify proofs on Ethereum.
-- **Decentralized application (dApp)**: your application that provides a user interface (UI) where members join a poll and vote on a proposal.
+-   **Smart contract on Ethereum**: implements the Semaphore **base contract** to create a poll (Semaphore **group** that members join to vote), post transactions, and verify proofs on Ethereum.
+-   **Decentralized application (dApp)**: your application that provides a user interface (UI) where members join a poll and vote on a proposal.
 
 ### Community member
 
@@ -80,9 +80,9 @@ function createPoll(
 
 A poll is a Semaphore [group](/docs/guides/groups/) that stores the following:
 
-- A topic to vote on.
-- The public ID of the poll creator.
-- [Semaphore IDs](/docs/guides/identities/) of members who joined the poll.
+-   A topic to vote on.
+-   The public ID of the poll creator.
+-   [Semaphore IDs](/docs/guides/identities/) of members who joined the poll.
 
 To create the poll, the administrator calls the smart contract function--for example:
 
@@ -101,7 +101,6 @@ Once a member is verified, the dApp provides the following member interactions:
 1. [Generate a private identity](#generate-a-private-identity).
 2. [Join a poll](#join-a-poll).
 
-
 :::info
 To learn how to connect to Ethereum wallets, visit the [ethers.js Getting Started documentation]((https://docs.ethers.io/v5/getting-started).
 :::
@@ -112,7 +111,7 @@ To generate a private identity, the member completes a form in the dApp UI.
 With the form values and the `@semaphore-protocol/identity` library, the dApp prompts the member to sign a wallet message and then generates the signed private identity.
 The private identity is known only to the member and can be used in future interactions with the dApp.
 
-Next, learn how members [join a poll](#join-a-poll). 
+Next, learn how members [join a poll](#join-a-poll).
 
 #### Join a poll
 
@@ -129,10 +128,10 @@ With a member registered for a poll, learn how the dApp [records votes](#record-
 Once members have joined a poll, the coordinator starts the poll to allow voting.
 When a member votes (for example, by selecting a radio button), then the dApp takes the following actions:
 
-1. Uses the `semaphore-protocol` library to create a proof of the vote, the poll identifier, the Semaphore ID, and a [nullifier](/docs/glossary/#nullifier) that prevents double-voting.
+1. Uses the `@semaphore-protocol/proof` library to create a proof of the vote, the poll identifier, the Semaphore ID, and a [nullifier](/docs/glossary/#nullifier) that prevents double-voting.
 2. Sends the vote proof to the [relay](#relay).
 
 ### Related
 
-- To get started developing with Semaphore, see the [Quick setup](/docs/quick-setup/) guide.
-- For an example app that you can use to start your own project, see [Semaphore boilerplate](https://github.com/semaphore-protocol/boilerplate).
+-   To get started developing with Semaphore, see the [Quick setup](/docs/quick-setup/) guide.
+-   For an example app that you can use to start your own project, see [Semaphore boilerplate](https://github.com/semaphore-protocol/boilerplate).
