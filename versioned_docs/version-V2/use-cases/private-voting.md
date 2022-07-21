@@ -23,9 +23,8 @@ Learn how Semaphore enables applications to do the following:
 
 As a developer or community admin, you deploy the following:
 
-- **Smart contract on Ethereum**: implements the Semaphore **base contract** to post transactions and verify proofs on Ethereum.
-- **Poll**: Semaphore _group_ that members join to vote on proposals.
-- **Decentralized application (dApp)**: your application with a user interface (UI) where members join a poll and vote on a proposal.
+- **Smart contract on Ethereum**: implements the Semaphore **base contract** to create a poll (Semaphore **group** that members join to vote), post transactions, and verify proofs on Ethereum.
+- **Decentralized application (dApp)**: your application that provides a user interface (UI) where members join a poll and vote on a proposal.
 
 ### Community member
 
@@ -53,7 +52,7 @@ The voting scenario has the following steps:
 
 ### Create a poll
 
-A community coordinator or dApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll that members can join and vote on.
+A community coordinator or dApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll, a [Semaphore group](/docs/guides/groups/) that members can join and cast votes to.
 
 In the following sample code, the voting contract declares a `createPoll` function that uses the Semaphore base `_createGroup` function:
 
