@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_semaphore_protocol_website=self.webpackChunk_semaphore_protocol_website||[]).push([[477],{10:function(e){e.exports={blogPosts:[]}}}]);
