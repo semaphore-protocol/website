@@ -53,7 +53,7 @@ The voting scenario has the following steps:
 
 ### Create a poll
 
-A community coordinator ordApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll that members can join and vote on.
+A community coordinator or dApp administrator uses the deployed smart contract to create an on-chain (Ethereum) poll that members can join and vote on.
 
 In the following sample code, the voting contract declares a `createPoll` function that uses the Semaphore base `_createGroup` function:
 
