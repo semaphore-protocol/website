@@ -25,20 +25,15 @@ As a developer or community admin, you deploy the following:
 
 - **Smart contract on Ethereum**: implements the Semaphore **base contract** to post transactions and verify proofs on Ethereum.
 - **Poll**: Semaphore _group_ that members join to vote on proposals.
-- **Decentralized application (dApp)**: user-friendly interface for members to join a poll and vote on a proposal.
+- **Decentralized application (dApp)**: your application with a user interface (UI) where members join a poll and vote on a proposal.
 
 ### Community member
 
-Community members connect their wallets to your dApp.
-Your dApp provides a UI that enables the following user interactions:
+Community members connect their wallets to the dApp to take the following actions:
 
 1. Verify ownership of the community token.
 2. Generate an anonymous ID.
 3. Cast a vote.
-
-:::info
-Learn how to get started with Ethers.js and [connect to Ethereum wallets](https://docs.ethers.io/v5/getting-started).
-:::
 
 ### Relay
 
@@ -100,12 +95,17 @@ Next, learn how to [register voters](#register-voters) for the poll.
 
 ### Register voters
 
-Before a user can register to vote, yourdApp needs to verify membership by checking the user's wallet for the NFT.
+Before a user can register to vote, the dApp needs to verify membership by checking the user's wallet for the NFT.
 To grant access to the wallet, the user clicks a `Connect wallet` button in the dApp and allows the dApp to check for the NFT.
 Once a member is verified, the dApp provides the following member interactions:
 
 1. [Generate a private identity](#generate-a-private-identity).
 2. [Join a poll](#join-a-poll).
+
+
+:::info
+To learn how to connect to Ethereum wallets, visit the [ethers.js Getting Started documentation]((https://docs.ethers.io/v5/getting-started).
+:::
 
 #### Generate a private identity
 
