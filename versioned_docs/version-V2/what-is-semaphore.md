@@ -6,15 +6,17 @@ sidebar_position: 1
 
 ## Overview
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore) is a [zero-knowledge](https://z.cash/technology/zksnarks) protocol that allows users to prove their membership in a group and send signals such as votes or endorsements without revealing their identity. Additionally, it provides a simple mechanism to prevent double-signaling. Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
+[Semaphore](https://github.com/semaphore-protocol/semaphore) is a [zero-knowledge](https://z.cash/technology/zksnarks) protocol that allows you to cast a signal (for example, a vote or endorsement) as a provable group member without revealing your identity.
+Additionally, it provides a simple mechanism to prevent double-signaling.
+Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
 
 ## Features
 
 With Semaphore, you can allow your users to do the following:
 
-1. [Create a private identity and get a provable anonymous public identity](/docs/guides/identities/).
-2. [Add an anonymous public identity to a group](/docs/guides/groups/) (i.e. _Merkle tree_).
-3. [Anonymously broadcast a signal](/docs/guides/proofs/) if the user joined the group and hasn't yet used the nullifer.
+1. [Create a private identity and receive a provable anonymous public identity](/docs/guides/identities/).
+2. [Add an anonymous public identity to a group (a _Merkle tree_)](/docs/guides/groups/).
+3. [Anonymously broadcast a signal](/docs/guides/proofs/) (if the user joined the group and hasn't yet used the nullifer).
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
@@ -27,7 +29,7 @@ Semaphore is designed to be a simple and generic _privacy layer_ for decentraliz
 
 ## About the code
 
-The core of the protocol is in the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png).
+The core of the protocol is the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png).
 In addition to circuits,
 Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/contracts)
 and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore.js) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
