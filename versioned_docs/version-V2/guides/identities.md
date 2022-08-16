@@ -16,14 +16,14 @@ To prevent fraud, the owner should keep both values secret.
 
 ## Create identities
 
-Use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
+In your code, use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore.js/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
 
 -   [**Create random identities**](#create-random-identities)
 -   [**Create deterministic identities**](#create-deterministic-identities)
 
 ### Create random identities
 
-To create a random identity, instantiate `Identity` without any parameters. For example:
+To create a random identity, instantiate `Identity` without any parameters--for example:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
@@ -32,7 +32,8 @@ const identity = new Identity()
 ```
 
 The new identity contains random `trapdoor` and `nullifier` secret values.
-The following example shows how to use the `.getTrapdoor` and `.getNullifier` accessor methods to retrieve the values:
+The following example shows how to use the `.getTrapdoor` and `.getNullifier`
+accessor methods to retrieve the values:
 
 ```ts
 // Random secret values.
@@ -42,14 +43,25 @@ const nullifier = identity.getNullifier()
 
 ### Create deterministic identities
 
-If you pass a message as a parameter, trapdoor and nullifier will be generated from the SHA256 hash of the message. The message must clearly be kept secret in turn, since anyone who owns the message can recreate the same identity. The message can be a password or a message signed with a private key.
+If you pass a message as a parameter, Semaphore generates `trapdoor` and `nullifier`
+from the _SHA256_ hash of the message.
+The message might be a password or a message that the user cryptographically signs with a private key.
+
+When using deterministic identities, you should always keep the message secret. 
+Given that the hash is deterministic, anyone with the same message can recreate the same identity.
 
 ```ts
 const identity = new Identity("secret-message")
 ```
 
 :::tip
-Since building a system to save or recover the secret values of Semaphore identities is nontrivial, a message signed with the private key of the users' Ethereum account allows these functionalities to be delegated to an existing wallet (e.g., Metamask). Users can recreate their Semaphore identity whenever they want using their Ethereum account by signing the same message.
+Building a system to save or recover secret values of Semaphore identities is nontrivial.
+You may choose to delegate such functionality to existing wallets such as Metamask--for example:
+
+1. In Metamask, a user signs a message with the private key of their Ethereum account.
+2. In your application, the user creates a deterministic identity with the signed message.
+3. The user can now recreate their Semaphore identity whenever they want by signing
+   the same message with their Ethereum account in Metamask.
 :::
 
 ## Saving your identities
