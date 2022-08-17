@@ -64,18 +64,24 @@ You may choose to delegate such functionality to existing wallets such as Metama
    the same message with their Ethereum account in Metamask.
 :::
 
-## Saving your identities
+## Save your identities
 
-You can also export and save the identities.
+You can output an identity as a JSON string that you can save and reuse later.
+The `Identity.toString()` method generates a JSON array from an identity--for example:
 
 ```ts
 const identityBackup = identity.toString()
-
-// It contains trapdoor and nullifier as a JSON array.
-console.log(identityBackup) // '["8255d...", "62c41..."]'
 ```
 
-And reuse the same identity later.
+The array contains the trapdoor and nullifier.
+
+```ts
+console.log(identityBackup) // View the identity trapdoor and nullifier.
+
+'["8255d...", "62c41..."]'
+```
+
+To reuse the saved identity, pass the JSON to the `Identity()` constructor.
 
 ```ts
 const identity = new Identity(identityBackup)
@@ -83,7 +89,10 @@ const identity = new Identity(identityBackup)
 
 ## Identity commitments
 
-The Poseidon hash of the identity nullifier and trapdoor is called the identity secret, and its hash is the identity commitment. The latter, similarly to Ethereum addresses, is a public value and is used in Semaphore groups to represent the identity of members.
+The Poseidon hash of the identity nullifier and trapdoor is called the _identity secret_,
+and its hash is the _identity commitment_.
+An identity commitment, similarly to Ethereum addresses, is a public value used
+in Semaphore groups to represent the identity of a group member.
 
 ```ts
 const identityCommitment = identity.generateCommitment()
