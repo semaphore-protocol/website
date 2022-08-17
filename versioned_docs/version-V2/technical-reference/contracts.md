@@ -11,17 +11,20 @@ Semaphore includes three types of contracts:
 -   [**Verifiers**](/docs/technical-reference/contracts#verifiers)
 
 :::info
-Semaphore contracts and interfaces can be used with the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM package.
+To use Semaphore contracts and interfaces in your project,
+install the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts) NPM package.
 :::
 
 ## Base contracts
 
-There are currently two base contracts:
+Semaphore provides the following base contracts:
 
 -   [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol): contains the functions to verify Semaphore proofs and to save the nullifier hash in order to avoid double signaling;
 -   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove members.
 
-These contracts are closely related to the protocol. You can inherit them in your contract or you can decide to use [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol), which inherit them for you. See our [deployed contracts](/docs/deployed-contracts#semaphoresol) to find the addresses for your network.
+These contracts are closely related to the protocol.
+You can inherit them in your contract or you can use [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol), which inherits them for you.
+See our [deployed contracts](/docs/deployed-contracts#semaphore) to find the addresses for your network.
 
 :::info
 While some dApps may use on-chain groups, others may prefer to use off-chain groups, saving only their tree roots in the contract.
@@ -29,13 +32,19 @@ While some dApps may use on-chain groups, others may prefer to use off-chain gro
 
 ## Extension contracts
 
--   [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreVoting.sol): contains the essential functions to create polls, add voters and cast votes anonymously;
--   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreWhistleblowing.sol): contains the essential functions to create entities (e.g. non-profit organizations), add whistleblowers and publish leaks anonymously.
+-   [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreVoting.sol): voting contract that contains the essential functions to create polls, add voters, and anonymously cast votes.
+-   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/extensions/SemaphoreWhistleblowing.sol): whistleblowing contract that contains the essential functions to create entities (for example: non-profit organizations), add whistleblowers, and anonymously publish leaks.
 
-These contracts contain application logic for specific use-cases and are basically extensions of the protocol. More extensions will be added in the future.
+These contracts extend the protocol to provide application logic for specific use-cases.
+More extensions will be added in the future.
 
 ## Verifiers
 
-When using [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) to verify Semaphore proofs you must also pass the address of a previously deployed verifier contract. You can choose to manually deploy the [verifier](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/verifiers) you prefer or you can use one of our [deployed verifiers](/docs/deployed-contracts#verifiers).
+To verify Semaphore proofs, the [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreCore.sol) contract requires the address of a deployed verifier contract.
+You can choose to manually deploy the [verifier](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/verifiers) you prefer or you can use one of our [deployed verifiers](/docs/deployed-contracts#verifiers).
 
-Each verifier can verify Semaphore proofs generated with a specific tree depth. For example, the `Verifier20.sol` contract can be used to verify proofs where the depth of the tree is 20, which means that the group used for those proofs can have a maximum of 2^20=1048576 members.
+Each verifier name indicates the tree depth that it can verify.
+For example, given a Semaphore proof generated with a tree depth `20`:
+
+-   The `Verifier20.sol` contract can verify the proof.
+-   The [group](/docs/guides/groups) used for the proof can have a maximum `2^20=1048576` members.

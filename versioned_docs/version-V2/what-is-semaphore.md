@@ -16,12 +16,15 @@ With Semaphore, you can allow your users to do the following:
 
 1. [Create a private identity and receive a provable anonymous public identity](/docs/guides/identities/).
 2. [Add an anonymous public identity to a group (a _Merkle tree_)](/docs/guides/groups/).
-3. [Anonymously broadcast a signal](/docs/guides/proofs/) (if the user joined the group and hasn't yet used the nullifer).
+3. [Send a verifiable, anonymous vote or endorsement (a _signal_)](/docs/guides/proofs/).
+
+When a user broadcasts a signal (for example: a vote), Semaphore zero-knowledge
+proofs can ensure that the user has joined the group and hasn't already cast a signal.
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
 -   Off chain, zero-knowledge components allow users to generate identities and proofs.
--   On chain, smart contracts manage groups and verify proofs that, if valid, allow the smart contract to update its state.
+-   On chain, smart contracts manage groups (Merkle trees) and verify proofs that, if valid, allow the smart contract to update its state.
 
 ## Developer benefits
 

@@ -25,6 +25,11 @@ For examples, see the [GraphQL API documentation](https://thegraph.com/docs/deve
 -   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/semaphore-protocol/goerli
 -   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/semaphore-protocol/goerli
 
+### Arbitrum One
+
+-   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/semaphore-protocol/arbitrum
+-   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/semaphore-protocol/arbitrum
+
 ## Schema
 
 ### Group
