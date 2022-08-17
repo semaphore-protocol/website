@@ -19,7 +19,7 @@ With Semaphore, you can allow your users to do the following:
 3. [Send a verifiable, anonymous vote or endorsement (a _signal_)](/docs/guides/proofs/).
 
 When a user broadcasts a signal (for example: a vote), Semaphore zero-knowledge
-proofs can ensure that the user has joined the group and hasn't already cast a signal.
+proofs can ensure that the user has joined the group and hasn't already cast a signal with their nullifier.
 
 Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
 
