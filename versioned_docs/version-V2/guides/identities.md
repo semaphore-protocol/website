@@ -60,9 +60,9 @@ You may choose to delegate such functionality to existing wallets such as Metama
 
 1. In Metamask, a user signs a message with the private key of their Ethereum account.
 2. In your application, the user creates a deterministic identity with the signed message.
-3. The user can now recreate their Semaphore identity whenever they want by signing
-   the same message with their Ethereum account in Metamask.
-   :::
+3. The user can now recreate their Semaphore identity whenever they want by signing the same message with their Ethereum account in Metamask.
+
+:::
 
 ## Save your identities
 
@@ -77,7 +77,8 @@ The array contains the trapdoor and nullifier.
 
 ```ts
 console.log(identityBackup) // View the identity trapdoor and nullifier.
-;('["8255d...", "62c41..."]')
+
+// '["8255d...", "62c41..."]'
 ```
 
 To reuse the saved identity, pass the JSON to the `Identity()` constructor.
