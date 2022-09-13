@@ -32,7 +32,7 @@ function Footer() {
                         </div>
                         <div>
                             <h3>Learn</h3>
-                            <Link href="https://github.com/Unirep" target="_blank">
+                            <Link href="https://github.com/semaphore-protocol" target="_blank">
                                 Github
                             </Link>
                             <Link href="/docs/introduction" target="_blank">
