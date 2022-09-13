@@ -9,16 +9,11 @@ Site owners publish _subgraphs_ that expose site data for anyone to query.
 Semaphore's subgraph allows you to retrieve data from the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) smart contract.
 
 :::tip
-The Graph protocol uses the [GraphQL](https://graphql.org/) query lanaguage. If you don't know GraphQL, you can query Semaphore with the [Graph Explorer Playground](https://thegraph.com/hosted-service/subgraph/semaphore-protocol/kovan?selected=playground).
+The Graph protocol uses the [GraphQL](https://graphql.org/) query lanaguage. If you don't know GraphQL, you can query Semaphore with the [Graph Explorer Playground](https://thegraph.com/hosted-service/subgraph/semaphore-protocol/goerli?selected=playground).
 For examples, see the [GraphQL API documentation](https://thegraph.com/docs/developer/graphql-api).
 :::
 
 ## Endpoints
-
-### Kovan
-
--   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/semaphore-protocol/kovan
--   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/semaphore-protocol/kovan
 
 ### Goerli
 
