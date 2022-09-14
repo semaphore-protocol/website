@@ -41,8 +41,8 @@ function Footer() {
                         </div>
                         <div>
                             <h3>Connect</h3>
-                            <Link href="https://t.me/joinchat/B-PQx1U3GtAh--Z4Fwo56A" target="_blank">
-                                Telegram
+                            <Link href="https://discord.gg/6mSdGHnstH" target="_blank">
+                                Discord
                             </Link>
                         </div>
                     </div>
