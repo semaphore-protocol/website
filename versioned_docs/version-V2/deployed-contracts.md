@@ -30,6 +30,6 @@ sidebar_position: 5
 
 | Contract                  | Goerli                                                                                          | Arbitrum One                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Semaphore.sol             | [0xd688...42D3](https://goerli.etherscan.io/address/0xd688189016277e1a6aE5228ef6894C14585A42D3) | [0x4928...6707](https://arbiscan.io/address/0x49281E30F17A30808a6ce538f979d539747e6707) |
-| IncrementalBinaryTree.sol | [0x90FA...0D67](https://goerli.etherscan.io/address/0x90FA0d9Ec6EFe94410bF06efeaa4Ec0F1dba0D67) | [0x9fCe...C1A9](https://arbiscan.io/address/0x9fCea5E9aF68D5B0c55A1003b49284d70BffC1A9) |
-| PoseidonT3.sol            | [0xc340...fDff](https://goerli.etherscan.io/address/0xc340cc18f682E4320217e8198d2e65B1C70BfDff) | [0xe0c8...61d0](https://arbiscan.io/address/0xe0c8d1e53D9Bfc9071F6564755FCFf6cC0dB61d0) |
+| Semaphore.sol             | [0x590C...9cfA](https://goerli.etherscan.io/address/0x590CB053A5F429719E6858CeeC56e6bedD4e9cfA) | [0x4928...6707](https://arbiscan.io/address/0x49281E30F17A30808a6ce538f979d539747e6707) |
+| IncrementalBinaryTree.sol | [0x4784...dd47](https://goerli.etherscan.io/address/0x4784656EbE7AcF393154487A575b11e1c0E0dd47) | [0x9fCe...C1A9](https://arbiscan.io/address/0x9fCea5E9aF68D5B0c55A1003b49284d70BffC1A9) |
+| PoseidonT3.sol            | [0x11EA...6B01](https://goerli.etherscan.io/address/0x11EA2F1Bf24d46da9bb88B13e7d2Cb9FaCDb6B01) | [0xe0c8...61d0](https://arbiscan.io/address/0xe0c8d1e53D9Bfc9071F6564755FCFf6cC0dB61d0) |
