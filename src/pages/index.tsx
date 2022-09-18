@@ -48,13 +48,13 @@ export default function Home() {
                 <div className={styles.components}>
                     <h3>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</h3>
                     <div>
-                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/contracts">
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts">
                             Solidity contract
                         </OutlineLinkButton>
-                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/circuits">
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits">
                             zkSNARK circuits
                         </OutlineLinkButton>
-                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore.js">
+                        <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore#-packages">
                             JavaScript libraries
                         </OutlineLinkButton>
                     </div>

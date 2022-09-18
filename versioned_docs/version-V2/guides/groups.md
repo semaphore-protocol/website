@@ -46,7 +46,7 @@ Learn how to work with groups.
 
 ### Create an off-chain group
 
-Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore.js/blob/main/packages/group) library `Group` class to create an off-chain group.
+Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/group) library `Group` class to create an off-chain group.
 
 #### Options
 
@@ -107,10 +107,10 @@ Given that the node isn't removed, the length of the `group.members` array doesn
 
 ### On-chain groups
 
-The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/contracts/base/SemaphoreGroups.sol) contract uses a the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create groups and add/remove members.
+The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) contract uses a the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create groups and add/remove members.
 
-To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/base/SemaphoreGroups.sol) and call its internal methods.
-The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
+To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreGroups.sol) and call its internal methods.
+The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
 
 ```sol
 // SPDX-License-Identifier: MIT

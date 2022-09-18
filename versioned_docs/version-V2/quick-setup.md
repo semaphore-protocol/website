@@ -72,7 +72,7 @@ To install these dependencies for your project, do the following:
     ```
 
     For more detail about _Semaphore base contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
-    To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/contracts).
+    To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 
 2. Use `yarn` to install the Semaphore JavaScript libraries:
 
@@ -80,7 +80,7 @@ To install these dependencies for your project, do the following:
     yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof --dev
     ```
 
-    For more information about the Semaphore JavaScript libraries, see the [semaphore.js](https://github.com/semaphore-protocol/semaphore.js) repository.
+    For more information about the Semaphore JavaScript libraries, see the [semaphore](https://github.com/semaphore-protocol/semaphore#-packages) repository.
 
 ## Create the Semaphore contract
 
