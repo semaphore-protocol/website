@@ -32,10 +32,10 @@ Semaphore is designed to be a simple and generic _privacy layer_ for decentraliz
 
 ## About the code
 
-The core of the protocol is the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/circuits/scheme.png).
+The core of the protocol is the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits/scheme.png).
 In addition to circuits,
-Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/contracts)
-and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore.js) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
+Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts)
+and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
 The Semaphore V2 codebase was audited with a focus on the smart contracts and the Circom circuits.
 See the [audit summary](https://semaphore.appliedzkp.org/audit-v2.pdf).
