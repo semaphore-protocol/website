@@ -13,11 +13,11 @@ To check out the code used in this guide, visit the
 
 1. [**Create a Node.js project**](#create-a-nodejs-project)
 2. [**Install Hardhat**](#install-hardhat)
-3. [**Install Semaphore contracts and JavaScript libraries**](#install-semaphore-contracts-and-javascript-libraries)
+3. [**Install Semaphore packages**](#install-semaphore-packages)
 4. [**Create the Semaphore contract**](#create-the-semaphore-contract)
-5. [**Create Semaphore IDs**](#create-semaphore-ids)
-6. [**Create a Hardhat task that deploys your contract**](#create-a-hardhat-task-that-deploys-your-contract)
-7. [**Deploy your contract to a local network**](#deploy-your-contract-to-a-local-network)
+5. [**Create a Hardhat task**](#create-a-hardhat-task)
+6. [**Test your contracts**](#test-your-contract)
+7. [**Deploy your contract**](#deploy-your-contract)
 
 ## Create a Node.js project
 
@@ -56,12 +56,13 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
     # and then enter through the prompts.
     ```
 
-## Install Semaphore contracts and JavaScript libraries
+## Install Semaphore packages
 
-Semaphore provides contracts and JavaScript libraries for developers building zero-knowledge applications.
+Semaphore provides contracts, JavaScript libraries and an Hardhat plugin for developers building zero-knowledge applications.
 
--   `@semaphore-protocol/contracts` provides a _base contract_ that verifies Semaphore proofs on-chain.
+-   `@semaphore-protocol/contracts` provides contracts to manage groups and verify Semaphore proofs on-chain.
 -   JavaScript libraries help developers build zero-knowledge applications.
+-   `@semaphore-protocol/hardhat` allow developers Hardhat tasks to deploy verifiers and Semaphore contracts.
 
 To install these dependencies for your project, do the following:
 
@@ -71,162 +72,125 @@ To install these dependencies for your project, do the following:
     yarn add @semaphore-protocol/contracts
     ```
 
-    For more detail about _Semaphore base contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
-    To view the source, see [Contracts in the Semaphore repository](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
-
-2. Use `yarn` to install the Semaphore JavaScript libraries:
+2. Use `yarn` to install the Semaphore JavaScript libraries and the Hardhat plugin:
 
     ```bash
-    yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof --dev
+    yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof @semaphore-protocol/hardhat --dev
     ```
 
-    For more information about the Semaphore JavaScript libraries, see the [semaphore](https://github.com/semaphore-protocol/semaphore#-packages) repository.
+For more detail about _Semaphore contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
+To view the source of our packages, see the [semaphore](https://github.com/semaphore-protocol/semaphore#-packages) repository.
 
 ## Create the Semaphore contract
 
-Create a `Greeters` contract that imports and extends the Semaphore base contract:
+Create a `Greeter` contract that uses the `Semaphore.sol` contract:
 
-1. In `./contracts`, rename `Greeter.sol` to `Greeters.sol`.
-2. Replace the contents of `Greeters.sol` with the following:
+1. Replace the content of `Greeter.sol` with the following:
 
-    ```solidity title="./semaphore-example/contracts/Greeters.sol"
+    ```solidity title="./contracts/Greeter.sol"
     //SPDX-License-Identifier: MIT
     pragma solidity ^0.8.0;
 
-    import "@semaphore-protocol/contracts/interfaces/IVerifier.sol";
-    import "@semaphore-protocol/contracts/base/SemaphoreCore.sol";
+    import "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
 
-    /// @title Greeters contract.
+    /// @title Greeter contract.
     /// @dev The following code is just a example to show how Semaphore con be used.
-    contract Greeters is SemaphoreCore {
-        // A new greeting is published every time a user's proof is validated.
+    contract Greeter  {
         event NewGreeting(bytes32 greeting);
+        event NewUser(uint256 identityCommitment, bytes32 username);
 
-        // Greeters are identified by a Merkle root.
-        // The off-chain Merkle tree contains the greeters' identity commitments.
-        uint256 public greeters;
+        ISemaphore public semaphore;
 
-        // The external verifier used to verify Semaphore proofs.
-        IVerifier public verifier;
+        uint256 groupId;
+        mapping(uint256 => bytes32) users;
 
-        constructor(uint256 _greeters, address _verifier) {
-            greeters = _greeters;
-            verifier = IVerifier(_verifier);
+        constructor(address semaphoreAddress, uint256 _groupId) {
+            semaphore = ISemaphore(semaphoreAddress);
+            groupId = _groupId;
+
+            semaphore.createGroup(groupId, 20, 0, address(this));
         }
 
-        // Only users who create valid proofs can greet.
-        // The external nullifier is in this example the root of the Merkle tree.
+        function registerUser(uint256 identityCommitment, bytes32 username) external {
+            semaphore.addMember(groupId, identityCommitment);
+
+            users[identityCommitment] = username;
+
+            emit NewUser(identityCommitment, username);
+        }
+
         function greet(
-            bytes32 _greeting,
-            uint256 _nullifierHash,
-            uint256[8] calldata _proof
+            bytes32 greeting,
+            uint256 merkleTreeRoot,
+            uint256 nullifierHash,
+            uint256[8] calldata proof
         ) external {
-            _verifyProof(_greeting, greeters, _nullifierHash, greeters, _proof, verifier);
+            semaphore.verifyProof(groupId, merkleTreeRoot, greeting, nullifierHash, groupId, proof);
 
-            // Prevent double-greeting (nullifierHash = hash(root + identityNullifier)).
-            // Every user can greet once.
-            _saveNullifierHash(_nullifierHash);
-
-            emit NewGreeting(_greeting);
+            emit NewGreeting(greeting);
         }
     }
-
     ```
 
-## Create Semaphore IDs
-
-Semaphore IDs - also known as _identity commitments_ - represent user identities.
-
-Create a `./static` folder and add a `./static/identityCommitments.json` file that
-contains the following array of IDs:
-
-```json title="./static/identityCommitments.json"
-[
-    "9426253249246138013650573474062059446203468399013007463704855436559640562175",
-    "6200634377081441056179822649025268043304989981899916286941956069781421654881",
-    "19706772421195815860043593475869058320994241404138740034486179990871964981523"
-]
-```
-
-:::info
-To generate the Semaphore IDs for this example, we used `@semaphore-protocol/identity`.
-We used Metamask to sign messages with the first three Ethereum accounts
-of the [Hardhat dev wallet](https://hardhat.org/hardhat-network/reference/#accounts), and then we used those messages to generate Semaphore [deterministic identities](/docs/guides/identities#generating-deterministic-identities).
-
-In the Semaphore protocol, a [group](/docs/guides/groups/) is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree).
-Semaphore IDs are tree leaves.
-:::
-
-## Create a Hardhat task that deploys your contract
+## Create a Hardhat task
 
 Hardhat lets you write [tasks](https://hardhat.org/guides/create-task.html#creating-a-task)
 that automate building and deploying smart contracts and dApps.
-To create a task that deploys the `Greeters` contract, do the following:
+To create a task that deploys the `Greeter` contract, do the following:
 
-1. Use `yarn` to install `hardhat-dependency-compiler`:
-
-    ```bash
-    yarn add hardhat-dependency-compiler --dev
-    ```
-
-    [`hardhat-dependency-compiler`](https://github.com/ItsNickBarry/hardhat-dependency-compiler)
-    compiles Solidity contracts and dependencies.
-
-2. Create a `tasks` folder and add a `./tasks/deploy.js` file that contains the following:
+1. Create a `tasks` folder and add a `./tasks/deploy.js` file that contains the following:
 
     ```javascript title="./tasks/deploy.js"
-    const { Group } = require("@semaphore-protocol/group")
-    const identityCommitments = require("../static/identityCommitments.json")
     const { task, types } = require("hardhat/config")
 
-    /**
-     *  The `task.setAction` function exposes the `ethers` Javascript library for interacting with Ethereum.
-     */
-    task("deploy", "Deploy a Greeters contract")
+    task("deploy", "Deploy a Greeter contract")
+        .addOptionalParam("semaphore", "Semaphore contract address", undefined, types.address)
+        .addParam("group", "Group identifier", 42, types.int)
         .addOptionalParam("logs", "Print the logs", true, types.boolean)
-        .setAction(async ({ logs }, { ethers }) => {
-            const VerifierContract = await ethers.getContractFactory("Verifier20")
-            const verifier = await VerifierContract.deploy()
+        .setAction(async ({ logs, semaphore: semaphoreAddress, group: groupId }, { ethers, run }) => {
+            if (!semaphoreAddress) {
+                const { address: verifierAddress } = await run("deploy:verifier", { logs, merkleTreeDepth: 20 })
 
-            await verifier.deployed()
+                const { address } = await run("deploy:semaphore", {
+                    logs,
+                    verifiers: [
+                        {
+                            merkleTreeDepth: 20,
+                            contractAddress: verifierAddress
+                        }
+                    ]
+                })
 
-            logs && console.log(`Verifier contract has been deployed to: ${verifier.address}`)
+                semaphoreAddress = address
+            }
 
-            const GreetersContract = await ethers.getContractFactory("Greeters")
+            const Greeter = await ethers.getContractFactory("Greeter")
 
-            const group = new Group()
+            const greeter = await Greeter.deploy(semaphoreAddress, groupId)
 
-            group.addMembers(identityCommitments)
+            await greeter.deployed()
 
-            const greeters = await GreetersContract.deploy(group.root, verifier.address)
+            if (logs) {
+                console.log(`Greeter contract has been deployed to: ${greeter.address}`)
+            }
 
-            await greeters.deployed()
-
-            logs && console.log(`Greeters contract has been deployed to: ${greeters.address}`)
-
-            return greeters
+            return greeter
         })
     ```
 
-3. In your `hardhat.config.js` file, add the following:
+2. In your `hardhat.config.js` file, add the following:
 
     ```javascript title="./hardhat.config.js"
     require("@nomiclabs/hardhat-waffle")
-    require("hardhat-dependency-compiler")
-
-    /** Import your deploy task */
-    require("./tasks/deploy")
+    require("@semaphore-protocol/hardhat")
+    require("./tasks/deploy") // Your deploy task.
 
     module.exports = {
-        solidity: "0.8.4",
-        dependencyCompiler: {
-            /** Allows Hardhat to compile the external Verifier.sol contract. */
-            paths: ["@semaphore-protocol/contracts/verifiers/Verifier20.sol"]
-        }
+        solidity: "0.8.4"
     }
     ```
 
-## Test your smart contract
+## Test your contract
 
 [`hardhat-waffle`](https://hardhat.org/plugins/nomiclabs-hardhat-waffle.html)
 lets you write tests with the [Waffle](https://getwaffle.io/) test framework
@@ -256,62 +220,65 @@ and [Chai assertions](https://www.chaijs.com/).
     ```javascript title="./test/sample-test.js"
     const { Identity } = require("@semaphore-protocol/identity")
     const { Group } = require("@semaphore-protocol/group")
-    const { generateProof, packToSolidityProof } = require("@semaphore-protocol/proof")
-    const identityCommitments = require("../static/identityCommitments.json")
+    const { generateProof, packToSolidityProof, verifyProof } = require("@semaphore-protocol/proof")
     const { expect } = require("chai")
-
-    /* Import the Ethers.js JavaScript library for interacting with Ethereum. */
     const { run, ethers } = require("hardhat")
 
-    describe("Greeters", function () {
-        let contract
-        let signers
+    describe("Greeter", function () {
+        let greeter
+
+        const users = []
+        const groupId = 42
+        const group = new Group()
 
         before(async () => {
-            contract = await run("deploy", { logs: false })
+            greeter = await run("deploy", { logs: false, group: groupId })
 
-            /**
-             * In Ethers.js, a Signer object represents an Ethereum Account
-             * that you can use to sign messages and transactions, and then send
-             * signed transactions to the Ethereum Network to execute
-             * state-changing operations.
-             */
-            signers = await ethers.getSigners()
+            users.push({
+                identity: new Identity(),
+                username: ethers.utils.formatBytes32String("anon1")
+            })
+
+            users.push({
+                identity: new Identity(),
+                username: ethers.utils.formatBytes32String("anon2")
+            })
+
+            group.addMember(users[0].identity.generateCommitment())
+            group.addMember(users[1].identity.generateCommitment())
+        })
+
+        describe("# registerUser", () => {
+            it("Should allow users to register and join the group", async () => {
+                for (let i = 0; i < group.members.length; i++) {
+                    const transaction = greeter.registerUser(group.members[i], users[i].username)
+
+                    await expect(transaction).to.emit(greeter, "NewUser").withArgs(group.members[i], users[i].username)
+                }
+            })
         })
 
         describe("# greet", () => {
-            /** Use the trusted setup files. **/
             const wasmFilePath = "./static/semaphore.wasm"
             const zkeyFilePath = "./static/semaphore.zkey"
 
-            it("Should greet", async () => {
-                const greeting = "Hello world"
-                const bytes32Greeting = ethers.utils.formatBytes32String(greeting)
+            it("Should allow users to greet", async () => {
+                const greeting = ethers.utils.formatBytes32String("Hello World")
 
-                /**
-                 * In Ethers.js, Signer.signMessage returns a Promise which resolves to the Raw Signature of a message.
-                 * The following code gets the first (Signer) account and assigns the signature Promise to the message variable.
-                 */
-                const message = await signers[0].signMessage("Sign this message to create your identity!")
-                const identity = new Identity(message)
-
-                const group = new Group()
-
-                group.addMembers(identityCommitments)
-
-                const fullProof = await generateProof(identity, group, group.root, greeting, {
+                const fullProof = await generateProof(users[1].identity, group, groupId, greeting, {
                     wasmFilePath,
                     zkeyFilePath
                 })
                 const solidityProof = packToSolidityProof(fullProof.proof)
 
-                const transaction = contract.greet(
-                    bytes32Greeting,
+                const transaction = greeter.greet(
+                    greeting,
+                    fullProof.publicSignals.merkleRoot,
                     fullProof.publicSignals.nullifierHash,
                     solidityProof
                 )
 
-                await expect(transaction).to.emit(contract, "NewGreeting").withArgs(bytes32Greeting)
+                await expect(transaction).to.emit(greeter, "NewGreeting").withArgs(greeting)
             })
         })
     })
@@ -324,13 +291,13 @@ and [Chai assertions](https://www.chaijs.com/).
     yarn hardhat test
     ```
 
-## Deploy your contract to a local network
+## Deploy your contract
 
 To deploy your contract in a local Hardhat network (and use it in your dApp), run the following `yarn` commands:
 
 ```bash
 yarn hardhat node
-yarn hardhat deploy --network localhost # In another tab.
+yarn hardhat deploy --group 42 --network localhost # In another tab.
 ```
 
 For a more complete demo that provides a starting point for your dApp,

@@ -19,7 +19,7 @@ install the [`@semaphore-protocol/contracts`](https://github.com/semaphore-proto
 
 Semaphore provides the following base contracts:
 
--   [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreCore.sol): contains the functions to verify Semaphore proofs and to save the nullifier hash in order to avoid double signaling;
+-   [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreCore.sol): contains the functions to verify Semaphore proofs;
 -   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove members.
 
 These contracts are closely related to the protocol.

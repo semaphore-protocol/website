@@ -73,7 +73,7 @@ await verifyProof(verificationKey, fullProof) // true or false.
 ## Verify a proof on-chain
 
 Use the [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreCore.sol) contract to verify proofs on-chain.
-[`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreCore.sol) uses a verifier deployed to Ethereum and provides methods to verify a proof and save the `nullifierHash` to avoid double-signaling.
+[`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreCore.sol) uses a verifier deployed to Ethereum and provides methods to verify a proof .
 
 :::info
 You can import `SemaphoreCore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
@@ -88,45 +88,9 @@ To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https:
 -   _`proof`_: A [_Solidity-compatible_ Semaphore proof](#generate-a-solidity-compatible-proof).
 -   _`verifier`_: The verifier address.
 
-The following code sample shows how the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract uses `SemaphoreCore` to verify the proof:
+Remember to save the `nullifierHash` on-chain to avoid double-signaling.
 
-```sol
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
-
-import "./interfaces/ISemaphore.sol";
-import "./base/SemaphoreCore.sol";
-import "./base/SemaphoreGroups.sol";
-
-/// @title Semaphore
-contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
-
-    ...
-
-    function verifyProof(
-        uint256 groupId,
-        bytes32 signal,
-        uint256 nullifierHash,
-        uint256 externalNullifier,
-        uint256[8] calldata proof
-    ) external override {
-        uint256 root = getRoot(groupId);
-        uint8 depth = getDepth(groupId);
-
-        require(depth != 0, "Semaphore: group does not exist");
-
-        IVerifier verifier = verifiers[depth];
-
-        _verifyProof(signal, root, nullifierHash, externalNullifier, proof, verifier);
-
-        _saveNullifierHash(nullifierHash);
-
-        emit ProofVerified(groupId, signal);
-    }
-
-    ...
-}
-```
+See the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract to understand how you can correctly verify proofs.
 
 ### Generate a Solidity-compatible proof
 
