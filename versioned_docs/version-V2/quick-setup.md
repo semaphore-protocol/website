@@ -85,7 +85,7 @@ To view the source of our packages, see the [semaphore](https://github.com/semap
 
 Create a `Greeter` contract that uses the `Semaphore.sol` contract:
 
-1. Replace the content of `Greeter.sol` with the following:
+1. Rename `Lock.sol` to `Greeter.sol` and replace the content with the following:
 
     ```solidity title="./contracts/Greeter.sol"
     //SPDX-License-Identifier: MIT
@@ -111,7 +111,7 @@ Create a `Greeter` contract that uses the `Semaphore.sol` contract:
             semaphore.createGroup(groupId, 20, 0, address(this));
         }
 
-        function registerUser(uint256 identityCommitment, bytes32 username) external {
+        function joinGroup(uint256 identityCommitment, bytes32 username) external {
             semaphore.addMember(groupId, identityCommitment);
 
             users[identityCommitment] = username;
@@ -204,7 +204,7 @@ and [Chai assertions](https://www.chaijs.com/).
        @nomiclabs/hardhat-ethers 'ethers@^5.0.0' chai
     ```
 
-1. Download the Semaphore [zk trusted setup files](http://www.trusted-setup-pse.org/)
+2. Download the Semaphore [zk trusted setup files](http://www.trusted-setup-pse.org/)
    and copy them to the `./static` folder.
 
     ```bash
@@ -215,9 +215,9 @@ and [Chai assertions](https://www.chaijs.com/).
 
     Learn more about [trusted setup files](/docs/glossary/#trusted-setup-files).
 
-1. Replace the contents of `./test/sample-test.js` with the following test:
+3. Rename the `Lock.js` test file to `Greeter.js` and replace the content with the following:
 
-    ```javascript title="./test/sample-test.js"
+    ```javascript title="./test/Greeter.js"
     const { Identity } = require("@semaphore-protocol/identity")
     const { Group } = require("@semaphore-protocol/group")
     const { generateProof, packToSolidityProof, verifyProof } = require("@semaphore-protocol/proof")
@@ -248,10 +248,10 @@ and [Chai assertions](https://www.chaijs.com/).
             group.addMember(users[1].identity.generateCommitment())
         })
 
-        describe("# registerUser", () => {
-            it("Should allow users to register and join the group", async () => {
+        describe("# joinGroup", () => {
+            it("Should allow users to join the group", async () => {
                 for (let i = 0; i < group.members.length; i++) {
-                    const transaction = greeter.registerUser(group.members[i], users[i].username)
+                    const transaction = greeter.joinGroup(group.members[i], users[i].username)
 
                     await expect(transaction).to.emit(greeter, "NewUser").withArgs(group.members[i], users[i].username)
                 }
@@ -284,7 +284,7 @@ and [Chai assertions](https://www.chaijs.com/).
     })
     ```
 
-1. Run the following `yarn` commands to compile and test your contract:
+4. Run the following `yarn` commands to compile and test your contract:
 
     ```bash
     yarn hardhat compile
