@@ -7,8 +7,6 @@ title: Proofs
 
 Learn how to use Semaphore to generate and verify zero-knowledge proofs.
 
-## Broadcast anonymous signals
-
 Once a user joins their [Semaphore identity](/docs/glossary#semaphore-identity) to a [Semaphore group](/docs/glossary#semaphore-group), the user can signal anonymously with a zero-knowledge proof that proves the following:
 
 -   The user is a member of the group.
@@ -72,14 +70,13 @@ await verifyProof(verificationKey, fullProof) // true or false.
 
 ## Verify a proof on-chain
 
-Use the [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreCore.sol) contract to verify proofs on-chain.
-[`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreCore.sol) uses a verifier deployed to Ethereum and provides methods to verify a proof .
+Use the [`SemaphoreCore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/contracts/base/SemaphoreCore.sol) contract to verify proofs on-chain. It uses a verifier deployed to Ethereum and provides methods hash the signal and verify a proof.
 
 :::info
-You can import `SemaphoreCore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
+You can import `SemaphoreCore` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
 :::
 
-To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreCore.sol) and pass the following to the `_verifyProof` internal method:
+To verify Semaphore proofs in your contract, import `SemaphoreCore` and pass the following to the `_verifyProof` internal method:
 
 -   _`signal`_: The Semaphore signal to prove.
 -   _`root`_: The root of the Merkle tree.
@@ -90,7 +87,7 @@ To verify Semaphore proofs in your contract, import [`SemaphoreCore.sol`](https:
 
 Remember to save the `nullifierHash` on-chain to avoid double-signaling.
 
-See the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract to understand how you can correctly verify proofs.
+Alternatively, you can use an already deployed [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract and use its `verifiyProof` external function.
 
 ### Generate a Solidity-compatible proof
 

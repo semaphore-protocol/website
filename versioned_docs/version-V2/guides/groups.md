@@ -35,16 +35,16 @@ Semaphore groups set the following tree parameters:
 
 Learn how to work with groups.
 
--   [Off-chain groups](#off-chain-groups)
--   [On-chain groups](#on-chain-groups)
+-   [**Off-chain groups**](#off-chain-groups)
+-   [**On-chain groups**](#on-chain-groups)
 
 ## Off-chain groups
 
--   [Create an off-chain group](#create-an-off-chain-group)
--   [Add members to an off-chain group](#add-members-to-an-off-chain-group)
--   [Remove members from an off-chain group](#remove-members-from-an-off-chain-group)
+-   [Create a group](#create-a-group)
+-   [Add members](#add-members)
+-   [Remove or update members](#remove-or-update-members)
 
-### Create an off-chain group
+### Create a group
 
 Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/group) library `Group` class to create an off-chain group.
 
@@ -78,7 +78,7 @@ import { Group } from "@semaphore-protocol/group"
 const group = new Group(20, BigInt(1))
 ```
 
-## Add members to an off-chain group
+### Add members
 
 Use the `Group addMember` function to add a member (identity commitment) to a group--for example:
 
@@ -92,7 +92,7 @@ To add a batch of members to a group, pass an array to the `Group addMembers` fu
 group.addMembers([identityCommitment1, identityCommitment2])
 ```
 
-## Remove members from an off-chain group
+### Remove or update members
 
 To remove members from a group, pass the member index to the `Group removeMember` function--for example:
 
@@ -100,57 +100,23 @@ To remove members from a group, pass the member index to the `Group removeMember
 group.removeMember(0)
 ```
 
+To update members in a group, pass the member index and the new value to the `Group updateMember` function--for example:
+
+```ts
+group.updateMember(0, 2)
+```
+
 :::caution
 Removing a member from a group sets the node value to `zeroValue`.
-Given that the node isn't removed, the length of the `group.members` array doesn't change.
+Given that the node isn't removed, and the length of the `group.members` array doesn't change.
 :::
 
-### On-chain groups
+## On-chain groups
 
-The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) contract uses a the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create groups and add/remove members.
+The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) contract uses the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create and manage groups.
 
-To use on-chain groups, import [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreGroups.sol) and call its internal methods.
-The following code sample shows how the [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract uses `SemaphoreGroups`:
+:::info
+You can import `SemaphoreGroups` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
+:::
 
-```sol
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
-
-import "./interfaces/ISemaphore.sol";
-import "./base/SemaphoreCore.sol";
-import "./base/SemaphoreGroups.sol";
-
-/// @title Semaphore
-contract Semaphore is ISemaphore, SemaphoreCore, SemaphoreGroups {
-
-    ...
-
-    function createGroup(
-        uint256 groupId,
-        uint8 depth,
-        uint256 zeroValue,
-        address admin
-    ) external override onlySupportedDepth(depth) {
-        _createGroup(groupId, depth, zeroValue);
-
-        groupAdmins[groupId] = admin;
-
-        emit GroupAdminUpdated(groupId, address(0), admin);
-    }
-
-    function addMember(uint256 groupId, uint256 identityCommitment) external override onlyGroupAdmin(groupId) {
-        _addMember(groupId, identityCommitment);
-    }
-
-    function removeMember(
-        uint256 groupId,
-        uint256 identityCommitment,
-        uint256[] calldata proofSiblings,
-        uint8[] calldata proofPathIndices
-    ) external override onlyGroupAdmin(groupId) {
-        _removeMember(groupId, identityCommitment, proofSiblings, proofPathIndices);
-    }
-
-    ...
-}
-```
+Alternatively, you can use an already deployed [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract and use its group external functions.
