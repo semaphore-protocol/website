@@ -48,11 +48,11 @@ Hardhat includes the Hardhat Network, a local Ethereum network for development.
     yarn add hardhat --dev
     ```
 
-2. Use `yarn` to run `hardhat` and create a _basic sample project_:
+2. Use `yarn` to run `hardhat` and create a JavaScript project:
 
     ```bash
     yarn hardhat
-    # At the prompt, select "Create a basic sample project"
+    # At the prompt, select "Create a JavaScript project"
     # and then enter through the prompts.
     ```
 
