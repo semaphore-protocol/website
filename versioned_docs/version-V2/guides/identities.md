@@ -28,18 +28,17 @@ To create a random identity, instantiate `Identity` without any parameters--for 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
 
-const identity = new Identity()
+const { trapdoor, nullifier, commitment } = new Identity()
 ```
 
-The new identity contains random `trapdoor` and `nullifier` secret values.
-The following example shows how to use the `.getTrapdoor` and `.getNullifier`
-accessor methods to retrieve the values:
+The new identity contains two random secret values: `trapdoor` and `nullifier`, and one public value: `commitment`.
 
-```ts
-// Random secret values.
-const trapdoor = identity.getTrapdoor()
-const nullifier = identity.getNullifier()
-```
+The Poseidon hash of the identity nullifier and trapdoor is called the _identity secret_,
+and its hash is the _identity commitment_.
+
+An identity commitment, similarly to Ethereum addresses, is a public value used
+in Semaphore groups to represent the identity of a group member. The secret values are similar to
+Ethereum private keys and are used to generate Semaphore zero-knowledge proofs and authenticate signals.
 
 ### Create deterministic identities
 
@@ -70,30 +69,15 @@ You can output an identity as a JSON string that you can save and reuse later.
 The `Identity.toString()` method generates a JSON array from an identity--for example:
 
 ```ts
-const identityBackup = identity.toString()
-```
-
-The array contains the trapdoor and nullifier.
-
-```ts
-console.log(identityBackup) // View the identity trapdoor and nullifier.
+console.log(identity.toString()) // View the identity trapdoor and nullifier.
 
 // '["8255d...", "62c41..."]'
 ```
 
+The array contains the trapdoor and nullifier.
+
 To reuse the saved identity, pass the JSON to the `Identity()` constructor.
 
 ```ts
-const identity = new Identity(identityBackup)
-```
-
-## Identity commitments
-
-The Poseidon hash of the identity nullifier and trapdoor is called the _identity secret_,
-and its hash is the _identity commitment_.
-An identity commitment, similarly to Ethereum addresses, is a public value used
-in Semaphore groups to represent the identity of a group member.
-
-```ts
-const identityCommitment = identity.generateCommitment()
+const identity2 = new Identity(identity.toString())
 ```

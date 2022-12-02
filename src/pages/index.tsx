@@ -76,11 +76,7 @@ export default function Home() {
                             <CodeBlock language="ts">
                                 {`import { Identity } from "@semaphore-protocol/identity"
 
-const identity = new Identity()
-
-const trapdoor = identity.getTrapdoor()
-const nullifier = identity.getNullifier()
-const commitment = identity.generateCommitment()`}
+const { trapdoor, nullifier, commitment } = new Identity()`}
                             </CodeBlock>
                         </div>
                     </div>

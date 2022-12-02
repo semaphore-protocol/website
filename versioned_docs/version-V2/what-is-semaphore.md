@@ -14,17 +14,17 @@ Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
 
 With Semaphore, you can allow your users to do the following:
 
-1. [Create a private identity and receive a provable anonymous public identity](/docs/guides/identities/).
-2. [Add an anonymous public identity to a group (a _Merkle tree_)](/docs/guides/groups/).
-3. [Send a verifiable, anonymous vote or endorsement (a _signal_)](/docs/guides/proofs/).
+1. [Create a Semaphore identity](/docs/guides/identities/).
+2. [Add their Semaphore identity to a group (i.e. _Merkle tree_)](/docs/guides/groups/).
+3. [Send a verifiable, anonymous signal (e.g a vote or endorsement)](/docs/guides/proofs/).
 
 When a user broadcasts a signal (for example: a vote), Semaphore zero-knowledge
 proofs can ensure that the user has joined the group and hasn't already cast a signal with their nullifier.
 
-Semaphore uses on-chain smart contracts and off-chain zero-knowledge components that work in tandem.
+Semaphore uses on-chain Solidity contracts and off-chain JavaScript libraries that work in tandem.
 
--   Off chain, zero-knowledge components allow users to generate identities and proofs.
--   On chain, smart contracts manage groups (Merkle trees) and verify proofs that, if valid, allow the smart contract to update its state.
+-   Off chain, JavaScript libraries can be used to create identities, manage groups and generate proofs.
+-   On chain, Solidity contracts can be used to manage groups and verify proofs.
 
 ## Developer benefits
 
@@ -37,8 +37,12 @@ In addition to circuits,
 Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts)
 and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
 
-The Semaphore V2 codebase was audited with a focus on the smart contracts and the Circom circuits.
-See the [audit summary](https://semaphore.appliedzkp.org/audit-v2.pdf).
+### Audits
+
+| Version | Report                                                                                                               | Scope                    |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| v2.0.0  | [Semaphore_2.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9850441/Semaphore_2.0.0_Audit.pdf) | `circuits`, `contracts`  |
+| v2.5.0  | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `contracts`, `libraries` |
 
 :::info
 If you are using the previous version of Semaphore, see the [Semaphore V1 documentation](/docs/V1/introduction) ([code](https://github.com/semaphore-protocol/semaphore/tree/version/1.0.0)).
