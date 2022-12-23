@@ -48,62 +48,36 @@
 | This repository contains the code for the Semaphore website published at [semaphore.appliedzkp.org](https://semaphore.appliedzkp.org). It uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-## Install and run for development
+## 🛠 Install
 
-Install dependencies, build the documentation, and run the site on your local machine.
+Clone this repository:
 
-### Install Node.js and a package manager
-
-If you haven't already, download and install [Node.js](https://nodejs.org/en/).
-
-You can use `npm` (included with Node.js) or `yarn` to install Docusaurus and other Node.js packages.
-To install `yarn`, run the following in your terminal:
-
-```sh
-$ npm i --global yarn
+```bash
+git clone https://github.com/semaphore-protocol/semaphore.git
 ```
 
-### 🛠 Get the code
+And install the dependencies:
 
-Clone the Semaphore repository and then change to the `website` directory:
-
-```sh
-$ git clone https://github.com/semaphore-protocol/website.git && cd website
+```bash
+cd semaphore && yarn
 ```
 
-### Install dependencies
+## 📜 Usage
 
-To install dependencies, run `yarn`:
+### Start the website
 
-```sh
-$ yarn
-```
-
-### Start the site
-
-To generate the HTML and start the site, run `yarn start`:
+To generate the HTML and start the site, run:
 
 ```sh
-$ yarn start
+yarn start
 ```
 
 Visit the Semaphore docs site in your browser at [http://localhost:3000](http://localhost:3000).
 
-## 📜 Use deployment commands
-
-### Develop
-
-```
-$ yarn start
-```
-
-Th `start` command starts a local development server (default port is `:3000`) and launches the site in your browser.
-As you edit, the server reloads most changes and automatically refreshes the site in your browser.
-
 ### Build
 
 ```
-$ yarn build
+yarn build
 ```
 
 The `build` command generates static content into the `build` directory that can be served by any static content hosting service.
