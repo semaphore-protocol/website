@@ -32,9 +32,7 @@ export default function Home() {
                         </p>
 
                         <div>
-                            <LinkButton href="https://semaphore.appliedzkp.org/docs/quick-setup">
-                                Quick setup
-                            </LinkButton>
+                            <LinkButton href="./docs/quick-setup">Quick setup</LinkButton>
 
                             <LinkButton href="https://github.com/semaphore-protocol/boilerplate">
                                 Boilerplate
@@ -179,18 +177,17 @@ group.addMember(commitment)`}
                         <div>
                             <CodeBlock language="ts">
                                 {`import { generateProof, verifyProof } from "@semaphore-protocol/proof"
+import { formatBytes32String } from "@ethersproject/strings"
 
-const externalNullifier = BigInt(1)
-const signal = "Hello world"
+const externalNullifier = 1
+const signal = formatBytes32String("Hello world")
 
 const fullProof = await generateProof(identity, group, externalNullifier, signal, {
     zkeyFilePath: "./semaphore.zkey",
     wasmFilePath: "./semaphore.wasm"
 })
 
-const verificationKey = JSON.parse(fs.readFileSync("./semaphore.json", "utf-8"))
-
-await verifyProof(verificationKey, fullProof)`}
+await verifyProof(fullProof, group.depth)`}
                             </CodeBlock>
                         </div>
                     </div>
