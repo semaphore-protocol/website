@@ -45,5 +45,5 @@ and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore#-pack
 | v2.5.0  | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `contracts`, `libraries` |
 
 :::info
-If you are using the previous version of Semaphore, see the [Semaphore V1 documentation](/docs/V1/introduction) ([code](https://github.com/semaphore-protocol/semaphore/tree/version/1.0.0)).
+If you are using the previous version of Semaphore, see the [Semaphore V1](/docs/V1/introduction) documentation.
 :::

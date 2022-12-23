@@ -28,7 +28,7 @@ Example uses of groups include the following:
 -   Whistleblowers who are verified employees of an organization.
 
 A Semaphore group is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree), and group members (i.e., [identity commitments](/docs/glossary/#identity-commitments)) are tree leaves.
-Semaphore groups set the following tree parameters:
+Semaphore groups set the following two parameters:
 
 -   **Tree depth**: the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
 -   **Zero value**: the value used to calculate the zero nodes of the incremental Merkle tree.
