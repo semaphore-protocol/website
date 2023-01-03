@@ -33,9 +33,9 @@ module.exports = {
 
     themeConfig: {
         announcementBar: {
-            id: "trusted-setup",
+            id: "semaphore-v3",
             content:
-                '<b>The Semaphore V2 <a target="_blank" rel="noopener noreferrer" href="https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html">trusted-setup ceremony</a> ended successfully with more than 300 contributors! 🎉</b>',
+                '<b>We are pleased to announce the release of <a target="_blank" rel="noopener noreferrer" href="https://github.com/semaphore-protocol/semaphore/releases/tag/v3.0.0">Semaphore V3</a> 🎉</b>',
             backgroundColor: "#DAE0FF",
             textColor: "#000000"
         },
