@@ -16,7 +16,7 @@ To prevent fraud, the owner should keep both values secret.
 
 ## Create identities
 
-In your code, use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
+In your code, use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
 
 -   [**Create random identities**](#create-random-identities)
 -   [**Create deterministic identities**](#create-deterministic-identities)

@@ -69,17 +69,17 @@ To install these dependencies for your project, do the following:
 1. Use `yarn` to install `@semaphore-protocol/contracts`:
 
     ```bash
-    yarn add @semaphore-protocol/contracts
+    yarn add @semaphore-protocol/contracts@2.6.1
     ```
 
 2. Use `yarn` to install the Semaphore JavaScript libraries and the Hardhat plugin:
 
     ```bash
-    yarn add @semaphore-protocol/identity @semaphore-protocol/group @semaphore-protocol/proof @semaphore-protocol/hardhat --dev
+    yarn add @semaphore-protocol/identity@2.6.1 @semaphore-protocol/group@2.6.1 @semaphore-protocol/proof@2.6.1 @semaphore-protocol/hardhat@0.1.0 --dev
     ```
 
 For more detail about _Semaphore contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
-To view the source of our packages, see the [semaphore](https://github.com/semaphore-protocol/semaphore#-packages) repository.
+To view the source of our packages, see the [semaphore](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1#-packages) repository.
 
 ## Create the Semaphore contract
 

@@ -46,7 +46,7 @@ Learn how to work with groups.
 
 ### Create a group
 
-Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/group) library `Group` class to create an off-chain group.
+Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/group) library `Group` class to create an off-chain group.
 
 #### Options
 
@@ -113,10 +113,10 @@ Given that the node isn't removed, and the length of the `group.members` array d
 
 ## On-chain groups
 
-The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/base/SemaphoreGroups.sol) contract uses the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create and manage groups.
+The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts/contracts/base/SemaphoreGroups.sol) contract uses the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create and manage groups.
 
 :::info
-You can import `SemaphoreGroups` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
+You can import `SemaphoreGroups` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts) NPM module.
 :::
 
-Alternatively, you can use an already deployed [`Semaphore`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol) contract and use its group external functions.
+Alternatively, you can use an already deployed [`Semaphore`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts/contracts/Semaphore.sol) contract and use its group external functions.
