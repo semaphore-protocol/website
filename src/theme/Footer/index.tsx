@@ -51,7 +51,7 @@ function Footer() {
                 <hr />
 
                 <div>
-                    <p>Copyright © 2022 Ethereum Foundation</p>
+                    <p>Copyright © 2023 Ethereum Foundation</p>
 
                     <Logo
                         style={{ marginRight: -8 }}
