@@ -102,7 +102,7 @@ Once a member is verified, the dApp provides the following member interactions:
 2. [Join a poll](#join-a-poll).
 
 :::info
-To learn how to connect to Ethereum wallets, visit the [ethers.js Getting Started documentation]((https://docs.ethers.io/v5/getting-started).
+To learn how to connect to Ethereum wallets, visit the [ethers.js Getting Started documentation](https://docs.ethers.io/v5/getting-started).
 :::
 
 #### Generate a private identity
