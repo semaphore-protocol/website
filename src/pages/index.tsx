@@ -1,3 +1,4 @@
+import { translate } from "@docusaurus/Translate"
 import CodeBlock from "@theme/CodeBlock"
 import Layout from "@theme/Layout"
 import React from "react"
@@ -24,18 +25,29 @@ export default function Home() {
             <div className={styles.container}>
                 <div className={styles.jumbotron}>
                     <div>
-                        <h1>Signal anonymously</h1>
+                        <h1>
+                            {translate({
+                                id: "jumbotron.title"
+                            })}
+                        </h1>
 
                         <p>
-                            Using zero knowledge, Semaphore allows Ethereum users to prove their membership of a group
-                            and send signals such as votes or endorsements without revealing their original identity.
+                            {translate({
+                                id: "jumbotron.description"
+                            })}
                         </p>
 
                         <div>
-                            <LinkButton href="./docs/quick-setup">Quick setup</LinkButton>
+                            <LinkButton href="./docs/quick-setup">
+                                {translate({
+                                    id: "quick-setup.button"
+                                })}
+                            </LinkButton>
 
                             <LinkButton href="https://github.com/semaphore-protocol/boilerplate">
-                                Boilerplate
+                                {translate({
+                                    id: "boilerplate.button"
+                                })}
                             </LinkButton>
                         </div>
                     </div>
@@ -44,16 +56,26 @@ export default function Home() {
                 </div>
 
                 <div className={styles.components}>
-                    <h3>Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!</h3>
+                    <h3>
+                        {translate({
+                            id: "components.description"
+                        })}
+                    </h3>
                     <div>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts">
-                            Solidity contract
+                            {translate({
+                                id: "components.button.solidity"
+                            })}
                         </OutlineLinkButton>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits">
-                            zkSNARK circuits
+                            {translate({
+                                id: "components.button.circuits"
+                            })}
                         </OutlineLinkButton>
                         <OutlineLinkButton href="https://github.com/semaphore-protocol/semaphore#-packages">
-                            JavaScript libraries
+                            {translate({
+                                id: "components.button.libraries"
+                            })}
                         </OutlineLinkButton>
                     </div>
                 </div>
@@ -61,14 +83,23 @@ export default function Home() {
                 <div className={styles.section}>
                     <div>
                         <div>
-                            <h2>Semaphore identities</h2>
+                            <h2>
+                                {translate({
+                                    id: "section.identities.title"
+                                })}
+                            </h2>
 
                             <p>
-                                Given to all Semaphore group members, it is comprised of three parts: identity
-                                commitment, trapdoor, and nullifier.
+                                {translate({
+                                    id: "section.identities.description"
+                                })}
                             </p>
 
-                            <LinkButton href="/docs/guides/identities">Create Semaphore identities</LinkButton>
+                            <LinkButton href="/docs/guides/identities">
+                                {translate({
+                                    id: "section.identities.link"
+                                })}
+                            </LinkButton>
                         </div>
                         <div>
                             <CodeBlock language="ts">
@@ -81,27 +112,42 @@ const { trapdoor, nullifier, commitment } = new Identity()`}
                     <div>
                         <div>
                             <IconEyeClose />
-                            <h3>Private values</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.identities.box1.title"
+                                })}
+                            </h3>
                             <p>
-                                Trapdoor and nullifier values are the private values of the Semaphore identity. To avoid
-                                fraud, the owner must keep both values secret.
+                                {translate({
+                                    id: "section.identities.box1.description"
+                                })}
                             </p>
                         </div>
                         <div>
                             <IconEye />
-                            <h3>Public values</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.identities.box2.title"
+                                })}
+                            </h3>
                             <p>
-                                Semaphore uses the Poseidon hash function to create the identity commitment from the
-                                identity private values. Identity commitments can be made public, similarly to Ethereum
-                                addresses.
+                                {translate({
+                                    id: "section.identities.box2.description"
+                                })}
                             </p>
                         </div>
                         <div>
                             <IconProfile />
-                            <h3>Generate identities</h3>
+
+                            <h3>
+                                {translate({
+                                    id: "section.identities.box3.title"
+                                })}
+                            </h3>
                             <p>
-                                Semaphore identities can be generated deterministically or randomly. Deterministic
-                                identities can be generated from the hash of a secret message.
+                                {translate({
+                                    id: "section.identities.box3.description"
+                                })}
                             </p>
                         </div>
                     </div>
@@ -112,14 +158,23 @@ const { trapdoor, nullifier, commitment } = new Identity()`}
                 <div className={styles.section}>
                     <div>
                         <div>
-                            <h2>Semaphore groups</h2>
+                            <h2>
+                                {translate({
+                                    id: "section.groups.title"
+                                })}
+                            </h2>
 
                             <p>
-                                Semaphore groups are binary incremental Merkle trees that store the public identity
-                                commitment of each member.
+                                {translate({
+                                    id: "section.groups.description"
+                                })}
                             </p>
 
-                            <LinkButton href="/docs/guides/groups">Curate Semaphore groups</LinkButton>
+                            <LinkButton href="/docs/guides/groups">
+                                {translate({
+                                    id: "section.groups.link"
+                                })}
+                            </LinkButton>
                         </div>
                         <div>
                             <CodeBlock language="ts">
@@ -134,27 +189,42 @@ group.addMember(commitment)`}
                     <div>
                         <div>
                             <IconConnections />
-                            <h3>Merkle trees</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.groups.box1.title"
+                                })}
+                            </h3>
                             <p>
-                                Each leaf contains an identity commitment for a user. The identity commitment proves
-                                that the user is a group member without revealing the private identity of the user.
+                                {translate({
+                                    id: "section.groups.box1.description"
+                                })}
                             </p>
                         </div>
                         <div>
                             <IconGroup />
-                            <h3>Types of groups</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.groups.box2.title"
+                                })}
+                            </h3>
                             <p>
-                                Groups can be created and managed in a decentralized fashion with Semaphore contracts or
-                                off-chain with our JavaScript libraries.
+                                {translate({
+                                    id: "section.groups.box2.description"
+                                })}
                             </p>
                         </div>
                         <div>
                             <IconUnion />
-                            <h3>Group management</h3>
+
+                            <h3>
+                                {translate({
+                                    id: "section.groups.box3.title"
+                                })}
+                            </h3>
                             <p>
-                                Users can join and leave groups by themselves, or an admin can add and remove them.
-                                Admins can be centralized authorities, Ethereum accounts, multi-sig wallets or smart
-                                contracts.
+                                {translate({
+                                    id: "section.groups.box3.description"
+                                })}
                             </p>
                         </div>
                     </div>
@@ -165,14 +235,23 @@ group.addMember(commitment)`}
                 <div className={styles.section}>
                     <div>
                         <div>
-                            <h2>Semaphore proofs</h2>
+                            <h2>
+                                {translate({
+                                    id: "section.proofs.title"
+                                })}
+                            </h2>
 
                             <p>
-                                Semaphore group members can anonymously prove that they are part of a group and that
-                                they are generating their own proofs and signals.
+                                {translate({
+                                    id: "section.proofs.description"
+                                })}
                             </p>
 
-                            <LinkButton href="/docs/guides/proofs">Generate Semaphore proofs</LinkButton>
+                            <LinkButton href="/docs/guides/proofs">
+                                {translate({
+                                    id: "section.proofs.link"
+                                })}
+                            </LinkButton>
                         </div>
                         <div>
                             <CodeBlock language="ts">
@@ -194,23 +273,41 @@ await verifyProof(fullProof, group.depth)`}
                     <div>
                         <div>
                             <IconAwards />
-                            <h3>Membership</h3>
-                            <p>Only users who are part of a group can generate a valid proof for that group.</p>
+                            <h3>
+                                {translate({
+                                    id: "section.proofs.box1.title"
+                                })}
+                            </h3>
+                            <p>
+                                {translate({
+                                    id: "section.proofs.box1.description"
+                                })}
+                            </p>
                         </div>
                         <div>
                             <IconFlag />
-                            <h3>Signals</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.proofs.box2.title"
+                                })}
+                            </h3>
                             <p>
-                                Group users can anonymously broadcast signals such as votes or endorsements without
-                                revealing their original identity.
+                                {translate({
+                                    id: "section.proofs.box2.description"
+                                })}
                             </p>
                         </div>
                         <div>
                             <IconCheck />
-                            <h3>Verifiers</h3>
+                            <h3>
+                                {translate({
+                                    id: "section.proofs.box3.title"
+                                })}
+                            </h3>
                             <p>
-                                Semaphore proofs can be verified with Semaphore contracts on-chain or with our
-                                JavaScript libraries off-chain.
+                                {translate({
+                                    id: "section.proofs.box3.description"
+                                })}
                             </p>
                         </div>
                     </div>
