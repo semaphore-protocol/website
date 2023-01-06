@@ -56,13 +56,13 @@
 Clone this repository:
 
 ```bash
-git clone https://github.com/semaphore-protocol/semaphore.git
+git clone https://github.com/semaphore-protocol/website.git
 ```
 
 And install the dependencies:
 
 ```bash
-cd semaphore && yarn
+cd website && yarn
 ```
 
 ## 📜 Usage
