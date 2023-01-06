@@ -46,8 +46,6 @@ Nullifier hashes saved in a Semaphore smart contract allow the contract to rejec
 
 -   `nullifierHash`: the hash of the identity nullifier and the external nullifier; used to prevent double-signaling.
 
-**Procedure:**
-
 ## Signal
 
 The circuit calculates a dummy square of the signal hash to prevent any tampering with the proof.
