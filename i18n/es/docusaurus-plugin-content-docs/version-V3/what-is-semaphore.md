@@ -8,7 +8,7 @@ sidebar_position: 1
 
 [Semaphore](https://github.com/semaphore-protocol/semaphore) es un protocolo que utiliza [conocimiento cero (zero-knowledge)](https://z.cash/technology/zksnarks) y permite emitir una señal (por ejemplo: un voto o una aprobación) como una persona probablemente miembro de un grupo sin revelar su identidad.
 Además, proporciona un mecanismo sencillo para prevenir duplicidad en las señalizaciones.
-Alguno de los potenciales casos de uso son: votaciones, denuncias, DAOs anónimas y mezcladores. 
+Algunos de los potenciales casos de uso son: votaciones, denuncias, DAOs anónimas y mezcladores. 
 
 ## Características
 
