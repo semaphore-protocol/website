@@ -1,54 +1,53 @@
 ---
 id: introduction
-title: What Is Semaphore?
+title: ¿Qué es Semaphore?
 sidebar_position: 1
 ---
 
-## Overview
+## General
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore) is a [zero-knowledge](https://z.cash/technology/zksnarks) protocol that allows you to cast a signal (for example, a vote or endorsement) as a provable group member without revealing your identity.
-Additionally, it provides a simple mechanism to prevent double-signaling.
-Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
+[Semaphore](https://github.com/semaphore-protocol/semaphore) es un protocolo que utiliza [conocimiento cero (zero-knowledge)](https://z.cash/technology/zksnarks) y permite emitir una señal (por ejemplo: un voto o una aprobación) como una persona probablemente miembro de un grupo sin revelar su identidad.
+Además, proporciona un mecanismo sencillo para prevenir duplicidad en las señalizaciones.
+Alguno de los potenciales casos de uso son: votaciones, denuncias, DAOs anónimas y mezcladores. 
 
-## Features
+## Características
 
-With Semaphore, you can allow your users to do the following:
+Con Semaphore puede permitir que sus usuarios realicen las siguientes acciones:
 
-1. [Create a Semaphore identity](/docs/guides/identities/).
-2. [Add their Semaphore identity to a group (i.e. _Merkle tree_)](/docs/guides/groups/).
-3. [Send a verifiable, anonymous signal (e.g a vote or endorsement)](/docs/guides/proofs/).
+1. [Crear una identidad Semaphore](/docs/guides/identities/).
+2. [Agregar su identidad Semaphore a un grupo (es decir: _Árbol de Merkle_)](/docs/guides/groups/).
+3. [Enviar una señal anónima, veríficable (ej. un voto o una aprobación)](/docs/guides/proofs/).
 
-When a user broadcasts a signal (for example: a vote), Semaphore zero-knowledge
-proofs can ensure that the user has joined the group and hasn't already cast a signal with their nullifier.
+Cuando un usuario emite una señal (por ejemplo: un voto), las pruebas de conocimiento cero pueden asegurar que el usuario se ha incorporado al grupo y aún no ha emitido una señal con su nullifier.
 
-Semaphore uses on-chain Solidity contracts and off-chain JavaScript libraries that work in tandem.
+Semaphore utiliza contratos en la cadena en Solidity y librerias de JavaScript fuera de la cadena que funcionan de forma conjunta.
 
--   Off chain, JavaScript libraries can be used to create identities, manage groups and generate proofs.
--   On chain, Solidity contracts can be used to manage groups and verify proofs.
+-   Fuera de la cadena, se pueden utilizar librerias de Javascript para crear identidades, organizar grupos y generar pruebas.
+-   En la cadena, se pueden utilizar contratos en Solidity para organizar grupos y verificar pruebas.
 
-## Developer benefits
+## Beneficios para los desarrolladores
 
-Semaphore is designed to be a simple and generic _privacy layer_ for decentralized applications (dApps) on Ethereum. It encourages modular application design, allowing dApp developers to choose and customize the on-chain and off-chain components they need.
+Semaphore está diseñado para ser un _componente de privacidad_ simple y genérico para aplicaciones decentralizadas (dApps) en Ethereum. Promueve el diseño modular de las aplicaciones, lo que permite que los desarrolladores de las dApps escojan y personalicen los componentes que necesitan en la cadena y fuera de la cadena.
 
-## About the code
+## Respecto al código
 
-The core of the protocol is the [circuit logic](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits/scheme.png).
-In addition to circuits,
-Semaphore provides [Solidity contracts](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts)
-and [JavaScript libraries](https://github.com/semaphore-protocol/semaphore#-packages) that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
+La base del protocólo es la [lógica de circuitos](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits/scheme.png).
+Además de los circuitos,
+Semaphore ofrece [contratos en Solidity](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts)
+y [librerías en JavaScript](https://github.com/semaphore-protocol/semaphore#-packages) que permiten que los desarrolladores generen pruebas de conocimiento cero y las verifiquen con un esfuerzo mínimo.
 
-### Trusted Setup Ceremony
+### Ceremonia de configuración de confianza (Trusted Setup Ceremony)
 
-The [secure parameters](/docs/glossary#trusted-setup-files) for generating valid proofs with Semaphore circuits were generated in a [Trusted Setup Ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html) that was completed with over 300 participants on [29 March 2022](https://etherscan.io/tx/0xec6dbe68883c7593c2bea82f55af18b3aeb5cc146e026d0083a9b3faa9aa0b65#eventlog).
+Los [parámetros seguros](/docs/glossary#trusted-setup-files) para generar pruebas válidas con los circuitos Semaphore fueron generados en una [Ceremonia de configuración de confianza](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html) que se completó con más de 300 participantes el [29 de Marzo de 2022](https://etherscan.io/tx/0xec6dbe68883c7593c2bea82f55af18b3aeb5cc146e026d0083a9b3faa9aa0b65#eventlog).
 
-### Audits
+### Auditorías
 
-| Version | Auditors                          | Report                                                                                                               | Scope                    |
+| Versión | Auditores                          | Reporte                                                                                                               | Alcance                |
 | ------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | v2.0.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9850441/Semaphore_2.0.0_Audit.pdf) | `circuits`, `contracts`  |
 | v2.5.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `contracts`, `libraries` |
 | v3.0.0  | [Veridise](https://veridise.com/) | [Semaphore_3.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `circuits`, `contracts`  |
 
 :::info
-If you are using one of the previous versions of Semaphore, see the [Semaphore V1](/docs/V1/introduction) or the [Semaphore V2](/docs/V2/introduction) documentation.
+Si está utilizando una de las versiones anteriores de Semaphore, vea la documentación de [Semaphore V1](/docs/V1/introduction) o de [Semaphore V2](/docs/V2/introduction).
 :::
