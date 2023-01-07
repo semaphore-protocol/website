@@ -16,7 +16,7 @@ Con Semaphore puede permitir que sus usuarios realicen las siguientes acciones:
 
 1. [Crear una identidad Semaphore](/docs/guides/identities/).
 2. [Agregar su identidad Semaphore a un grupo (es decir: _Árbol de Merkle_)](/docs/guides/groups/).
-3. [Enviar una señal anónima, veríficable (ej. un voto o una aprobación)](/docs/guides/proofs/).
+3. [Enviar una señal anónima, verificable (ej. un voto o una aprobación)](/docs/guides/proofs/).
 
 Cuando un usuario emite una señal (por ejemplo: un voto), las pruebas de conocimiento cero pueden asegurar que el usuario se ha incorporado al grupo y aún no ha emitido una señal con su nullifier.
 
