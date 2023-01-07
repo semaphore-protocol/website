@@ -2,62 +2,61 @@
 sidebar_position: 7
 ---
 
-# Glossary
+# Glosario
 
-## Semaphore identity
+## Identidad Semaphore
 
-The identity of a user in the Semaphore protocol.
-An identity contains the following three values:
+La identidad de un usuario en el protocolo Semaphore. 
+Una identidad contiene los tres valores que se mencionan a continuación:
 
--   [Identity commitment](#identity-commitment): the public value.
--   Identity trapdoor and identity nullifier: secret values known only by the user.
+-   [Compromiso de identidad](#identity-commitment): el valor público.
+-   Identidad en una vía (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
 
-## Identity commitment
+## Compromiso de identidad
 
-The public [Semaphore identity](#semaphore-identity) value used in [Semaphore groups](#semaphore-group).
+El valor de [identidad Semaphore](#semaphore-identity) público utilizado en los [grupos Semaphore](#semaphore-group).
 
-Semaphore uses the [Poseidon](https://www.poseidon-hash.info/) hash function to create the identity commitment from the Semaphore identity secret values.
+Semaphore utiliza la función hash [Poseidon](https://www.poseidon-hash.info/) para crear un compromiso de identidad a partir de los valores secretos de la identidad Semaphore. 
 
-## Semaphore group
+## Grupo Semaphore 
 
-A group is a binary incremental [Merkle tree](#merkle-tree) in which each leaf contains an [identity commitment](#identity-commitment) for a user.
-The identity commitment proves that the user is a group member without revealing the Semaphore identity of the user.
+Un grupo es un [árbol de Merkle](#merkle-tree) binario e incremental en el que cada hoja contiene un [compromiso de identidad](#identity-commitment) para un usuario.
+El compromiso de identidad comprueba que un usuario es un miembro del grupo sin revelar la identidad Semaphore del usuario.
 
-Semaphore uses the **Poseidon** hash function to create Merkle trees.
-For more information, see the [Poseidon website](https://www.poseidon-hash.info/).
+Semaphore utiliza la función hash **Poseidon** para crear árboles de Merkle.
+Para mayor información, ver el [sitio web de Poseidon](https://www.poseidon-hash.info/).
 
-## Merkle tree
+## Árbol de Merkle 
 
-A tree in which every leaf (i.e., a node that doesn't have children) is labelled with the cryptographic hash of a data block,
-and every node that isn't a leaf is labelled with the cryptographic hash of its child node labels.
-In zero-knowledge protocols, Merkle trees can be used to efficiently summarize and validate large data sets.
-To validate that a tree contains a specific leaf, a verifier only needs a portion of the complete data structure.
+Un árbol en el que cada hoja (es decir, un nodo que no tiene hijos) es etiquetado con el hash criptográfico de un bloque de datos,
+y cada nodo que no es una hoja es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos. 
+En los protocolos de conocimiento zero, los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos. 
+Para validar que un árbol contiene una hoja en específico, un verificador sólo necesita una porción de la estructura completa de datos. 
 
-For more information, see [Merkle tree in Wikipedia](https://en.wikipedia.org/wiki/Merkle_tree).
+Para más información, ver [árbol de Merkle en Wikipedia](https://es.wikipedia.org/wiki/%C3%81rbol_de_Merkle).
 
 ## Nullifier
 
-A value used to prevent double entry or double signalling.
+Un valor utilizado para prevenir registros duplicados o señalizaciones duplicadas. 
 
-See [Circuit nullifier hash](/docs/technical-reference/circuits/#nullifier-hash).
+Ver [hash de circuito nullifier](/docs/technical-reference/circuits/#nullifier-hash).
 
-## Relay
+## Retransmisor
 
-A third-party who receives a fee for including relayed transactions in the blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3).
-To preserve the anonymity of the user broadcasting a signal with Semaphore, an application may use a relayer to post the signal transaction to Ethereum on behalf of the user.
+Un tercero que recibe una comisión por incluir transacciones retransmitidas en la blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3).
+Para preservar la anonimidad del usuario emitiendo una señal con Semaphore, una aplicación puede utilizar un retransmisor para publicar la transacción de la señal en Ethereum en nombre del usuario.
 
-Applications may provide rewards for relayers and implement front-running prevention mechanisms, such as requiring the signals to include the relayer’s address, binding the
-signal to that specific address (https://semaphore.appliedzkp.org/whitepaper-v1.pdf, p.6).
+Las aplicaciones pueden ofrecer recompensas a los retransmisores e implementar mecanismos para prevenir ventajas maliciosas, como requerir que las señales incluyan la dirección del retransmisor, vinculando así la señal a esa dirección en específico (https://semaphore.appliedzkp.org/whitepaper-v1.pdf, p.6).
 
-## Trusted setup files
+## Archivos confiables de configuración
 
-The secure, verifiable parameters generated by Semaphore's trusted setup ceremony.
-Semaphore uses the trusted setup files to generate and verify valid zero-knowledge proofs.
-To generate or verify valid zero-knowledge proofs with Semaphore, applications must include the following Semaphore _trusted setup_ files:
+Los parámetros verificables y seguros generados por la ceremonia de configuración de confianza de Semaphore.
+Semaphore utiliza los archivos confiables de configuración para generar y verificar pruebas válidas de conocimiento cero.
+Para generar o verificar pruebas válidas de conocimiento cero con Semaphore, las aplicaciones deben incluir los siguientes archivos _confiables de configuración_ de Semaphore. 
 
 -   semaphore.zkey
 -   semaphore.wasm
 -   semaphore.json
 
-For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org>.
-To learn more, see the [trusted setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
+Para ver una lista completa de archivos listos para utilizarse, vea <http://www.trusted-setup-pse.org>.
+Para aprender más, vea la [ceremonia de configuración de confianza](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
