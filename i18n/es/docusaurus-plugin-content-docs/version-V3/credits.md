@@ -2,9 +2,9 @@
 sidebar_position: 9
 ---
 
-# Credits
+# Créditos
 
-Semaphore is the work of several people, for a complete list of contributors you can visit our [Github pages](https://github.com/semaphore-protocol/semaphore/graphs/contributors).
+Semaphore es el esfuerzo de varias personas, para ver una lista completa de contribuidores puede visitar nuestras [páginas en Github](https://github.com/semaphore-protocol/semaphore/graphs/contributors).
 
 -   [Barry WhiteHat](https://github.com/barryWhiteHat)
 -   [Kobi Gurkan](https://github.com/kobigurk)
