@@ -7,14 +7,14 @@ sidebar_position: 2
 Semaphore provides an official CLI to set up your project with Hardhat. If your NPM version is 5.2 or higher you can use NPX:
 
 ```bash
-npx @semaphore-protocol/cli@latest init my-app
+npx @semaphore-protocol/cli@latest create my-app
 ```
 
-Otherwise, install `@semaphore-protocol/cli` globally and run the `init` command:
+Otherwise, install `@semaphore-protocol/cli` globally and run the `create` command:
 
 ```bash
 npm i -g @semaphore-protocol/cli@latest
-semaphore init my-app
+semaphore create my-app
 ```
 
 :::info
@@ -30,7 +30,7 @@ npm i
 
 ## Output
 
-The `init` command will create a directory called my-app (or whatever name you choose) inside the current folder. That directory will contain the initial project structure, which includes a simple contract, a task to deploy that contract and some tests.
+The `create` command will create a directory called my-app (or whatever name you choose) inside the current folder. That directory will contain the initial project structure, which includes a simple contract, a task to deploy that contract and some tests.
 
 ```
 my-app
