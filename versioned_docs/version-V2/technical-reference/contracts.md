@@ -19,8 +19,8 @@ install the [`@semaphore-protocol/contracts`](https://github.com/semaphore-proto
 
 Semaphore provides the following base contracts:
 
--   [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts/base/SemaphoreCore.sol): contains the functions to verify Semaphore proofs;
--   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove members.
+-   [`SemaphoreCore.sol`](https://github.com/semaphore-protocol/semaphore/blob/v2.6.1/packages/contracts/contracts/base/SemaphoreCore.sol): contains the functions to verify Semaphore proofs;
+-   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/v2.6.1/packages/contracts/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove members.
 
 These contracts are closely related to the protocol.
 You can inherit them in your contract or you can use [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1/packages/contracts/Semaphore.sol), which inherits them for you.
