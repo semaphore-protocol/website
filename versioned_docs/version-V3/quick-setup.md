@@ -18,7 +18,7 @@ semaphore init my-app
 ```
 
 :::info
-The [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) CLI can also be used to get group data from a supported network (e.g `semaphore get-groups --network goerli`).
+The [`semaphore CLI`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) can also be used to get group data from a supported network (e.g `semaphore get-groups --network goerli`).
 :::
 
 To start working on your project, install the dependencies:
