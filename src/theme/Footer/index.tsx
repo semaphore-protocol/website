@@ -1,4 +1,5 @@
 import Link from "@docusaurus/Link"
+import { translate } from "@docusaurus/Translate"
 import Logo from "@theme/Logo"
 import clsx from "clsx"
 import React from "react"
@@ -10,11 +11,15 @@ function Footer() {
             <div className={clsx("container container-fluid", styles.container)}>
                 <div>
                     <div>
-                        <h3>About</h3>
+                        <h3>
+                            {translate({
+                                id: "footer.left.title"
+                            })}
+                        </h3>
                         <p>
-                            Semaphore is part of Privacy & Scaling Explorations (PSE), a multidisciplinary team
-                            supported by the Ethereum Foundation. PSE explores new use cases for zero knowledge proofs
-                            and other cryptographic primitives.
+                            {translate({
+                                id: "footer.left.description"
+                            })}
                         </p>
                         <Link href="https://appliedzkp.org" target="_blank">
                             appliedzkp.org
@@ -22,27 +27,50 @@ function Footer() {
                     </div>
                     <div>
                         <div>
-                            <h3>Used by</h3>
+                            <h3>
+                                {translate({
+                                    id: "footer.right.usedby.title"
+                                })}
+                            </h3>
                             <Link href="https://github.com/Unirep" target="_blank">
-                                Unirep
+                                {translate({
+                                    id: "footer.right.usedby.link1"
+                                })}
                             </Link>
                             <Link href="https://interep.link/" target="_blank">
-                                Interep
+                                {translate({
+                                    id: "footer.right.usedby.link2"
+                                })}
                             </Link>
                         </div>
                         <div>
-                            <h3>Learn</h3>
+                            <h3>
+                                {translate({
+                                    id: "footer.right.learn.title"
+                                })}
+                            </h3>
+
                             <Link href="https://github.com/semaphore-protocol" target="_blank">
-                                Github
+                                {translate({
+                                    id: "footer.right.learn.link1"
+                                })}
                             </Link>
                             <Link href="/docs/introduction" target="_blank">
-                                Docs
+                                {translate({
+                                    id: "footer.right.learn.link2"
+                                })}
                             </Link>
                         </div>
                         <div>
-                            <h3>Connect</h3>
+                            <h3>
+                                {translate({
+                                    id: "footer.right.connect.title"
+                                })}
+                            </h3>
                             <Link href="https://discord.gg/6mSdGHnstH" target="_blank">
-                                Discord
+                                {translate({
+                                    id: "footer.right.connect.link1"
+                                })}
                             </Link>
                         </div>
                     </div>
@@ -51,7 +79,11 @@ function Footer() {
                 <hr />
 
                 <div>
-                    <p>Copyright © 2023 Ethereum Foundation</p>
+                    <p>
+                        {translate({
+                            id: "footer.copyright"
+                        })}
+                    </p>
 
                     <Logo
                         style={{ marginRight: -8 }}
