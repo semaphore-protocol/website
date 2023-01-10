@@ -20,21 +20,21 @@ Con Semaphore puede permitir que sus usuarios realicen las siguientes acciones:
 
 Cuando un usuario emite una señal (por ejemplo: un voto), las pruebas de conocimiento cero pueden asegurar que el usuario se ha incorporado al grupo y aún no ha emitido una señal con su nullifier.
 
-Semaphore utiliza contratos en la cadena en Solidity y librerias de JavaScript fuera de la cadena que funcionan de forma conjunta.
+Semaphore utiliza contratos internos a la cadena de bloques (on-chain) en Solidity y librerias de JavaScript externas a la cadena de bloques (off-chain) que funcionan de forma conjunta.
 
--   Fuera de la cadena, se pueden utilizar librerias de Javascript para crear identidades, organizar grupos y generar pruebas.
--   En la cadena, se pueden utilizar contratos en Solidity para organizar grupos y verificar pruebas.
+-   Externo a la cadena de bloques (off-chain), se pueden utilizar librerias de Javascript para crear identidades, organizar grupos y generar pruebas.
+-   Interno a la cadena de bloques (on-chain), se pueden utilizar contratos en Solidity para organizar grupos y verificar pruebas.
 
 ## Beneficios para los desarrolladores
 
-Semaphore está diseñado para ser un _componente de privacidad_ simple y genérico para aplicaciones decentralizadas (dApps) en Ethereum. Promueve el diseño modular de las aplicaciones, lo que permite que los desarrolladores de las dApps escojan y personalicen los componentes que necesitan en la cadena y fuera de la cadena.
+Semaphore está diseñado para ser un _componente de privacidad_ simple y genérico para aplicaciones decentralizadas (dApps) en Ethereum. Promueve el diseño modular de las aplicaciones, lo que permite que los desarrolladores de las dApps escojan y personalicen los componentes que necesitan internos a la cadena y externos a la cadena.
 
 ## Respecto al código
 
-La base del protocólo es la [lógica de circuitos](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits/scheme.png).
+La base del protocólo es la [lógica de circuitos] (circuit logic)(https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits/scheme.png).
 Además de los circuitos,
 Semaphore ofrece [contratos en Solidity](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts)
-y [librerías en JavaScript](https://github.com/semaphore-protocol/semaphore#-packages) que permiten que los desarrolladores generen pruebas de conocimiento cero y las verifiquen con un esfuerzo mínimo.
+y [librerías en JavaScript](https://github.com/semaphore-protocol/semaphore#-packages) que permiten que los desarrolladores generen pruebas de conocimiento cero (ZKP's) y las verifiquen con un esfuerzo mínimo.
 
 ### Ceremonia de configuración de confianza (Trusted Setup Ceremony)
 
@@ -49,5 +49,5 @@ Los [parámetros seguros](/docs/glossary#trusted-setup-files) para generar prueb
 | v3.0.0  | [Veridise](https://veridise.com/) | [Semaphore_3.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `circuits`, `contracts`  |
 
 :::info
-Si está utilizando una de las versiones anteriores de Semaphore, vea la documentación de [Semaphore V1](/docs/V1/introduction) o de [Semaphore V2](/docs/V2/introduction).
+Si está utilizando una de las versiones anteriores de Semaphore, vea la documentación de [Semaphore V1](/docs/V1/introduction) o de [Semaphore V2](/docs/V2/introduction) en inglés. 
 :::
