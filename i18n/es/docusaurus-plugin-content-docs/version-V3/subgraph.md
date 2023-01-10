@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Subgraph
+# Subgrafo
 
 [The Graph](https://thegraph.com/) is a protocol for indexing networks like Ethereum and IPFS.
 Site owners publish _subgraphs_ that expose site data for anyone to query.
