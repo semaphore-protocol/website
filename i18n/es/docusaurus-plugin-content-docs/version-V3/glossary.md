@@ -9,12 +9,12 @@ sidebar_position: 7
 La identidad de un usuario en el protocolo Semaphore. 
 Una identidad contiene los tres valores que se mencionan a continuación:
 
--   [Compromiso de identidad](#identity-commitment): el valor público.
+-   [Compromiso de identidad](identity commitment)(#identity-commitment): el valor público.
 -   Identidad en una vía (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
 
 ## Compromiso de identidad
 
-El valor de [identidad Semaphore](#semaphore-identity) público utilizado en los [grupos Semaphore](#semaphore-group).
+El valor público de la [identidad Semaphore](#semaphore-identity) utilizado en los [grupos Semaphore](#semaphore-group).
 
 Semaphore utiliza la función hash [Poseidon](https://www.poseidon-hash.info/) para crear un compromiso de identidad a partir de los valores secretos de la identidad Semaphore. 
 
@@ -29,8 +29,8 @@ Para mayor información, ver el [sitio web de Poseidon](https://www.poseidon-has
 ## Árbol de Merkle 
 
 Un árbol en el que cada hoja (es decir, un nodo que no tiene hijos) es etiquetado con el hash criptográfico de un bloque de datos,
-y cada nodo que no es una hoja es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos. 
-En los protocolos de conocimiento zero, los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos. 
+y cada nodo, que no es una hoja, es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos. 
+En los protocolos de conocimiento zero (ZK), los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos. 
 Para validar que un árbol contiene una hoja en específico, un verificador sólo necesita una porción de la estructura completa de datos. 
 
 Para más información, ver [árbol de Merkle en Wikipedia](https://es.wikipedia.org/wiki/%C3%81rbol_de_Merkle).
@@ -41,7 +41,7 @@ Un valor utilizado para prevenir registros duplicados o señalizaciones duplicad
 
 Ver [hash de circuito nullifier](/docs/technical-reference/circuits/#nullifier-hash).
 
-## Retransmisor
+## Retransmisor (Relayer)
 
 Un tercero que recibe una comisión por incluir transacciones retransmitidas en la blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3).
 Para preservar la anonimidad del usuario emitiendo una señal con Semaphore, una aplicación puede utilizar un retransmisor para publicar la transacción de la señal en Ethereum en nombre del usuario.
