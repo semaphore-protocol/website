@@ -17,3 +17,7 @@ sidebar_position: 8
 [Un mezclador de Ethereum trustless utilizando señalizaciones de conocimiento cero](https://www.youtube.com/watch?v=GzVT16lFOHU) - Koh Wei Jie and Barry WhiteHat en Devcon 5
 
 [Implementación de aplicaciones de señalizaciones de conocimiento cero](https://www.youtube.com/watch?v=7wd2aAN2jXI) - Koh Wei Jie en Devcon 5
+
+## Videos
+
+## Artículos
