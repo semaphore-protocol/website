@@ -12,8 +12,6 @@ sidebar_position: 8
 
 [¡La versión 2 de Semaphore está lista!](https://medium.com/privacy-scaling-explorations/semaphore-v2-is-live-f263e9372579) - Privacy and Scaling Explorations
 
-[Para Mezcladores y más allá: presentando Semaphore, una herramienta de privacidad construida en Ethereum](https://medium.com/coinmonks/to-mixers-and-beyond-presenting-semaphore-a-privacy-gadget-built-on-ethereum-4c8b00857c9b) - Koh Wei Jie
-
 ## Videos
 
 [Privacidad en Ethereum](https://www.youtube.com/watch?v=maDHYyj30kg) - Barry Whitehat en el Meetup de Ethereum en Taipei
