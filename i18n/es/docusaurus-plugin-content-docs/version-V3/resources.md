@@ -26,10 +26,10 @@ sidebar_position: 8
 
 [Implementación de aplicaciones de señalizaciones de conocimiento cero (ZK)](https://www.youtube.com/watch?v=7wd2aAN2jXI) - Koh Wei Jie en Devcon 5
 
-[Pruebas concisas en Ethereum] (https://www.youtube.com/watch?v=TtsDNneTDDY) - Barry Whitehat en el 2ndo ZKProof Workshop
+[Pruebas concisas en Ethereum](https://www.youtube.com/watch?v=TtsDNneTDDY) - Barry Whitehat en el 2ndo ZKProof Workshop
 
-[Roadmap para Semaphore en Ethereum] (https://www.youtube.com/watch?v=gOub903iWFs) - Barry Whitehat en Zcon1
+[Roadmap para Semaphore en Ethereum](https://www.youtube.com/watch?v=gOub903iWFs) - Barry Whitehat en Zcon1
 
 [Propuesta: Semaphore - Señalización de conocimiento cero (ZK) en Ethereum] (https://www.youtube.com/watch?v=y5uV9eRb3-w) - Koh Wei Jie en el 3er ZKProof Workshop
 
-[Señalizaciones anónimas en Ethereum] (https://www.youtube.com/watch?v=dxAfL91Sbw4) - Cedoor en Devcon 6 Bogotá
+[Señalizaciones anónimas en Ethereum](https://www.youtube.com/watch?v=dxAfL91Sbw4) - Cedoor en Devcon 6 Bogotá
