@@ -72,6 +72,11 @@ function Footer() {
                                     id: "footer.right.connect.link1"
                                 })}
                             </Link>
+                            <Link href="https://twitter.com/PrivacyScaling" target="_blank">
+                                {translate({
+                                    id: "footer.right.connect.link2"
+                                })}
+                            </Link>
                         </div>
                     </div>
                 </div>
