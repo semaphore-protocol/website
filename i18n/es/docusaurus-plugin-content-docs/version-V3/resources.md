@@ -30,6 +30,6 @@ sidebar_position: 8
 
 [Roadmap para Semaphore en Ethereum](https://www.youtube.com/watch?v=gOub903iWFs) - Barry Whitehat en Zcon1
 
-[Propuesta: Semaphore - Señalización de conocimiento cero (ZK) en Ethereum] (https://www.youtube.com/watch?v=y5uV9eRb3-w) - Koh Wei Jie en el 3er ZKProof Workshop
+[Propuesta: Semaphore - Señalización de conocimiento cero (ZK) en Ethereum](https://www.youtube.com/watch?v=y5uV9eRb3-w) - Koh Wei Jie en el 3er ZKProof Workshop
 
 [Señalizaciones anónimas en Ethereum](https://www.youtube.com/watch?v=dxAfL91Sbw4) - Cedoor en Devcon 6 Bogotá
