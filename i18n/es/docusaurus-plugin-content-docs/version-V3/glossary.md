@@ -6,19 +6,19 @@ sidebar_position: 7
 
 ## Identidad Semaphore
 
-La identidad de un usuario en el protocolo Semaphore. 
+La identidad de un usuario en el protocolo Semaphore.
 Una identidad contiene los tres valores que se mencionan a continuación:
 
--   [Compromiso de identidad](identity commitment)(#identity-commitment): el valor público.
+-   [Compromiso de identidad](#identity-commitment)(identity commitment): el valor público.
 -   Identidad en una vía (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
 
 ## Compromiso de identidad
 
 El valor público de la [identidad Semaphore](#semaphore-identity) utilizado en los [grupos Semaphore](#semaphore-group).
 
-Semaphore utiliza la función hash [Poseidon](https://www.poseidon-hash.info/) para crear un compromiso de identidad a partir de los valores secretos de la identidad Semaphore. 
+Semaphore utiliza la función hash [Poseidon](https://www.poseidon-hash.info/) para crear un compromiso de identidad a partir de los valores secretos de la identidad Semaphore.
 
-## Grupo Semaphore 
+## Grupo Semaphore
 
 Un grupo es un [árbol de Merkle](#merkle-tree) binario e incremental en el que cada hoja contiene un [compromiso de identidad](#identity-commitment) para un usuario.
 El compromiso de identidad comprueba que un usuario es un miembro del grupo sin revelar la identidad Semaphore del usuario.
@@ -26,18 +26,18 @@ El compromiso de identidad comprueba que un usuario es un miembro del grupo sin 
 Semaphore utiliza la función hash **Poseidon** para crear árboles de Merkle.
 Para mayor información, ver el [sitio web de Poseidon](https://www.poseidon-hash.info/).
 
-## Árbol de Merkle 
+## Árbol de Merkle
 
 Un árbol en el que cada hoja (es decir, un nodo que no tiene hijos) es etiquetado con el hash criptográfico de un bloque de datos,
-y cada nodo, que no es una hoja, es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos. 
-En los protocolos de conocimiento zero (ZK), los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos. 
-Para validar que un árbol contiene una hoja en específico, un verificador sólo necesita una porción de la estructura completa de datos. 
+y cada nodo, que no es una hoja, es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos.
+En los protocolos de conocimiento zero (ZK), los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos.
+Para validar que un árbol contiene una hoja en específico, un verificador sólo necesita una porción de la estructura completa de datos.
 
 Para más información, ver [árbol de Merkle en Wikipedia](https://es.wikipedia.org/wiki/%C3%81rbol_de_Merkle).
 
 ## Nullifier
 
-Un valor utilizado para prevenir registros duplicados o señalizaciones duplicadas. 
+Un valor utilizado para prevenir registros duplicados o señalizaciones duplicadas.
 
 Ver [hash de circuito nullifier](/docs/technical-reference/circuits/#nullifier-hash).
 
@@ -52,7 +52,7 @@ Las aplicaciones pueden ofrecer recompensas a los retransmisores e implementar m
 
 Los parámetros verificables y seguros generados por la ceremonia de configuración de confianza de Semaphore.
 Semaphore utiliza los archivos confiables de configuración para generar y verificar pruebas válidas de conocimiento cero.
-Para generar o verificar pruebas válidas de conocimiento cero con Semaphore, las aplicaciones deben incluir los siguientes archivos _confiables de configuración_ de Semaphore. 
+Para generar o verificar pruebas válidas de conocimiento cero con Semaphore, las aplicaciones deben incluir los siguientes archivos _confiables de configuración_ de Semaphore.
 
 -   semaphore.zkey
 -   semaphore.wasm
