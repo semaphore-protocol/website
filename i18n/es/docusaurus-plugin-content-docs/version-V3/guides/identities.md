@@ -5,7 +5,7 @@ title: Identidades
 
 # Identidades Semaphore 
 
-Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario deberá primero crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
+Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario primero deberá crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
 Una identidad Semaphore contiene dos valores generados junto con la identidad:
 
 -   Identidad trampilla
@@ -23,7 +23,7 @@ En su código, utilice la librería [`@semaphore-protocol/identity`](https://git
 
 ### Crear identidades aleatorias
 
-Para crear una identidad aleatoria, representa `Identity` sin algún parámetro--por ejemplo:
+Para crear una identidad aleatoria, represente `Identity` sin algún parámetro--por ejemplo:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
