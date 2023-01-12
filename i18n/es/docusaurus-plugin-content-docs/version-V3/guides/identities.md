@@ -65,7 +65,7 @@ Puede elegir delegar este tipo de funcionalidad a carteras existente como Metama
 
 ## Guarde sus identidades
 
-Puede generar una identidad como una cadena de caractéres (string) JSON que puede guardar y reutilizar más tarde. 
+Puede generar una identidad como una cadena de caractéres JSON que puede guardar y reutilizar más tarde. 
 El método `Identity.toString()` genera una matriz JSON a partir de una identidad--por ejemplo:
 
 ```ts
