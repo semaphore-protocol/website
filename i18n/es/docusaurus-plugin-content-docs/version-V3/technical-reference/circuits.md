@@ -54,4 +54,4 @@ El circuito calcula un cuadrado ficticio del hash de la señal para prevenir que
 
 **Insumos (inputs) públicos:**
 
--   `signalHash`: El hash de la señal del usuario.
+-   `signalHash`: El hash de la señal del usuario. 
