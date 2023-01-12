@@ -10,7 +10,7 @@ La identidad de un usuario en el protocolo Semaphore.
 Una identidad contiene los tres valores que se mencionan a continuación:
 
 -   [Compromiso de identidad](#identity-commitment): el valor público.
--   Identidad en una vía (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
+-   Identidad trampilla (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
 
 ## Compromiso de identidad
 
