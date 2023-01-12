@@ -8,8 +8,8 @@ title: Identidades
 Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario primero deberá crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
 Una identidad Semaphore contiene dos valores generados junto con la identidad:
 
--   Identidad trampilla
--   Identidad anulador
+-   Identidad trampilla (Identity Trapdoor)
+-   Identidad anulador (Identity Nullifier)
 
 Para utilizar y verificar su identidad, la persona dueña de la identidad (usuario) debe conocer los valores trampilla y anulador.
 Para prevenir fraudes, la persona dueña debe conservar de forma secreta ambos valores.
