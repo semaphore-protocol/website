@@ -39,7 +39,7 @@ En un futuro se inclurán más extensiones.
 
 ## Semaphore.sol
 
-[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) utiliza los contratos base como base, los integra y de forma adicional brinda:
+[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) utiliza los contratos base como punto de partida, los integra y de forma adicional brinda:
 
 -   un sistema que solamente permite que administradores (ej. cuentas de Ethereum o contratos inteligentes) controlen grupos;
 -   un mecanismo que guarda los [hashes anuladores](/docs/technical-reference/circuits#nullifier-hash) (nullifier hashes) de cada grupo y evita que el mismo miembro emita dos señales;
