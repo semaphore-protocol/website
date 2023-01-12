@@ -1,29 +1,29 @@
 ---
 sidebar_position: 1
-title: Identities
+title: Identidades
 ---
 
-# Semaphore identities
+# Identidades Semaphore 
 
-In order to join a [Semaphore group](/docs/glossary#semaphore-group), a user must first create a [Semaphore identity](/docs/glossary#semaphore-identity).
-A Semaphore identity contains two values generated with the identity:
+Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario deberá primero crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
+Una identidad Semaphore contiene dos valores generados junto con la identidad:
 
--   Identity trapdoor
--   identity nullifier
+-   Identidad trampilla
+-   Identidad anulador
 
-To use and verify the identity, the identity owner (user) must know the trapdoor and nullifier values.
-To prevent fraud, the owner should keep both values secret.
+Para utilizar y verificar su identidad, la persona dueña de la identidad (usuario) debe conocer los valores trampilla y anulador.
+Para prevenir fraudes, la persona dueña debe conservar de forma secreta ambos valores.
 
-## Create identities
+## Crear identidades
 
-In your code, use the [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/identity) library to create a Semaphore identity _deterministically_ (from the hash of a message) or _randomly_.
+En su código, utilice la librería [`@semaphore-protocol/identity`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/identity) para crear una identidad Semaphore _de forma determinística_ (del hash de un mensaje) o _de forma aleatoria_.
 
--   [**Create random identities**](#create-random-identities)
--   [**Create deterministic identities**](#create-deterministic-identities)
+-   [**Crear identidades aleatorias**](#create-random-identities)
+-   [**Crear identidades determinísticas**](#create-deterministic-identities)
 
-### Create random identities
+### Crear identidades aleatorias
 
-To create a random identity, instantiate `Identity` without any parameters--for example:
+Para crear una identidad aleatoria, representa `Identity` sin algún parámetro--por ejemplo:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
@@ -31,52 +31,52 @@ import { Identity } from "@semaphore-protocol/identity"
 const { trapdoor, nullifier, commitment } = new Identity()
 ```
 
-The new identity contains two random secret values: `trapdoor` and `nullifier`, and one public value: `commitment`.
+La nueva identidad contiene dos valores secretos aleatorios: `trapdoor` y `nullifier`, y un valor público: `commitment`.
 
-The Poseidon hash of the identity nullifier and trapdoor is called the _identity secret_,
-and its hash is the _identity commitment_.
+El hash Poseidon de la identidad anulador y trampilla se conoce como la _identidad secreta_,
+y su hash es el _compromiso de identidad_.
 
-An identity commitment, similarly to Ethereum addresses, is a public value used
-in Semaphore groups to represent the identity of a group member. The secret values are similar to
-Ethereum private keys and are used to generate Semaphore zero-knowledge proofs and authenticate signals.
+Un compromiso de identidad, de forma similar a las direcciones Ethereum, es un valor público que se utiliza en los grupos Semaphore para representar la 
+identidad de un miembro del grupo. Los valores secretos son similares a las llaves privadas 
+Ethereum y se utilizan para generar pruebas de conocimiento cero (ZKP) Semaphore y autenticar señales.
 
-### Create deterministic identities
+### Crear identidades determinísticas
 
-If you pass a message as a parameter, Semaphore generates `trapdoor` and `nullifier`
-from the _SHA256_ hash of the message.
-The message might be a password or a message that the user cryptographically signs with a private key.
+Si transmite un mensaje como un parámetro, Semaphore genera `trapdoor` y `nullifier`
+del hash _SHA256_ del mensaje.
+El mensaje puede ser una constraseña o un mensaje que el usuario firma de forma criptográfica con una llave privada.
 
-When using deterministic identities, you should always keep the message secret.
-Given that the hash is deterministic, anyone with the same message can recreate the same identity.
+Al utilizar identidades determinísticas siempre deberá mantener secreto el mensaje. 
+Dado que el hash es determinístico, cualquier persona con el mismo mensaje puede recrear la misma identidad.
 
 ```ts
 const identity = new Identity("secret-message")
 ```
 
-:::tip
-Building a system to save or recover secret values of Semaphore identities is nontrivial.
-You may choose to delegate such functionality to existing wallets such as Metamask--for example:
+:::recomendación
+Crear un sistema que guarde o recupere valores secretos de identidades Semaphore es no trivial.
+Puede elegir delegar este tipo de funcionalidad a carteras existente como Metamask--por ejemplo:
 
-1. In Metamask, a user signs a message with the private key of their Ethereum account.
-2. In your application, the user creates a deterministic identity with the signed message.
-3. The user can now recreate their Semaphore identity whenever they want by signing the same message with their Ethereum account in Metamask.
+1. En Metamask, un usuario firma un mensaje con la llave privada de su cuenta Ethereum.
+2. En la aplicación que usted ofrece, el usuario crea una identidad determinística con el mensaje firmado.
+3. Ahora el usuario puede recrear su identidad Semaphore cuando quiera al firmar el mismo mensaje con su cuenta Ethereum en Metamask.
 
 :::
 
-## Save your identities
+## Guarde sus identidades
 
-You can output an identity as a JSON string that you can save and reuse later.
-The `Identity.toString()` method generates a JSON array from an identity--for example:
+Puede generar una identidad como una cadena de caractéres (string) JSON que puede guardar y reutilizar más tarde. 
+El método `Identity.toString()` genera una matriz JSON a partir de una identidad--por ejemplo:
 
 ```ts
-console.log(identity.toString()) // View the identity trapdoor and nullifier.
+console.log(identity.toString()) // Ver la identidad trampilla y anulador.
 
 // '["8255d...", "62c41..."]'
 ```
 
-The array contains the trapdoor and nullifier.
+La matriz contiene la trampilla y el anulador.
 
-To reuse the saved identity, pass the JSON to the `Identity()` constructor.
+Para reutilizar la identidad guardada, transforme la cadena JSON al constructor `Identity()`.
 
 ```ts
 const identity2 = new Identity(identity.toString())
