@@ -7,7 +7,7 @@ sidebar_position: 2
 El [circuito Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits) es el corazón del protocolo y está compuesto por tres partes:
 
 -   [**Prueba de membresía**](/docs/technical-reference/circuits#proof-of-membership)
--   [**Hash anulador**](/docs/technical-reference/circuits#nullifier-hash) (Nullifier hash)
+-   [**Nullifier hash**](/docs/technical-reference/circuits#nullifier-hash) (hash anulador)
 -   [**Señal**](/docs/technical-reference/circuits#signal)
 
 ![Semaphore circuit](https://github.com/semaphore-protocol/semaphore/raw/main/packages/circuits/scheme.png)
@@ -16,7 +16,7 @@ El diagrama anterior muestra cómo se utilizan las señales de entrada en el cir
 
 ## Prueba de membresía
 
-El circuito resume criptográficamente (hashes) el hash del anulador (nullifier) de la identidad utilizandola identidad trampilla para generar el compromiso de identidad. Después de esto, el circuito verifica la prueba de membresía contra la raíz de Merkle y el compromiso de identidad.
+El circuito resume criptográficamente (hashes) el nullifier hash de la identidad utilizando la identity trapdoor (identidad trampilla) para generar el compromiso de identidad. Después de esto, el circuito verifica la prueba de membresía contra la raíz de Merkle y el compromiso de identidad.
 
 **Insumos (inputs) privados:**
 
@@ -31,20 +31,20 @@ El circuito resume criptográficamente (hashes) el hash del anulador (nullifier)
 
 ## Hash anulador (Nullifier hash)
 
-El circuito resume criptográficamente (hashes) el anulador (nullifier) de identidad con el anulador (nullifier) externo y después revisa que el resultado coincida con el hash anulador (nullifier) provisto.
-Los hashes anuladores guardados en un contrato inteligente Semaphore permiten que el contrato rechace las pruebas que contengan un hash anulador ya utilizado. 
+El circuito resume criptográficamente (hashes) el identity nullifier con el nullifier externo y después revisa que el resultado coincida con el nullifier hash provisto.
+Los nullifier hashes guardados en un contrato inteligente Semaphore permiten que el contrato rechace las pruebas que contengan un nullifier hash ya utilizado. 
 
 **Insumos (inputs) privados:**
 
--   `identityNullifier`: el secreto de identidad de 32 bits que se utiliza como anulador.
+-   `identityNullifier`: el identity secret (secreto de identidad) de 32 bits que se utiliza como nullifier.
 
 **Insumos (inputs) públicos:**
 
--   `externalNullifier`: el anulador externo de 32 bits.
+-   `externalNullifier`: el nullifier externo de 32 bits.
 
 **Resultados (outputs) públicos:**
 
--   `nullifierHash`: el hash del anulador (nullifier) de identidad y del anulador (nullifier) externo; se utiliza para prevenir que el mismo usuario emita dos señales.
+-   `nullifierHash`: el hash del identity nullifier y del nullifier externo; se utiliza para prevenir que el mismo usuario emita dos señales.
 
 **Procedimiento:**
 
