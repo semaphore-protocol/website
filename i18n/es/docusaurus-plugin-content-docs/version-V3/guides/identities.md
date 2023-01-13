@@ -44,7 +44,7 @@ Ethereum y se utilizan para generar pruebas de conocimiento cero (ZKP) Semaphore
 
 Si transmite un mensaje como un parámetro, Semaphore genera `trapdoor` y `nullifier`
 del hash _SHA256_ del mensaje.
-El mensaje puede ser una constraseña o un mensaje que el usuario firma de forma criptográfica con una llave privada.
+El mensaje puede ser una contraseña o un mensaje que el usuario firma de forma criptográfica con una llave privada.
 
 Al utilizar identidades determinísticas siempre deberá mantener secreto el mensaje. 
 Dado que el hash es determinístico, cualquier persona con el mismo mensaje puede recrear la misma identidad.
