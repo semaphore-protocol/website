@@ -9,12 +9,12 @@ sidebar_position: 7
 La identidad de un usuario en el protocolo Semaphore. 
 Una identidad contiene los tres valores que se mencionan a continuación:
 
--   [Compromiso de identidad](#identity-commitment): el valor público.
--   Identidad trampilla (trapdoor) e identidad nullifier: valores secretos que únicamente son del conocimiento del usuario.
+-   [Compromiso de identidad](#identity-commitment) (identity commitment): el valor público.
+-   Identidad trampilla (identity trapdoor) y anulador de identidad (identity nullifier): valores secretos que únicamente son del conocimiento del usuario.
 
-## Compromiso de identidad
+## Compromiso de identidad (Identity commitment)
 
-El valor de [identidad Semaphore](#semaphore-identity) público utilizado en los [grupos Semaphore](#semaphore-group).
+El valor público de la [identidad Semaphore](#semaphore-identity) utilizado en los [grupos Semaphore](#semaphore-group).
 
 Semaphore utiliza la función hash [Poseidon](https://www.poseidon-hash.info/) para crear un compromiso de identidad a partir de los valores secretos de la identidad Semaphore. 
 
@@ -24,31 +24,31 @@ Un grupo es un [árbol de Merkle](#merkle-tree) binario e incremental en el que 
 El compromiso de identidad comprueba que un usuario es un miembro del grupo sin revelar la identidad Semaphore del usuario.
 
 Semaphore utiliza la función hash **Poseidon** para crear árboles de Merkle.
-Para mayor información, ver el [sitio web de Poseidon](https://www.poseidon-hash.info/).
+Para mayor información, vea el [sitio web de Poseidon](https://www.poseidon-hash.info/).
 
-## Árbol de Merkle 
+## Árbol de Merkle (Merkle tree)
 
 Un árbol en el que cada hoja (es decir, un nodo que no tiene hijos) es etiquetado con el hash criptográfico de un bloque de datos,
 y cada nodo que no es una hoja es etiquetado con el hash criptográfico de las etiquetas de sus nodos hijos. 
 En los protocolos de conocimiento zero, los árboles de Merkle pueden ser utilizados para resumir y validar de forma eficiente grandes conjuntos de datos. 
 Para validar que un árbol contiene una hoja en específico, un verificador sólo necesita una porción de la estructura completa de datos. 
 
-Para más información, ver [árbol de Merkle en Wikipedia](https://es.wikipedia.org/wiki/%C3%81rbol_de_Merkle).
+Para más información, vea [árbol de Merkle en Wikipedia](https://es.wikipedia.org/wiki/%C3%81rbol_de_Merkle).
 
-## Nullifier
+## Anulador (Nullifier)
 
-Un valor utilizado para prevenir registros duplicados o señalizaciones duplicadas. 
+Un valor utilizado para prevenir registros dobles o dos señales emitidas por el mismo usuario. 
 
 Ver [hash de circuito nullifier](/docs/technical-reference/circuits/#nullifier-hash).
 
-## Retransmisor
+## Retransmisor (Relayer)
 
 Un tercero que recibe una comisión por incluir transacciones retransmitidas en la blockchain (McMenamin, Daza, and Fitz. https://eprint.iacr.org/2022/155.pdf, p.3).
 Para preservar la anonimidad del usuario emitiendo una señal con Semaphore, una aplicación puede utilizar un retransmisor para publicar la transacción de la señal en Ethereum en nombre del usuario.
 
 Las aplicaciones pueden ofrecer recompensas a los retransmisores e implementar mecanismos para prevenir ventajas maliciosas, como requerir que las señales incluyan la dirección del retransmisor, vinculando así la señal a esa dirección en específico (https://semaphore.appliedzkp.org/whitepaper-v1.pdf, p.6).
 
-## Archivos confiables de configuración
+## Archivos confiables de configuración (Trusted setup files)
 
 Los parámetros verificables y seguros generados por la ceremonia de configuración de confianza de Semaphore.
 Semaphore utiliza los archivos confiables de configuración para generar y verificar pruebas válidas de conocimiento cero.
@@ -59,4 +59,4 @@ Para generar o verificar pruebas válidas de conocimiento cero con Semaphore, la
 -   semaphore.json
 
 Para ver una lista completa de archivos listos para utilizarse, vea <http://www.trusted-setup-pse.org>.
-Para aprender más, vea la [ceremonia de configuración de confianza](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
+Para aprender más, vea la [ceremonia de configuración de confianza](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html) (trusted setup ceremony).
