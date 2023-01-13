@@ -1,37 +1,37 @@
 ---
 sidebar_position: 3
-title: Proofs
+title: Pruebas
 ---
 
-# Semaphore proofs
+# Pruebas Semaphore
 
-Once a user joins their [Semaphore identity](/docs/glossary#semaphore-identity) to a [Semaphore group](/docs/glossary#semaphore-group), the user can signal anonymously with a zero-knowledge proof that proves the following:
+Una vez que un usuario liga su [identidad Semaphore](/docs/glossary#semaphore-identity) a un [grupo Semaphore](/docs/glossary#semaphore-group), el usuario puede emitir una señal anónima con una prueba de conocimiento cero (ZKP) the demuestre lo siguiente:
 
--   the user is a member of the group,
--   the same user created the signal and the proof.
+-   el usuario es un miembro del grupo,
+-   el mismo usuario creo la señal y la prueba.
 
-Developers can use Semaphore for the following:
+Las y los desarrolladores pueden utilizar Semaphore para realizar las siguientes acciones:
 
--   [**Generate a proof off-chain**](#generate-a-proof-off-chain)
--   [**Verify a proof off-chain**](#verify-a-proof-off-chain)
--   [**Verify a proof on-chain**](#verify-a-proof-on-chain)
+-   [**Generar una prueba externa a la cadena (off-chain)**](#generate-a-proof-off-chain)
+-   [**Verificar una prueba externa a la cadena (off-chain)**](#verify-a-proof-off-chain)
+-   [**Verificar una prueba en la cadena (on-chain)**](#verify-a-proof-on-chain)
 
-## Generate a proof off-chain
+## Generar una prueba off-chain
 
-Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) library to generate an off-chain proof.
-To generate a proof, pass the following parameters to the `generateProof` function:
+Utilice la librería [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) para generar una prueba off-chain.
+Para generar una prueba, transforme los siguientes parámetros con la función `generateProof`:
 
--   `identity`: the Semaphore identity of the user broadcasting the signal and generating the proof;
--   `group`: the group to which the user belongs;
--   `externalNullifier`: the value that prevents double-signaling;
--   `signal`: the signal the user wants to send anonymously;
--   `snarkArtifacts`: the `zkey` and `wasm` [trusted setup files](/docs/glossary/#trusted-setup-files).
+-   `identity`: la identidad Semaphore del usuario emitiendo la señal y generando la prueba;
+-   `group`: el grupo al cual pertenece el usuario;
+-   `externalNullifier`: el valor que impide la emisión de dos señales por el mismo usuario;
+-   `signal`: la señal que el usuario quiere enviar de forma anónima;
+-   `snarkArtifacts`: la `zkey` y `wasm` de los [archivos confiables de configuración](/docs/glossary/#trusted-setup-files).
 
-In the voting system use case, once all the voters have joined their [identities](/docs/guides/identities#create-an-identity) to the ballot [group](/docs/guides/groups),
-a voter can generate a proof to vote for a proposal.
-In the call to `generateProof`, the voting system passes the unique ballot ID (the [Merkle tree](/docs/glossary/#merkle-tree/) root of the group) as the
-`externalNullifier` to prevent the voter signaling more than once for the ballot.
-The following code sample shows how to use `generateProof` to generate the voting proof:
+En el caso de uso de un sistema de votación, una vez que todos los votantes hayan ligado sus [identidades](/docs/guides/identities#create-an-identity) al [grupo](/docs/guides/groups) de la votación,
+un votante puede generar una prueba para votar por una propuesta.
+En el llamado para `generateProof`(generar la prueba), el sistema de votación envía el ID único de la votación (la raíz del [árbol de Merkle](/docs/glossary/#merkle-tree/) del grupo) como el 
+`externalNullifier` para impedir que el votante emita más de una señal para esta votación.
+La siguiente muestra de código demuestra cómo utilizar `generateProof` para generar una prueba de votación:
 
 ```ts
 import { generateProof } from "@semaphore-protocol/proof"
@@ -45,48 +45,48 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 })
 ```
 
-## Verify a proof off-chain
+## Verificar una prueba off-chain
 
-Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) library to verify a Semaphore proof off-chain.
-To verify a proof, pass the following to the `verifyProof` function:
+Utilice la librería [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) para verificar una prueba Semaphore off-chain.
+Para verificar una prueba, transforme los siguientes parámetros con la función `verifyProof`:
 
--   `fullProof`: the Semaphore proof;
--   `treeDepth`: the Merkle tree depth.
+-   `fullProof`: la prueba Semaphore;
+-   `treeDepth`: la profundidad del árbol de Merkle.
 
-The following code sample shows how to verify the previously generated proof:
+La siguiente muestra de código demuestra cómo verificar la prueba generada previamente:
 
 ```ts
 import { verifyProof } from "@semaphore-protocol/proof"
 
-await verifyProof(fullProof, 20) // true or false.
+await verifyProof(fullProof, 20) // verdadero o falso.
 ```
 
-`verifyProof` returns a Promise that resolves to `true` or `false`.
+`verifyProof` devolverá una Promesa que determina uno de los dos valores `verdadero` o `falso`.
 
-## Verify a proof on-chain
+## Verificar una prueba on-chain
 
-Use the [`Semaphore.sol`](/docs/technical-reference/contracts#semaphoresol) contract to verify proofs on-chain.
+Utilice el contrato [`Semaphore.sol`](/docs/technical-reference/contracts#semaphoresol) para verificar pruebas on-chain.
 
-:::info
-See our [deployed contracts](/docs/deployed-contracts) to find the addresses for your network.
+:::información
+Vea nuestros [contratos desplegados](/docs/deployed-contracts) para encontrar las direcciones adecuadas para su red.
 ::::
 
-To verify Semaphore proofs in your contract, import `ISemaphore.sol`, pass it the `Semaphore.sol` address and call the `verifyProof` method with following parameters:
+Para verificar las pruebas Semaphore en su contrato, importe `ISemaphore.sol`, transformelo a la dirección `Semaphore.sol` y llame el método `verifyProof` con los siguientes parámetros:
 
--   `groupId`: the identifier of the group;
--   `merkleTreeRoot`: the root of the Merkle tree;
--   `signal`: the signal the user wants to send anonymously;
--   `nullifierHash`: a [nullifier hash](#retrieve-a-nullifier-hash);
--   `externalNullifier`: the value that prevents double-signaling;
--   `proof`: a [Solidity-compatible Semaphore proof](#generate-a-solidity-compatible-proof).
+-   `groupId`: el identificador del grupo;
+-   `merkleTreeRoot`: la raíz del árbol de Merkle;
+-   `signal`: la señal que el usuario quiere enviar de forma anónima ;
+-   `nullifierHash`: un [nullifier hash](#retrieve-a-nullifier-hash) (hash anulador);
+-   `externalNullifier`: el valor que impide la emisión de dos señales por el mismo usuario;
+-   `proof`: una [prueba Semaphore que es compatible con Solidity](#generate-a-solidity-compatible-proof).
 
-:::info
-You can import `ISemaphore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
+:::información
+Puede importar `ISemaphore.sol` y otros contratos Semaphore del módulo NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
 
-### Generate a Solidity-compatible proof
+### Generar una pruebla compatible con Solidity
 
-To transform a proof to be compatible with Solidity contracts, pass the proof to the `packToSolidityProof` utility function. For example:
+Para transformar una prueba para que sea compatible con los contratos en Solidity, transforme la prueba con la función de utilidad `packToSolidityProof`. Por ejemplo:
 
 ```ts
 import { packToSolidityProof } from "@semaphore-protocol/proof"
@@ -94,11 +94,11 @@ import { packToSolidityProof } from "@semaphore-protocol/proof"
 const solidityProof = packToSolidityProof(fullProof.proof)
 ```
 
-It returns a new Solidity-compatible instance of the proof.
+Esto devolverá una nueva instancia de la prueba que es compatible con Solidity. 
 
-### Retrieve a nullifier hash
+### Recupere un nullifier hash
 
-To get the Semaphore proof nullifier hash, access the proof's `publicSignals.nullifierHash` property. For example:
+Para obtener el nullifier hash de la prueba Semaphore, ingrese la propiedad de la prueba `publicSignals.nullifierHash`. Por ejemplo:
 
 ```ts
 const { nullifierHash } = fullProof.publicSignals
