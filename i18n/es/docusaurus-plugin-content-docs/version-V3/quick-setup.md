@@ -54,7 +54,7 @@ El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se u
 
 ### Compilar
 
-Sompile sus contratos al correr:
+Compile sus contratos al correr:
 
 ```bash
 npm run compile
