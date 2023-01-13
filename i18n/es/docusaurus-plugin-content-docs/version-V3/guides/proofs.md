@@ -5,7 +5,7 @@ title: Pruebas
 
 # Pruebas Semaphore
 
-Una vez que un usuario liga su [identidad Semaphore](/docs/glossary#semaphore-identity) a un [grupo Semaphore](/docs/glossary#semaphore-group), el usuario puede emitir una señal anónima con una prueba de conocimiento cero (ZKP) the demuestre lo siguiente:
+Una vez que un usuario liga su [identidad Semaphore](/docs/glossary#semaphore-identity) a un [grupo Semaphore](/docs/glossary#semaphore-group), el usuario puede emitir una señal anónima con una prueba de conocimiento cero (ZKP) que demuestre lo siguiente:
 
 -   el usuario es un miembro del grupo,
 -   el mismo usuario creo tanto la señal como la prueba.
@@ -14,7 +14,7 @@ Las y los desarrolladores pueden utilizar Semaphore para realizar las siguientes
 
 -   [**Generar una prueba externa a la cadena (off-chain)**](#generate-a-proof-off-chain)
 -   [**Verificar una prueba externa a la cadena (off-chain)**](#verify-a-proof-off-chain)
--   [**Verificar una prueba en la cadena (on-chain)**](#verify-a-proof-on-chain)
+-   [**Verificar una prueba interna a la cadena (on-chain)**](#verify-a-proof-on-chain)
 
 ## Generar una prueba off-chain
 
@@ -71,7 +71,7 @@ Utilice el contrato [`Semaphore.sol`](/docs/technical-reference/contracts#semaph
 Vea nuestros [contratos desplegados](/docs/deployed-contracts) para encontrar las direcciones adecuadas para su red.
 ::::
 
-Para verificar las pruebas Semaphore en su contrato, importe `ISemaphore.sol`, transformelo a la dirección `Semaphore.sol` y llame el método `verifyProof` con los siguientes parámetros:
+Para verificar las pruebas Semaphore en su contrato, importe `ISemaphore.sol`, transfórmelo a la dirección `Semaphore.sol` y llame el método `verifyProof` con los siguientes parámetros:
 
 -   `groupId`: el identificador del grupo;
 -   `merkleTreeRoot`: la raíz del árbol de Merkle;
