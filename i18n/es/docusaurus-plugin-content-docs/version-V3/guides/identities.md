@@ -8,10 +8,10 @@ title: Identidades
 Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario primero deberá crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
 Una identidad Semaphore contiene dos valores generados junto con la identidad:
 
--   Identidad trampilla (Identity Trapdoor)
--   Identidad anulador (Identity Nullifier)
+-   Identity trapdoor (Identidad trampilla)
+-   Identity nullifier (Anulador de identidad) 
 
-Para utilizar y verificar su identidad, la persona dueña de la identidad (usuario) debe conocer los valores trampilla y anulador.
+Para utilizar y verificar su identidad, la persona dueña de la identidad (usuario) debe conocer los valores trapdoor y nullifier.
 Para prevenir fraudes, la persona dueña debe conservar de forma secreta ambos valores.
 
 ## Crear identidades
@@ -31,12 +31,12 @@ import { Identity } from "@semaphore-protocol/identity"
 const { trapdoor, nullifier, commitment } = new Identity()
 ```
 
-La nueva identidad contiene dos valores secretos aleatorios: `trapdoor` y `nullifier`, y un valor público: `commitment`.
+La nueva identidad contiene dos valores aleatorios secretos: `trapdoor` y `nullifier`, y un valor público: `commitment`.
 
-El hash Poseidon de la identidad anulador y trampilla se conoce como la _identidad secreta_,
-y su hash es el _compromiso de identidad_.
+El hash Poseidon del identity nullifier y trapdoor se conoce como _identity secret_ (el secreto de identidad),
+y su hash es el _identity commitment_ (compromiso de identidad).
 
-Un compromiso de identidad, de forma similar a las direcciones Ethereum, es un valor público que se utiliza en los grupos Semaphore para representar la 
+Un identity commitment (compromiso de identidad), de forma similar a las direcciones Ethereum, es un valor público que se utiliza en los grupos Semaphore para representar la 
 identidad de un miembro del grupo. Los valores secretos son similares a las llaves privadas 
 Ethereum y se utilizan para generar pruebas de conocimiento cero (ZKP) Semaphore y autenticar señales.
 
@@ -54,7 +54,7 @@ const identity = new Identity("secret-message")
 ```
 
 :::recomendación
-Crear un sistema que guarde o recupere valores secretos de identidades Semaphore es no trivial.
+Crear un sistema que guarde o recupere valores secretos de identidades Semaphore no es trivial.
 Puede elegir delegar este tipo de funcionalidad a carteras existente como Metamask--por ejemplo:
 
 1. En Metamask, un usuario firma un mensaje con la llave privada de su cuenta Ethereum.
@@ -74,7 +74,7 @@ console.log(identity.toString()) // Ver la identidad trampilla y anulador.
 // '["8255d...", "62c41..."]'
 ```
 
-La matriz contiene la trampilla y el anulador.
+La matriz contiene la trapdoor y el nullifier.
 
 Para reutilizar la identidad guardada, transforme la cadena JSON al constructor `Identity()`.
 
