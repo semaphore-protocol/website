@@ -30,10 +30,10 @@ npm i
 
 ## Output
 
-El comando `init` creará un directorio con el nombre mi-app (o cualquier nombre que usted escoja) dentro de la carpeta actual. Ese directorio contrndrá la estructura inicial del proyecto, que incluye un contrato simple (contract), una tarea (task) para desplegar ese contrato y algunas pruebas (test).
+El comando `init` creará un directorio con el nombre my-app (o cualquier nombre que usted escoja) dentro de la carpeta actual. Ese directorio contendrá la estructura inicial del proyecto, que incluye un contrato simple (contract), una tarea (task) para desplegar ese contrato y algunas pruebas (test).
 
 ```
-mi-app
+my-app
 ├── contracts
 │   └── Greeter.sol
 ├── .env.example
