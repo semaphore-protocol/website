@@ -8,7 +8,7 @@ title: Pruebas
 Una vez que un usuario liga su [identidad Semaphore](/docs/glossary#semaphore-identity) a un [grupo Semaphore](/docs/glossary#semaphore-group), el usuario puede emitir una señal anónima con una prueba de conocimiento cero (ZKP) the demuestre lo siguiente:
 
 -   el usuario es un miembro del grupo,
--   el mismo usuario creo la señal y la prueba.
+-   el mismo usuario creo tanto la señal como la prueba.
 
 Las y los desarrolladores pueden utilizar Semaphore para realizar las siguientes acciones:
 
