@@ -27,7 +27,7 @@ El protocolo The Graph utiliza el lenguaje de consulta [GraphQL](https://graphql
 
 -   `id`: identificador único entre todas las entidades del grupo,
 -   `merkleTree`: link a la entidad del árbol de Merkle,
--   `timestamp`: registro de tiempo (timestamp) del bloque,
+-   `timestamp`: timestamp (registro de tiempo) del bloque,
 -   `admin`: administrador del grupo,
 -   `members`: lista de los miembros del grupo,
 -   `verifiedProofs`: lista de las pruebas del grupo.
@@ -36,8 +36,8 @@ El protocolo The Graph utiliza el lenguaje de consulta [GraphQL](https://graphql
 
 -   `id`: identificador único entre todos los miembros,
 -   `identityCommitment`: compromiso de identidad Semaphore,
--   `timestamp`: registro de tiempo (timestamp) del bloque,
--   `index`: index de la hoja del árbol,
+-   `timestamp`: timestamp del bloque,
+-   `index`: índice de la hoja del árbol,
 -   `group`: link a la entidad del grupo.
 
 ### PruebaVerificada
@@ -45,7 +45,7 @@ El protocolo The Graph utiliza el lenguaje de consulta [GraphQL](https://graphql
 -   `id`: identificador único entre todas las entidades con una prueba verificada (VerifiedProof),
 -   `signal`: señal del usuario,
 -   `merkleTreeRoot`: raíz del árbol de Merkle,
--   `nullifierHash`: hash nullifier,
+-   `nullifierHash`: hash nullifier (anulador),
 -   `externalNullifier`: nullifier externo,
--   `timestamp`: registro de tiempo (timestamp) del bloque,
+-   `timestamp`: timestamp del bloque,
 -   `group`: link a la entidad del grupo.
