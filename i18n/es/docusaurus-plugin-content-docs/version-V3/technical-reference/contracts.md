@@ -9,7 +9,7 @@ Semaphore incluye dos tipos de contratos:
 -   [**Contratos base**](/docs/technical-reference/contracts#base-contracts)
 -   [**Contratos para la extensión**](/docs/technical-reference/contracts#extension-contracts) 
 
-así como [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol), el principal contrato desplegado en las redes que dan soporte para Semaphore.
+así como [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol), el principal contrato desplegado en las redes soportadas por Semaphore.
 
 :::información
 Para utilizar los contratos e interfaces Semaphore en su proyecto, instale el paquete NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
