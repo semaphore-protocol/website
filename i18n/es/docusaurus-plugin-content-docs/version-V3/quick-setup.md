@@ -18,7 +18,7 @@ semaphore init my-app
 ```
 
 :::información
-El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) también se puede utilizar para obtener información agregada de una red compatible (por ejemplo: `semaphore get-groups --network goerli`).
+El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) también se puede utilizar para obtener información de los grupos que existen dentro de las redes soportadas por Semaphore (por ejemplo: `semaphore get-groups --network goerli`).
 :::
 
 Para comenzar a trabajar en su proyecto, instale las siguientes dependencias:
