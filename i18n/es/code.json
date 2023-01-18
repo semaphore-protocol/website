@@ -3,7 +3,7 @@
         "message": "Señaliza de forma anónima"
     },
     "jumbotron.description": {
-        "message": "Utilizando zero knowledge (conocimiento cero), Semaphore permite a los usuarios de Ethereum demostrar su membrecía en grupo y enviar señales como votos o reconocimientos sin revelar su identidad original."
+        "message": "Utilizando zero knowledge (conocimiento cero), Semaphore permite a los usuarios de Ethereum demostrar su membresía en un grupo y enviar señales como votos o reconocimientos sin revelar su identidad original."
     },
     "quick-setup.button": {
         "message": "Configuración rápida"
@@ -12,7 +12,7 @@
         "message": "Boilerplate"
     },
     "components.description": {
-        "message": "Está desarrollando una dApp en Ethereum? Los componentes Semaphore permiten agregar una capa de privacidad de forma sencilla!"
+        "message": "¿Está desarrollando una dApp en Ethereum? ¡Los componentes Semaphore permiten agregar una capa de privacidad de forma sencilla!"
     },
     "components.button.solidity": {
         "message": "Contrato en Solidity"
@@ -42,7 +42,7 @@
         "message": "Valores públicos"
     },
     "section.identities.box2.description": {
-        "message": "Semaphore utiliza la función hash Poseidon para crear el identtity commitment a partir de los valores privados. Los Identity commitments se pueden compartir publicamente, similar a las direcciones Ethereum."
+        "message": "Semaphore utiliza la función hash Poseidon para crear el identtity commitment a partir de los valores privados. Los identity commitments se pueden compartir públicamente, de forma similar a las direcciones Ethereum."
     },
     "section.identities.box3.title": {
         "message": "Generar identidades"
@@ -69,7 +69,7 @@
         "message": "Tipos de grupos"
     },
     "section.groups.box2.description": {
-        "message": "Los grupos pueden crearse y administrarse de forma descentralizada con contratos Semaphore o off-chain (fuera de la cadena) con nuestras librerías de JavaScript."
+        "message": "Los grupos pueden crearse y administrarse de forma descentralizada con contratos Semaphore o off-chain (fuera de la cadena) con nuestras librerías en JavaScript."
     },
     "section.groups.box3.title": {
         "message": "Administración de grupos"
@@ -90,7 +90,7 @@
         "message": "Membresía"
     },
     "section.proofs.box1.description": {
-        "message": "Únicamente los usuarios que forma parte de un grupo pueden generar una prueba válida para ese grupo."
+        "message": "Únicamente los usuarios que forman parte de un grupo pueden generar una prueba válida para ese grupo."
     },
     "section.proofs.box2.title": {
         "message": "Señales"
@@ -125,7 +125,7 @@
         "description": "The 2nd paragraph of the 404 page"
     },
     "theme.admonition.note": {
-        "message": "note",
+        "message": "nota",
         "description": "The default label used for the Note admonition (:::note)"
     },
     "theme.admonition.tip": {
@@ -133,15 +133,15 @@
         "description": "The default label used for the Tip admonition (:::tip)"
     },
     "theme.admonition.danger": {
-        "message": "danger",
+        "message": "peligro",
         "description": "The default label used for the Danger admonition (:::danger)"
     },
     "theme.admonition.info": {
-        "message": "info",
+        "message": "información",
         "description": "The default label used for the Info admonition (:::info)"
     },
     "theme.admonition.caution": {
-        "message": "caution",
+        "message": "precaución",
         "description": "The default label used for the Caution admonition (:::caution)"
     },
     "theme.BackToTopButton.buttonAriaLabel": {
@@ -193,19 +193,19 @@
         "description": "The label of the link targeting the tag list page"
     },
     "theme.colorToggle.ariaLabel": {
-        "message": "Switch between dark and light mode (currently {mode})",
+        "message": "Cambiar entre el modo día y noche (actualmente en {mode})",
         "description": "The ARIA label for the navbar color mode toggle"
     },
     "theme.colorToggle.ariaLabel.mode.dark": {
-        "message": "dark mode",
+        "message": "modo noche",
         "description": "The name for the dark color mode"
     },
     "theme.colorToggle.ariaLabel.mode.light": {
-        "message": "light mode",
+        "message": "modo día",
         "description": "The name for the light color mode"
     },
     "theme.docs.breadcrumbs.home": {
-        "message": "Home page",
+        "message": "Página de inicio",
         "description": "The ARIA label for the home page in the breadcrumbs"
     },
     "theme.docs.breadcrumbs.navAriaLabel": {
@@ -312,7 +312,7 @@
         "description": "The ARIA label to toggle the collapsible sidebar category"
     },
     "theme.navbar.mobileLanguageDropdown.label": {
-        "message": "Languages",
+        "message": "Idiomas",
         "description": "The label for the mobile language switcher dropdown"
     },
     "theme.TOCCollapsible.toggleButtonLabel": {
@@ -348,7 +348,7 @@
         "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
     },
     "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-        "message": "Toggle navigation bar",
+        "message": "Alternar la barra de navegación",
         "description": "The ARIA label for hamburger menu button of mobile navigation"
     },
     "theme.docs.sidebar.expandButtonTitle": {
@@ -392,7 +392,7 @@
         "message": "Docs"
     },
     "footer.right.connect.title": {
-        "message": "Conecta"
+        "message": "Conecta con nosotros"
     },
     "footer.right.connect.link1": {
         "message": "Discord"
