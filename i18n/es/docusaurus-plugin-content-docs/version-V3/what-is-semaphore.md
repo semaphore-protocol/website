@@ -20,7 +20,7 @@ Con Semaphore puede permitir que sus usuarios realicen las siguientes acciones:
 
 Cuando un usuario emite una señal (por ejemplo: un voto), las pruebas de conocimiento cero (ZKP) pueden asegurar que el usuario se ha incorporado al grupo y aún no ha emitido una señal con su nullifier (anulador).
 
-Semaphore utiliza contratos internos a la cadena en Solidity y librerias de JavaScript externas a la cadena que funcionan de forma conjunta.
+Semaphore utiliza contratos internos a la cadena en Solidity y librerías de JavaScript externas a la cadena que funcionan de forma conjunta.
 
 -   Externos a la cadena (off-chain), se pueden utilizar librerias de Javascript para crear identidades, organizar grupos y generar pruebas.
 -   Internos a la cadena (on-chain), se pueden utilizar contratos en Solidity para organizar grupos y verificar pruebas.
