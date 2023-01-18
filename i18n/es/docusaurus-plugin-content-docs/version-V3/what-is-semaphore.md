@@ -27,7 +27,7 @@ Semaphore utiliza contratos internos a la cadena en Solidity y librerías de Jav
 
 ## Beneficios para desarrolladores
 
-Semaphore está diseñado para ser un _componente de privacidad_ simple y genérico para aplicaciones decentralizadas (dApps) en Ethereum. Promueve el diseño modular de las aplicaciones, lo que permite que los desarrolladores de las dApps escojan y personalicen los componentes que necesitan externos e internos a la cadena.
+Semaphore está diseñado para ser un _componente de privacidad_ simple y genérico para aplicaciones descentralizadas (dApps) en Ethereum. Promueve el diseño modular de las aplicaciones, lo que permite que los desarrolladores de las dApps escojan y personalicen los componentes que necesitan externos e internos a la cadena.
 
 ## Respecto al código
 
