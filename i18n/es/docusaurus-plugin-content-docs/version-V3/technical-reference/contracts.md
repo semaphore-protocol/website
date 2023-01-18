@@ -35,7 +35,7 @@ Si bien algunas dApps pueden utilizar grupos internos a la cadena, otros puede q
 -   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/extensions/SemaphoreWhistleblowing.sol): contrato para denuncias que contiene las funciones esenciales para crear entidades (por ejemplo: organizaciones sin fines de lucro), añade denunciantes, y filtraciones publicadas de forma anónima.
 
 Estos contratos extienden las capacidades del protocolo y proveen una aplicación lógica para casos de uso específicos.
-En un futuro se inclurán más extensiones. 
+En un futuro se incluirán más extensiones. 
 
 ## Semaphore.sol
 
