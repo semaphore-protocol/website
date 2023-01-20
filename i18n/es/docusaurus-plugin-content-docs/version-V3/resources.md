@@ -28,6 +28,6 @@ sidebar_position: 8
 
 [Pruebas concisas en Ethereum](https://www.youtube.com/watch?v=TtsDNneTDDY) - Barry WhiteHat en el 2ndo ZKProof Workshop
 
-[Propuesta: Semaphore - Señalización de conocimiento cero (ZK) en Ethereum](https://www.youtube.com/watch?v=y5uV9eRb3-w) - Kobi Gurkan y Koh Wei Jie en el 3er ZKProof Home Edition
+[Propuesta: Semaphore - Señalización de conocimiento cero (ZK) en Ethereum](https://www.youtube.com/watch?v=y5uV9eRb3-w) - Kobi Gurkan y Koh Wei Jie en el ZKProof Home Edition
 
 [Señalizaciones anónimas en Ethereum](https://www.youtube.com/watch?v=dxAfL91Sbw4) - Cedoor en Devcon 6 Bogotá
