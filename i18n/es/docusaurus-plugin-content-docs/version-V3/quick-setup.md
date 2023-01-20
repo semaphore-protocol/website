@@ -2,26 +2,26 @@
 sidebar_position: 2
 ---
 
-# Quick setup
+# Configuración rápida
 
-Semaphore provides an official CLI to set up your project with Hardhat. If your NPM version is 5.2 or higher you can use NPX:
+Semaphore ofrece un CLI oficial para configurar su proyecto con Hardhat. Si su NPM es versión 5.2 or más reciente puede utilizar NPX:
 
 ```bash
 npx @semaphore-protocol/cli@latest init my-app
 ```
 
-Otherwise, install `@semaphore-protocol/cli` globally and run the `init` command:
+De lo contrario, instale `@semaphore-protocol/cli` de forma global y corra el comando `init`:
 
 ```bash
 npm i -g @semaphore-protocol/cli@latest
 semaphore init my-app
 ```
 
-:::info
-The [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) CLI can also be used to get group data from a supported network (e.g `semaphore get-groups --network goerli`).
+:::información
+El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) también se puede utilizar para obtener información de los grupos que existen dentro de las redes soportadas por Semaphore (por ejemplo: `semaphore get-groups --network goerli`).
 :::
 
-To start working on your project, install the dependencies:
+Para comenzar a trabajar en su proyecto, instale las siguientes dependencias:
 
 ```bash
 cd my-app
@@ -30,7 +30,7 @@ npm i
 
 ## Output
 
-The `init` command will create a directory called my-app (or whatever name you choose) inside the current folder. That directory will contain the initial project structure, which includes a simple contract, a task to deploy that contract and some tests.
+El comando `init` creará un directorio con el nombre my-app (o cualquier nombre que usted escoja) dentro de la carpeta actual. Ese directorio contendrá la estructura inicial del proyecto, que incluye un contrato simple (contract), una tarea (task) para desplegar ese contrato y algunas pruebas (test).
 
 ```
 my-app
@@ -48,64 +48,64 @@ my-app
 └── tsconfig.json
 ```
 
-The `Greeter.sol` contract creates a Semaphore group, allows users to join that group with their Semaphore identity, and finally allows group members to send an anonymous greeting.
+El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se unan a ese grupo con su identidad Semaphore, y, finalmente, permite que los miembros de ese grupo envíen un saludo anónimo. 
 
-## Usage
+## Uso
 
-### Compile
+### Compilar
 
-Compile your contracts by running:
+Compile sus contratos al correr:
 
 ```bash
 npm run compile
 ```
 
-### Test
+### Pruebe
 
-Test your contracts by running:
+Pruebe sus contratos al correr:
 
 ```bash
 npm test
 ```
 
-You can also generate a test coverage report:
+También puede generar un reporte de la prueba de cobertura:
 
 ```bash
 npm run test:coverage
 ```
 
-Or a test gas report:
+O un reporte de la prueba de gas:
 
 ```bash
 npm run test:report-gas
 ```
 
-### Deploy
+### Desplegar
 
-Follow the instructions below to deploy your contracts:
+Siga las instrucciones a continuación para desplegar sus contratos:
 
-1. Copy the `.env.example` file as `.env`.
+1. Copie el archivo `.env.example` con la terminación `.env`.
 
     ```bash
     cp .env.example .env
     ```
 
-2. Add your environment variables.
+2. Agregue las variables de su entorno.
 
-    :::note
-    You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
+    :::nota
+    Deberá por lo menos configurar un URL válido en Ethereum (ejemplo: Infura) y una llave privada con algunos ethers.
     :::
 
-3. And deploy your contract.
+3. Y, desplegue su contrato.
 
     ```bash
     npm run deploy --semaphore <semaphore-address> --group <group-id> --network goerli
     ```
 
-    :::note
-    Check the Semaphore contract addresses [here](/docs/deployed-contracts#semaphore).
+    :::nota
+    Revise las direcciones de los contratos de Semaphore [aquí](/docs/deployed-contracts#semaphore).
     :::
 
-    :::caution
-    The group id is a number.
+    :::precaución
+    El group id (id del grupo) es un número.
     :::

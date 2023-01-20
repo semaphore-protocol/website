@@ -1,55 +1,42 @@
 ---
 sidebar_position: 2
-title: Groups
+title: Grupos
 ---
 
-# Semaphore groups
+# Gupos Semaphore
 
-<!--Working outline
-- What is a group
-- What do groups contain
-  - Identities
-  - Root
+Un [grupo Semaphore](/docs/glossary/#semaphore-group) contiene los [identity commitments](/docs/glossary/#identity-commitment) (compromisos de identidad) de miembros del grupo.
+Estos son algunos ejemplos de uso de los grupos:
 
-- What are they used for
-- Create a group
-- Use a group
-- Add identities
-- Remove identities
--->
+-   Encuesta con preguntas a la que se unen las personas que acudieron a un evento para calificarlo, 
+-   votación a la que se unen los miembros para votar por una propuesta,
+-   Denunciantes que están verificados como empleados de una organización.
 
-A [Semaphore group](/docs/glossary/#semaphore-group) contains [identity commitments](/docs/glossary/#identity-commitment) of group members.
-Example uses of groups include the following:
+Un grupo Semaphore es un [árbol de Merkle incremental](/docs/glossary/#incremental-merkle-tree), y los miembros del grupo (por ejemplo, [identity commitments](/docs/glossary/#identity-commitments)) son las hojas del árbol.
+Los grupos Semaphore determinan los siguientes dos parámetro:
 
--   poll question that attendees join to rate an event,
--   ballot that members join to vote on a proposal,
--   whistleblowers who are verified employees of an organization.
+-   **Group id**: un identificador único para el grupo;
+-   **Tree depth**: el número máximo de miembros que puede contener un grupo (`max size = 2 ^ tree depth`).
 
-A Semaphore group is an [incremental Merkle tree](/docs/glossary/#incremental-merkle-tree), and group members (i.e., [identity commitments](/docs/glossary/#identity-commitments)) are tree leaves.
-Semaphore groups set the following two parameters:
+Aprenda cómo trabajar con grupos.
 
--   **Group id**: a unique identifier for the group;
--   **Tree depth**: the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+-   [**Grupos off-chain**](#off-chain-groups) 
+-   [**Grupos on-chain**](#on-chain-groups)
 
-Learn how to work with groups.
+## Grupos off-chain (externos a la cadena)
 
--   [**Off-chain groups**](#off-chain-groups)
--   [**On-chain groups**](#on-chain-groups)
+-   [Crear un grupo](#create-a-group)
+-   [Añadir miembros](#add-members)
+-   [Remover o actualizar miembros](#remove-or-update-members)
 
-## Off-chain groups
+### Crear un grupo
 
--   [Create a group](#create-a-group)
--   [Add members](#add-members)
--   [Remove or update members](#remove-or-update-members)
+Utilice la clase `Group` de la librería [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/group) para crear un grupo off-chain con los siguientes parámetros:
 
-### Create a group
+-   `Group id`: un identificar único para el grupo;
+-   `Tree depth`: (_default `20`_) el número máximo de usuarios que puede contener un grupo, el valor por defecto es 20 (`max size = 2 ^ tree depth`).
 
-Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/group) library `Group` class to create an off-chain group with the following parameters:
-
--   `Group id`: a unique identifier for the group;
--   `Tree depth`: (_default `20`_) the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
-
-To create a group with default _`treeDepth`_, call the `Group` constructor without the second parameter. For example:
+Para crear un grupo con el número de usuarios que aparece por defecto (20) _`treeDepth`_, llame la función para construir un `Group` sin el segundo parámetro. Por ejemplo:
 
 ```ts
 import { Group } from "@semaphore-protocol/group"
@@ -57,7 +44,7 @@ import { Group } from "@semaphore-protocol/group"
 const group = new Group(1)
 ```
 
-The following example code passes _`treeDepth`_ to create a group for `2 ^ 30 = 1073741824` members:
+El siguiente código de ejemplo pasa por _`treeDepth`_ para crear un grupo para `2 ^ 30 = 1073741824` miembros:
 
 ```ts
 import { Group } from "@semaphore-protocol/group"
@@ -65,45 +52,45 @@ import { Group } from "@semaphore-protocol/group"
 const group = new Group(1, 30)
 ```
 
-### Add members
+### Añadir miembros
 
-Use the `Group addMember` function to add a member (identity commitment) to a group--for example:
+Utiliza la función `Group addMember` para añadir un miembro (es decir su "identity commitment") a un grupo--por ejemplo:
 
 ```ts
 group.addMember(identityCommitment)
 ```
 
-To add a batch of members to a group, pass an array to the `Group addMembers` function--for example:
+Para añadir un lote de miembros a un grupo, pasa una selección por la función `Group addMembers` --por ejemplo:
 
 ```ts
 group.addMembers([identityCommitment1, identityCommitment2])
 ```
 
-### Remove or update members
+### Remover o actualizar miembros
 
-To remove members from a group, pass the member index to the `Group removeMember` function--for example:
+Para remover miembros de un equipo, pasa el índice del miembro por la función `Group removeMember` --por ejemplo:
 
 ```ts
 group.removeMember(0)
 ```
 
-To update members in a group, pass the member index and the new value to the `Group updateMember` function--for example:
+Para actualizar los miembros dentro de un grupo, pasa el índice del miembro y el nuevo valor por la función `Group updateMember`--por ejemplo:
 
 ```ts
 group.updateMember(0, 2)
 ```
 
-:::caution
-Removing a member from a group sets the node value to a special value (i.e. `zeroValue`).
-Given that the node isn't removed, and the length of the `group.members` array doesn't change.
+:::cuidado
+Remover a un miembro de un grupo configura el valor del nodo a un valor especial (ejemplo, `zeroValue`).
+Dado que ese nodo no se remueve y el largo de la selección de `group.members` no cambia.
 :::
 
-## On-chain groups
+## Grupos on-chain
 
-The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) contract uses the [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) library and provides methods to create and manage groups.
+El contrato [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) utiliza la librería del [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) (árbol binario incremental) y provee métodos para crear y administrar grupos.
 
-:::info
-You can import `SemaphoreGroups.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
+:::información
+puede importar el contrato `SemaphoreGroups.sol` y otros contratos Semaphore del módulo NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
 
-Alternatively, you can use an already deployed [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract and use its group external functions.
+Alternativamente, puede utilizar un contrato [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) ya desplegado y utilizar sus funciones externas para grupos.

@@ -1,115 +1,115 @@
 {
     "jumbotron.title": {
-        "message": "Signal anonymously"
+        "message": "Señaliza de forma anónima"
     },
     "jumbotron.description": {
-        "message": "Using zero knowledge, Semaphore allows Ethereum users to prove their membership of a group and send signals such as votes or endorsements without revealing their original identity."
+        "message": "Utilizando zero knowledge (conocimiento cero), Semaphore permite a los usuarios de Ethereum demostrar su membresía en un grupo y enviar señales como votos o reconocimientos sin revelar su identidad original."
     },
     "quick-setup.button": {
-        "message": "Quick setup"
+        "message": "Configuración rápida"
     },
     "boilerplate.button": {
         "message": "Boilerplate"
     },
     "components.description": {
-        "message": "Building an Ethereum dApp? Semaphore components make it simple to add a privacy layer!"
+        "message": "¿Está desarrollando una dApp en Ethereum? ¡Los componentes Semaphore permiten agregar una capa de privacidad de forma sencilla!"
     },
     "components.button.solidity": {
-        "message": "Solidity contract"
+        "message": "Contrato en Solidity"
     },
     "components.button.circuits": {
-        "message": "zkSNARK circuits"
+        "message": "Circuitos zkSNARK"
     },
     "components.button.libraries": {
-        "message": "JavaScript libraries"
+        "message": "Librerías JavaScript"
     },
     "section.identities.title": {
-        "message": "Semaphore identities"
+        "message": "Identidades Semaphore"
     },
     "section.identities.description": {
-        "message": "Given to all Semaphore group members, it is comprised of three parts: identity commitment, trapdoor, and nullifier."
+        "message": "Otorgada a todos los miembros de un grupo Semaphore, está compuesta por tres partes: identity commitment (compromiso de identidad), trapdoor, y nullifier."
     },
     "section.identities.link": {
-        "message": "Create Semaphore identities"
+        "message": "Crear identidades Semaphore"
     },
     "section.identities.box1.title": {
-        "message": "Private values"
+        "message": "Valores privados"
     },
     "section.identities.box1.description": {
-        "message": "Trapdoor and nullifier values are the private values of the Semaphore identity. To avoid fraud, the owner must keep both values secret."
+        "message": "Los valores trapdoor y nullifier son los valores privados de una identidad Semaphore. Para evitar fraude, la persona dueña debe mantener ambos valores en secreto."
     },
     "section.identities.box2.title": {
-        "message": "Public values"
+        "message": "Valores públicos"
     },
     "section.identities.box2.description": {
-        "message": "Semaphore uses the Poseidon hash function to create the identity commitment from the identity private values. Identity commitments can be made public, similarly to Ethereum addresses."
+        "message": "Semaphore utiliza la función hash Poseidon para crear el identtity commitment a partir de los valores privados. Los identity commitments se pueden compartir públicamente, de forma similar a las direcciones Ethereum."
     },
     "section.identities.box3.title": {
-        "message": "Generate identities"
+        "message": "Generar identidades"
     },
     "section.identities.box3.description": {
-        "message": "Semaphore identities can be generated deterministically or randomly. Deterministic identities can be generated from the hash of a secret message."
+        "message": "Las identidades Semaphore pueden generarse de forma determinística o aleatoria. Las identidades determinísticas se pueden generar a partir del hash de un mensaje secreto."
     },
     "section.groups.title": {
-        "message": "Semaphore groups"
+        "message": "Grupos Semaphore"
     },
     "section.groups.description": {
-        "message": "Semaphore groups are binary incremental Merkle trees that store the public identity commitment of each member."
+        "message": "Los grupos Semaphore son árboles de Merkle binarios e incrementales que almacenan el identity commitment público de cada miembro."
     },
     "section.groups.link": {
-        "message": "Curate Semaphore groups"
+        "message": "Curaduría de grupos Semaphore"
     },
     "section.groups.box1.title": {
-        "message": "Merkle trees"
+        "message": "Árboles de Merkle"
     },
     "section.groups.box1.description": {
-        "message": "Each leaf contains an identity commitment for a user. The identity commitment proves that the user is a group member without revealing the private identity of the user."
+        "message": "Cada hoja contiene el identity commitment de un usuario. El identity commitment demuestra que el usuario es miembro de un grupo sin revelar la identidad privada del usuario."
     },
     "section.groups.box2.title": {
-        "message": "Types of groups"
+        "message": "Tipos de grupos"
     },
     "section.groups.box2.description": {
-        "message": "Groups can be created and managed in a decentralized fashion with Semaphore contracts or off-chain with our JavaScript libraries."
+        "message": "Los grupos pueden crearse y administrarse de forma descentralizada con contratos Semaphore o off-chain (fuera de la cadena) con nuestras librerías en JavaScript."
     },
     "section.groups.box3.title": {
-        "message": "Group management"
+        "message": "Administración de grupos"
     },
     "section.groups.box3.description": {
-        "message": "Users can join and leave groups by themselves, or an admin can add and remove them. Admins can be centralized authorities, Ethereum accounts, multi-sig wallets or smart contracts."
+        "message": "Los usuarios pueden unirse y abandonar un grupo por si solos, o un administrador puede agregarles o removerles. Los administradores pueden ser autoridades centralizadas, cuentas Ethereum, carteras multi-sig o smart contracts (contratos inteligentes)."
     },
     "section.proofs.title": {
-        "message": "Semaphore proofs"
+        "message": "Pruebas Semaphore"
     },
     "section.proofs.description": {
-        "message": "Semaphore group members can anonymously prove that they are part of a group and that they are generating their own proofs and signals."
+        "message": "Los miembros de un grupo Semaphore pueden demostrar de forma anónima que pertenecen a un grupo y que ellos están generando sus propias pruebas y señales."
     },
     "section.proofs.link": {
-        "message": "Generate Semaphore proofs"
+        "message": "Generar pruebas Semaphore"
     },
     "section.proofs.box1.title": {
-        "message": "Membership"
+        "message": "Membresía"
     },
     "section.proofs.box1.description": {
-        "message": "Only users who are part of a group can generate a valid proof for that group."
+        "message": "Únicamente los usuarios que forman parte de un grupo pueden generar una prueba válida para ese grupo."
     },
     "section.proofs.box2.title": {
-        "message": "Signals"
+        "message": "Señales"
     },
     "section.proofs.box2.description": {
-        "message": "Group users can anonymously broadcast signals such as votes or endorsements without revealing their original identity."
+        "message": "Los usuarios del grupo pueden transmitir señales anónimamente, como votos o reconocimientos, sin revelar su identidad original."
     },
     "section.proofs.box3.title": {
-        "message": "Verifiers"
+        "message": "Verificadores"
     },
     "section.proofs.box3.description": {
-        "message": "Semaphore proofs can be verified with Semaphore contracts on-chain or with our JavaScript libraries off-chain."
+        "message": "Las pruebas Semaphore pueden verificarse on-chain (dentro de la cadena) con contratos en Solidity o off-chain con nuestras librerías en JavaScript."
     },
     "theme.ErrorPageContent.title": {
-        "message": "This page crashed.",
+        "message": "Esta página no está funcionando.",
         "description": "The title of the fallback page when the page crashed"
     },
     "theme.ErrorPageContent.tryAgain": {
-        "message": "Try again",
+        "message": "Intente de nuevo",
         "description": "The label of the button to try again when the page crashed"
     },
     "theme.NotFound.title": {
@@ -125,7 +125,7 @@
         "description": "The 2nd paragraph of the 404 page"
     },
     "theme.admonition.note": {
-        "message": "note",
+        "message": "nota",
         "description": "The default label used for the Note admonition (:::note)"
     },
     "theme.admonition.tip": {
@@ -133,15 +133,15 @@
         "description": "The default label used for the Tip admonition (:::tip)"
     },
     "theme.admonition.danger": {
-        "message": "danger",
+        "message": "peligro",
         "description": "The default label used for the Danger admonition (:::danger)"
     },
     "theme.admonition.info": {
-        "message": "info",
+        "message": "información",
         "description": "The default label used for the Info admonition (:::info)"
     },
     "theme.admonition.caution": {
-        "message": "caution",
+        "message": "precaución",
         "description": "The default label used for the Caution admonition (:::caution)"
     },
     "theme.BackToTopButton.buttonAriaLabel": {
@@ -189,23 +189,23 @@
         "description": "The title of the page for a blog tag"
     },
     "theme.tags.tagsPageLink": {
-        "message": "Ver Todas las Etiquetas",
+        "message": "Ver todas las etiquetas",
         "description": "The label of the link targeting the tag list page"
     },
     "theme.colorToggle.ariaLabel": {
-        "message": "Switch between dark and light mode (currently {mode})",
+        "message": "Cambiar entre el modo día y noche (actualmente en {mode})",
         "description": "The ARIA label for the navbar color mode toggle"
     },
     "theme.colorToggle.ariaLabel.mode.dark": {
-        "message": "dark mode",
+        "message": "modo noche",
         "description": "The name for the dark color mode"
     },
     "theme.colorToggle.ariaLabel.mode.light": {
-        "message": "light mode",
+        "message": "modo día",
         "description": "The name for the light color mode"
     },
     "theme.docs.breadcrumbs.home": {
-        "message": "Home page",
+        "message": "Página de inicio",
         "description": "The ARIA label for the home page in the breadcrumbs"
     },
     "theme.docs.breadcrumbs.navAriaLabel": {
@@ -237,7 +237,7 @@
         "description": "The title of the page for a docs tag"
     },
     "theme.docs.versionBadge.label": {
-        "message": "Version: {versionLabel}"
+        "message": "Versión: {versionLabel}"
     },
     "theme.docs.versions.unreleasedVersionLabel": {
         "message": "Esta es documentación sin liberar para {siteTitle} {versionLabel} versión.",
@@ -312,7 +312,7 @@
         "description": "The ARIA label to toggle the collapsible sidebar category"
     },
     "theme.navbar.mobileLanguageDropdown.label": {
-        "message": "Languages",
+        "message": "Idiomas",
         "description": "The label for the mobile language switcher dropdown"
     },
     "theme.TOCCollapsible.toggleButtonLabel": {
@@ -324,7 +324,7 @@
         "description": "The label used in blog post item excerpts to link to full blog posts"
     },
     "theme.blog.post.readMoreLabel": {
-        "message": "Read more about {title}",
+        "message": "Lea más de {title}",
         "description": "The ARIA label for the link to full blog posts from excerpts"
     },
     "theme.blog.post.readingTime.plurals": {
@@ -340,7 +340,7 @@
         "description": "The title attribute for collapse button of doc sidebar"
     },
     "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-        "message": "Close navigation bar",
+        "message": "Cerrar la barra de navegación",
         "description": "The ARIA label for close button of mobile sidebar"
     },
     "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
@@ -348,7 +348,7 @@
         "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
     },
     "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-        "message": "Toggle navigation bar",
+        "message": "Alternar la barra de navegación",
         "description": "The ARIA label for hamburger menu button of mobile navigation"
     },
     "theme.docs.sidebar.expandButtonTitle": {
@@ -368,13 +368,13 @@
         "description": "The title of the tag list page"
     },
     "footer.left.title": {
-        "message": "About"
+        "message": "Acerca de"
     },
     "footer.left.description": {
-        "message": "Semaphore is part of Privacy & Scaling Explorations (PSE), a multidisciplinary team supported by the Ethereum Foundation. PSE explores new use cases for zero knowledge proofs and other cryptographic primitives."
+        "message": "Semaphore es parte de Privacy & Scaling Explorations (PSE), un equipo multidisciplinario apoyado por la Fundación Ethereum. PSE explora nuevos casos de uso para pruebas de conocimiento cero (ZKPs) y otras bases criptográficas."
     },
     "footer.right.usedby.title": {
-        "message": "Used by"
+        "message": "Utilizado en"
     },
     "footer.right.usedby.link1": {
         "message": "Unirep"
@@ -383,7 +383,7 @@
         "message": "Interep"
     },
     "footer.right.learn.title": {
-        "message": "Learn"
+        "message": "Aprender"
     },
     "footer.right.learn.link1": {
         "message": "Github"
@@ -392,7 +392,7 @@
         "message": "Docs"
     },
     "footer.right.connect.title": {
-        "message": "Connect"
+        "message": "Conecta con nosotros"
     },
     "footer.right.connect.link1": {
         "message": "Discord"

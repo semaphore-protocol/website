@@ -2,56 +2,56 @@
 sidebar_position: 2
 ---
 
-# Circuits
+# Circuitos
 
-The [Semaphore circuit](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits) is the heart of the protocol and consists of three parts:
+El [circuito Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main/packages/circuits) es el corazón del protocolo y está compuesto por tres partes:
 
--   [**Proof of membership**](/docs/technical-reference/circuits#proof-of-membership)
--   [**Nullifier hash**](/docs/technical-reference/circuits#nullifier-hash)
--   [**Signal**](/docs/technical-reference/circuits#signal)
+-   [**Prueba de membresía**](/docs/technical-reference/circuits#proof-of-membership)
+-   [**Nullifier hash**](/docs/technical-reference/circuits#nullifier-hash) (hash anulador)
+-   [**Señal**](/docs/technical-reference/circuits#signal)
 
 ![Semaphore circuit](https://github.com/semaphore-protocol/semaphore/raw/main/packages/circuits/scheme.png)
 
-The diagram above shows how the input signals are used in the Semaphore circuit and how the outputs are calculated.
+El diagrama anterior muestra cómo se utilizan las señales de entrada en el circuito Semaphore y cómo se calculan los resultados.
 
-## Proof of membership
+## Prueba de membresía
 
-The circuit hashes the hash of the identity nullifier with the identity trapdoor to generate an identity commitment. Then, it verifies the proof of membership against the Merkle root and the identity commitment.
+El circuito resume criptográficamente (hashes) el nullifier hash de la identidad utilizando la identity trapdoor (identidad trampilla) para generar el compromiso de identidad. Después de esto, el circuito verifica la prueba de membresía contra la raíz de Merkle y el compromiso de identidad.
 
-**Private inputs:**
+**Insumos (inputs) privados:**
 
--   `treeSiblings[nLevels]`: the values along the Merkle path to the user's identity commitment,
--   `treePathIndices[nLevels]`: the direction (0/1) per tree level corresponding to the Merkle path to the user's identity commitment,
--   `identityNullifier`: the 32-byte identity secret used as nullifier,
--   `identityTrapdoor`: the 32-byte identity secret used as trapdoor.
+-   `treeSiblings[nLevels]`: los valores a lo largo del camino de Merkle rumbo al compromiso de identidad del usuario, 
+-   `treePathIndices[nLevels]`: la dirección (0/1) por nivel del árbol correspondiente al camino de Merkle rumbo al compromiso de identidad del usuario,
+-   `identityNullifier`: la identidad secreta de 32-bits utilizada como anulador,
+-   `identityTrapdoor`: la identidad secreta de 32-bits utilizada como trampilla.
 
-**Public outputs:**
+**Resultados (outputs) públicos:**
 
--   `root`: The Merkle root of the tree.
+-   `root`: La raíz de Merkle del árbol.
 
-## Nullifier hash
+## Hash anulador (Nullifier hash)
 
-The circuit hashes the identity nullifier with the external nullifier and then checks that the result matches the provided nullifier hash.
-Nullifier hashes saved in a Semaphore smart contract allow the contract to reject a proof that contains a used nullifier hash.
+El circuito resume criptográficamente (hashes) el identity nullifier con el nullifier externo y después revisa que el resultado coincida con el nullifier hash provisto.
+Los nullifier hashes guardados en un contrato inteligente Semaphore permiten que el contrato rechace las pruebas que contengan un nullifier hash ya utilizado. 
 
-**Private inputs:**
+**Insumos (inputs) privados:**
 
--   `identityNullifier`: the 32-byte identity secret used as a nullifier.
+-   `identityNullifier`: el identity secret (secreto de identidad) de 32 bits que se utiliza como nullifier.
 
-**Public inputs:**
+**Insumos (inputs) públicos:**
 
--   `externalNullifier`: the 32-byte external nullifier.
+-   `externalNullifier`: el nullifier externo de 32 bits.
 
-**Public outputs:**
+**Resultados (outputs) públicos:**
 
--   `nullifierHash`: the hash of the identity nullifier and the external nullifier; used to prevent double-signaling.
+-   `nullifierHash`: el hash del identity nullifier y del nullifier externo; se utiliza para prevenir que el mismo usuario emita dos señales.
 
-**Procedure:**
+**Procedimiento:**
 
-## Signal
+## Señal
 
-The circuit calculates a dummy square of the signal hash to prevent any tampering with the proof.
+El circuito calcula un cuadrado ficticio del hash de la señal para prevenir que se altere la prueba.
 
-**Public inputs:**
+**Insumos (inputs) públicos:**
 
--   `signalHash`: the hash of the user's signal.
+-   `signalHash`: El hash de la señal del usuario. 
