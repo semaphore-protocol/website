@@ -8,7 +8,7 @@ sidebar_position: 6
 Las personas dueñas de los sitios publica _subgrafos_ que exponen los datos del sitio para que cualquiera los pueda consultar. 
 El subgrafo de Semaphore le permite obtener datos del contrato inteligente [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol).
 
-:::consejo
+:::tip
 El protocolo The Graph utiliza el lenguaje de consulta [GraphQL](https://graphql.org/). Para ver ejemplos visite [GraphQL API documentation](https://thegraph.com/docs/developer/graphql-api). Para ver la lista de subgrafos de Semaphore visite el [repositorio de subgrafos](https://github.com/semaphore-protocol/subgraph).
 :::
 
