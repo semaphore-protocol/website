@@ -5,19 +5,6 @@ title: Groups
 
 # Semaphore groups
 
-<!--Working outline
-- What is a group
-- What do groups contain
-  - Identities
-  - Root
-
-- What are they used for
-- Create a group
-- Use a group
-- Add identities
-- Remove identities
--->
-
 A [Semaphore group](/docs/glossary/#semaphore-group) contains [identity commitments](/docs/glossary/#identity-commitment) of group members.
 Example uses of groups include the following:
 

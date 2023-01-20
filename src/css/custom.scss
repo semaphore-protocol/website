@@ -449,3 +449,8 @@ html[data-theme="dark"] .DocSearch-Hit a {
         display: none !important;
     }
 }
+
+li[role="tab"][aria-selected="true"] {
+    color: var(--custom-blue-2);
+    border-bottom-color: var(--custom-blue-2);
+}

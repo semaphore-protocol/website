@@ -48,6 +48,6 @@ Los [parámetros seguros](/docs/glossary#trusted-setup-files) para generar prueb
 | v2.5.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `contracts`, `libraries` |
 | v3.0.0  | [Veridise](https://veridise.com/) | [Semaphore_3.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `circuits`, `contracts`  |
 
-:::información
+:::info
 Si está utilizando una de las versiones anteriores de Semaphore, vea la documentación de [Semaphore V1](/docs/V1/introduction) o de [Semaphore V2](/docs/V2/introduction).
 :::
