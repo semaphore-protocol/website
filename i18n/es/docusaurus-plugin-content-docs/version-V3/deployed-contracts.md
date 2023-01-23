@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Deployed contracts
+# Contratos desplegados
 
-| Contract                  | Goerli                                                                                          | Arbitrum One                                                                            |
+| Contrato                  | Goerli                                                                                          | Arbitrum One                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Semaphore.sol             | [0x8949...A7E7](https://goerli.etherscan.io/address/0x89490c95eD199D980Cdb4FF8Bac9977EDb41A7E7) |                                                                                         |
 | SemaphoreVerifier.sol     | [0x66e7...792E](https://goerli.etherscan.io/address/0x66e772B0B8Ee1c24E4b6aC99A3A82C77f431792E) |                                                                                         |

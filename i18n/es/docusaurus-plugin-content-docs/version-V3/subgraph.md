@@ -2,50 +2,50 @@
 sidebar_position: 6
 ---
 
-# Subgraph
+# Subgrafo
 
-[The Graph](https://thegraph.com/) is a protocol for indexing networks like Ethereum and IPFS.
-Site owners publish _subgraphs_ that expose site data for anyone to query.
-Semaphore's subgraph allows you to retrieve data from the [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) smart contract.
+[The Graph](https://thegraph.com/) es un protocolo para indexar redes como Ethererum o IPFS. 
+Las personas dueñas de los sitios publica _subgrafos_ que exponen los datos del sitio para que cualquiera los pueda consultar. 
+El subgrafo de Semaphore le permite obtener datos del contrato inteligente [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol).
 
 :::tip
-The Graph protocol uses the [GraphQL](https://graphql.org/) query lanaguage. For examples, see the [GraphQL API documentation](https://thegraph.com/docs/developer/graphql-api). Visit the [subgraph repository](https://github.com/semaphore-protocol/subgraph) to see the list of Semaphore subgraphs.
+El protocolo The Graph utiliza el lenguaje de consulta [GraphQL](https://graphql.org/). Para ver ejemplos visite [GraphQL API documentation](https://thegraph.com/docs/developer/graphql-api). Para ver la lista de subgrafos de Semaphore visite el [repositorio de subgrafos](https://github.com/semaphore-protocol/subgraph).
 :::
 
-## Schema
+## Esquema
 
-### MerkleTree
+### Árbol de Merkle
 
--   `id`: unique identifier among all MerkleTree entities,
--   `depth`: Merkle tree depth,
--   `root`: Merkle tree root,
--   `zeroValue`: Merkle tree zero value,
--   `numberOfLeaves`: total number of tree leaves,
--   `group`: link to the Group entity.
+-   `id`: identificador único entre todas las entidades de árboles de Merkle,
+-   `depth`: profundidad del árbol de Merkle,
+-   `root`: raíz del árbol de Merkle,
+-   `zeroValue`: valor cero del árbol de Merkle,
+-   `numberOfLeaves`: número total de hojas en el árbol,
+-   `group`: link a la entidad del grupo.
 
-### Group
+### Grupo
 
--   `id`: unique identifier among all Group entities,
--   `merkleTree`: link to the MerkleTree entity,
--   `timestamp`: block timestamp,
--   `admin`: admin of the group,
--   `members`: list of group members.
--   `verifiedProofs`: list of group proofs.
+-   `id`: identificador único entre todas las entidades del grupo,
+-   `merkleTree`: link a la entidad del árbol de Merkle,
+-   `timestamp`: timestamp (registro de tiempo) del bloque,
+-   `admin`: administrador del grupo,
+-   `members`: lista de los miembros del grupo,
+-   `verifiedProofs`: lista de las pruebas del grupo.
 
-### Member
+### Miembro
 
--   `id`: unique identifier among all Member entities,
--   `identityCommitment`: Semaphore identity commitment,
--   `timestamp`: block timestamp,
--   `index`: index of the tree leaf,
--   `group`: link to the Group entity.
+-   `id`: identificador único entre todos los miembros,
+-   `identityCommitment`: compromiso de identidad Semaphore,
+-   `timestamp`: timestamp del bloque,
+-   `index`: índice de la hoja del árbol,
+-   `group`: link a la entidad del grupo.
 
-### VerifiedProof
+### PruebaVerificada
 
--   `id`: unique identifier among all VerifiedProof entities,
--   `signal`: user's signal,
--   `merkleTreeRoot`: Merkle tree root,
--   `nullifierHash`: nullifier hash,
--   `externalNullifier`: external nullifier,
--   `timestamp`: block timestamp,
--   `group`: link to the Group entity.
+-   `id`: identificador único entre todas las entidades con una prueba verificada (VerifiedProof),
+-   `signal`: señal del usuario,
+-   `merkleTreeRoot`: raíz del árbol de Merkle,
+-   `nullifierHash`: hash nullifier (anulador),
+-   `externalNullifier`: nullifier externo,
+-   `timestamp`: timestamp del bloque,
+-   `group`: link a la entidad del grupo.

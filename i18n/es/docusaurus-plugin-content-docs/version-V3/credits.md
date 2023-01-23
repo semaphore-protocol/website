@@ -13,3 +13,5 @@ Semaphore es el esfuerzo de varias personas, para ver una lista completa de cont
 -   [Cedoor](https://github.com/cedoor)
 -   [Rachel Aux](https://github.com/rachelaux)
 -   [Andy Guzman](https://github.com/aguzmant103)
+-   [Vivian Plasencia](https://github.com/vplasencia)
+-   [LauNaMu](https://github.com/0xyNaMu)
