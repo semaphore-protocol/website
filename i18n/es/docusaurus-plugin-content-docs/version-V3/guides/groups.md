@@ -8,7 +8,7 @@ title: Grupos
 Un [grupo Semaphore](/docs/glossary/#semaphore-group) contiene los [identity commitments](/docs/glossary/#identity-commitment) (compromisos de identidad) de miembros del grupo.
 Estos son algunos ejemplos de uso de los grupos:
 
--   Encuesta con preguntas a la que se unen las personas que acudieron a un evento para calificarlo, 
+-   Encuesta con preguntas a la que se unen las personas que acudieron a un evento para calificarlo,
 -   votación a la que se unen los miembros para votar por una propuesta,
 -   Denunciantes que están verificados como empleados de una organización.
 
@@ -20,7 +20,7 @@ Los grupos Semaphore determinan los siguientes dos parámetro:
 
 Aprenda cómo trabajar con grupos.
 
--   [**Grupos off-chain**](#off-chain-groups) 
+-   [**Grupos off-chain**](#off-chain-groups)
 -   [**Grupos on-chain**](#on-chain-groups)
 
 ## Grupos off-chain (externos a la cadena)
@@ -54,13 +54,13 @@ const group = new Group(1, 30)
 
 ### Añadir miembros
 
-Utiliza la función `Group addMember` para añadir un miembro (es decir su "identity commitment") a un grupo--por ejemplo:
+Utiliza la función `Group addMember` para añadir un miembro (es decir su "identity commitment") a un grupo. Por ejemplo:
 
 ```ts
 group.addMember(identityCommitment)
 ```
 
-Para añadir un lote de miembros a un grupo, pasa una selección por la función `Group addMembers` --por ejemplo:
+Para añadir un lote de miembros a un grupo, pasa una selección por la función `Group addMembers`. Por ejemplo:
 
 ```ts
 group.addMembers([identityCommitment1, identityCommitment2])
@@ -68,13 +68,13 @@ group.addMembers([identityCommitment1, identityCommitment2])
 
 ### Remover o actualizar miembros
 
-Para remover miembros de un equipo, pasa el índice del miembro por la función `Group removeMember` --por ejemplo:
+Para remover miembros de un equipo, pasa el índice del miembro por la función `Group removeMember`. Por ejemplo:
 
 ```ts
 group.removeMember(0)
 ```
 
-Para actualizar los miembros dentro de un grupo, pasa el índice del miembro y el nuevo valor por la función `Group updateMember`--por ejemplo:
+Para actualizar los miembros dentro de un grupo, pasa el índice del miembro y el nuevo valor por la función `Group updateMember`. Por ejemplo:
 
 ```ts
 group.updateMember(0, 2)

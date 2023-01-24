@@ -23,7 +23,7 @@ In your code, use the [`@semaphore-protocol/identity`](https://github.com/semaph
 
 ### Create random identities
 
-To create a random identity, instantiate `Identity` without any parameters--for example:
+To create a random identity, instantiate `Identity` without any parameters. For example:
 
 ```ts
 import { Identity } from "@semaphore-protocol/identity"
@@ -55,7 +55,7 @@ const identity = new Identity("secret-message")
 
 :::tip
 Building a system to save or recover secret values of Semaphore identities is nontrivial.
-You may choose to delegate such functionality to existing wallets such as Metamask--for example:
+You may choose to delegate such functionality to existing wallets such as Metamask. For example:
 
 1. In Metamask, a user signs a message with the private key of their Ethereum account.
 2. In your application, the user creates a deterministic identity with the signed message.
@@ -66,7 +66,7 @@ You may choose to delegate such functionality to existing wallets such as Metama
 ## Save your identities
 
 You can output an identity as a JSON string that you can save and reuse later.
-The `Identity.toString()` method generates a JSON array from an identity--for example:
+The `Identity.toString()` method generates a JSON array from an identity. For example:
 
 ```ts
 console.log(identity.toString()) // View the identity trapdoor and nullifier.
