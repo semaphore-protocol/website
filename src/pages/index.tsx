@@ -258,7 +258,7 @@ group.addMember(commitment)`}
                                 {`import { generateProof, verifyProof } from "@semaphore-protocol/proof"
 import { formatBytes32String } from "@ethersproject/strings"
 
-const externalNullifier = 1
+const externalNullifier = formatBytes32String("Topic")
 const signal = formatBytes32String("Hello world")
 
 const fullProof = await generateProof(identity, group, externalNullifier, signal, {

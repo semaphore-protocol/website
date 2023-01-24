@@ -83,23 +83,3 @@ To verify Semaphore proofs in your contract, import `ISemaphore.sol`, pass it th
 :::info
 You can import `ISemaphore.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
 :::
-
-### Generate a Solidity-compatible proof
-
-To transform a proof to be compatible with Solidity contracts, pass the proof to the `packToSolidityProof` utility function. For example:
-
-```ts
-import { packToSolidityProof } from "@semaphore-protocol/proof"
-
-const solidityProof = packToSolidityProof(fullProof.proof)
-```
-
-It returns a new Solidity-compatible instance of the proof.
-
-### Retrieve a nullifier hash
-
-To get the Semaphore proof nullifier hash, access the proof's `publicSignals.nullifierHash` property. For example:
-
-```ts
-const { nullifierHash } = fullProof.publicSignals
-```

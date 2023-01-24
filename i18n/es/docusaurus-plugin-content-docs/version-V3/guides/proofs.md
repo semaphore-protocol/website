@@ -29,7 +29,7 @@ Para generar una prueba, transforme los siguientes parámetros con la función `
 
 En el caso de uso de un sistema de votación, una vez que todos los votantes hayan ligado sus [identidades](/docs/guides/identities#create-an-identity) al [grupo](/docs/guides/groups) de la votación,
 un votante puede generar una prueba para votar por una propuesta.
-En el llamado para `generateProof`(generar la prueba), el sistema de votación envía el ID único de la votación (la raíz del [árbol de Merkle](/docs/glossary/#merkle-tree/) del grupo) como el 
+En el llamado para `generateProof`(generar la prueba), el sistema de votación envía el ID único de la votación (la raíz del [árbol de Merkle](/docs/glossary/#merkle-tree/) del grupo) como el
 `externalNullifier` para impedir que el votante emita más de una señal para esta votación.
 La siguiente muestra de código demuestra cómo utilizar `generateProof` para generar una prueba de votación:
 
@@ -83,23 +83,3 @@ Para verificar las pruebas Semaphore en su contrato, importe `ISemaphore.sol`, t
 :::información
 Puede importar `ISemaphore.sol` y otros contratos Semaphore del módulo NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
-
-### Generar una pruebla compatible con Solidity
-
-Para transformar una prueba para que sea compatible con los contratos en Solidity, transforme la prueba con la función de utilidad `packToSolidityProof`. Por ejemplo:
-
-```ts
-import { packToSolidityProof } from "@semaphore-protocol/proof"
-
-const solidityProof = packToSolidityProof(fullProof.proof)
-```
-
-Esto devolverá una nueva instancia de la prueba que es compatible con Solidity. 
-
-### Recupere un nullifier hash
-
-Para obtener el nullifier hash de la prueba Semaphore, ingrese la propiedad de la prueba `publicSignals.nullifierHash`. Por ejemplo:
-
-```ts
-const { nullifierHash } = fullProof.publicSignals
-```
