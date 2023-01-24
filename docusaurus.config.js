@@ -52,7 +52,6 @@ module.exports = {
                 backgroundColor: "#DAE0FF",
                 textColor: "#000000"
             },
-
             navbar: {
                 logo: {
                     alt: "Semaphore Logo",
@@ -94,6 +93,12 @@ module.exports = {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
                 additionalLanguages: ["solidity"]
+            },
+            algolia: {
+                appId: "6P229KVKCB",
+                apiKey: "879bb5b002b6370f181f0f79f5c2afe2",
+                indexName: "semaphoreliedzkp",
+                contextualSearch: true
             }
         })
 }
