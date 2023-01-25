@@ -67,7 +67,7 @@ await verifyProof(fullProof, 20) // verdadero o falso.
 
 Utilice el contrato [`Semaphore.sol`](/docs/technical-reference/contracts#semaphoresol) para verificar pruebas on-chain.
 
-:::información
+:::info
 Vea nuestros [contratos desplegados](/docs/deployed-contracts) para encontrar las direcciones adecuadas para su red.
 ::::
 
@@ -80,7 +80,7 @@ Para verificar las pruebas Semaphore en su contrato, importe `ISemaphore.sol`, t
 -   `externalNullifier`: el valor que impide la emisión de dos señales por el mismo usuario;
 -   `proof`: una [prueba Semaphore que es compatible con Solidity](#generate-a-solidity-compatible-proof).
 
-:::información
+:::info
 Puede importar `ISemaphore.sol` y otros contratos Semaphore del módulo NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
 
