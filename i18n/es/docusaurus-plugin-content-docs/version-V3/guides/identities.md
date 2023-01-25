@@ -53,7 +53,7 @@ Dado que el hash es determinístico, cualquier persona con el mismo mensaje pued
 const identity = new Identity("secret-message")
 ```
 
-:::recomendación
+:::tip
 Crear un sistema que guarde o recupere valores secretos de identidades Semaphore no es trivial.
 Puede elegir delegar este tipo de funcionalidad a carteras existente como Metamask. Por ejemplo:
 
