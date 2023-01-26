@@ -75,12 +75,12 @@ module.exports = {
                         href: "https://github.com/semaphore-protocol",
                         position: "right",
                         className: "persistent"
-                    },
-                    {
-                        type: "localeDropdown",
-                        position: "right",
-                        className: "persistent"
                     }
+                    //{
+                    //type: "localeDropdown",
+                    //position: "right",
+                    //className: "persistent"
+                    //}
                 ]
             },
             colorMode: {
