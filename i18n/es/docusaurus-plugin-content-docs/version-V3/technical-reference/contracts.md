@@ -11,7 +11,7 @@ Semaphore incluye dos tipos de contratos:
 
 así como [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol), el principal contrato desplegado en las redes soportadas por Semaphore.
 
-:::información
+:::info
 Para utilizar los contratos e interfaces Semaphore en su proyecto, instale el paquete NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
 
@@ -25,7 +25,7 @@ Semaphore ofrece los siguientes contratos base:
 Los contratos base están relacionados de forma muy cercana al protocolo. 
 Puede utilizarlos en su contrato o puede utilizar [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol) que ya los tiene integrados. 
 
-:::información
+:::info
 Si bien algunas dApps pueden utilizar grupos internos a la cadena, otros puede que prefieran utilizar grupos externos a la cadena, por lo que únicamente guardarán las raíces de sus árboles en el contrato.
 :::
 
@@ -45,6 +45,6 @@ En un futuro se incluirán más extensiones.
 -   un mecanismo que guarda los [hashes anuladores](/docs/technical-reference/circuits#nullifier-hash) (nullifier hashes) de cada grupo y evita que el mismo miembro emita dos señales;
 -   un mecanismo que permite que pruebas Semaphore generadas con raíces de Merkle antiguas sean verificadas por un periodo de tiempo determinado por el administrador del grupo.
 
-:::información
+:::info
 Visitando [contratos desplegados](/docs/deployed-contracts) puede encontrar las direcciones correspondientes a su red.
 ::::

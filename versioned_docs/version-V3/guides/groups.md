@@ -54,27 +54,31 @@ const group = new Group(1, 30)
 
 ### Add members
 
-Use the `Group addMember` function to add a member (identity commitment) to a group--for example:
+Use the `Group addMember` function to add a member (identity commitment) to a group. For example:
 
 ```ts
 group.addMember(identityCommitment)
 ```
 
-To add a batch of members to a group, pass an array to the `Group addMembers` function--for example:
+To add a batch of members to a group, pass an array to the `Group addMembers` function. For example:
 
 ```ts
 group.addMembers([identityCommitment1, identityCommitment2])
 ```
 
+:::caution
+When you use the same Semaphore identity across multiple groups, if an attacker takes control of that identity all the groups it is part of will be compromised. Consider using different identities for each group.
+:::
+
 ### Remove or update members
 
-To remove members from a group, pass the member index to the `Group removeMember` function--for example:
+To remove members from a group, pass the member index to the `Group removeMember` function. For example:
 
 ```ts
 group.removeMember(0)
 ```
 
-To update members in a group, pass the member index and the new value to the `Group updateMember` function--for example:
+To update members in a group, pass the member index and the new value to the `Group updateMember` function. For example:
 
 ```ts
 group.updateMember(0, 2)
@@ -94,3 +98,11 @@ You can import `SemaphoreGroups.sol` and other Semaphore contracts from the [`@s
 :::
 
 Alternatively, you can use an already deployed [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract and use its group external functions.
+
+:::caution
+`Semaphore.sol` does not check if a member with a specific identity commitment already exists in a group. This check must be done off-chain.
+:::
+
+:::caution
+`Semaphore.sol` includes a mechanism to verify Semaphore proofs created with old Merkle tree roots, the duration of which can be defined by the admin in the `createGroup` function. Members of a group could then continue to generate valid proofs even after being removed. For more info see the issue [#98](https://github.com/semaphore-protocol/semaphore/issues/98).
+:::

@@ -8,7 +8,7 @@ title: Grupos
 Un [grupo Semaphore](/docs/glossary/#semaphore-group) contiene los [identity commitments](/docs/glossary/#identity-commitment) (compromisos de identidad) de miembros del grupo.
 Estos son algunos ejemplos de uso de los grupos:
 
--   Encuesta con preguntas a la que se unen las personas que acudieron a un evento para calificarlo, 
+-   Encuesta con preguntas a la que se unen las personas que acudieron a un evento para calificarlo,
 -   votación a la que se unen los miembros para votar por una propuesta,
 -   Denunciantes que están verificados como empleados de una organización.
 
@@ -20,7 +20,7 @@ Los grupos Semaphore determinan los siguientes dos parámetro:
 
 Aprenda cómo trabajar con grupos.
 
--   [**Grupos off-chain**](#off-chain-groups) 
+-   [**Grupos off-chain**](#off-chain-groups)
 -   [**Grupos on-chain**](#on-chain-groups)
 
 ## Grupos off-chain (externos a la cadena)
@@ -54,33 +54,37 @@ const group = new Group(1, 30)
 
 ### Añadir miembros
 
-Utiliza la función `Group addMember` para añadir un miembro (es decir su "identity commitment") a un grupo--por ejemplo:
+Utiliza la función `Group addMember` para añadir un miembro (es decir su "identity commitment") a un grupo. Por ejemplo:
 
 ```ts
 group.addMember(identityCommitment)
 ```
 
-Para añadir un lote de miembros a un grupo, pasa una selección por la función `Group addMembers` --por ejemplo:
+Para añadir un lote de miembros a un grupo, pasa una selección por la función `Group addMembers`. Por ejemplo:
 
 ```ts
 group.addMembers([identityCommitment1, identityCommitment2])
 ```
 
+:::caution
+Cuando utiliza la misma identidad Semaphore en varios grupos, si un atacante toma control de esa identidad, todos los grupos de los que forma parte estarán comprometidos. Considere utilizar identidades diferentes para cada grupo.
+:::
+
 ### Remover o actualizar miembros
 
-Para remover miembros de un equipo, pasa el índice del miembro por la función `Group removeMember` --por ejemplo:
+Para remover miembros de un equipo, pasa el índice del miembro por la función `Group removeMember`. Por ejemplo:
 
 ```ts
 group.removeMember(0)
 ```
 
-Para actualizar los miembros dentro de un grupo, pasa el índice del miembro y el nuevo valor por la función `Group updateMember`--por ejemplo:
+Para actualizar los miembros dentro de un grupo, pasa el índice del miembro y el nuevo valor por la función `Group updateMember`. Por ejemplo:
 
 ```ts
 group.updateMember(0, 2)
 ```
 
-:::cuidado
+:::caution
 Remover a un miembro de un grupo configura el valor del nodo a un valor especial (ejemplo, `zeroValue`).
 Dado que ese nodo no se remueve y el largo de la selección de `group.members` no cambia.
 :::
@@ -94,3 +98,12 @@ puede importar el contrato `SemaphoreGroups.sol` y otros contratos Semaphore del
 :::
 
 Alternativamente, puede utilizar un contrato [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) ya desplegado y utilizar sus funciones externas para grupos.
+
+
+:::caution
+`Semaphore.sol` no revisa si un miembro con un identity commitment en específico ya existe en un grupo. Esta revisión se debe realizar off-chain.
+:::
+
+:::caution
+`Semaphore.sol` incluye un mecanismo para verificar pruebas Semaphore creadas con raíces de árboles de Merkle antiguas. La duración de este mecanismo puede ser definido por el admin en la función `createGroup`. Por lo tanto, los miembros de un grupo pueden continuar generando pruebas válidas incluso después de ser removidos. Para más información ver el issue [#98](https://github.com/semaphore-protocol/semaphore/issues/98).
+:::

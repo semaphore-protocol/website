@@ -17,7 +17,7 @@ npm i -g @semaphore-protocol/cli@latest
 semaphore init my-app
 ```
 
-:::información
+:::info
 El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) también se puede utilizar para obtener información de los grupos que existen dentro de las redes soportadas por Semaphore (por ejemplo: `semaphore get-groups --network goerli`).
 :::
 
@@ -92,7 +92,7 @@ Siga las instrucciones a continuación para desplegar sus contratos:
 
 2. Agregue las variables de su entorno.
 
-    :::nota
+    :::note
     Deberá por lo menos configurar un URL válido en Ethereum (ejemplo: Infura) y una llave privada con algunos ethers.
     :::
 
@@ -102,10 +102,10 @@ Siga las instrucciones a continuación para desplegar sus contratos:
     npm run deploy --semaphore <semaphore-address> --group <group-id> --network goerli
     ```
 
-    :::nota
+    :::note
     Revise las direcciones de los contratos de Semaphore [aquí](/docs/deployed-contracts#semaphore).
     :::
 
-    :::precaución
+    :::warning
     El group id (id del grupo) es un número.
     :::
