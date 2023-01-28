@@ -169,6 +169,20 @@ html[data-theme="dark"] {
     .markdown a {
         color: var(--custom-blue-2);
     }
+
+    h2 a {
+        color: var(--custom-blue-2);
+    }
+
+    input:focus,
+    select:focus {
+        border-color: var(--custom-blue-2);
+    }
+
+    li[role="tab"][aria-selected="true"] {
+        color: var(--custom-blue-2);
+        border-bottom-color: var(--custom-blue-2);
+    }
 }
 
 html[data-theme="light"] {
@@ -182,6 +196,20 @@ html[data-theme="light"] {
 
     .markdown a {
         color: var(--custom-blue-3);
+    }
+
+    h2 a {
+        color: var(--custom-blue-3);
+    }
+
+    input:focus,
+    select:focus {
+        border-color: var(--custom-blue-3);
+    }
+
+    li[role="tab"][aria-selected="true"] {
+        color: var(--custom-blue-3);
+        border-bottom-color: var(--custom-blue-3);
     }
 }
 
@@ -261,16 +289,15 @@ html[data-theme="light"] .DocSearch {
     /* Search box */
     --docsearch-searchbox-background: var(--ifm-color-secondary);
     --docsearch-searchbox-focus-background: var(--ifm-color-white);
+    --docsearch-searchbox-shadow: inset 0 0 0 2px var(--custom-blue-3);
     /* Hit */
     --docsearch-hit-color: var(--ifm-font-color-base);
-    --docsearch-hit-active-color: var(--ifm-color-emphasis-700);
+    --docsearch-hit-active-color: var(--ifm-color-white);
     --docsearch-hit-background: var(--ifm-color-white);
-    --docsearch-searchbox-background: rgba(0, 0, 0, 0.05);
-    --docsearch-highlight-color: var(--ifm-color-emphasis-100);
+    --docsearch-highlight-color: var(--custom-blue-3);
 
     /* Footer */
     --docsearch-footer-background: var(--ifm-color-white);
-    --docsearch-searchbox-shadow: none;
 }
 
 html[data-theme="dark"] .DocSearch {
@@ -282,11 +309,12 @@ html[data-theme="dark"] .DocSearch {
     /* Search box */
     --docsearch-searchbox-background: var(--ifm-background-color);
     --docsearch-searchbox-focus-background: var(--ifm-color-black);
+    --docsearch-searchbox-shadow: inset 0 0 0 2px var(--custom-blue-2);
     /* Hit */
     --docsearch-hit-color: var(--ifm-font-color-base);
     --docsearch-hit-active-color: var(--ifm-color-emphasis-700);
     --docsearch-hit-background: var(--ifm-color-emphasis-100);
-    --docsearch-searchbox-background: rgba(0, 0, 0, 0.2);
+    --docsearch-highlight-color: var(--custom-blue-2);
     /* Footer */
     --docsearch-footer-background: var(--ifm-background-surface-color);
     --docsearch-key-gradient: linear-gradient(
@@ -294,41 +322,6 @@ html[data-theme="dark"] .DocSearch {
         var(--ifm-color-emphasis-200) 0%,
         var(--ifm-color-emphasis-100) 100%
     );
-
-    --docsearch-searchbox-shadow: inset 0 0 0 2px var(--ifm-color-emphasis-200);
-}
-
-html[data-theme="light"] .DocSearch-Hit {
-    background-color: transparent;
-}
-
-html[data-theme="light"] .DocSearch-Hit :focus {
-    background-color: var(--ifm-color-emphasis-100);
-}
-html[data-theme="light"] .DocSearch-Hit :hover {
-    background-color: var(--ifm-color-emphasis-100);
-}
-
-html[data-theme="light"] .DocSearch-Hit {
-    background-color: transparent;
-}
-
-html[data-theme="dark"] .DocSearch-Hit {
-    background-color: transparent;
-}
-
-html[data-theme="dark"] .DocSearch-Hit :focus {
-    background-color: var(--ifm-color-emphasis-100);
-}
-html[data-theme="dark"] .DocSearch-Hit :hover {
-    background-color: var(--ifm-color-emphasis-100);
-}
-html[data-theme="dark"] .DocSearch-Hit a :hover {
-    background-color: transparent;
-}
-
-html[data-theme="dark"] .DocSearch-Hit a {
-    background-color: var(--ifm-color-emphasis-0);
 }
 
 .react-toggle-thumb :hover {
@@ -448,9 +441,4 @@ html[data-theme="dark"] .DocSearch-Hit a {
     .navbar__item {
         display: none !important;
     }
-}
-
-li[role="tab"][aria-selected="true"] {
-    color: var(--custom-blue-2);
-    border-bottom-color: var(--custom-blue-2);
 }
