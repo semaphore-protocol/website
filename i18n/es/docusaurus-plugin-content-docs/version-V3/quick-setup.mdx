@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Configuración rápida
 
 Semaphore ofrece un CLI oficial para configurar su proyecto con Hardhat. Si su NPM es versión 5.2 or más reciente puede utilizar NPX:
@@ -23,10 +26,30 @@ El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/p
 
 Para comenzar a trabajar en su proyecto, instale las siguientes dependencias:
 
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
 ```bash
 cd my-app
 npm i
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+cd my-app
+yarn
+```
+
+</TabItem>
+</Tabs>
 
 ## Output
 
@@ -48,7 +71,7 @@ my-app
 └── tsconfig.json
 ```
 
-El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se unan a ese grupo con su identidad Semaphore, y, finalmente, permite que los miembros de ese grupo envíen un saludo anónimo. 
+El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se unan a ese grupo con su identidad Semaphore, y, finalmente, permite que los miembros de ese grupo envíen un saludo anónimo.
 
 ## Uso
 
@@ -56,29 +79,105 @@ El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se u
 
 Compile sus contratos al correr:
 
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
 ```bash
 npm run compile
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn compile
+```
+
+</TabItem>
+</Tabs>
 
 ### Pruebe
 
 Pruebe sus contratos al correr:
 
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
 ```bash
 npm test
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn test
+```
+
+</TabItem>
+</Tabs>
+
 También puede generar un reporte de la prueba de cobertura:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
 
 ```bash
 npm run test:coverage
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn test:coverage
+```
+
+</TabItem>
+</Tabs>
+
 O un reporte de la prueba de gas:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
 
 ```bash
 npm run test:report-gas
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn test:report-gas
+```
+
+</TabItem>
+</Tabs>
 
 ### Desplegar
 
@@ -98,14 +197,33 @@ Siga las instrucciones a continuación para desplegar sus contratos:
 
 3. Y, desplegue su contrato.
 
+    <Tabs
+    defaultValue="npm"
+    groupId="package-managers"
+    values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'Yarn', value: 'yarn'},
+    ]}>
+    <TabItem value="npm">
+
     ```bash
     npm run deploy --semaphore <semaphore-address> --group <group-id> --network goerli
     ```
+
+    </TabItem>
+    <TabItem value="yarn">
+
+    ```bash
+    yarn deploy --semaphore <semaphore-address> --group <group-id> --network goerli
+    ```
+
+    </TabItem>
+    </Tabs>
 
     :::note
     Revise las direcciones de los contratos de Semaphore [aquí](/docs/deployed-contracts#semaphore).
     :::
 
-    :::warning
+    :::caution
     El group id (id del grupo) es un número.
     :::
