@@ -9,13 +9,17 @@ export default function NavbarItem(props) {
     let className = props.className
 
     if (version === "V1") {
-        className += " V1"
+        className += " V1_active"
+    } else if (version === "V2") {
+        className += " V2_active"
     } else {
-        className += " V2"
+        className += " V3_active"
     }
 
     if (docs === "docs") {
-        className += " docs"
+        className += " docs_active"
+    } else {
+        className += " homepage_active"
     }
 
     return (
