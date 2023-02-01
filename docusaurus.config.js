@@ -62,24 +62,22 @@ module.exports = {
                         label: "Whitepaper",
                         to: "https://semaphore.appliedzkp.org/whitepaper-v1.pdf",
                         position: "right",
-                        className: "V1_active"
+                        className: "V1"
                     },
                     {
                         label: "Documentation",
                         href: "/docs/introduction",
                         position: "right",
-                        className: "persistent"
+                        className: "homepage"
                     },
                     {
                         label: "Github",
                         href: "https://github.com/semaphore-protocol",
-                        position: "right",
-                        className: "persistent"
+                        position: "right"
                     },
                     {
                         type: "localeDropdown",
-                        position: "right",
-                        className: "persistent"
+                        position: "right"
                     }
                 ]
             },
