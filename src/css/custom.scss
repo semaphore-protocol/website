@@ -374,43 +374,18 @@ html[data-theme="dark"] .DocSearch {
 }
 
 .navbar__item {
-    display: none;
+    display: inline-block;
 }
 
 .navbar__item.dropdown {
     display: inline-block;
 }
 
-.navbar__item.persistent {
-    display: inline-block;
-}
-
-.navbar__item.homepage_active.homepage,
-.navbar__item.V1_active.V1,
-.navbar__item.V2_active.V2,
-.navbar__item.V3_active.V3 {
-    display: inline-block;
-}
-
-.menu__link.homepage,
-.menu__link.V1,
-.menu__link.V2,
-.menu__link.V3 {
-    display: none;
-}
-
 .menu__list-item--collapsed .menu__link {
     display: flex;
 }
 
-.menu__link.persistent {
-    display: flex;
-}
-
-.menu__link.homepage_active.homepage,
-.menu__link.V1_active.V1,
-.menu__link.V2_active.V2,
-.menu__link.V3_active.V3 {
+.menu__link {
     display: flex;
 }
 

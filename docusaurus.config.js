@@ -73,13 +73,11 @@ module.exports = {
                     {
                         label: "Github",
                         href: "https://github.com/semaphore-protocol",
-                        position: "right",
-                        className: "persistent"
+                        position: "right"
                     },
                     {
                         type: "localeDropdown",
-                        position: "right",
-                        className: "persistent"
+                        position: "right"
                     }
                 ]
             },
