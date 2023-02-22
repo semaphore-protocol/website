@@ -50,7 +50,7 @@ function Footer() {
                                 })}
                             </h3>
 
-                            <Link href="https://github.com/semaphore-protocol" target="_blank">
+                            <Link href="https://semaphore.appliedzkp.org/github" target="_blank">
                                 {translate({
                                     id: "footer.right.learn.link1"
                                 })}
@@ -67,7 +67,7 @@ function Footer() {
                                     id: "footer.right.connect.title"
                                 })}
                             </h3>
-                            <Link href="https://discord.gg/6mSdGHnstH" target="_blank">
+                            <Link href="https://semaphore.appliedzkp.org/discord" target="_blank">
                                 {translate({
                                     id: "footer.right.connect.link1"
                                 })}
