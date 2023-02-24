@@ -97,7 +97,7 @@ The [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/mai
 You can import `SemaphoreGroups.sol` and other Semaphore contracts from the [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts) NPM module.
 :::
 
-Alternatively, you can use an already deployed [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) contract and use its group external functions.
+Alternatively, you can use an already deployed [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol) contract and use its group external functions.
 
 :::caution
 `Semaphore.sol` does not check if a member with a specific identity commitment already exists in a group. This check must be done off-chain.
