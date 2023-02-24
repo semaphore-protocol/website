@@ -40,7 +40,7 @@ More extensions will be added in the future.
 
 ## Semaphore.sol
 
-[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) is based on the base contracts. It integrates them and additionally provides:
+[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol) is based on the base contracts. It integrates them and additionally provides:
 
 -   a system to allow only admins (i.e. Ethereum accounts or smart contracts) to manage groups;
 -   a mechanism to save the [nullifier hashes](/docs/technical-reference/circuits#nullifier-hash) of each group and prevent double-signaling;
