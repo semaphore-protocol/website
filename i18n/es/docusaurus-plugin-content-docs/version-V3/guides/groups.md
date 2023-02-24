@@ -91,14 +91,13 @@ Dado que ese nodo no se remueve y el largo de la selección de `group.members` n
 
 ## Grupos on-chain
 
-El contrato [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts/base/SemaphoreGroups.sol) utiliza la librería del [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) (árbol binario incremental) y provee métodos para crear y administrar grupos.
+El contrato [`SemaphoreGroups`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/base/SemaphoreGroups.sol) utiliza la librería del [`IncrementalBinaryTree`](https://github.com/privacy-scaling-explorations/zk-kit/blob/main/packages/incremental-merkle-tree.sol/contracts/IncrementalBinaryTree.sol) (árbol binario incremental) y provee métodos para crear y administrar grupos.
 
 :::información
 puede importar el contrato `SemaphoreGroups.sol` y otros contratos Semaphore del módulo NPM [`@semaphore-protocol/contracts`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/contracts).
 :::
 
-Alternativamente, puede utilizar un contrato [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) ya desplegado y utilizar sus funciones externas para grupos.
-
+Alternativamente, puede utilizar un contrato [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol) ya desplegado y utilizar sus funciones externas para grupos.
 
 :::caution
 `Semaphore.sol` no revisa si un miembro con un identity commitment en específico ya existe en un grupo. Esta revisión se debe realizar off-chain.

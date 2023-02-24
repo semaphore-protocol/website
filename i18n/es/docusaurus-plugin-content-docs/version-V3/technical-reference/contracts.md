@@ -7,7 +7,7 @@ sidebar_position: 3
 Semaphore incluye dos tipos de contratos:
 
 -   [**Contratos base**](/docs/technical-reference/contracts#base-contracts)
--   [**Contratos para la extensión**](/docs/technical-reference/contracts#extension-contracts) 
+-   [**Contratos para la extensión**](/docs/technical-reference/contracts#extension-contracts)
 
 así como [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol), el principal contrato desplegado en las redes soportadas por Semaphore.
 
@@ -22,8 +22,8 @@ Semaphore ofrece los siguientes contratos base:
 -   [`SemaphoreVerifier.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreVerifier.sol): contiene una función para verificar pruebas Semaphore;
 -   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreGroups.sol): contiene las funciones para crear grupos y añadir/remover/actualizar miembros.
 
-Los contratos base están relacionados de forma muy cercana al protocolo. 
-Puede utilizarlos en su contrato o puede utilizar [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol) que ya los tiene integrados. 
+Los contratos base están relacionados de forma muy cercana al protocolo.
+Puede utilizarlos en su contrato o puede utilizar [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol) que ya los tiene integrados.
 
 :::info
 Si bien algunas dApps pueden utilizar grupos internos a la cadena, otros puede que prefieran utilizar grupos externos a la cadena, por lo que únicamente guardarán las raíces de sus árboles en el contrato.
@@ -35,11 +35,11 @@ Si bien algunas dApps pueden utilizar grupos internos a la cadena, otros puede q
 -   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/extensions/SemaphoreWhistleblowing.sol): contrato para denuncias que contiene las funciones esenciales para crear entidades (por ejemplo: organizaciones sin fines de lucro), añade denunciantes, y filtraciones publicadas de forma anónima.
 
 Estos contratos extienden las capacidades del protocolo y proveen una aplicación lógica para casos de uso específicos.
-En un futuro se incluirán más extensiones. 
+En un futuro se incluirán más extensiones.
 
 ## Semaphore.sol
 
-[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol) utiliza los contratos base como punto de partida, los integra y de forma adicional brinda:
+[`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol) utiliza los contratos base como punto de partida, los integra y de forma adicional brinda:
 
 -   un sistema que solamente permite que administradores (ej. cuentas de Ethereum o contratos inteligentes) controlen grupos;
 -   un mecanismo que guarda los [hashes anuladores](/docs/technical-reference/circuits#nullifier-hash) (nullifier hashes) de cada grupo y evita que el mismo miembro emita dos señales;
