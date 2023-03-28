@@ -20,8 +20,8 @@ install the [`@semaphore-protocol/contracts`](https://github.com/semaphore-proto
 
 Semaphore provides the following base contracts:
 
--   [`SemaphoreVerifier.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreVerifier.sol): contains a function to verify Semaphore proofs;
--   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove/update members.
+-   [`SemaphoreVerifier.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/base/SemaphoreVerifier.sol): contains a function to verify Semaphore proofs;
+-   [`SemaphoreGroups.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/base/SemaphoreGroups.sol): contains the functions to create groups and add/remove/update members.
 
 These contracts are closely related to the protocol.
 You can use them in your contract or you can use [**Semaphore.sol**](/docs/technical-reference/contracts#semaphoresol), which integrates them for you.
@@ -32,8 +32,8 @@ While some DApps may use on-chain groups, others may prefer to use off-chain gro
 
 ## Extension contracts
 
--   [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/extensions/SemaphoreVoting.sol): voting contract that contains the essential functions to create polls, add voters, and anonymously cast votes;
--   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/extensions/SemaphoreWhistleblowing.sol): whistleblowing contract that contains the essential functions to create entities (for example: non-profit organizations), add whistleblowers, and anonymously publish leaks.
+-   [`SemaphoreVoting.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/extensions/SemaphoreVoting.sol): voting contract that contains the essential functions to create polls, add voters, and anonymously cast votes;
+-   [`SemaphoreWhistleblowing.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/extensions/SemaphoreWhistleblowing.sol): whistleblowing contract that contains the essential functions to create entities (for example: non-profit organizations), add whistleblowers, and anonymously publish leaks.
 
 These contracts extend the protocol to provide application logic for specific use-cases.
 More extensions will be added in the future.
