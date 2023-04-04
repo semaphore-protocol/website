@@ -4,11 +4,11 @@
         "description": "The label for version V3"
     },
     "sidebar.mySidebar.category.Guides": {
-        "message": "Guides",
+        "message": "Guías",
         "description": "The label for category Guides in sidebar mySidebar"
     },
     "sidebar.mySidebar.category.Technical reference": {
-        "message": "Technical reference",
+        "message": "Referencia técnica",
         "description": "The label for category Technical reference in sidebar mySidebar"
     }
 }
