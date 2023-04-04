@@ -17,8 +17,12 @@ De lo contrario, instale `@semaphore-protocol/cli` de forma global y corra el co
 
 ```bash
 npm i -g @semaphore-protocol/cli@latest
-semaphore init my-app
+semaphore create my-app --template monorepo-ethers
 ```
+
+:::info
+Los templates soportados son: [`contracts-hardhat`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-contracts-hardhat), [`monorepo-ethers`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-ethers), [`monorepo-subgraph`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-subgraph)
+:::
 
 :::info
 El CLI [`semaphore`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) también se puede utilizar para obtener información de los grupos que existen dentro de las redes soportadas por Semaphore (por ejemplo: `semaphore get-groups --network goerli`).
