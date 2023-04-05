@@ -25,7 +25,7 @@ The supported templates are: [`contracts-hardhat`](https://github.com/semaphore-
 :::
 
 :::info
-The [`semaphore CLI`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) can also be used to get group data from a supported network (e.g `semaphore get-groups --network goerli`).
+The [`semaphore CLI`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) can also be used to get group data from a supported network (e.g `semaphore get-groups --network arbitrum-goerli`).
 :::
 
 To start working on your project, install the dependencies:
@@ -57,29 +57,53 @@ yarn
 
 ## Output
 
-The `create` command will create a directory called my-app (or whatever name you choose) inside the current folder. That directory will contain the initial project structure, which includes a simple contract, a task to deploy that contract and some tests.
+The `create` command will create a directory called my-app (or whatever name you choose) inside the current folder. That directory will contain the initial project structure, which includes a simple contract, a task to deploy it, some tests and a Next.js application (the web-app folder) to interact with that contract.
 
 ```
 my-app
-├── contracts
-│   └── Greeter.sol
+├── .yarn
+├── apps
+│   └── contracts
+│   │   └── contracts
+|   │   │   └── Feedback.sol
+│   │   └── scripts
+|   │   │   └── download-snark-artifacts.ts
+│   │   └── tasks
+|   │   │   └── deploy.ts
+│   │   └── test
+|   │   │   └── Feedback.ts
+│   │   └── hardhat.config.ts
+│   │   └── package.json
+│   │   └── tsconfig.json
+│   └── web-app
+├── scripts
+│   └── copy-contracts-artifacts.ts
+├── .editorconfig
 ├── .env.example
+├── .eslintignore
+├── .eslintrc.json
 ├── .gitignore
-├── hardhat.config.ts
+├── .prettierignore
+├── .prettierrc.json
+├── .yarnrc.yml
 ├── package.json
 ├── README.md
-├── tasks
-│   └── deploy.ts
-├── test
-│   └── Greeter.ts
 └── tsconfig.json
 ```
 
-The `Greeter.sol` contract creates a Semaphore group, allows users to join that group with their Semaphore identity, and finally allows group members to send an anonymous greeting.
+The `Feedback.sol` contract creates a Semaphore group, allows users to join that group with their Semaphore identity, and finally allows group members to send an anonymous feedback. 
 
 ## Usage
 
-### Compile
+### Contracts
+
+Go to the `contracts` folder by running:
+
+```bash
+cd apps/contracts
+```
+
+#### Compile contracts
 
 Compile your contracts by running:
 
@@ -106,7 +130,7 @@ yarn compile
 </TabItem>
 </Tabs>
 
-### Test
+#### Test contracts
 
 Test your contracts by running:
 
@@ -183,7 +207,7 @@ yarn test:report-gas
 </TabItem>
 </Tabs>
 
-### Deploy
+#### Deploy contracts
 
 Follow the instructions below to deploy your contracts:
 
@@ -211,14 +235,14 @@ Follow the instructions below to deploy your contracts:
     <TabItem value="npm">
 
     ```bash
-    npm run deploy -- --semaphore <semaphore-address> --group <group-id> --network goerli
+    npm run deploy -- --semaphore <semaphore-address> --group <group-id> --network arbitrum-goerli
     ```
 
     </TabItem>
     <TabItem value="yarn">
 
     ```bash
-    yarn deploy --semaphore <semaphore-address> --group <group-id> --network goerli
+    yarn deploy --semaphore <semaphore-address> --group <group-id> --network arbitrum-goerli
     ```
 
     </TabItem>
@@ -231,3 +255,57 @@ Follow the instructions below to deploy your contracts:
     :::caution
     The group id is a number.
     :::
+
+### Web-app
+
+Start the web application by running:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm run dev:web-app
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn dev:web-app
+```
+
+</TabItem>
+</Tabs>
+
+### Local server
+
+You can start you app locally with:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm run dev
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn dev
+```
+
+</TabItem>
+</Tabs>
