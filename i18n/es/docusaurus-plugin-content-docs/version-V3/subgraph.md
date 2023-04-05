@@ -4,8 +4,8 @@ sidebar_position: 6
 
 # Subgrafo
 
-[The Graph](https://thegraph.com/) es un protocolo para indexar redes como Ethererum o IPFS. 
-Las personas dueñas de los sitios publica _subgrafos_ que exponen los datos del sitio para que cualquiera los pueda consultar. 
+[The Graph](https://thegraph.com/) es un protocolo para indexar redes como Ethererum o IPFS.
+Las personas dueñas de los sitios publica _subgrafos_ que exponen los datos del sitio para que cualquiera los pueda consultar.
 El subgrafo de Semaphore le permite obtener datos del contrato inteligente [`Semaphore.sol`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/Semaphore.sol).
 
 :::tip

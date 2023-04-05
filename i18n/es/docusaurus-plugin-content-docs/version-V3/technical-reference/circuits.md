@@ -20,7 +20,7 @@ El circuito resume criptográficamente (hashes) el nullifier hash de la identida
 
 **Insumos (inputs) privados:**
 
--   `treeSiblings[nLevels]`: los valores a lo largo del camino de Merkle rumbo al compromiso de identidad del usuario, 
+-   `treeSiblings[nLevels]`: los valores a lo largo del camino de Merkle rumbo al compromiso de identidad del usuario,
 -   `treePathIndices[nLevels]`: la dirección (0/1) por nivel del árbol correspondiente al camino de Merkle rumbo al compromiso de identidad del usuario,
 -   `identityNullifier`: la identidad secreta de 32-bits utilizada como anulador,
 -   `identityTrapdoor`: la identidad secreta de 32-bits utilizada como trampilla.
@@ -32,7 +32,7 @@ El circuito resume criptográficamente (hashes) el nullifier hash de la identida
 ## Hash anulador (Nullifier hash)
 
 El circuito resume criptográficamente (hashes) el identity nullifier con el nullifier externo y después revisa que el resultado coincida con el nullifier hash provisto.
-Los nullifier hashes guardados en un contrato inteligente Semaphore permiten que el contrato rechace las pruebas que contengan un nullifier hash ya utilizado. 
+Los nullifier hashes guardados en un contrato inteligente Semaphore permiten que el contrato rechace las pruebas que contengan un nullifier hash ya utilizado.
 
 **Insumos (inputs) privados:**
 
@@ -54,4 +54,4 @@ El circuito calcula un cuadrado ficticio del hash de la señal para prevenir que
 
 **Insumos (inputs) públicos:**
 
--   `signalHash`: El hash de la señal del usuario. 
+-   `signalHash`: El hash de la señal del usuario.

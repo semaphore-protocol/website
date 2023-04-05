@@ -8,7 +8,7 @@ sidebar_position: 1
 
 [Semaphore](https://github.com/semaphore-protocol/semaphore) es un protocolo que utiliza [conocimiento cero (zero-knowledge)](https://z.cash/technology/zksnarks) y permite emitir una señal (por ejemplo: un voto o una aprobación) como una persona probablemente miembro de un grupo sin revelar su identidad.
 Además, proporciona un mecanismo sencillo para impedir que un mismo usuario emita dos señales.
-Algunos de los potenciales casos de uso son: votaciones, denuncias, DAOs anónimas y mezcladores. 
+Algunos de los potenciales casos de uso son: votaciones, denuncias, DAOs anónimas y mezcladores.
 
 ## Características
 
@@ -42,7 +42,7 @@ Los [parámetros seguros](/docs/glossary#trusted-setup-files) para generar prueb
 
 ### Auditorías
 
-| Versión | Auditores                          | Reporte                                                                                                               | Alcance                |
+| Versión | Auditores                         | Reporte                                                                                                              | Alcance                  |
 | ------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | v2.0.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9850441/Semaphore_2.0.0_Audit.pdf) | `circuits`, `contracts`  |
 | v2.5.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf) | `contracts`, `libraries` |

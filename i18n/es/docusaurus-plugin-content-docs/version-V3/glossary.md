@@ -37,7 +37,7 @@ Para más información, vea [árbol de Merkle en Wikipedia](https://es.wikipedia
 
 ## Anulador (Nullifier)
 
-Un valor utilizado para prevenir registros dobles o dos señales emitidas por el mismo usuario. 
+Un valor utilizado para prevenir registros dobles o dos señales emitidas por el mismo usuario.
 
 Ver [hash de circuito nullifier](/docs/technical-reference/circuits/#nullifier-hash).
 
