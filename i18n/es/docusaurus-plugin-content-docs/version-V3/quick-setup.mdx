@@ -57,31 +57,53 @@ yarn
 
 ## Output
 
-El comando `init` creará un directorio con el nombre my-app (o cualquier nombre que usted escoja) dentro de la carpeta actual. Ese directorio contendrá la estructura inicial del proyecto, que incluye un contrato simple (contract), una tarea (task) para desplegar ese contrato y algunas pruebas (test).
+El comando `create` creará un directorio con el nombre my-app (o cualquier nombre que usted escoja) dentro de la carpeta actual. Ese directorio contendrá la estructura inicial del proyecto, que incluye un contrato simple (contract), una tarea (task) para desplegar lo, algunas pruebas (test) y una aplicación de Next.js (la carpeta web-app) para interactuar con el contrato.
 
 ```
 my-app
-├── contracts
-│   └── Greeter.sol
+├── .yarn
+├── apps
+│   └── contracts
+│   │   └── contracts
+|   │   │   └── Feedback.sol
+│   │   └── scripts
+|   │   │   └── download-snark-artifacts.ts
+│   │   └── tasks
+|   │   │   └── deploy.ts
+│   │   └── test
+|   │   │   └── Feedback.ts
+│   │   └── hardhat.config.ts
+│   │   └── package.json
+│   │   └── tsconfig.json
+│   └── web-app
+├── scripts
+│   └── copy-contracts-artifacts.ts
+├── .editorconfig
 ├── .env.example
+├── .eslintignore
+├── .eslintrc.json
 ├── .gitignore
-├── hardhat.config.ts
+├── .prettierignore
+├── .prettierrc.json
+├── .yarnrc.yml
 ├── package.json
 ├── README.md
-├── tasks
-│   └── deploy.ts
-├── test
-│   └── Greeter.ts
 └── tsconfig.json
 ```
 
-El contrato `Greeter.sol` crea un grupo Semaphore, permite que los usuarios se unan a ese grupo con su identidad Semaphore, y, finalmente, permite que los miembros de ese grupo envíen un saludo anónimo.
+El contrato `Feedback.sol` crea un grupo Semaphore, permite que los usuarios se unan a ese grupo con su identidad Semaphore, y, finalmente, permite que los miembros de ese grupo envíen un feedback anónimo.
 
 ## Uso
 
-### Compilar
+### Compilar contratos
 
-Compile sus contratos al correr:
+Vaya a la carpeta `contracts`:
+
+```bash
+cd apps/contracts
+```
+
+Y compile sus contratos al correr:
 
 <Tabs
 defaultValue="npm"
@@ -106,7 +128,7 @@ yarn compile
 </TabItem>
 </Tabs>
 
-### Pruebe
+### Pruebe los contratos
 
 Pruebe sus contratos al correr:
 
@@ -133,7 +155,7 @@ yarn test
 </TabItem>
 </Tabs>
 
-También puede generar un reporte de la prueba de cobertura:
+Genere un reporte de la prueba de cobertura:
 
 <Tabs
 defaultValue="npm"
@@ -183,9 +205,11 @@ yarn test:report-gas
 </TabItem>
 </Tabs>
 
-### Desplegar
+### Desplegar contratos
 
 Siga las instrucciones a continuación para desplegar sus contratos:
+
+En la carpeta raíz del proyecto:
 
 1. Copie el archivo `.env.example` con la terminación `.env`.
 
@@ -199,7 +223,7 @@ Siga las instrucciones a continuación para desplegar sus contratos:
     Deberá por lo menos configurar un URL válido en Ethereum (ejemplo: Infura) y una llave privada con algunos ethers.
     :::
 
-3. Y, desplegue su contrato.
+3. Vaya a la carpeta `apps/contracts` y desplegue su contrato.
 
     <Tabs
     defaultValue="npm"
@@ -231,3 +255,30 @@ Siga las instrucciones a continuación para desplegar sus contratos:
     :::caution
     El group id (id del grupo) es un número.
     :::
+
+### Inicie la app
+
+Inicie la aplicación:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm run dev
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn dev
+```
+
+</TabItem>
+</Tabs>
