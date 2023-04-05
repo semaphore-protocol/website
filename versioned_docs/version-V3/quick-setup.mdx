@@ -21,7 +21,7 @@ semaphore create my-app --template monorepo-ethers
 ```
 
 :::info
-The supported templates are: [`contracts-hardhat`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-contracts-hardhat), [`monorepo-ethers`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-ethers), [`monorepo-subgraph`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-subgraph)
+The supported templates are: [`contracts-hardhat`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-contracts-hardhat), [`monorepo-ethers`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-ethers), [`monorepo-subgraph`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli-template-monorepo-subgraph).
 :::
 
 :::info
@@ -95,17 +95,15 @@ The `Feedback.sol` contract creates a Semaphore group, allows users to join that
 
 ## Usage
 
-### Contracts
+### Compile contracts
 
-Go to the `contracts` folder by running:
+Go to the `contracts` folder:
 
 ```bash
 cd apps/contracts
 ```
 
-#### Compile contracts
-
-Compile your contracts by running:
+And compile your contracts:
 
 <Tabs
 defaultValue="npm"
@@ -130,9 +128,9 @@ yarn compile
 </TabItem>
 </Tabs>
 
-#### Test contracts
+### Test contracts
 
-Test your contracts by running:
+Test your contracts:
 
 <Tabs
 defaultValue="npm"
@@ -157,7 +155,7 @@ yarn test
 </TabItem>
 </Tabs>
 
-You can also generate a test coverage report:
+Generate a test coverage report:
 
 <Tabs
 defaultValue="npm"
@@ -207,13 +205,13 @@ yarn test:report-gas
 </TabItem>
 </Tabs>
 
-#### Deploy contracts
+### Deploy contracts
 
 Follow the instructions below to deploy your contracts:
 
 In the project root folder:
 
-1. Copy the `.env.example` file as `.env`.
+1. Copy the `.env.example` file as `.env`:
 
     ```bash
     cp .env.example .env
@@ -258,40 +256,9 @@ In the project root folder:
     The group id is a number.
     :::
 
-### Web-app
+### Start app
 
-:::note
-Make sure you have added the environment variables in a `.env` file in the project root folder. The required ones are: the default network, the Infura API Key, the private key, the Semaphore contract address, the Feedback contract address and the group id.
-::: 
-
-Start the web application by running:
-
-<Tabs
-defaultValue="npm"
-groupId="package-managers"
-values={[
-{label: 'npm', value: 'npm'},
-{label: 'Yarn', value: 'yarn'},
-]}>
-<TabItem value="npm">
-
-```bash
-npm run dev:web-app
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```bash
-yarn dev:web-app
-```
-
-</TabItem>
-</Tabs>
-
-### Local server
-
-You can start you app locally with:
+Start the application:
 
 <Tabs
 defaultValue="npm"
