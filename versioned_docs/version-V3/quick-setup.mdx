@@ -79,6 +79,7 @@ my-app
 ├── scripts
 │   └── copy-contracts-artifacts.ts
 ├── .editorconfig
+├── .env
 ├── .env.example
 ├── .eslintignore
 ├── .eslintrc.json
@@ -211,19 +212,13 @@ Follow the instructions below to deploy your contracts:
 
 In the project root folder:
 
-1. Copy the `.env.example` file as `.env`:
-
-    ```bash
-    cp .env.example .env
-    ```
-
-2. Add your environment variables.
+1. Add your environment variables in the `.env` file.
 
     :::note
     You should at least set a valid Infura API Key (you could use Alchemy as well) and a private key with some ethers.
     :::
 
-3. Go to the `apps/contracts` folder and deploy your contract.
+2. Go to the `apps/contracts` folder and deploy your contract.
 
     <Tabs
     defaultValue="npm"

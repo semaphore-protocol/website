@@ -79,6 +79,7 @@ my-app
 ├── scripts
 │   └── copy-contracts-artifacts.ts
 ├── .editorconfig
+├── .env
 ├── .env.example
 ├── .eslintignore
 ├── .eslintrc.json
@@ -211,19 +212,13 @@ Siga las instrucciones a continuación para desplegar sus contratos:
 
 En la carpeta raíz del proyecto:
 
-1. Copie el archivo `.env.example` con la terminación `.env`.
-
-    ```bash
-    cp .env.example .env
-    ```
-
-2. Agregue las variables de su entorno.
+1. Agregue sus variables de entorno en el archivo `.env`.
 
     :::note
     Deberá por lo menos configurar un URL válido en Ethereum (ejemplo: Infura) y una llave privada con algunos ethers.
     :::
 
-3. Vaya a la carpeta `apps/contracts` y desplegue su contrato.
+2. Vaya a la carpeta `apps/contracts` y desplegue su contrato.
 
     <Tabs
     defaultValue="npm"
