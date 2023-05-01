@@ -3,6 +3,9 @@ sidebar_position: 1
 title: Identidades
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Identidades Semaphore
 
 Para unirse a un [grupo Semaphore](/docs/glossary#semaphore-group), un usuario primero deberá crear una [identidad Semaphore](/docs/glossary#semaphore-identity).
@@ -20,6 +23,31 @@ En su código, utilice la librería [`@semaphore-protocol/identity`](https://git
 
 -   [**Crear identidades aleatorias**](#create-random-identities)
 -   [**Crear identidades determinísticas**](#create-deterministic-identities)
+
+### Instalar librería:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @semaphore-protocol/identity
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add @semaphore-protocol/identity
+```
+
+</TabItem>
+</Tabs>
 
 ### Crear identidades aleatorias
 

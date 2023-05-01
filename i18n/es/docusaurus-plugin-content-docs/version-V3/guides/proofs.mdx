@@ -3,6 +3,9 @@ sidebar_position: 3
 title: Pruebas
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Pruebas Semaphore
 
 Una vez que un usuario liga su [identidad Semaphore](/docs/glossary#semaphore-identity) a un [grupo Semaphore](/docs/glossary#semaphore-group), el usuario puede emitir una señal anónima con una prueba de conocimiento cero (ZKP) que demuestre lo siguiente:
@@ -26,6 +29,31 @@ Para generar una prueba, transforme los siguientes parámetros con la función `
 -   `externalNullifier`: el valor que impide la emisión de dos señales por el mismo usuario;
 -   `signal`: la señal que el usuario quiere enviar de forma anónima;
 -   `snarkArtifacts`: la `zkey` y `wasm` de los [archivos confiables de configuración](/docs/glossary/#trusted-setup-files).
+
+#### Instalar librería:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @semaphore-protocol/proof
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add @semaphore-protocol/proof
+```
+
+</TabItem>
+</Tabs>
 
 En el caso de uso de un sistema de votación, una vez que todos los votantes hayan ligado sus [identidades](/docs/guides/identities#create-an-identity) al [grupo](/docs/guides/groups) de la votación,
 un votante puede generar una prueba para votar por una propuesta.

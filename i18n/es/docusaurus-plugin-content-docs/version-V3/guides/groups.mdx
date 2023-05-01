@@ -3,6 +3,9 @@ sidebar_position: 2
 title: Grupos
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Gupos Semaphore
 
 Un [grupo Semaphore](/docs/glossary/#semaphore-group) contiene los [identity commitments](/docs/glossary/#identity-commitment) (compromisos de identidad) de miembros del grupo.
@@ -35,6 +38,31 @@ Utilice la clase `Group` de la librería [`@semaphore-protocol/group`](https://g
 
 -   `Group id`: un identificar único para el grupo;
 -   `Tree depth`: (_default `20`_) el número máximo de usuarios que puede contener un grupo, el valor por defecto es 20 (`max size = 2 ^ tree depth`).
+
+#### Instalar librería:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @semaphore-protocol/group
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add @semaphore-protocol/group
+```
+
+</TabItem>
+</Tabs>
 
 Para crear un grupo con el número de usuarios que aparece por defecto (20) _`treeDepth`_, llame la función para construir un `Group` sin el segundo parámetro. Por ejemplo:
 
