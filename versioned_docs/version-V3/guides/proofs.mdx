@@ -3,6 +3,9 @@ sidebar_position: 3
 title: Proofs
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Semaphore proofs
 
 Once a user joins their [Semaphore identity](/docs/glossary#semaphore-identity) to a [Semaphore group](/docs/glossary#semaphore-group), the user can signal anonymously with a zero-knowledge proof that proves the following:
@@ -26,6 +29,31 @@ To generate a proof, pass the following parameters to the `generateProof` functi
 -   `externalNullifier`: the value that prevents double-signaling;
 -   `signal`: the signal the user wants to send anonymously;
 -   `snarkArtifacts`: the `zkey` and `wasm` [trusted setup files](/docs/glossary/#trusted-setup-files).
+
+#### Install library:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @semaphore-protocol/proof
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add @semaphore-protocol/proof
+```
+
+</TabItem>
+</Tabs>
 
 In the voting system use case, once all the voters have joined their [identities](/docs/guides/identities#create-an-identity) to the ballot [group](/docs/guides/groups),
 a voter can generate a proof to vote for a proposal.

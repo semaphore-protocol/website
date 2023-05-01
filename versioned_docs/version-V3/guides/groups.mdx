@@ -3,6 +3,9 @@ sidebar_position: 2
 title: Groups
 ---
 
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
 # Semaphore groups
 
 A [Semaphore group](/docs/glossary/#semaphore-group) contains [identity commitments](/docs/glossary/#identity-commitment) of group members.
@@ -35,6 +38,31 @@ Use the [`@semaphore-protocol/group`](https://github.com/semaphore-protocol/sema
 
 -   `Group id`: a unique identifier for the group;
 -   `Tree depth`: (_default `20`_) the maximum number of members a group can contain (`max size = 2 ^ tree depth`).
+
+#### Install library:
+
+<Tabs
+defaultValue="npm"
+groupId="package-managers"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @semaphore-protocol/group
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add @semaphore-protocol/group
+```
+
+</TabItem>
+</Tabs>
 
 To create a group with default _`treeDepth`_, call the `Group` constructor without the second parameter. For example:
 
