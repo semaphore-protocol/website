@@ -84,6 +84,21 @@ const group = await semaphoreSubgraph.getGroup("42")
 const { members, verifiedProofs } = semaphoreSubgraph.getGroup("42", { members: true, verifiedProofs: true })
 ```
 
+:::info
+You can create an off-chain group using the SemaphoreSubgraph class to fetch members like so:
+
+```typescript
+import { Group } from "@semaphore-protocol/group"
+import { SemaphoreSubgraph } from "@semaphore-protocol/data"
+
+const groupId = "3"
+const group = new Group(groupId)
+const semaphoreSubgraph = new SemaphoreSubgraph("sepolia")
+const { members } = await semaphoreSubgraph.getGroup(groupId, { members: true })
+group.addMembers(members!)
+```
+:::
+
 ## Fetch data using SemaphoreEthers
 
 To fetch data using Ethers you can use the [`SemaphoreEthers`](https://github.com/semaphore-protocol/semaphore/blob/main/packages/data/src/ethers.ts) class from the [@semaphore-protocol/data](https://github.com/semaphore-protocol/semaphore/tree/main/packages/data) package. 
@@ -134,3 +149,18 @@ const members = await semaphoreEthers.getGroupMembers("42")
 ```typescript
 const verifiedProofs = await semaphoreEthers.getGroupVerifiedProofs("42")
 ```
+
+:::info
+You can create an off-chain group using the SemaphoreEthers class to fetch members like so:
+
+```typescript
+import { Group } from "@semaphore-protocol/group"
+import { SemaphoreEthers } from "@semaphore-protocol/data"
+
+const groupId = "3"
+const group = new Group(groupId)
+const semaphoreEthers = new SemaphoreEthers("sepolia")
+const members = await semaphoreEthers.getGroupMembers(groupId)
+group.addMembers(members)
+```
+:::
