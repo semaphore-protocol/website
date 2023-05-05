@@ -73,6 +73,14 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 })
 ```
 
+:::info
+Si estás generando la prueba en el lado del cliente, puedes evitar agregar los artefactos de snark porque se obtienen automáticamente:
+
+```ts
+const fullProof = await generateProof(identity, group, externalNullifier, signal)
+```
+:::
+
 ## Verificar una prueba off-chain
 
 Utilice la librería [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) para verificar una prueba Semaphore off-chain.

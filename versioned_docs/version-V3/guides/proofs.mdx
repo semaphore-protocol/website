@@ -73,6 +73,14 @@ const fullProof = await generateProof(identity, group, externalNullifier, signal
 })
 ```
 
+:::info
+If you are generating the proof on the client side, you can avoid adding the snark artifacts because they are fetched automatically:
+
+```ts
+const fullProof = await generateProof(identity, group, externalNullifier, signal)
+```
+:::
+
 ## Verify a proof off-chain
 
 Use the [`@semaphore-protocol/proof`](https://github.com/semaphore-protocol/semaphore/tree/main/packages/proof) library to verify a Semaphore proof off-chain.
