@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# Preguntas frequentes
+# FAQ
 
 ## ¿Qué es Semaphore?
 
