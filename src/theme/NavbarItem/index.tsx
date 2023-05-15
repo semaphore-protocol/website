@@ -1,10 +1,23 @@
 import { useLocation } from "@docusaurus/router"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import OriginalNavBarItem from "@theme-original/NavbarItem"
 import React from "react"
 
 export default function NavbarItem(props) {
     const { pathname } = useLocation()
-    const [, docs, version] = pathname.split("/")
+    const { i18n } = useDocusaurusContext()
+
+    const pathSegments = pathname.split("/")
+
+    let docs: string, version: string
+
+    if (i18n.locales.includes(pathSegments[1])) {
+        docs = pathSegments[2]
+        version = pathSegments[3]
+    } else {
+        docs = pathSegments[1]
+        version = pathSegments[2]
+    }
 
     let { className = "" } = props
 
