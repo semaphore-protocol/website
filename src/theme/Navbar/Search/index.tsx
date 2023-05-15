@@ -4,7 +4,8 @@ import React from "react"
 
 export default function Search(props) {
     const { pathname } = useLocation()
-    const [, docs] = pathname.split("/")
 
-    return docs === "docs" && <SearchOriginal {...props} />
+    const pathSegments = pathname.split("/")
+
+    return pathSegments.includes("docs") && <SearchOriginal {...props} />
 }
