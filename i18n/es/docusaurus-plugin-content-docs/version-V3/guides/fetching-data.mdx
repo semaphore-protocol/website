@@ -84,6 +84,15 @@ const group = await semaphoreSubgraph.getGroup("42")
 const { members, verifiedProofs } = semaphoreSubgraph.getGroup("42", { members: true, verifiedProofs: true })
 ```
 
+### Comprueba si un identity commitment es miembro de un grupo
+
+```ts
+await semaphoreSubgraph.isGroupMember(
+    "42",
+    "16948514235341957898454876473214737047419402240398321289450170535251226167324"
+)
+```
+
 :::info
 Puedes crear un grupo off-chain usando la clase SemaphoreSubgraph para obtener los miembros de la siguiente forma:
 
