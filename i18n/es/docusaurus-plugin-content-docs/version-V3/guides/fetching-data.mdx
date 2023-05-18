@@ -101,10 +101,9 @@ import { Group } from "@semaphore-protocol/group"
 import { SemaphoreSubgraph } from "@semaphore-protocol/data"
 
 const groupId = "3"
-const group = new Group(groupId)
 const semaphoreSubgraph = new SemaphoreSubgraph("sepolia")
 const { members } = await semaphoreSubgraph.getGroup(groupId, { members: true })
-group.addMembers(members!)
+const group = new Group(groupId, 20, members)
 ```
 :::
 
@@ -167,9 +166,8 @@ import { Group } from "@semaphore-protocol/group"
 import { SemaphoreEthers } from "@semaphore-protocol/data"
 
 const groupId = "3"
-const group = new Group(groupId)
 const semaphoreEthers = new SemaphoreEthers("sepolia")
 const members = await semaphoreEthers.getGroupMembers(groupId)
-group.addMembers(members)
+const group = new Group(groupId, 20, members)
 ```
 :::
