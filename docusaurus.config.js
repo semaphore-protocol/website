@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 module.exports = {
     title: "Semaphore",
     tagline: "Documentation and Guides",
-    url: "https://semaphore.appliedzkp.org/",
+    url: "https://semaphore.pse.dev/",
     baseUrl: "/",
     favicon: "/img/favicon.ico",
     onBrokenLinks: "throw",
@@ -60,7 +60,7 @@ module.exports = {
                 items: [
                     {
                         label: "Whitepaper",
-                        to: "https://semaphore.appliedzkp.org/whitepaper-v1.pdf",
+                        to: "https://semaphore.pse.dev/whitepaper-v1.pdf",
                         position: "right",
                         className: "V1"
                     },

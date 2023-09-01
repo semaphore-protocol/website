@@ -21,8 +21,8 @@ function Footer() {
                                 id: "footer.left.description"
                             })}
                         </p>
-                        <Link href="https://appliedzkp.org" target="_blank">
-                            appliedzkp.org
+                        <Link href="https://pse.dev" target="_blank">
+                            pse.dev
                         </Link>
                     </div>
                     <div>
@@ -50,7 +50,7 @@ function Footer() {
                                 })}
                             </h3>
 
-                            <Link href="https://semaphore.appliedzkp.org/github" target="_blank">
+                            <Link href="https://semaphore.pse.dev/github" target="_blank">
                                 {translate({
                                     id: "footer.right.learn.link1"
                                 })}
@@ -67,7 +67,7 @@ function Footer() {
                                     id: "footer.right.connect.title"
                                 })}
                             </h3>
-                            <Link href="https://semaphore.appliedzkp.org/discord" target="_blank">
+                            <Link href="https://semaphore.pse.dev/discord" target="_blank">
                                 {translate({
                                     id: "footer.right.connect.link1"
                                 })}

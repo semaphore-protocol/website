@@ -45,8 +45,8 @@ The [secure parameters](/docs/glossary#trusted-setup-files) for generating valid
 
 | Version | Auditors                          | Report                                                                                                                | Scope                    |
 | ------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| v2.0.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9850441/Semaphore_2.0.0_Audit.pdf)  | `circuits`, `contracts`  |
-| v2.5.0  | [PSE](https://appliedzkp.org/)    | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf)  | `contracts`, `libraries` |
+| v2.0.0  | [PSE](https://pse.dev/)           | [Semaphore_2.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9850441/Semaphore_2.0.0_Audit.pdf)  | `circuits`, `contracts`  |
+| v2.5.0  | [PSE](https://pse.dev/)           | [Semaphore_2.5.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/9845008/Semaphore_2.5.0_Audit.pdf)  | `contracts`, `libraries` |
 | v3.0.0  | [Veridise](https://veridise.com/) | [Semaphore_3.0.0_Audit.pdf](https://github.com/semaphore-protocol/semaphore/files/10513776/Semaphore_3.0.0_Audit.pdf) | `circuits`, `contracts`  |
 
 :::info

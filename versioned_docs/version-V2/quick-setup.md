@@ -78,7 +78,7 @@ To install these dependencies for your project, do the following:
     yarn add @semaphore-protocol/identity@2.6.1 @semaphore-protocol/group@2.6.1 @semaphore-protocol/proof@2.6.1 @semaphore-protocol/hardhat@0.1.0 --dev
     ```
 
-For more detail about _Semaphore contracts_, see [Contracts](https://semaphore.appliedzkp.org/docs/technical-reference/contracts).
+For more detail about _Semaphore contracts_, see [Contracts](https://semaphore.pse.dev/docs/technical-reference/contracts).
 To view the source of our packages, see the [semaphore](https://github.com/semaphore-protocol/semaphore/tree/v2.6.1#-packages) repository.
 
 ## Create the Semaphore contract

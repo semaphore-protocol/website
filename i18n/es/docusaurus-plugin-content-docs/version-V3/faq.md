@@ -14,7 +14,7 @@ También proporciona un mecanismo simple para evitar la doble señalización, lo
 
 ## ¿Dónde puedo hacer preguntas sobre Semaphore?
 
-Puede hacer preguntas sobre Semaphore en [Discord](https://semaphore.appliedzkp.org/discord) o abriendo un [Semaphore Discussion](https://github.com/semaphore-protocol/semaphore/discussions).
+Puede hacer preguntas sobre Semaphore en [Discord](https://semaphore.pse.dev/discord) o abriendo un [Semaphore Discussion](https://github.com/semaphore-protocol/semaphore/discussions).
 
 ## ¿Por qué las identidades requieren tanto `identity trapdoor` como `identity nullifier`?
 
@@ -30,7 +30,7 @@ Finalmente, el nullifier hash (hash del anulador) es solo el hash del identity n
 
 En el caso de una aplicación de votación, si tiene un grupo y desea que todos los miembros de este grupo voten solo una vez, puede usar la identificación del grupo como external nullifier. Cuando un usuario vota por primera vez, puede guardar el hash de su identity nullifier y la identificación del grupo (es decir, el nullifier hash) y evitar la doble votación comprobando si ese hash ya existe.
 
-Vea los [circuitos de Semaphore](https://semaphore.appliedzkp.org/docs/technical-reference/circuits) para más información técnica, o el [Semaphore boilerplate](https://github.com/semaphore-protocol/boilerplate) para un caso de uso real.
+Vea los [circuitos de Semaphore](https://semaphore.pse.dev/docs/technical-reference/circuits) para más información técnica, o el [Semaphore boilerplate](https://github.com/semaphore-protocol/boilerplate) para un caso de uso real.
 
 ## ¿Por qué debo evitar que las pruebas se verifiquen dos veces?
 
@@ -48,7 +48,7 @@ Hay tres formas de comenzar a usar Semaphore en su proyecto: usando la [Semaphor
 
 ### Semaphore CLI
 
-Para crear un nuevo proyecto podrías usar `npx` o instalar la [Semaphore CLI](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) globalmente usando `npm` y entonces crear un nuevo proyecto usando el comando `semaphore create`. Vea [Configuración Rápida](https://semaphore.appliedzkp.org/docs/quick-setup) para más información.
+Para crear un nuevo proyecto podrías usar `npx` o instalar la [Semaphore CLI](https://github.com/semaphore-protocol/semaphore/tree/main/packages/cli) globalmente usando `npm` y entonces crear un nuevo proyecto usando el comando `semaphore create`. Vea [Configuración Rápida](https://semaphore.pse.dev/docs/quick-setup) para más información.
 
 Hay tres plantillas soportadas en este momento: `contracts-hardhat`, `monorepo-ethers` y `monorepo-subgraph`.
 
@@ -69,11 +69,11 @@ Para crear un proyecto, también puede utilizar el [Semaphore boilerplate](https
 
 Las plantillas de la Semaphore CLI y el Semaphore boilerplate contienen el mismo código, que es una aplicación de feedback en la que puede crear una identidad, unirse a un grupo, y enviar su feedback de forma anónima. Son casi lo mismo, la única diferencia es que las plantillas usan CSS para que pueda decidir el framework de CSS o librería que desea usar y el boilerplate usa [ChakraUI](https://chakra-ui.com/) por defecto.
 
-También puede probar la aplicación Semaphore boilerplate en vivo aquí: https://demo.semaphore.appliedzkp.org.
+También puede probar la aplicación Semaphore boilerplate en vivo aquí: https://demo.semaphore.pse.dev.
 
 ### Instalación manual
 
-Alternativamente, también puede instalar todos los paquetes manualmente usando npm o yarn siguiendo la [documentación de Semaphore](https://semaphore.appliedzkp.org/docs/introduction).
+Alternativamente, también puede instalar todos los paquetes manualmente usando npm o yarn siguiendo la [documentación de Semaphore](https://semaphore.pse.dev/docs/introduction).
 
 ## ¿Cómo puedo contribuir al protocolo?
 
