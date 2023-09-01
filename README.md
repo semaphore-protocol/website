@@ -42,13 +42,13 @@
             🔎 Issues
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://semaphore.appliedzkp.org/discord">
+        <a href="https://semaphore.pse.dev/discord">
             🗣️ Chat &amp; Support
         </a>
     </h4>
 </div>
 
-| This repository contains the code for the Semaphore website published at [semaphore.appliedzkp.org](https://semaphore.appliedzkp.org). It uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
+| This repository contains the code for the Semaphore website published at [semaphore.pse.dev](https://semaphore.pse.dev). It uses Markdown syntax and the [Docusaurus](https://docusaurus.io/) site generator. |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## 🛠 Install
