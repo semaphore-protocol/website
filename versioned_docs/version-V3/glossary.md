@@ -61,3 +61,7 @@ To generate or verify valid zero-knowledge proofs with Semaphore, applications m
 
 For a complete list of ready-to-use files, see <http://www.trusted-setup-pse.org>.
 To learn more, see the [trusted setup ceremony](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html).
+
+## Signals
+
+The term "signals" in Semaphore refers to the values the user broadcasts when voting, confirming, sending a message and so on. On the other hand, "[signals](https://docs.circom.io/circom-language/signals/)" in Circom refers to data that contain elements within the field of Z/pZ. In Circom, "signals" can be defined as input or output, and are considered intermediate signals otherwise.
