@@ -60,3 +60,7 @@ Para generar o verificar pruebas válidas de conocimiento cero con Semaphore, la
 
 Para ver una lista completa de archivos listos para utilizarse, vea <http://www.trusted-setup-pse.org>.
 Para aprender más, vea la [ceremonia de configuración de confianza](https://storage.googleapis.com/trustedsetup-a86f4.appspot.com/semaphore/semaphore_top_index.html) (trusted setup ceremony).
+
+## Señales (Signals)
+
+El término "señales" en Semaphore se refiere a los valores que el usuario transmite al votar, confirmar, enviar un mensaje, etc. Por otro lado, "[señales](https://docs.circom.io/circom-language/signals/)" en Circom se refiere a datos que contienen elementos dentro del campo de Z/pZ. En Circom, las "señales" se pueden definir como entrada o salida y, de lo contrario, se consideran señales intermedias.
