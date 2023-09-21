@@ -64,4 +64,4 @@ To learn more, see the [trusted setup ceremony](https://storage.googleapis.com/t
 
 ## Signals
 
-The term "signals" in semaphore refers to the values broadcast by the user when voting, confirming, and so on. On the other hand, "[signals](https://docs.circom.io/circom-language/signals/)" in Circom refer to data that contain elements within the field of Z/pZ. In Circom, "signals" can be either inputs or outputs.
+The term "signals" in Semaphore refers to the values the user broadcasts when voting, confirming, sending a message and so on. On the other hand, "[signals](https://docs.circom.io/circom-language/signals/)" in Circom refers to data that contain elements within the field of Z/pZ. In Circom, "signals" can be defined as input or outputs, and are considered intermediate signals otherwise.
