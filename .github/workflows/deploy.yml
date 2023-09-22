@@ -16,7 +16,11 @@ jobs:
               with:
                   node-version: 16.x
 
-            - run: yarn --frozen-lockfile && yarn build
+            - name: Install dependencies
+              run: yarn
+
+            - name: Build website
+              run: yarn build
 
             - uses: crazy-max/ghaction-github-pages@v2.5.0
               with:
