@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> The new Semaphore website was moved to the main [monorepo](https://github.com/semaphore-protocol/semaphore) and split into two parts: [docs](https://github.com/semaphore-protocol/semaphore/tree/main/apps/docs) and [website](https://github.com/semaphore-protocol/semaphore/tree/main/apps/website) (inside the `apps` folder).
+
 <p align="center">
     <h1 align="center">
         <picture>
